@@ -74,13 +74,13 @@
             </li>
             @endhasrole
 
-            @hasanyrole('super-admin|admin')
+            {{-- @hasanyrole('super-admin|admin')
             <li class="nav-item {{ setActive('fiscal-year.*') }}">
                 <a class="nav-link" href="{{route('fiscal-year.index')}}">
                     <span class="amber-text"><i class="fa fa-calendar-alt"></i></span>@lang('navigation.fiscal_year')
                 </a>
             </li>
-            @endhasanyrole
+            @endhasanyrole --}}
 
             {{-- <li class="nav-item">
             <a class="nav-link" href="{{ route('settings.items') }}">

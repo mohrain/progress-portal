@@ -29,8 +29,6 @@ class Kernel extends ConsoleKernel
         $schedule->call(function(){
             Log::info('Schedular running.');
         })->hourly();
-        $schedule->command('backup:clean')->dailyAt('14:00');
-        $schedule->command('backup:run --only-db')->dailyAt('17:10');
     }
 
     /**

@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Http\Controllers';
+    // protected $namespace = 'App\Http\Controllers';
 
     /**
      * The path to the "home" route for your application.
@@ -32,7 +32,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        Route::bind('suchi', fn ($value, $route) => $this->getModel(\App\Suchi::class, $value));
+        // Route::bind('suchi', fn ($value, $route) => $this->getModel(\App\Suchi::class, $value));
     }
 
     /**

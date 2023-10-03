@@ -10,16 +10,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
             <ul class="navbar-nav ml-auto nav-flex-icons">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="svg-icon text-warning mr-2"><i class="far fa-calendar-alt"></i></span>आ. व. {{ active_fiscal_year()->name }}
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-                       @foreach (\App\FiscalYear::latest()->get() as $fiscalYear)
-                        <a class="dropdown-item" href="{{ route('set-active-fiscal-year', $fiscalYear) }}">आ. व. {{ $fiscalYear->name }}</a>
-                       @endforeach
-                    </div>
-                </li>
                 {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         @if(App::getLocale() == 'np') <span class="svg-icon">@include('svg.flag-np')</span> नेपाली @endif
