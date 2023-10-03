@@ -1,0 +1,103 @@
+/* Sidebar */
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #242e64;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    width: 250px;
+    margin-left: -250px;
+    .mun-title-card {
+        background: rgba(37, 114, 188, 0.09);
+        border-radius: 6px;
+        backdrop-filter: blur(4.9px);
+        -webkit-backdrop-filter: blur(4.9px);
+        padding: 10px;
+    }
+}
+
+.sidebar-opened #sidebar {
+    margin-left: 0;
+}
+
+/* sidebar-wrapper */
+
+#sidenav-wrapper {
+    overflow: auto;
+    height: 100%;
+}
+
+#sidenav-wrapper::-webkit-scrollbar {
+    width: 10px;
+}
+
+#sidenav-wrapper::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+#sidenav-wrapper:hover::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+#sidenav-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #778af1;
+}
+
+/* content-area */
+#content-area {
+    background-color: #f2f7fb;
+    margin-left: 250px;
+    transition: all 0.5s linear;
+    margin-left: 0;
+}
+
+.sidebar-opened #content-area {
+    margin-left: 250px;
+}
+
+/* ============
+ * Sidenav
+ =============== */
+
+#sidenav {
+    .nav-item {
+        .nav-link {
+            color: #242e64;
+            border-radius: 6px;
+            transition: all 100ms ease-in-out;
+            &:hover {
+                background: #4285f4;
+                color: #fff;
+                span {
+                    color: #fff !important;
+                }
+            }
+            span {
+                margin-right: 15px;
+                color: #242e64;
+                display: inline-block;
+                min-width: 25px;
+                color: #606eb9 !important;
+            }
+        }
+        &.active {
+            .nav-link {
+                background: #2572bc;
+                color: #fff;
+                span {
+                    color: #fff !important;
+                }
+            }
+        }
+    }
+
+    // .nav-item:hover span,
+    // .nav-item.active span {
+    //     color: #fff !important;
+    // }
+}
