@@ -49,57 +49,59 @@
         </div>
         @endcomponent
 
-        {{-- Municipality Details --}}
+        {{-- Province Details --}}
         @component('settings.group', [
-        'title'=> 'Municipality Details',
+        'title'=> 'Province Details',
         'description' => 'The values to be used in the navbar and letter head'
         ])
         <div>
+           
             @component('settings.input', [
-            'label' => 'Municipality Name',
-            'name' => 'municipality_name',
-            'description' => 'The name of municipality to we written in letter head'
+            'label' => 'Office Name',
+            'name' => 'office_name',
+            'description' => 'The tagline will be used in letter head below Province name'
             ])
             @endcomponent
             <div class="my-3"></div>
             @component('settings.input', [
-            'label' => 'Municipality Tagline',
-            'name' => 'municipality_tagline',
-            'description' => 'The tagline will be used in letter head below municipality name'
+            'label' => 'Province Name',
+            'name' => 'province_name',
+            'description' => 'The name of Province to we written in letter head'
             ])
             @endcomponent
+        
             <div class="my-3"></div>
             @component('settings.input', [
             'label' => 'Address Line One',
-            'name' => 'municipality_address_line_one',
+            'name' => 'address_line_one',
             'description' => ''
             ])
             @endcomponent
             <div class="my-3"></div>
             @component('settings.input', [
             'label' => 'Address Line Two',
-            'name' => 'municipality_address_line_two',
+            'name' => 'address_line_two',
             'description' => ''
             ])
             @endcomponent
             <div class="my-3"></div>
             @component('settings.input', [
-            'label' => 'Municipality Phone',
-            'name' => 'municipality_phone',
+            'label' => 'Province Phone',
+            'name' => 'phone',
             'description' => ''
             ])
             @endcomponent
             <div class="my-3"></div>
             @component('settings.input', [
-            'label' => 'Municipality E-mail',
-            'name' => 'municipality_email',
+            'label' => 'Province E-mail',
+            'name' => 'email',
             'description' => ''
             ])
             @endcomponent
             <div class="my-3"></div>
             @component('settings.input', [
-            'label' => 'Municipality Website',
-            'name' => 'municipality_website',
+            'label' => 'Province Website',
+            'name' => 'website',
             'description' => ''
             ])
             @endcomponent
@@ -121,10 +123,10 @@
         ]) --}}
         {{-- State --}}
         {{-- <label class="font-weight-bolder">प्रदेश</label>
-        <select name="default_province_id" class="custom-select">
+        <select name="default_id" class="custom-select">
             <option value="">OFF</option>
             @foreach ($provinces as $province)
-            <option value="{{ $province->id }}" @if($province->id == settings()->get('default_province_id')) selected @endif>
+            <option value="{{ $province->id }}" @if($province->id == settings()->get('default_id')) selected @endif>
                 {{ $province->name }}
             </option>
             @endforeach
@@ -143,14 +145,14 @@
             </select>
         </div>
         <div class="my-3"></div> --}}
-        {{-- Municipality --}}
+        {{-- Province --}}
         {{-- <div>
             <label class="font-weight-bolder">न.पा./गा.वि.स.</label>
-            <select name="default_municipality_id" class="custom-select">
+            <select name="default_id" class="custom-select">
                 <option value="">OFF</option>
-                @foreach ($municipalities as $municipality)
-                <option value="{{ $municipality->id }}" @if($municipality->id == settings()->get('default_municipality_id')) selected @endif>
-                    {{ $municipality->name }}
+                @foreach ($municipalities as $Province)
+                <option value="{{ $Province->id }}" @if($Province->id == settings()->get('default_id')) selected @endif>
+                    {{ $Province->name }}
                 </option>
                 @endforeach
             </select>

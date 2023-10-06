@@ -14,22 +14,22 @@ class SettingsSeeder extends Seeder
     public function run()
     {
         settings()->set([
-            'app_name' => 'सूची दर्ता',
-            'app_name_en' => 'सूची दर्ता',
-            'municipality_name' => 'घोडाघोडी नगरपालिका',
-            'municipality_tagline' => 'नगर कार्यपालिकाको कार्यालय',
-            'municipality_address_line_one' => 'सुखड, कैलाली',
-            'municipality_address_line_two' => '',
-            'municipality_phone' => '091-403064, 403029',
-            'municipality_email' => 'ghodaghodimun@gmail.com',
-            'municipality_website' => 'ghodaghodimun.gov.np',
+            'app_name' => 'प्रदेश सभा',
+            'app_name_en' => 'Province Parliament',
+            'office_name' => 'प्रदेश सभा सचिवालय',
+            'province_name' => 'सुदूरपश्‍चिम प्रदेश',
+            'address_line_one' => 'धनगढी, कैलाली',
+            'address_line_two' => '',
+            'phone' => '०९१-५२२४८९',
+            'email' => ' pradeshsabha7@gmail.com',
+            'website' => 'http://pga.sudurpashchim.gov.np/',
             
-            'letter_font_size' => '16px',
-            'letter_application_recipient' => '<div><div>श्रीमान् प्रमुख प्रशासकीय अधिकृत ज्यू,</div>
-            <div>घोडाघोडी नगरपालिकाको कार्यालय</div>
-            <div>सुदूरपश्चिम प्रदेश, सुखड, कैलाली ।</div></div>',
-            'letter_officer_name' => 'छविलाल विनाडी',
-            'letter_officer_designation' => 'अधिकृत छैठाैं'
+            // 'letter_font_size' => '16px',
+            // 'letter_application_recipient' => '<div><div>श्रीमान् प्रमुख प्रशासकीय अधिकृत ज्यू,</div>
+            // <div>घोडाघोडी नगरपालिकाको कार्यालय</div>
+            // <div>सुदूरपश्चिम प्रदेश, सुखड, कैलाली ।</div></div>',
+            // 'letter_officer_name' => 'छविलाल विनाडी',
+            // 'letter_officer_designation' => 'अधिकृत छैठाैं'
         ]);
     }
 }

@@ -19,7 +19,7 @@ Route::get('login', [LoginController::class, 'showLoginForm'])->name('login')->m
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', LogoutController::class)->name('logout');
 
-Route::get('/', [FrontendController::class,'landingPage'])->name('landing-page');
+Route::get('/', [FrontendController::class,'index'])->name('frontend.index');
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
 Route::get('application-submitted/{suchi}', [FrontendController::class, 'applicationSubmitted']);

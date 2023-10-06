@@ -1,0 +1,86 @@
+body {
+font-family: 'Lora', serif;
+background-color: #f2f7fb;
+}
+.bg-theme-color-red {
+background-color: #982121;
+color: #fff;
+}
+
+.text-theme-color {
+color: #982121;
+}
+
+.logo{
+height: 110px;
+width: 110px;
+}
+
+.mobile-logo{
+height: 70px;
+width: 70px;
+}
+
+.top-nav {
+display: block; /* Display the top-nav as a block element by default */
+font-size: smaller;
+}
+
+.header{
+display: block;
+}
+
+.nav-desktop{
+display: block;
+background-color: #14468c;
+color: #fff;
+}
+.nav-desktop .nav-item .nav-link {
+color: #fff;
+}
+
+.mobile-nav .nav-item .nav-link {
+color: #fff;
+}
+
+.mobile-nav{
+display: none;
+}
+
+.mobile-nav .mobile-brand .sub-title{
+color: rgb(220, 220, 209);
+font-size: 12px;
+}
+
+.mobile-nav .mobile-brand .title{
+color: #fff;
+font-size: 16px;
+font-weight: bold;
+}
+
+
+/* Media query to disable top-nav in mobile view */
+@media screen and (max-width: 768px) {
+.top-nav {
+display: none; /* Hide the top-nav when the screen width is 768px or less (adjust as needed) */
+}
+.header {
+display: none; /* Hide the top-nav when the screen width is 768px or less (adjust as needed) */
+}
+.nav-desktop {
+display: none; /* Hide the top-nav when the screen width is 768px or less (adjust as needed) */
+}
+.mobile-nav{
+display: block;
+background-color: #14468c;
+color: #fff;
+}
+.mobile-nav .offcanvas-body{
+background-color: #14468c;
+color: #fff;
+}
+.mobile-nav .offcanvas-header{
+background-color: #14468c;
+color: #fff;
+}
+}

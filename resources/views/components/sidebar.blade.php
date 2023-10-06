@@ -3,8 +3,9 @@
         <div class="mun-title-card">
             <img class="img-reponsive" src="{{ asset(config('constants.nep_gov.logo_sm')) }}" alt="Nepal Government Logo" height="50px">
             <div class="mt-2">
-                <div>{{ settings('municipality_name') }}</div>
-                <div>{{ settings('municipality_tagline') }}</div>
+                <div>{{ settings('app_name') }}</div>
+                <div>{{ settings('office_name') }}</div>
+                <div>{{ settings('province_name') }}</div>
             </div>
         </div>
     </div>

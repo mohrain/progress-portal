@@ -8,9 +8,9 @@ use App\SuchiType;
 
 class FrontendController extends Controller
 {
-    public function landingPage()
+    public function index()
     {
-        return view('frontend.landing-page');
+        return view('frontend.index');
     }
 
     public function showApplicationForm()
