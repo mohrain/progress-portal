@@ -6,6 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ? $title . ' - ' : '' }} {{ config('app.name') }}</title>
+        <!-- Favicons -->
+        <link href="{{ asset('images/nep-gov-logo.png') }}"
+        rel="icon">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <!-- Bootstrap CSS -->

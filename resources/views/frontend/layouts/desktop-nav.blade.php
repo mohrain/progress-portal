@@ -7,7 +7,9 @@
             <i class="bi bi-list"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            @include('frontend.layouts.nav-link')
+            <ul class="nav nav-fill">
+                @include('frontend.layouts.nav-link')
+            </ul>
         </div>
     </div>
 </nav>
