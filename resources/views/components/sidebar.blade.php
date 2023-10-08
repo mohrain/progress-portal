@@ -35,12 +35,6 @@
                 </a>
             </li>
 
-            <li class="nav-item {{ setActive('suchi-types.index') }}">
-                <a href="{{route('suchi-types.index')}}" aria-expanded="false" class="nav-link">
-                    <span class="text-secondary"><i class="fas fa-list"></i></span>@lang('navigation.suchi_types')
-                </a>
-            </li>
-
             {{-- <li class="nav-item {{ setActive('project.index') }}">
             <a href="{{route('project.index')}}" aria-expanded="false" class="nav-link">
                 <span class="text-secondary"><i class="fa fa-cube"></i></span>@lang('navigation.Projects')

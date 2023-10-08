@@ -21,13 +21,13 @@
                     </a>
                 </div>
                 <div class="social-media-icon">
-                    <a href="" target="_blank" rel="noopener noreferrer">
+                    <a href="{{ settings('facebook') }}" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-facebook"></i>
                     </a>
-                    <a href="" target="_blank" rel="noopener noreferrer">
+                    <a href="{{ settings('twitter') }}" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-twitter-x"></i>
                     </a>
-                    <a href="" target="_blank" rel="noopener noreferrer">
+                    <a href="{{ settings('youtube') }}" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-youtube"></i>
                     </a>
                 </div>
@@ -73,8 +73,9 @@
                 </div>
                 <div>
                     <small class="p-1">
-                        <i class="bi bi-chevron-double-right"></i> <a href="{{ asset('fonts/nepali_Traditional.zip') }}"
-                            rel="noopener noreferrer">नेपाली युनिकोड ट्रेडिसनल</a>
+                        <i class="bi bi-chevron-double-right"></i> <a
+                            href="{{ asset('fonts/nepali_Traditional.zip') }}" rel="noopener noreferrer">नेपाली युनिकोड
+                            ट्रेडिसनल</a>
                     </small>
                 </div>
                 <div>
@@ -144,8 +145,8 @@
                 </div>
                 <div>
                     <small class="p-1">
-                        <i class="bi bi-link-45deg"></i> <a href="https://provincialassembly.p2.gov.np/" target="_blank"
-                            rel="noopener noreferrer">प्रदेश सभा, मधेश प्रदेश</a>
+                        <i class="bi bi-link-45deg"></i> <a href="https://provincialassembly.p2.gov.np/"
+                            target="_blank" rel="noopener noreferrer">प्रदेश सभा, मधेश प्रदेश</a>
                     </small>
                 </div>
                 <div>

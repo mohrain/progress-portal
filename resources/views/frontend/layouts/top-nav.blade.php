@@ -25,17 +25,20 @@
                         <a class="nav-link text-white" href="#"><i class="bi bi-envelope"></i> Check mail</a>
                     </div>
                     <div class="social-media-icon">
-                        <a class="nav-link text-white" href="" target="_blank" rel="noopener noreferrer">
+                        <a class="nav-link text-white" href="{{ settings('facebook') }}" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="bi bi-facebook"></i>
                         </a>
                     </div>
                     <div class="social-media-icon">
-                        <a class="nav-link text-white" href="" target="_blank" rel="noopener noreferrer">
+                        <a class="nav-link text-white" href="{{ settings('twitter') }}" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="bi bi-twitter-x"></i>
                         </a>
                     </div>
                     <div class="social-media-icon">
-                        <a class="nav-link text-white" href="" target="_blank" rel="noopener noreferrer">
+                        <a class="nav-link text-white" href="{{ settings('youtube') }}" target="_blank"
+                            rel="noopener noreferrer">
                             <i class="bi bi-youtube"></i>
                         </a>
                     </div>
