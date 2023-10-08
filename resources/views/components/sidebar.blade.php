@@ -1,7 +1,8 @@
 <div class="bg-white light-shadow rounded font-noto" style="height: 100%;">
     <div class="p-2 text-center rounded">
         <div class="mun-title-card">
-            <img class="img-reponsive" src="{{ asset(config('constants.nep_gov.logo_sm')) }}" alt="Nepal Government Logo" height="50px">
+            <img class="img-reponsive" src="{{ asset(config('constants.nep_gov.logo_sm')) }}" alt="Nepal Government Logo"
+                height="50px">
             <div class="mt-2">
                 <div>{{ settings('app_name') }}</div>
                 <div>{{ settings('office_name') }}</div>
@@ -17,20 +18,20 @@
                 </a>
             </li>
 
-            <li class="nav-item {{ setActive('suchi.create') }}">
-                <a href="{{route('suchi.create')}}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="fa fa-plus"></i></span>नयाँ सूची दर्ता
+            <li class="nav-item {{ setActive('pages.create') }}">
+                <a href="{{ route('pages.create') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="fa fa-plus"></i></span>पेजहरु
                 </a>
             </li>
 
             <li class="nav-item {{ setActive('suchi.applications') }}">
-                <a href="{{route('suchi.applications')}}" aria-expanded="false" class="nav-link">
+                <a href="{{ route('suchi.applications') }}" aria-expanded="false" class="nav-link">
                     <span class="text-warning"><i class="fas fa-clipboard"></i></span>आवेदन फारामहरु
                 </a>
             </li>
 
             <li class="nav-item {{ setActive('suchi.index') }}">
-                <a href="{{route('suchi.index')}}" aria-expanded="false" class="nav-link">
+                <a href="{{ route('suchi.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-secondary"><i class="fas fa-book"></i></span>सूची दर्ता
                 </a>
             </li>
@@ -54,19 +55,20 @@
             @endhasrole --}}
 
             @can('user.*')
-            <li class="nav-item {{ setActive('user.index') }} {{ setActive('user.create') }} {{ setActive('user.edit') }}">
-                <a class="nav-link" href="{{ route('user.index') }}">
-                    <span class=""><i class="fa fa-users"></i></span>@lang('navigation.users')
-                </a>
-            </li>
+                <li
+                    class="nav-item {{ setActive('user.index') }} {{ setActive('user.create') }} {{ setActive('user.edit') }}">
+                    <a class="nav-link" href="{{ route('user.index') }}">
+                        <span class=""><i class="fa fa-users"></i></span>@lang('navigation.users')
+                    </a>
+                </li>
             @endcan
 
             @hasanyrole('super-admin|admin')
-            <li class="nav-item {{ setActive('settings.index') }}">
-                <a class="nav-link" href="{{ route('settings.index') }}">
-                    <span class="text-success"><i class="fas fa-cog"></i></span>@lang('navigation.settings')
-                </a>
-            </li>
+                <li class="nav-item {{ setActive('settings.index') }}">
+                    <a class="nav-link" href="{{ route('settings.index') }}">
+                        <span class="text-success"><i class="fas fa-cog"></i></span>@lang('navigation.settings')
+                    </a>
+                </li>
             @endhasrole
 
             {{-- @hasanyrole('super-admin|admin')
@@ -115,11 +117,11 @@
             </li> --}}
 
             @hasanyrole('super-admin')
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.logs') }}" target="_blank">
-                    <span class="text-danger"><i class="fas fa-exclamation-triangle"></i></span>@lang('System Logs')
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.logs') }}" target="_blank">
+                        <span class="text-danger"><i class="fas fa-exclamation-triangle"></i></span>@lang('System Logs')
+                    </a>
+                </li>
             @endhasanyrole
 
         </ul>

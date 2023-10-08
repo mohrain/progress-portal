@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\SuchiApiController;
 use App\Http\Controllers\SuchiController;
@@ -13,24 +15,24 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-
 // Auth::routes(['register' => false]);
-Route::get('login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
+Route::get('login', [LoginController::class, 'showLoginForm'])
+    ->name('login')
+    ->middleware('guest');
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', LogoutController::class)->name('logout');
 
-Route::get('/', [FrontendController::class,'index'])->name('frontend.index');
+Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
 Route::get('application-submitted/{suchi}', [FrontendController::class, 'applicationSubmitted']);
 Route::get('token-search', [FrontendController::class, 'tokenSearch']);
 
-
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 Route::get('language/{locale}', [LanguageController::class, 'setLocale'])->name('locale');
 // Route::get('set-active-fiscal-year/{fiscalYear}', 'MiscController@setActiveFiscalYear')->name('set-active-fiscal-year');
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::resources([
         'user' => UserController::class,
         'province' => ProvinceController::class,
@@ -38,6 +40,18 @@ Route::group(['middleware' => 'auth'], function () {
         'municipality' => \App\Http\Controllers\MunicipalityController::class,
         'ward' => \App\Http\Controllers\WardController::class,
     ]);
+
+    //pages
+    Route::get('pages', [PageController::class, 'index'])->name('pages.index');
+    Route::get('pages/create', [PageController::class, 'create'])->name('pages.create');
+    Route::post('pages', [PageController::class, 'store'])->name('pages.store');
+    Route::get('pages/{page}/edit', [PageController::class, 'edit'])->name('pages.edit');
+    Route::put('pages/{page}', [PageController::class, 'update'])->name('pages.update');
+    Route::delete('pages/{page}', [PageController::class, 'destroy'])->name('pages.destroy');
+
+
+    Route::delete('documents/{document}', [DocumentController::class, 'destroy'])->name('documents.destroy');
+
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
@@ -49,7 +63,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('suchi/{suchi}/register', [SuchiController::class, 'register'])->name('suchi.register');
 
     // Route::get('export-suchis', [SuchiController::class, 'export'])->name('suchi-export');
-
 
     // Route::get('api/suchi', [SuchiApiController::class, 'registered']);
 
@@ -73,7 +86,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('configuration-checklist', [\App\Http\Controllers\ConfigurationChecklistController::class, 'index'])->name('configuration-checklist.index');
 });
 
-  // Suchi Print
+// Suchi Print
 //   Route::get('suchi-print-application/{suchi}', [SuchiPrintController::class, 'index'])->name('suchi-print-application');
 //   Route::get('suchi-print-certificate/{suchi}', [SuchiPrintController::class, 'certificate'])->name('suchi-print-certificate')->middleware('auth');
 

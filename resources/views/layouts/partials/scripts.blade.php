@@ -4,6 +4,25 @@
 <script type="text/javascript" src="{{ asset('assets/mdb/js/mdb.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/mdb/js/addons/datatables.min.js') }}"></script>
 <script src="{{ asset('assets/js/nepali.datepicker.v3.min.js') }}" type="text/javascript"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<script>
+    $('#summernote').summernote({
+        placeholder: 'Descriptions',
+        tabsize: 2,
+        height: 300
+    });
+</script>
+<script>
+    $('.select2').select2({
+        placeholder: 'Choose',
+        theme: "bootstrap-5",
+        // placeholder: 'Vendor Select',
+    });
+</script>
 <script src="{{ mix('js/app.js') }}"></script>
 <script>
     let deferredPrompt;
@@ -21,17 +40,16 @@
         deferredPrompt = null;
     }
 
-window.addEventListener('beforeinstallprompt', (e) => {
-    console.log('event listened');
-  // Prevent the mini-infobar from appearing on mobile
-  e.preventDefault();
-  // Stash the event so it can be triggered later.
-  deferredPrompt = e;
-//   e.userChoice.then(res => console.log(res));
-  // Update UI notify the user they can install the PWA
-  showInstallPromotion();
-  // Optionally, send analytics event that PWA install promo was shown.
-  console.log(`'beforeinstallprompt' event was fired.`);
-});
-
+    window.addEventListener('beforeinstallprompt', (e) => {
+        console.log('event listened');
+        // Prevent the mini-infobar from appearing on mobile
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        //   e.userChoice.then(res => console.log(res));
+        // Update UI notify the user they can install the PWA
+        showInstallPromotion();
+        // Optionally, send analytics event that PWA install promo was shown.
+        console.log(`'beforeinstallprompt' event was fired.`);
+    });
 </script>
