@@ -91,7 +91,6 @@ white-space: nowrap;
 .carousel-image{
 height: 480px;
 object-fit: cover;
-
 }
 
 
@@ -147,4 +146,9 @@ color: #fff;
 background-color: #14468c;
 color: #fff;
 }
+
+.carousel-image{
+    height: 200px;
+    object-fit: cover;
+    }
 }

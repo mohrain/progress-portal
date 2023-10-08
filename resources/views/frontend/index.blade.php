@@ -10,7 +10,7 @@
                 <div class="bg-theme-color-blue py-3 text-center mb-3">
                     सभामुख /उपसभामुख
                 </div>
-                <div class="card border-danger text-bg-light mb-3">
+                <div class="card text-bg-light mb-3">
                     <div class="row g-0">
                         <div class="col-md-4 text-center">
                             <img src="{{ asset('images/profile/bhim-bahadur.jpeg') }}" class="img-fluid rounded-start"
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card border-danger mb-3">
+                <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-4 text-center">
                             <img src="{{ asset('images/profile/koili-devi.jpeg') }}" class="img-fluid rounded-start"
@@ -41,7 +41,7 @@
                 <div class="bg-theme-color-blue py-3 text-center mb-3">
                     प्रदेश सभा सचिव
                 </div>
-                <div class="card border-danger mb-3">
+                <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-4 text-center">
                             <img src="{{ asset('images/profile/dev-bahadur.jpeg') }}" class="img-fluid rounded-start"
