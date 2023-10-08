@@ -7,6 +7,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\SuchiApiController;
 use App\Http\Controllers\SuchiController;
@@ -51,6 +52,14 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
 
 
     Route::delete('documents/{document}', [DocumentController::class, 'destroy'])->name('documents.destroy');
+
+      //post-categories
+      Route::get('post-categories', [PostCategoryController::class, 'index'])->name('post-categories.index');
+      Route::post('post-categories', [PostCategoryController::class, 'store'])->name('post-categories.store');
+      Route::get('post-categories/{postCategory}/edit', [PostCategoryController::class, 'edit'])->name('post-categories.edit');
+      Route::put('post-categories/{postCategory}', [PostCategoryController::class, 'update'])->name('post-categories.update');
+      Route::delete('post-categories/{postCategory}', [PostCategoryController::class, 'destroy'])->name('post-categories.destroy');
+  
 
 
     // Suchi routes

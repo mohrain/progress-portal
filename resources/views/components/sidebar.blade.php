@@ -62,11 +62,20 @@
                     </a>
                 </li>
             @endcan
-
+            <li class="nav-item" >
+                <a class="nav-link" href="">
+                    <span class="text-success"><i class="fas fa-cog"></i></span>@lang('navigation.settings')
+                </a>
+            </li>
+            <li class="nav-item {{ setActive('post-categories.index') }}">
+                <a class="nav-link" href="{{ route('post-categories.index') }}">
+                    <span class="text-success"></span>पोस्ट किसिमहरु
+                </a>
+            </li>
             @hasanyrole('super-admin|admin')
                 <li class="nav-item {{ setActive('settings.index') }}">
                     <a class="nav-link" href="{{ route('settings.index') }}">
-                        <span class="text-success"><i class="fas fa-cog"></i></span>@lang('navigation.settings')
+                        <span class="text-success"></span>App Settings
                     </a>
                 </li>
             @endhasrole
