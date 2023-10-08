@@ -33,9 +33,10 @@
     @include('frontend.layouts.desktop-nav')
     @include('frontend.layouts.mobile-nav')
     <!-- Content here -->
-    <div class="my-2">
+    <div class="my-1">
         @yield('content')
     </div>
+    @include('frontend.layouts.footer')
 
     <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 1: Bootstrap Bundle with Popper -->

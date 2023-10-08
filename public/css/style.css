@@ -2,6 +2,9 @@ body {
 font-family: 'Lora', serif;
 background-color: #f2f7fb;
 }
+p{
+text-align: justify;
+}
 .bg-theme-color-red {
 background-color: #982121;
 color: #fff;
@@ -9,6 +12,22 @@ color: #fff;
 
 .text-theme-color {
 color: #982121;
+}
+.bg-theme-color-blue{
+background-color: #14468c;
+color: #fff;
+}
+
+.bg-theme-color-blue:hover{
+background-color: #982121;
+color: #fff;
+}
+
+
+
+.btn-primary{
+background-color: #14468c;
+color: #fff;
 }
 
 .logo{
@@ -23,7 +42,7 @@ width: 70px;
 
 .top-nav {
 display: block; /* Display the top-nav as a block element by default */
-font-size: smaller;
+font-size: 12px;
 }
 
 .header{
@@ -58,17 +77,58 @@ font-size: 16px;
 font-weight: bold;
 }
 
+.new-upadate{
+background-color: #982121;
+padding: 8px;
+color: #fff;
+white-space: nowrap;
+}
+
+.carousel-image{
+height: 480px;
+object-fit: cover;
+
+}
+
+
+
+.news-thum-image{
+height: 70px;
+width: 120px;
+object-fit: cover;
+}
+
+.footer{
+background-color: #14468c;
+color: #fff;
+padding-top: 20px;
+padding-bottom: 20px;
+}
+.footer a{
+color: #fff;
+text-decoration: none;
+}
+
+.footer .card-img-top{
+height: 100px;
+width: auto;
+object-fit: cover;
+}
+
+.footer .social-media-icon{
+    font-size: 25px;
+}
 
 /* Media query to disable top-nav in mobile view */
 @media screen and (max-width: 768px) {
 .top-nav {
-display: none; /* Hide the top-nav when the screen width is 768px or less (adjust as needed) */
+display: none;
 }
 .header {
-display: none; /* Hide the top-nav when the screen width is 768px or less (adjust as needed) */
+display: none;
 }
 .nav-desktop {
-display: none; /* Hide the top-nav when the screen width is 768px or less (adjust as needed) */
+display: none;
 }
 .mobile-nav{
 display: block;
