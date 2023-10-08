@@ -45,6 +45,10 @@ display: block; /* Display the top-nav as a block element by default */
 font-size: 12px;
 }
 
+.top-nav .social-media-icon{
+    font-size: 15px;
+}
+
 .header{
 display: block;
 }

@@ -18,18 +18,28 @@
                 <div class="d-flex">
                     <div>
 
-                        <a class="nav-link text-white" href="/login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                        <a class="nav-link text-white" href="/login"><i class="bi bi-lock"></i> Login</a>
 
                     </div>
                     <div>
                         <a class="nav-link text-white" href="#"><i class="bi bi-envelope"></i> Check mail</a>
                     </div>
-                    <div>
-                        <a class="nav-link text-white" href="#">
-                            <img src="{{ asset('images/live.png') }}" alt="" srcset=""
-                                style="height: 20px;">
+                    <div class="social-media-icon">
+                        <a class="nav-link text-white" href="" target="_blank" rel="noopener noreferrer">
+                            <i class="bi bi-facebook"></i>
                         </a>
                     </div>
+                    <div class="social-media-icon">
+                        <a class="nav-link text-white" href="" target="_blank" rel="noopener noreferrer">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                    </div>
+                    <div class="social-media-icon">
+                        <a class="nav-link text-white" href="" target="_blank" rel="noopener noreferrer">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>

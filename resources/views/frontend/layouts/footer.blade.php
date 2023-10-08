@@ -191,7 +191,7 @@
                     सर्वाधिकार सुरक्षित</span>
             </div>
             <div>
-                Powered By <a href="https://mohrain.com">Mohrain</a>
+                Designed and Developed By: <a href="https://mohrain.com">Mohrain</a>
             </div>
         </div>
     </div>
