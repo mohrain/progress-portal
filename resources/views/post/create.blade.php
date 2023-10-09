@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('नयाँ पेज')])
+@extends('layouts.app', ['title' => __('पोस्ट सिर्जना')])
 
 @section('content')
     <div class="container-fluid mt--7">
@@ -9,28 +9,26 @@
                     <div class="card-header">
                         <div class="d-flex justify-content-between">
                             <div>
-                                {{ $title = 'नयाँ पेज' }}
+                                {{ $title = 'पोस्ट सिर्जना' }}
                             </div>
-                            {{-- <div>
-                               <a href="{{route('pages.create')}}" class="btn btn-primary">Add New</a>
-                            </div> --}}
+
                         </div>
                     </div>
 
                     <div class="card-body">
-                        <form action="{{ $page->id ? route('pages.update', $page) : route('pages.store') }}" method="post"
+                        <form action="{{ $post->id ? route('posts.update', $post) : route('posts.store') }}" method="post"
                             enctype="multipart/form-data">
                             @csrf
-                            @if ($page->id)
+                            @if ($post->id)
                                 @method('put')
                             @endif
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="mb-3">
-                                        <label for="title" class="form-label required">पेज</label>
+                                        <label for="title" class="form-label required">पोस्ट नाम</label>
                                         <input type="text" name="title"
                                             class="form-control @error('title') is-invalid @enderror"
-                                            value="{{ old('title', $page->title) }}" id="title"
+                                            value="{{ old('title', $post->title) }}" id="title"
                                             aria-describedby="title">
                                         <div class="invalid-feedback">
                                             @error('title')
@@ -41,16 +39,16 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="summernote" class="form-label required">कैफियत</label>
-                                        <textarea name="descriptions" class="" id="summernote" cols="30" rows="10">{{ $page->descriptions }}</textarea>
+                                        <textarea name="descriptions" class="" id="summernote" cols="30" rows="10">{{ old('descriptions', $post->descriptions) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    {{-- <x-category-select :post="$page" /> --}}
+                                    <x-post-category-select :post="$post" />
                                     <div class="mb-3">
-                                        <label for="" class="form-label required">फिचर फोटो</label>
+                                        <label for="newProfilePhoto" class="form-label required">फिचर फोटो</label>
                                         <div class="mb-2 align-self-center">
                                             <img id="newProfilePhotoPreview"
-                                                src="{{ $page->feature_image ? asset('storage/' . $page->feature_image) : asset('assets/img/no-image.png') }}"
+                                                src="{{ $post->feature_image ? asset('storage/' . $post->feature_image) : asset('assets/img/no-image.png') }}"
                                                 class="feature-image">
                                             <div class="edit-profile mx-md-6">
                                                 <label class="btn btn-secondary " for="newProfilePhoto">छान्नुहोस्</label>
@@ -64,9 +62,9 @@
 
                                         <select class="form-control" name="status" id="status"
                                             aria-label="Default select example">
-                                            <option value="1" {{ $page->status == '1' ? 'selected' : '' }}>
+                                            <option value="1" {{ $post->status == '1' ? 'selected' : '' }}>
                                                 प्रकाशित</option>
-                                            <option value="0" {{ $page->status == '0' ? 'selected' : '' }}>
+                                            <option value="0" {{ $post->status == '0' ? 'selected' : '' }}>
                                                 अप्रकाशित</option>
                                         </select>
 
@@ -94,7 +92,6 @@
                                     <div class="table-responsive" style="overflow-x: auto;">
                                         <table class="table text-sm g-0">
                                             <thead style="white-space: nowrap;">
-
                                                 <th>
                                                     कजजात
                                                 </th>
@@ -103,22 +100,21 @@
                                                 </th>
                                                 <th colspan="2">
                                                 </th>
-
                                             </thead>
                                             <tbody style="white-space: nowrap;" id="newinput">
-                                                @if ($page->id)
-                                                    @foreach ($page->documents as $pageDocument)
+                                                @if ($post->id)
+                                                    @foreach ($post->documents as $postDocument)
                                                         <tr id="tr">
                                                             <td>
-                                                                <div>{{ $pageDocument->name }}</div>
+                                                                <div>{{ $postDocument->name }}</div>
                                                             </td>
                                                             <td>
-                                                                <a href="{{ asset('storage/' . $pageDocument->file) }}"
+                                                                <a href="{{ asset('storage/' . $postDocument->file) }}"
                                                                     target="_blank" rel="noopener noreferrer">पुरा
                                                                     हेर्नुहोस्</a>
                                                             </td>
                                                             <td>
-                                                                <a href="{{ route('documents.destroy', $pageDocument) }}">
+                                                                <a href="{{ route('documents.destroy', $postDocument) }}">
                                                                     <button class="btn btn-danger bg-danger text-white"
                                                                         type="button"> <i class="bi bi-trash"></i>हटाउनु
                                                                         होस्</button>
@@ -146,11 +142,9 @@
                                                                 @enderror
                                                             </div>
                                                         </td>
-                                                        <td>
-                                                            <button class="btn btn-danger bg-danger text-white"
+                                                        <td><button class="btn btn-danger bg-danger text-white"
                                                                 id="DeleteRow" type="button"> <i
-                                                                    class="bi bi-trash"></i>हटाउनु होस्</button>
-                                                        </td>
+                                                                    class="bi bi-trash"></i>हटाउनु होस्</button></td>
                                                     </tr>
                                                 @endif
                                             </tbody>
@@ -159,10 +153,12 @@
                                 </div>
                                 <div class="col-md-12 mb-3 text-right">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ $page->id ? 'सम्पादन' : 'सुरक्षित' }}</button>
+                                        {{ $post->id ? 'सम्पादन' : 'सुरक्षित' }}</button>
                                 </div>
                             </div>
                         </form>
+
+
                     </div>
                 </div>
             </div>
@@ -202,5 +198,4 @@
             });
         </script>
     @endpush
-
 @endsection

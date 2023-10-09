@@ -18,9 +18,14 @@
                 </a>
             </li>
 
-            <li class="nav-item {{ setActive('pages.create') }}">
-                <a href="{{ route('pages.create') }}" aria-expanded="false" class="nav-link">
+            <li class="nav-item {{ setActive('pages.index') }}">
+                <a href="{{ route('pages.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="fa fa-plus"></i></span>पेजहरु
+                </a>
+            </li>
+            <li class="nav-item {{ setActive('posts.index') }}">
+                <a href="{{ route('posts.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="fa fa-plus"></i></span>पोस्टहरु
                 </a>
             </li>
 

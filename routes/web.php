@@ -8,10 +8,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostCategoryController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProvinceController;
-use App\Http\Controllers\SuchiApiController;
 use App\Http\Controllers\SuchiController;
-use App\Http\Controllers\SuchiPrintController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -50,17 +49,24 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('pages/{page}', [PageController::class, 'update'])->name('pages.update');
     Route::delete('pages/{page}', [PageController::class, 'destroy'])->name('pages.destroy');
 
-
+    //documemts
     Route::delete('documents/{document}', [DocumentController::class, 'destroy'])->name('documents.destroy');
 
-      //post-categories
-      Route::get('post-categories', [PostCategoryController::class, 'index'])->name('post-categories.index');
-      Route::post('post-categories', [PostCategoryController::class, 'store'])->name('post-categories.store');
-      Route::get('post-categories/{postCategory}/edit', [PostCategoryController::class, 'edit'])->name('post-categories.edit');
-      Route::put('post-categories/{postCategory}', [PostCategoryController::class, 'update'])->name('post-categories.update');
-      Route::delete('post-categories/{postCategory}', [PostCategoryController::class, 'destroy'])->name('post-categories.destroy');
-  
+    //post-categories
+    Route::get('post-categories', [PostCategoryController::class, 'index'])->name('post-categories.index');
+    Route::post('post-categories', [PostCategoryController::class, 'store'])->name('post-categories.store');
+    Route::get('post-categories/{postCategory}/edit', [PostCategoryController::class, 'edit'])->name('post-categories.edit');
+    Route::put('post-categories/{postCategory}', [PostCategoryController::class, 'update'])->name('post-categories.update');
+    Route::delete('post-categories/{postCategory}', [PostCategoryController::class, 'destroy'])->name('post-categories.destroy');
 
+    //post
+    Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+    Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+    Route::get('posts/search', [PostController::class, 'search'])->name('posts.search');
+    Route::post('posts', [PostController::class, 'store'])->name('posts.store');
+    Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
+    Route::put('posts/{post}', [PostController::class, 'update'])->name('posts.update');
+    Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
