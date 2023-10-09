@@ -186,7 +186,7 @@
 </div>
 <div class="py-2">
     <div class="container">
-        <div class="d-flex justify-content-between">
+        <div class="d-md-flex justify-content-between">
             <div>
                 <span> <strong>&copy; {{ date('Y') }}</strong>. प्रदेश सभा, सुदूरपश्‍चिम प्रदेश प्रदेश सभा सचिवालय.
                     सर्वाधिकार सुरक्षित</span>
