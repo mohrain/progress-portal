@@ -2,7 +2,7 @@
     <label class="form-label required">पोस्टको किसिम</label>
 
     <select class="form-control text-capitalize required @error('post_category_id') is-invalid @enderror"
-        name="post_category_id[]" id="post_category_id" multiple>
+        name="post_category_id[]" id="post_category_id">
         <option value="">None</option>
         @foreach ($postCategories as $firstLevelCategory)
             <option value="{{ $firstLevelCategory->id }}" @if (in_array($firstLevelCategory->id, $post->postCategories->pluck('id')->toArray())) selected @endif>
