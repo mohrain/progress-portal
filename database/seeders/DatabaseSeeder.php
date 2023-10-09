@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingsSeeder::class);
         $this->call(AddressSeeder::class);
         $this->call(FiscalYearSeeder::class);
-
+        $this->call(PageSeeder::class);
 
         if (app()->environment() == 'production') {
         } else {

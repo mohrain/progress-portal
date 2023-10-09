@@ -6,9 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ? $title . ' - ' : '' }} {{ config('app.name') }}</title>
-        <!-- Favicons -->
-        <link href="{{ asset('images/nep-gov-logo.png') }}"
-        rel="icon">
+    <!-- Favicons -->
+    <link href="{{ asset('images/nep-gov-logo.png') }}" rel="icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
@@ -21,6 +20,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+    <style>
+        .feature-img {
+            border: 1px solid #ddd;
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: fill;
+            position: relative;
+            
+        }
+
+        .feature-image {
+            max-height: 180px;
+            object-fit: cover;
+            position: relative;
+            /* margin: 20px; */
+        }
+    </style>
     @stack('styles')
 
 

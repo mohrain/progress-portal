@@ -13,6 +13,15 @@ color: #fff;
 .text-theme-color {
 color: #982121;
 }
+
+.frontend-title {
+color: #982121;
+text-align: center;
+font-size: 30px;
+font-weight: bold;
+padding: 15px;
+text-decoration: underline;
+}
 .bg-theme-color-blue{
 background-color: #14468c;
 color: #fff;
@@ -46,7 +55,7 @@ font-size: 12px;
 }
 
 .top-nav .social-media-icon{
-    font-size: 15px;
+font-size: 15px;
 }
 
 .header{
@@ -119,7 +128,7 @@ object-fit: cover;
 }
 
 .footer .social-media-icon{
-    font-size: 25px;
+font-size: 25px;
 }
 
 /* Media query to disable top-nav in mobile view */
@@ -148,7 +157,7 @@ color: #fff;
 }
 
 .carousel-image{
-    height: 200px;
-    object-fit: cover;
-    }
+height: 200px;
+object-fit: cover;
+}
 }
