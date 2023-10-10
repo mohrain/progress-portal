@@ -30,7 +30,7 @@ class UpdatePostRequest extends FormRequest
             'descriptions' => 'nullable',
             'status' => 'required',
             'name' => 'nullable',
-            'file' => 'nullable',
+            'file.*' => 'nullable|file|max:5000',
         ];
     }
 }
