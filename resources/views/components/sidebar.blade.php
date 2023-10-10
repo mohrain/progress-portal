@@ -14,7 +14,7 @@
         <ul id="sidenav" class="nav flex-column">
             <li class="nav-item {{ setActive('dashboard') }}">
                 <a class="nav-link" href="{{ route('dashboard') }}">
-                    <span class="text-warning"><i class="fa fa-cube"></i></span>@lang('navigation.dashboard')
+                    <span class="text-warning"><i class="fa fa-cube"></i></span>ड्यासबोर्ड
                 </a>
             </li>
 
@@ -63,13 +63,13 @@
                 <li
                     class="nav-item {{ setActive('user.index') }} {{ setActive('user.create') }} {{ setActive('user.edit') }}">
                     <a class="nav-link" href="{{ route('user.index') }}">
-                        <span class=""><i class="fa fa-users"></i></span>@lang('navigation.users')
+                        <span class=""><i class="fa fa-users"></i></span>प्रयोगकर्ताहरू
                     </a>
                 </li>
             @endcan
             <li class="nav-item" >
                 <a class="nav-link" href="">
-                    <span class="text-success"><i class="fas fa-cog"></i></span>@lang('navigation.settings')
+                    <span class="text-success"><i class="fas fa-cog"></i></span>सेटिङहरू
                 </a>
             </li>
             <li class="nav-item {{ setActive('post-categories.index') }}">
@@ -80,7 +80,7 @@
             @hasanyrole('super-admin|admin')
                 <li class="nav-item {{ setActive('settings.index') }}">
                     <a class="nav-link" href="{{ route('settings.index') }}">
-                        <span class="text-success"></span>App Settings
+                        <span class="text-success"></span>एप सेटिङहरू
                     </a>
                 </li>
             @endhasrole
@@ -133,7 +133,7 @@
             @hasanyrole('super-admin')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.logs') }}" target="_blank">
-                        <span class="text-danger"><i class="fas fa-exclamation-triangle"></i></span>@lang('System Logs')
+                        <span class="text-danger"><i class="fas fa-exclamation-triangle"></i></span>लग प्रणाली 
                     </a>
                 </li>
             @endhasanyrole
