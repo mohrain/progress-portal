@@ -25,6 +25,8 @@ Route::post('logout', LogoutController::class)->name('logout');
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::get('post-categories/{postCategory}', [PostCategoryController::class, 'show'])->name('post-categories.show');
+
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);

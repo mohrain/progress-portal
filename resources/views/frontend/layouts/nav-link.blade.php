@@ -83,21 +83,21 @@
         सूचना
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="#">संसदीय सूचना</a></li>
+        <li><a class="dropdown-item" href="{{route('post-categories.show',"sasathaya-sacana")}}">संसदीय सूचना</a></li>
         <li>
             <hr class="dropdown-divider">
         </li>
-        <li><a class="dropdown-item" href="#">सचिबालय सूचना </a></li>
+        <li><a class="dropdown-item" href="{{route('post-categories.show',"sacavalya-sacana")}}">सचिबालय सूचना </a></li>
     </ul>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="#">एन, नियम</a>
+    <a class="nav-link" href="{{route('post-categories.show',"aina-nayama")}}">एन, नियम</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="#">प्रकाशन</a>
+    <a class="nav-link" href="{{route('post-categories.show',"parakashana")}}">प्रकाशन</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="#">फारम</a>
+    <a class="nav-link" href="{{route('post-categories.show',"farama")}}">फारम</a>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="#">फोटो ग्यलारी</a>

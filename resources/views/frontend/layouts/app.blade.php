@@ -21,13 +21,23 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <style>
+        @font-face {
+            font-family: Kalimati;
+            src: url("{{ asset('assets/fonts/Kalimati.ttf') }}") format('truetype');
+
+        }
+
+        .kalimati-font {
+            font-family: 'Kalimati';
+        }
+
         .feature-img {
             border: 1px solid #ddd;
             max-width: 100%;
             max-height: 80vh;
             object-fit: fill;
             position: relative;
-            
+
         }
 
         .feature-image {
@@ -49,7 +59,7 @@
     @include('frontend.layouts.desktop-nav')
     @include('frontend.layouts.mobile-nav')
     <!-- Content here -->
-    <div class="my-1">
+    <div class="my-4">
         @yield('content')
     </div>
     @include('frontend.layouts.footer')

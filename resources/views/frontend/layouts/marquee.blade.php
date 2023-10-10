@@ -1,4 +1,4 @@
-<div class="d-flex my-2">
+<div class="d-flex mb-2">
     <div class="new-upadate">
         ताजा अपडेटहरु
     </div>

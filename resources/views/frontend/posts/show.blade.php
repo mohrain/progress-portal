@@ -1,4 +1,4 @@
-@extends('frontend.layouts.app', ['title' => __($page->title)])
+@extends('frontend.layouts.app', ['title' => __($post->title)])
 @section('content')
     <div class="container">
         <div class="row">
@@ -6,32 +6,32 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="frontend-title">
-                            {{ $page->title }}
+                            {{ $post->title }}
                             <hr>
                         </div>
                     </div>
-                    @if ($page->feature_image)
+                    @if ($post->feature_image)
                         <div class="col-md-12 text-center">
                             <img class="feature-img"
-                                src="{{ $page->feature_image ? asset('storage/' . $page->feature_image) : asset('assets/img/no-image.png') }}">
+                                src="{{ $post->feature_image ? asset('storage/' . $post->feature_image) : asset('assets/img/no-image.png') }}">
                         </div>
                     @endif
-                    @if ($page->descriptions)
+                    @if ($post->descriptions)
                         <div class="col-md-12 mt-4">
                             <p>
-                                {!! $page->descriptions !!}
+                                {!! $post->descriptions !!}
                             </p>
                         </div>
                     @endif
-                    @if ($page->documents->isnotempty())
+                    @if ($post->documents->isnotempty())
                         <div class="col-md-12 my-4">
                             <h5 class="text-theme-color">सम्बन्धित कागजातहरु:</h5>
                             <ul class="list-group list-group-flush">
-                                @foreach ($page->documents as $pageDocument)
+                                @foreach ($post->documents as $postDocument)
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <div><i class="far fa-file-alt"></i> {{ $pageDocument->name }}</div>
+                                        <div><i class="far fa-file-alt"></i> {{ $postDocument->name }}</div>
 
-                                        <a href="{{ asset('storage/' . $pageDocument->file) }}"
+                                        <a href="{{ asset('storage/' . $postDocument->file) }}"
                                             class="btn btn-primary text-xl" target="_blank"><i
                                                 class="fas fa-cloud-download-alt"></i> डाउनलोड</a>
 

@@ -25,7 +25,7 @@
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                {{-- <a class="dropdown-item" href="{{ route('post-categories.show', $category) }}">Show</a> --}}
+                <a class="dropdown-item" href="{{ route('post-categories.show', $category) }}">Show</a>
                 <a class="dropdown-item" href="{{ route('post-categories.edit', $category) }}">Edit</a>
                 <form class="form-inline d-inline" action="{{ route('post-categories.destroy', $category) }}"
                     onsubmit="return confirm('Are you sure to delete ?')" method="POST">
