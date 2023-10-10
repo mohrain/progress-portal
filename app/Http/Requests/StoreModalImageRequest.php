@@ -25,7 +25,7 @@ class StoreModalImageRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'image' => 'required',
+            'image' => 'required|file|max:2024',
             'url' => 'nullable',
             'descriptions' => 'nullable',
             'status' => 'required',

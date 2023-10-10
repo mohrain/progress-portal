@@ -41,7 +41,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-3 text-center">
-                                            <label for="newProfilePhoto" class="form-label required">फिचर फोटो</label>
+                                            <label for="newProfilePhoto" class="form-label required  @error('image') is-invalid @enderror">फोटो (< 2 MB photo)</label>
                                             <div class="mb-2 align-self-center">
                                                 <img id="newProfilePhotoPreview"
                                                     src="{{ $carouselImage->image ? asset('storage/' . $carouselImage->image) : asset('assets/img/no-image.png') }}"

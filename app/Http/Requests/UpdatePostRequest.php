@@ -26,7 +26,7 @@ class UpdatePostRequest extends FormRequest
         return [
             'title' => 'required',
             'post_category_id' => 'required',
-            'feature_image' => 'nullable',
+            'feature_image' => 'nullable|file|max:2024',
             'descriptions' => 'nullable',
             'status' => 'required',
             'name' => 'nullable',

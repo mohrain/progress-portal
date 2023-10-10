@@ -25,7 +25,7 @@ class StorePageRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'feature_image' => 'nullable',
+            'feature_image' => 'nullable|file|max:2024',
             'descriptions' => 'nullable',
             'status' => 'required',
             'name' => 'nullable',

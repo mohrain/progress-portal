@@ -47,7 +47,7 @@
                                 <div class="col-md-3">
                                     {{-- <x-category-select :post="$page" /> --}}
                                     <div class="mb-3">
-                                        <label for="" class="form-label required">फिचर फोटो</label>
+                                        <label for="" class="form-label required">फिचर फोटो (< 2 MB photo)</label>
                                         <div class="mb-2 align-self-center">
                                             <img id="newProfilePhotoPreview"
                                                 src="{{ $page->feature_image ? asset('storage/' . $page->feature_image) : asset('assets/img/no-image.png') }}"

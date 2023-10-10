@@ -41,7 +41,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-3 text-center">
-                                            <label for="newProfilePhoto" class="form-label required">फोटो</label>
+                                            <label for="newProfilePhoto" class="form-label required">फाइल (< 2 MB File)</label>
                                             <div class="mb-2 align-self-center">
                                                 @if ($modalImage->id)
                                                     <object id="newProfilePhotoPreview"

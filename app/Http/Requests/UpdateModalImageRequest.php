@@ -25,7 +25,7 @@ class UpdateModalImageRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'image' => 'nullable',
+            'image' => 'nullable|file|max:2024',
             'url' => 'nullable',
             'descriptions' => 'nullable',
             'status' => 'required',
