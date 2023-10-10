@@ -38,9 +38,21 @@
                                     </li>
                                 @endforeach
                             </ul>
+
+
                         </div>
                     @endif
                 </div>
+                @foreach ($page->documents as $pageDocument)
+                    <div class="my-3">
+                        <object data="{{ asset('storage/' . $pageDocument->file) }}" type="application/pdf" width="100%"
+                            height="800">
+                            {{-- <p>Unable to display PDF file. <a
+                                href="{{ asset('storage/' . $pageDocument->file) }}">Download</a>
+                        </p> --}}
+                        </object>
+                    </div>
+                @endforeach
             </div>
             <div class="col-md-3">
                 @include('frontend.layouts.sidebar')

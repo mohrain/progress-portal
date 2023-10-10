@@ -39,6 +39,18 @@
                                 @endforeach
                             </ul>
                         </div>
+                        <div>
+                            @foreach ($post->documents as $postDocument)
+                            <div class="my-3">
+                                <object data="{{ asset('storage/' . $postDocument->file) }}" type="application/pdf"
+                                    width="100%" height="800">
+                                    {{-- <p>Unable to display PDF file. <a
+                                            href="{{ asset('storage/' . $postDocument->file) }}">Download</a>
+                                    </p> --}}
+                                </object>
+                            </div>
+                            @endforeach
+                        </div>
                     @endif
                 </div>
             </div>
