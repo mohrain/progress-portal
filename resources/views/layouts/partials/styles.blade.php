@@ -2,7 +2,8 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <link href="{{ asset('assets/mdb/css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/mdb/css/mdb.min.css') }}" rel="stylesheet">
+{{-- <link href="{{ asset('assets/mdb/css/mdb.min.css') }}" rel="stylesheet"> --}}
+
 <style>
     @font-face {
         font-family: Kalimati;
