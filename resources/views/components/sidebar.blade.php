@@ -19,17 +19,22 @@
             </li>
             <li class="nav-item {{ setActive('posts.index') }}">
                 <a href="{{ route('posts.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="fa fa-plus"></i></span>पोस्टहरु
+                    <span class="text-success"><i class="bi bi-list-task"></i></span>पोस्टहरु
                 </a>
             </li>
             <li class="nav-item {{ setActive('pages.index') }}">
                 <a href="{{ route('pages.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="fa fa-plus"></i></span>पेजहरु
+                    <span class="text-success"><i class="bi bi-file-earmark"></i></span>पेजहरु
                 </a>
             </li>
             <li class="nav-item {{ setActive('carousel-images.index') }}">
                 <a href="{{ route('carousel-images.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="fa fa-plus"></i></span>स्लाइडर फोटोहरु
+                    <span class="text-success"><i class="bi bi-file-earmark-slides"></i></span>स्लाइडर फोटोहरु
+                </a>
+            </li>
+            <li class="nav-item {{ setActive('modal-images.index') }}">
+                <a href="{{ route('modal-images.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="bi bi-app-indicator"></i></span>मोडाल फोटोहरु
                 </a>
             </li>
 
