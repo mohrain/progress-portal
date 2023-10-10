@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('carousel_images', function (Blueprint $table) {
             $table->id();
+            $table->string('slug');
+            $table->string('title');
+            $table->string('image');
+            $table->string('url')->nullable();
+            $table->longText('descriptions')->nullable();
+            $table->boolean('status')->default(true);
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
             $table->timestamps();
         });
     }

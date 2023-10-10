@@ -17,15 +17,19 @@
                     <span class="text-warning"><i class="fa fa-cube"></i></span>ड्यासबोर्ड
                 </a>
             </li>
-
+            <li class="nav-item {{ setActive('posts.index') }}">
+                <a href="{{ route('posts.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="fa fa-plus"></i></span>पोस्टहरु
+                </a>
+            </li>
             <li class="nav-item {{ setActive('pages.index') }}">
                 <a href="{{ route('pages.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="fa fa-plus"></i></span>पेजहरु
                 </a>
             </li>
-            <li class="nav-item {{ setActive('posts.index') }}">
-                <a href="{{ route('posts.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="fa fa-plus"></i></span>पोस्टहरु
+            <li class="nav-item {{ setActive('carousel-images.index') }}">
+                <a href="{{ route('carousel-images.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="fa fa-plus"></i></span>स्लाइडर फोटोहरु
                 </a>
             </li>
 

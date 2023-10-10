@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\CarouselImageController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
@@ -72,6 +73,16 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
     Route::put('posts/{post}', [PostController::class, 'update'])->name('posts.update');
     Route::delete('posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+
+    //carousel-image
+    Route::get('carousel-images', [CarouselImageController::class, 'index'])->name('carousel-images.index');
+    Route::get('carousel-images/create', [CarouselImageController::class, 'create'])->name('carousel-images.create');
+    Route::post('carousel-images', [CarouselImageController::class, 'store'])->name('carousel-images.store');
+    Route::get('carousel-images/{carouselImage}/edit', [CarouselImageController::class, 'edit'])->name('carousel-images.edit');
+    // Route::get('carousel-images/{carouselImage}', [CarouselImageController::class, 'show'])->name('carousel-images.show');
+    Route::put('carousel-images/{carouselImage}', [CarouselImageController::class, 'update'])->name('carousel-images.update');
+    Route::delete('carousel-images/{carouselImage}', [CarouselImageController::class, 'destroy'])->name('carousel-images.destroy');
+
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');

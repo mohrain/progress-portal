@@ -80,7 +80,7 @@
                                 <div class="col-md-12">
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            कजजातहरु
+                                            कगजातहरु
                                         </div>
                                         <div>
                                             <button id="rowAdder" type="button" class="btn btn-dark">
@@ -96,7 +96,7 @@
                                             <thead style="white-space: nowrap;">
 
                                                 <th>
-                                                    कजजात
+                                                    कगजात नाम
                                                 </th>
                                                 <th>
                                                     छान्नुहोस्

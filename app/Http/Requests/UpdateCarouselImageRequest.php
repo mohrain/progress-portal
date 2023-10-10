@@ -13,7 +13,7 @@ class UpdateCarouselImageRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class UpdateCarouselImageRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required',
+            'image' => 'required',
+            'url' => 'nullable',
+            'descriptions' => 'nullable',
+            'status' => 'required',
         ];
     }
 }
