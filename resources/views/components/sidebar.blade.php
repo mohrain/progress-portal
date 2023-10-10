@@ -76,14 +76,19 @@
                     </a>
                 </li>
             @endcan
-            <li class="nav-item" >
+            <li class="nav-item">
                 <a class="nav-link" href="">
                     <span class="text-success"><i class="fas fa-cog"></i></span>सेटिङहरू
                 </a>
             </li>
             <li class="nav-item {{ setActive('post-categories.index') }}">
                 <a class="nav-link" href="{{ route('post-categories.index') }}">
-                    <span class="text-success"></span>पोस्ट किसिमहरु
+                    <span class="text-success"></span>पोस्ट प्रकार
+                </a>
+            </li>
+            <li class="nav-item {{ setActive('bill-types.index') }}">
+                <a class="nav-link" href="{{ route('bill-types.index') }}">
+                    <span class="text-success"></span>विधयेक प्रकार
                 </a>
             </li>
             @hasanyrole('super-admin|admin')
@@ -142,7 +147,7 @@
             @hasanyrole('super-admin')
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.logs') }}" target="_blank">
-                        <span class="text-danger"><i class="fas fa-exclamation-triangle"></i></span>लग प्रणाली 
+                        <span class="text-danger"><i class="fas fa-exclamation-triangle"></i></span>लग प्रणाली
                     </a>
                 </li>
             @endhasanyrole

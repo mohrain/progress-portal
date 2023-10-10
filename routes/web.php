@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\BillTypeController;
 use App\Http\Controllers\CarouselImageController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FrontendController;
@@ -28,6 +29,9 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('post-categories/{postCategory}', [PostCategoryController::class, 'show'])->name('post-categories.show');
+Route::get('bill-types/{billType}', [BillTypeController::class, 'show'])->name('bill-types.show');
+
+
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
@@ -90,6 +94,13 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('modal-images/{modalImage}/edit', [ModalImageController::class, 'edit'])->name('modal-images.edit');
     Route::put('modal-images/{modalImage}', [ModalImageController::class, 'update'])->name('modal-images.update');
     Route::delete('modal-images/{modalImage}', [ModalImageController::class, 'destroy'])->name('modal-images.destroy');
+
+    //Bidhayak types
+    Route::get('bill-types', [BillTypeController::class, 'index'])->name('bill-types.index');
+    Route::post('bill-types', [BillTypeController::class, 'store'])->name('bill-types.store');
+    Route::get('bill-types/{billType}/edit', [BillTypeController::class, 'edit'])->name('bill-types.edit');
+    Route::put('bill-types/{billType}', [BillTypeController::class, 'update'])->name('bill-types.update');
+    Route::delete('bill-types/{billType}', [BillTypeController::class, 'destroy'])->name('bill-types.destroy');
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');

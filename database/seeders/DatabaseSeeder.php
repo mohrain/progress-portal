@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FiscalYearSeeder::class);
         $this->call(PageSeeder::class);
         $this->call(PostCategorySeeder::class);
+        $this->call(BillTypeSeeder::class);
 
         if (app()->environment() == 'production') {
         } else {
