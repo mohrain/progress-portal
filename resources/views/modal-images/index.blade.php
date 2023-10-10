@@ -34,9 +34,15 @@
                                         <tr>
                                             <td>{{ $modalImage->title }}</td>
                                             <td>
-                                                <img id="newProfilePhotoPreview"
+                                                <object data="{{ asset('storage/' . $modalImage->image) }}" type="application/pdf"
+                                                    class="feature-image-thum" >
+                                                    <p>Unable to display PDF file. <a
+                                                            href="{{ asset('storage/' . $modalImage->image) }}">Download</a>
+                                                    </p>
+                                                </object>
+                                                {{-- <img id="newProfilePhotoPreview"
                                                     src="{{ $modalImage->image ? asset('storage/' . $modalImage->image) : asset('assets/img/no-image.png') }}"
-                                                    class="feature-image-thum">
+                                                    class="feature-image-thum"> --}}
                                             </td>
                                             <td>{{$modalImage->url}}</td>
                                             <td>{{ $modalImage->created_at }}</td>

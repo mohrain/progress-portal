@@ -213,4 +213,5 @@
             </div>
         </div>
     </div>
+    <x-modal-image-view />
 @endsection

@@ -41,16 +41,23 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 mb-3 text-center">
-                                            <label for="newProfilePhoto" class="form-label required">फिचर फोटो</label>
+                                            <label for="newProfilePhoto" class="form-label required">फोटो</label>
                                             <div class="mb-2 align-self-center">
-                                                <img id="newProfilePhotoPreview"
-                                                    src="{{ $modalImage->image ? asset('storage/' . $modalImage->image) : asset('assets/img/no-image.png') }}"
-                                                    class="carousel-image">
+                                                @if ($modalImage->id)
+                                                    <object id="newProfilePhotoPreview"
+                                                        data="{{ asset('storage/' . $modalImage->image) }}"
+                                                        type="application/pdf" class="carousel-image">
+                                                    </object>
+                                                @else
+                                                    <img id="newProfilePhotoPreview"
+                                                        src="{{ $modalImage->image ? asset('storage/' . $modalImage->image) : asset('assets/img/no-image.png') }}"
+                                                        class="carousel-image">
+                                                @endif
                                                 <div class="edit-profile mx-md-6">
                                                     <label class="btn btn-secondary "
                                                         for="newProfilePhoto">छान्नुहोस्</label>
                                                     <input type="file" id="newProfilePhoto" name="image" class=""
-                                                        accept="image/*" hidden>
+                                                        hidden>
                                                 </div>
                                             </div>
                                             <div class="invalid-feedback">
