@@ -61,21 +61,7 @@
         aria-expanded="false">
         विधेयक
     </a>
-    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="#">दर्ता विधेयक</a></li>
-        <li>
-            <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item" href="#">प्रक्रियामा रहेको विधेयक </a></li>
-        <li>
-            <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item" href="#">पारित विधेयक</a></li>
-        <li>
-            <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item" href="#">प्रमाणीकरण भएका विधेयक</a></li>
-    </ul>
+    <x-bill-type-view />
 </li>
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -83,7 +69,8 @@
         सूचना
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="{{ route('post-categories.show', 'sasathaya-sacana') }}">संसदीय सूचना</a></li>
+        <li><a class="dropdown-item" href="{{ route('post-categories.show', 'sasathaya-sacana') }}">संसदीय सूचना</a>
+        </li>
         <li>
             <hr class="dropdown-divider">
         </li>
