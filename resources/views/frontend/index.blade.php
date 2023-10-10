@@ -4,7 +4,8 @@
         @include('frontend.layouts.marquee')
         <div class="row">
             <div class="col-md-9">
-                @include('frontend.carousel.index')
+                {{-- @include('frontend.carousel.index') --}}
+                <x-carousel-image-view />
             </div>
             <div class="col-md-3">
                 <div class="bg-theme-color-blue py-3 text-center mb-3">
