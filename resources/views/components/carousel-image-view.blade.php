@@ -1,8 +1,8 @@
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     {{-- <div class="carousel-indicators">
         @foreach ($carouselImages as $carouselImage)
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $carouselImage->id }}" class="{{ $loop->first ? 'active' : '' }}"
-                aria-current="{{ $loop->first ? 'true' : '' }}" aria-label="Slide-{{ $carouselImage->id }}"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $loop->iteration }}" class="{{ $loop->first ? 'active' : '' }}"
+                aria-current="{{ $loop->first ? 'true' : 'false' }}" aria-label="Slide-{{ $loop->iteration }}"></button>
         @endforeach
     </div> --}}
     <div class="carousel-inner">

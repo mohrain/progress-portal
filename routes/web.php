@@ -7,6 +7,7 @@ use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
@@ -27,7 +28,6 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('post-categories/{postCategory}', [PostCategoryController::class, 'show'])->name('post-categories.show');
-
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
@@ -83,6 +83,13 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('carousel-images/{carouselImage}', [CarouselImageController::class, 'update'])->name('carousel-images.update');
     Route::delete('carousel-images/{carouselImage}', [CarouselImageController::class, 'destroy'])->name('carousel-images.destroy');
 
+    //modal-images
+    Route::get('modal-images', [ModalImageController::class, 'index'])->name('modal-images.index');
+    Route::get('modal-images/create', [ModalImageController::class, 'create'])->name('modal-images.create');
+    Route::post('modal-images', [ModalImageController::class, 'store'])->name('modal-images.store');
+    Route::get('modal-images/{modalImage}/edit', [ModalImageController::class, 'edit'])->name('modal-images.edit');
+    Route::put('modal-images/{modalImage}', [ModalImageController::class, 'update'])->name('modal-images.update');
+    Route::delete('modal-images/{modalImage}', [ModalImageController::class, 'destroy'])->name('modal-images.destroy');
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
