@@ -11,6 +11,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostCategoryController;
+use App\Http\Controllers\PostCategoryMenuController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\SuchiController;
@@ -30,8 +31,6 @@ Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('post-categories/{postCategory}', [PostCategoryController::class, 'show'])->name('post-categories.show');
 Route::get('bill-types/{billType}', [BillTypeController::class, 'show'])->name('bill-types.show');
-
-
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
@@ -68,6 +67,14 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('post-categories/{postCategory}/edit', [PostCategoryController::class, 'edit'])->name('post-categories.edit');
     Route::put('post-categories/{postCategory}', [PostCategoryController::class, 'update'])->name('post-categories.update');
     Route::delete('post-categories/{postCategory}', [PostCategoryController::class, 'destroy'])->name('post-categories.destroy');
+
+    //category menu
+    Route::get('post-category-menu', [PostCategoryMenuController::class, 'index'])->name('post-category-menu.index');
+    Route::post('post-category-menu', [PostCategoryMenuController::class, 'store'])->name('post-category-menu.store');
+    Route::get('post-category-menu/{postCategoryMenu}/edit', [PostCategoryMenuController::class, 'edit'])->name('post-category-menu.edit');
+    Route::put('post-category-menu/{postCategoryMenu}', [PostCategoryMenuController::class, 'update'])->name('post-category-menu.update');
+    Route::put('post-category-menus/sort', [PostCategoryMenuController::class, 'sort'])->name('post-category-menu.sort');
+    Route::delete('post-category-menus/remove-item', [PostCategoryMenuController::class, 'removeItem'])->name('post-category-menu.remove-item');
 
     //post
     Route::get('posts', [PostController::class, 'index'])->name('posts.index');

@@ -86,6 +86,11 @@
                     <span class="text-success"></span>पोस्ट प्रकार
                 </a>
             </li>
+            <li class="nav-item {{ setActive('post-category-menu.index') }}">
+                <a class="nav-link" href="{{ route('post-category-menu.index') }}">
+                    <span class="text-success"></span>पोस्ट प्रकार मेनु
+                </a>
+            </li>
             <li class="nav-item {{ setActive('bill-types.index') }}">
                 <a class="nav-link" href="{{ route('bill-types.index') }}">
                     <span class="text-success"></span>विधयेक प्रकार

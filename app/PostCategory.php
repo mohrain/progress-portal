@@ -51,4 +51,9 @@ class PostCategory extends Model
     {
         return $this->belongsToMany(Post::class, 'posts_categories', 'post_category_id', 'post_id');
     }
+
+    public function postCategoryMenu()
+    {
+        return $this->hasMany(PostCategoryMenu::class);
+    }
 }
