@@ -18,7 +18,7 @@
         </li>
         <li><a class="dropdown-item" href="#">संसदीयदलहरु</a></li>
     </ul>
-</li>
+</li> 
 
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
