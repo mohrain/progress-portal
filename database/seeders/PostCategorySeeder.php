@@ -17,10 +17,15 @@ class PostCategorySeeder extends Seeder
     {
         $postCategories = [
             [
+                'name' => 'सूचना',
+            ],
+            [
                 'name' => 'संसदीय सूचना',
+                'parent_id' => 1,
             ],
             [
                 'name' => 'सचिवालय सूचना',
+                'parent_id' => 1,
             ],
             [
                 'name' => 'ऐन, नियम',
