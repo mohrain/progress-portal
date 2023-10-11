@@ -132,7 +132,19 @@
 
                                             </td>
                                             <td class="kalimati-font">
-                                                {{ date("g:i a", strtotime("$meeting->time UTC"))  }}
+                                                <?php
+                                                // Assuming $meeting->time is a valid time string, e.g., "14:30:00"
+                                                $time = strtotime($meeting->time . 'Asia/Kathmandu');
+                                                $formatted_time = date('g:i a', $time);
+                                                
+                                                if (date('a', $time) == 'am') {
+                                                    echo 'बिहानको';
+                                                } elseif (date('a', $time) == 'pm') {
+                                                    echo 'दिनको';
+                                                }
+                                                ?>
+                                                {{ date('g:i', strtotime("$meeting->time Asia/Kathmandu")) }}
+                                                बजे
                                             </td>
                                             <td class="text-right">
                                                 <div class="dropdown">
