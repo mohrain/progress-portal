@@ -24,6 +24,10 @@
                     <div>
                         <a class="nav-link text-white" href="#"><i class="bi bi-envelope"></i> Check mail</a>
                     </div>
+                    <select class="bg-theme-color-red borderless" style="Border: none;">
+                        <option value="np" selected>NP</option>
+                        <option value="en">EN</option>
+                      </select>
                     <div class="social-media-icon">
                         <a class="nav-link text-white" href="{{ settings('facebook') }}" target="_blank"
                             rel="noopener noreferrer">

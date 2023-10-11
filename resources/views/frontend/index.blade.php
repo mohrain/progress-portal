@@ -76,13 +76,13 @@
         <div class="row my-2">
             <div class="col-md-6">
                 <div class="bg-theme-color-blue py-3 text-center">
-                    सभा बैठक सम्बन्धी सूचना
+                  प्रदेश सभा बैठक सम्बन्धी सूचना
                 </div>
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">सभा</th>
+                            <th scope="col">प्रदेश सभा</th>
                             <th scope="col">मिति</th>
                             <th scope="col">समय</th>
                         </tr>

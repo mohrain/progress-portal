@@ -3,7 +3,9 @@
 <script type="text/javascript" src="{{ asset('assets/mdb/js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/mdb/js/mdb.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/mdb/js/addons/datatables.min.js') }}"></script>
-<script src="{{ asset('assets/js/nepali.datepicker.v3.min.js') }}" type="text/javascript"></script>
+{{-- <script src="{{ asset('assets/js/nepali.datepicker.v3.min.js') }}" type="text/javascript"></script> --}}
+<script src="{{ asset('assets/nepali-datepicker-v4/js/nepali.datepicker.v4.0.1.min.js') }}" type="text/javascript">
+</script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>

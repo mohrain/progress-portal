@@ -81,7 +81,8 @@
 </style>
 <link rel="stylesheet" href="{{ asset('assets/css/utilities.css') }}">
 <link href="{{ asset('assets/mdb/css/addons/datatables.min.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="{{ asset('assets/css/nepali.datepicker.v3.min.css') }}">
+{{-- <link rel="stylesheet" href="{{ asset('assets/css/nepali.datepicker.v3.min.css') }}"> --}}
+<link rel="stylesheet" href="{{ asset('assets/nepali-datepicker-v4/css/nepali.datepicker.v4.0.1.min.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">

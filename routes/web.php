@@ -8,6 +8,7 @@ use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostCategoryController;
@@ -109,6 +110,14 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('bill-types/{billType}', [BillTypeController::class, 'update'])->name('bill-types.update');
     Route::delete('bill-types/{billType}', [BillTypeController::class, 'destroy'])->name('bill-types.destroy');
 
+    //meeting
+    Route::get('meetings', [MeetingController::class, 'index'])->name('meetings.index');
+    Route::post('meetings', [MeetingController::class, 'store'])->name('meetings.store');
+    Route::get('meetings/{meeting}/edit', [MeetingController::class, 'edit'])->name('meetings.edit');
+    Route::put('meetings/{meeting}', [MeetingController::class, 'update'])->name('meetings.update');
+    Route::delete('meetings/{meeting}', [MeetingController::class, 'destroy'])->name('meetings.destroy');
+
+    
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
     Route::get('suchi/applications', [SuchiController::class, 'applications'])->name('suchi.applications');

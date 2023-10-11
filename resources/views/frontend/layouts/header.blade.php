@@ -1,7 +1,8 @@
 <div class="container header">
     <div class="d-flex justify-content-between my-4">
         <div>
-            <img class="logo" src="{{asset('images/pradeshsavalogo-sudurpaschim.png')}}" alt="pradeshsavalogo-sudurpaschim" srcset="">
+            <img class="logo" src="{{ asset('images/pradeshsavalogo-sudurpaschim.png') }}"
+                alt="pradeshsavalogo-sudurpaschim" srcset="">
         </div>
         <div class="text-center">
             <h5>{{ settings('app_name') }}</h5>
@@ -9,7 +10,11 @@
             <h6>{{ settings('province_name') }}, {{ settings('address_line_one') }}</h6>
         </div>
         <div>
-            <img class="logo" src="{{asset('images/nepalflag.gif')}}" alt="Nepal Flag" srcset="">
+            <iframe scrolling="no" border="0" frameborder="0" marginwidth="0" marginheight="0"
+                allowtransparency="true"
+                src="https://www.ashesh.com.np/linknepali-time.php?dwn=only&font_color=333333&font_size=14&bikram_sambat=0&api=1711x5n366"
+                width="165" height="22"></iframe>
+            <img class="logo" src="{{ asset('images/nepalflag.gif') }}" alt="Nepal Flag" srcset="">
         </div>
     </div>
 </div>
