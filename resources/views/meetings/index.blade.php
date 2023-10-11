@@ -131,7 +131,9 @@
                                                 {{-- {{ $meeting->date }} --}}
 
                                             </td>
-                                            <td>{{ $meeting->time }}</td>
+                                            <td class="kalimati-font">
+                                                {{ date("g:i a", strtotime("$meeting->time UTC"))  }}
+                                            </td>
                                             <td class="text-right">
                                                 <div class="dropdown">
                                                     <a class="btn-icon-only text-light" href="#" role="button"

@@ -17,6 +17,11 @@
                     <span class="text-warning"><i class="fa fa-cube"></i></span>ड्यासबोर्ड
                 </a>
             </li>
+            <li class="nav-item {{ setActive('meetings.index') }}">
+                <a href="{{ route('meetings.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="bi bi-megaphone"></i></span>बैठकहरु
+                </a>
+            </li>
             <li class="nav-item {{ setActive('posts.index') }}">
                 <a href="{{ route('posts.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="bi bi-list-task"></i></span>पोस्टहरु
