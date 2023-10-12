@@ -42,8 +42,13 @@
                     <span class="text-success"><i class="bi bi-app-indicator"></i></span>मोडाल फोटोहरु
                 </a>
             </li>
+            <li class="nav-item {{ setActive('faq.index') }}">
+                <a href="{{ route('faq.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-warning"><i class="bi bi-question-lg"></i></span>प्राय: सोधिने प्रश्नहरू
+                </a>
+            </li>
 
-            <li class="nav-item {{ setActive('suchi.applications') }}">
+            {{-- <li class="nav-item {{ setActive('suchi.applications') }}">
                 <a href="{{ route('suchi.applications') }}" aria-expanded="false" class="nav-link">
                     <span class="text-warning"><i class="fas fa-clipboard"></i></span>आवेदन फारामहरु
                 </a>
@@ -53,7 +58,7 @@
                 <a href="{{ route('suchi.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-secondary"><i class="fas fa-book"></i></span>सूची दर्ता
                 </a>
-            </li>
+            </li> --}}
 
             {{-- <li class="nav-item {{ setActive('project.index') }}">
             <a href="{{route('project.index')}}" aria-expanded="false" class="nav-link">
