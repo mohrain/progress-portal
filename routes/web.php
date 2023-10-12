@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\BillTypeController;
 use App\Http\Controllers\CarouselImageController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\FrequentlyAskedQuestionController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
@@ -32,6 +33,8 @@ Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('post-categories/{postCategory}', [PostCategoryController::class, 'show'])->name('post-categories.show');
 Route::get('bill-types/{billType}', [BillTypeController::class, 'show'])->name('bill-types.show');
+Route::get('faqs', [FrequentlyAskedQuestionController::class, 'frontend'])->name('faq.frontend');
+
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
@@ -103,6 +106,17 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('modal-images/{modalImage}', [ModalImageController::class, 'update'])->name('modal-images.update');
     Route::delete('modal-images/{modalImage}', [ModalImageController::class, 'destroy'])->name('modal-images.destroy');
 
+
+      //faq
+      Route::get('faq', [FrequentlyAskedQuestionController::class, 'index'])->name('faq.index');
+      Route::get('faq/create', [FrequentlyAskedQuestionController::class, 'create'])->name('faq.create');
+      Route::post('faq', [FrequentlyAskedQuestionController::class, 'store'])->name('faq.store');
+      Route::put('faq/sort', [FrequentlyAskedQuestionController::class, 'sort'])->name('faq.sort');
+      Route::get('faq/{frequentlyAskedQuestion}/edit', [FrequentlyAskedQuestionController::class, 'edit'])->name('faq.edit');
+      Route::put('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'update'])->name('faq.update');
+      Route::delete('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'destroy'])->name('faq.destroy');
+
+      
     //Bidhayak types
     Route::get('bill-types', [BillTypeController::class, 'index'])->name('bill-types.index');
     Route::post('bill-types', [BillTypeController::class, 'store'])->name('bill-types.store');

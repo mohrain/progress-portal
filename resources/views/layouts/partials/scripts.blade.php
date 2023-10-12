@@ -12,10 +12,14 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
+
 <script>
-    $('#summernote').summernote({
-        tabsize: 2,
-        height: 300
+    $(document).ready(function() {
+        $('#summernote').summernote({
+            tabsize: 2,
+            height: 300,
+            placeholder : "Descriptions",
+        });
     });
 </script>
 <script>

@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="summernote" class="form-label required">कैफियत</label>
-                                        <textarea name="descriptions" class="" id="summernote" cols="30" rows="10">{{ $page->descriptions }}</textarea>
+                                        <textarea name="descriptions" class="" id="summernote" cols="30" rows="10">{{old('descriptions', $page->descriptions) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
