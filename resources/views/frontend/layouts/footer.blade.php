@@ -177,9 +177,36 @@
 
         </div>
         <hr>
-        <div class="row">
-            <div class="col-md-12">
+        <div class="d-md-flex justify-content-evenly">
+            <div>
+                <a href="/">गृह पृष्ठ </a>
+            </div>
+            <div>
+                <a href="">सम्पर्क गर्नुहोस् </a>
+            </div>
+            <div>
+                <a href="">प्राय: सोधिने प्रश्नहरू</a>
+            </div>
+            <div>
+                आगन्तुक गणना :
+                <span class="kalimati-font btn btn-sm btn-primary px-3">
 
+                    <?php
+                    // PHP code to increment and display the visitor count
+                    $countFile = 'count.txt';
+                    $count = 0;
+                    
+                    if (file_exists($countFile)) {
+                        $count = (int) file_get_contents($countFile);
+                    }
+                    
+                    $count++;
+                    file_put_contents($countFile, $count);
+                    
+                    echo $count;
+                    ?>
+
+                </span>
             </div>
         </div>
     </div>
@@ -188,7 +215,7 @@
     <div class="container">
         <div class="d-md-flex justify-content-between">
             <div>
-                <span> <strong>&copy; {{ date('Y') }}</strong>. प्रदेश सभा, सुदूरपश्‍चिम प्रदेश प्रदेश सभा सचिवालय.
+                <span> <strong class="kalimati-font">&copy; {{ date('Y') }}</strong>. प्रदेश सभा, सुदूरपश्‍चिम प्रदेश प्रदेश सभा सचिवालय.
                     सर्वाधिकार सुरक्षित</span>
             </div>
             <div>
