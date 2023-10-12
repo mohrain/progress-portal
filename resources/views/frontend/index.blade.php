@@ -76,61 +76,15 @@
         <div class="row my-2">
             <div class="col-md-6">
                 <div class="bg-theme-color-blue py-3 text-center">
-                  प्रदेश सभा बैठक सम्बन्धी सूचना
+                    प्रदेश सभा बैठक सम्बन्धी सूचना
                 </div>
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">प्रदेश सभा</th>
-                            <th scope="col">मिति</th>
-                            <th scope="col">समय</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">१</th>
-                            <td>दोश्रो अधिवेशनको वैठक संख्या - २५</td>
-                            <td>२०८० असोज २१ गते</td>
-                            <td>बिहान ९:०० बजे</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">२</th>
-                            <td>दोश्रो अधिवेशनको वैठक संख्या - २५</td>
-                            <td>२०८० असोज २१ गते</td>
-                            <td>बिहान ९:०० बजे</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <x-procincial-assembly-meeting-view />
             </div>
             <div class="col-md-6">
                 <div class="bg-theme-color-blue py-3 text-center">
                     समितिका बैठक सम्बन्धी सूचना
                 </div>
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">समिति</th>
-                            <th scope="col">मिति</th>
-                            <th scope="col">समय</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">१</th>
-                            <td>दोश्रो अधिवेशनको वैठक संख्या - २५</td>
-                            <td>२०८० असोज २१ गते</td>
-                            <td>बिहान ९:०० बजे</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">२</th>
-                            <td>दोश्रो अधिवेशनको वैठक संख्या - २५</td>
-                            <td>२०८० असोज २१ गते</td>
-                            <td>बिहान ९:०० बजे</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <x-procincial-committee-meeting-view />
             </div>
         </div>
         <div class="row">

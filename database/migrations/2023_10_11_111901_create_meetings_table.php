@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('date');
             $table->string('time');
             $table->boolean('type')->default(true);
-            $table->boolean('status')->default(true);
+            $table->string('status');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->timestamps();

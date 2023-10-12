@@ -86,10 +86,15 @@
 
                                 <select class="form-control" name="status" id="status"
                                     aria-label="Default select example">
-                                    <option value="1" {{ $meeting->status == '1' ? 'selected' : '' }}>
-                                        प्रकाशित</option>
-                                    <option value="0" {{ $meeting->status == '0' ? 'selected' : '' }}>
-                                        अप्रकाशित</option>
+                                    <option value="active"
+                                        {{ old('status', $meeting->status) == 'active' ? 'selected' : '' }}>
+                                        सक्रिय</option>
+                                    <option value="completed"
+                                        {{ old('status', $meeting->status) == 'completed' ? 'selected' : '' }}>
+                                        सम्पन्न</option>
+                                    <option value="canceled"
+                                        {{ old('status', $meeting->status) == 'canceled' ? 'selected' : '' }}>
+                                        रद्द</option>
                                 </select>
 
                                 @error('status')
@@ -119,6 +124,7 @@
                                     <th>शीर्षक</th>
                                     <th>मिति</th>
                                     <th>समय</th>
+                                    <th>स्थिति</th>
                                     <th></th>
                                 </thead>
                                 <tbody>
@@ -145,6 +151,15 @@
                                                 ?>
                                                 {{ date('g:i', strtotime("$meeting->time Asia/Kathmandu")) }}
                                                 बजे
+                                            </td>
+                                            <td>
+                                                @if ($meeting->status == 'active')
+                                                    सक्रिय
+                                                @elseif($meeting->status == 'completed')
+                                                    सम्पन्न
+                                                @else
+                                                    रद्द
+                                                @endif
                                             </td>
                                             <td class="text-right">
                                                 <div class="dropdown">

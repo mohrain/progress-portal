@@ -27,14 +27,28 @@ class Meeting extends Model
         return 'slug';
     }
 
-    public function scopePublished($query)
+    public function scopeActive($query)
     {
-        return $query->where('status', true);
+        return $query->where('status', "active");
     }
 
-    public function scopeUnpublish($query)
+    public function scopeCompleted($query)
     {
-        return $query->where('status', false);
+        return $query->where('status', "completed");
     }
-    
+
+    public function scopeCanceled($query)
+    {
+        return $query->where('status', "canceled");
+    }
+
+    public function scopeAssembly($query)
+    {
+        return $query->where('type', true);
+    }
+
+    public function scopeCommittee($query)
+    {
+        return $query->where('type', false);
+    }
 }
