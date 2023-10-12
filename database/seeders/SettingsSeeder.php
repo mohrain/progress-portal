@@ -23,6 +23,8 @@ class SettingsSeeder extends Seeder
             'phone' => '०९१-५२२४८९',
             'email' => ' pradeshsabha7@gmail.com',
             'website' => 'http://pga.sudurpashchim.gov.np/',
+            'twitter' => 'https://twitter.com/pradeshsabha7',
+            'youtube' => 'https://www.youtube.com/@sudurpaschimpradeshsabha6853',
             
             // 'letter_font_size' => '16px',
             // 'letter_application_recipient' => '<div><div>श्रीमान् प्रमुख प्रशासकीय अधिकृत ज्यू,</div>
