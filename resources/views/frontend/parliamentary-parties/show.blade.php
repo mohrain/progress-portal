@@ -12,8 +12,8 @@
                         <tr >
                             <th rowspan="2">क्र.सं.</th>
                             <th rowspan="2">राजनीतिक दल</th>
-                            <th colspan="3">महिला</th>
-                            <th colspan="3">पुरुष</th>
+                            <th colspan="3" class="text-center">महिला</th>
+                            <th colspan="3" class="text-center">पुरुष</th>
                             <th rowspan="2">जम्मा</th>
                         </tr>
                         <tr >
