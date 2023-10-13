@@ -12,6 +12,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ParliamentaryPartyController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostCategoryMenuController;
 use App\Http\Controllers\PostController;
@@ -34,7 +35,6 @@ Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('post-categories/{postCategory}', [PostCategoryController::class, 'show'])->name('post-categories.show');
 Route::get('bill-types/{billType}', [BillTypeController::class, 'show'])->name('bill-types.show');
 Route::get('faqs', [FrequentlyAskedQuestionController::class, 'frontend'])->name('faq.frontend');
-
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
@@ -106,23 +106,29 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('modal-images/{modalImage}', [ModalImageController::class, 'update'])->name('modal-images.update');
     Route::delete('modal-images/{modalImage}', [ModalImageController::class, 'destroy'])->name('modal-images.destroy');
 
+    //faq
+    Route::get('faq', [FrequentlyAskedQuestionController::class, 'index'])->name('faq.index');
+    Route::get('faq/create', [FrequentlyAskedQuestionController::class, 'create'])->name('faq.create');
+    Route::post('faq', [FrequentlyAskedQuestionController::class, 'store'])->name('faq.store');
+    Route::put('faq/sort', [FrequentlyAskedQuestionController::class, 'sort'])->name('faq.sort');
+    Route::get('faq/{frequentlyAskedQuestion}/edit', [FrequentlyAskedQuestionController::class, 'edit'])->name('faq.edit');
+    Route::put('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'update'])->name('faq.update');
+    Route::delete('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'destroy'])->name('faq.destroy');
 
-      //faq
-      Route::get('faq', [FrequentlyAskedQuestionController::class, 'index'])->name('faq.index');
-      Route::get('faq/create', [FrequentlyAskedQuestionController::class, 'create'])->name('faq.create');
-      Route::post('faq', [FrequentlyAskedQuestionController::class, 'store'])->name('faq.store');
-      Route::put('faq/sort', [FrequentlyAskedQuestionController::class, 'sort'])->name('faq.sort');
-      Route::get('faq/{frequentlyAskedQuestion}/edit', [FrequentlyAskedQuestionController::class, 'edit'])->name('faq.edit');
-      Route::put('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'update'])->name('faq.update');
-      Route::delete('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'destroy'])->name('faq.destroy');
-
-      
     //Bidhayak types
     Route::get('bill-types', [BillTypeController::class, 'index'])->name('bill-types.index');
     Route::post('bill-types', [BillTypeController::class, 'store'])->name('bill-types.store');
     Route::get('bill-types/{billType}/edit', [BillTypeController::class, 'edit'])->name('bill-types.edit');
     Route::put('bill-types/{billType}', [BillTypeController::class, 'update'])->name('bill-types.update');
     Route::delete('bill-types/{billType}', [BillTypeController::class, 'destroy'])->name('bill-types.destroy');
+    
+    //parliamentary-parties
+    Route::get('parliamentary-parties', [ParliamentaryPartyController::class, 'index'])->name('parliamentary-parties.index');
+    Route::put('parliamentary-parties/sort', [ParliamentaryPartyController::class, 'sort'])->name('parliamentary-parties.sort');
+    Route::post('parliamentary-parties', [ParliamentaryPartyController::class, 'store'])->name('parliamentary-parties.store');
+    Route::get('parliamentary-parties/{parliamentaryParty}/edit', [ParliamentaryPartyController::class, 'edit'])->name('parliamentary-parties.edit');
+    Route::put('parliamentary-parties/{parliamentaryParty}', [ParliamentaryPartyController::class, 'update'])->name('parliamentary-parties.update');
+    Route::delete('parliamentary-parties/{parliamentaryParty}', [ParliamentaryPartyController::class, 'destroy'])->name('parliamentary-parties.destroy');
 
     //meeting
     Route::get('meetings', [MeetingController::class, 'index'])->name('meetings.index');
@@ -131,7 +137,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('meetings/{meeting}', [MeetingController::class, 'update'])->name('meetings.update');
     Route::delete('meetings/{meeting}', [MeetingController::class, 'destroy'])->name('meetings.destroy');
 
-    
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
     Route::get('suchi/applications', [SuchiController::class, 'applications'])->name('suchi.applications');

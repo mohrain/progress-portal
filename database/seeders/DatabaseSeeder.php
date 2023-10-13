@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PageSeeder::class);
         $this->call(PostCategorySeeder::class);
         $this->call(BillTypeSeeder::class);
+        $this->call(ParliamentaryPartySeeder::class);
 
         if (app()->environment() == 'production') {
         } else {
