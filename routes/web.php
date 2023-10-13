@@ -118,8 +118,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'update'])->name('faq.update');
     Route::delete('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'destroy'])->name('faq.destroy');
 
-<<<<<<< HEAD
-=======
     //faq
     Route::get('faq', [FrequentlyAskedQuestionController::class, 'index'])->name('faq.index');
     Route::get('faq/create', [FrequentlyAskedQuestionController::class, 'create'])->name('faq.create');
@@ -130,7 +128,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::delete('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'destroy'])->name('faq.destroy');
 
 
->>>>>>> a7a7bf8d3d0fca58f32e056aa90e78df48e2b8c3
     //Bidhayak types
     Route::get('bill-types', [BillTypeController::class, 'index'])->name('bill-types.index');
     Route::post('bill-types', [BillTypeController::class, 'store'])->name('bill-types.store');
@@ -153,8 +150,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('meetings/{meeting}', [MeetingController::class, 'update'])->name('meetings.update');
     Route::delete('meetings/{meeting}', [MeetingController::class, 'destroy'])->name('meetings.destroy');
 
-<<<<<<< HEAD
-=======
 
     // Committee Routes
     Route::get('committees', [CommitteeController::class, 'index'])->name('committee.index');
@@ -182,7 +177,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('committees/{committee}/activities/{activity}', [CommitteeActivitycontroller::class, 'updateActivity'])->name('committee.activities.update');
 
 
->>>>>>> a7a7bf8d3d0fca58f32e056aa90e78df48e2b8c3
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
     Route::get('suchi/applications', [SuchiController::class, 'applications'])->name('suchi.applications');
