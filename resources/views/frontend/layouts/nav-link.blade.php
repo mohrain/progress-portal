@@ -9,14 +9,13 @@
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li><a class="dropdown-item" href="{{ route('pages.show', 'parathasha-sabha-paracaya') }}">प्रदेश सभा परिचय</a>
         </li>
-        <li>
-            <hr class="dropdown-divider">
-        </li>
+        <hr class="dropdown-divider">
         <li><a class="dropdown-item" href="#">पदाधिकारीहरु</a></li>
-        <li>
-            <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item" href="#">संसदीयदलहरु</a></li>
+        <hr class="dropdown-divider">
+        <li><a class="dropdown-item" href="{{ route('parliamentary-parties.frontend') }}">संसदीयदलहरु</a></li>
+        <hr class="dropdown-divider">
+        <li><a class="dropdown-item" href="#">पुर्व पदाधिकारीहरु</a></li>
+
     </ul>
 </li>
 

@@ -108,4 +108,11 @@ class ParliamentaryPartyController extends Controller
 
         return response()->json(['message' => 'Parliamentary Party has been sorted'], 200);
     }
+    public function frontend()
+    {
+        $parliamentaryPartys = ParliamentaryParty::published()
+            ->orderBy('position')
+            ->get();
+        return view('frontend.parliamentary-parties.show', compact('parliamentaryPartys'));
+    }
 }

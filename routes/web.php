@@ -38,6 +38,7 @@ Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('post-categories/{postCategory}', [PostCategoryController::class, 'show'])->name('post-categories.show');
 Route::get('bill-types/{billType}', [BillTypeController::class, 'show'])->name('bill-types.show');
 Route::get('faqs', [FrequentlyAskedQuestionController::class, 'frontend'])->name('faq.frontend');
+Route::get('parliamentary-parties', [ParliamentaryPartyController::class, 'frontend'])->name('parliamentary-parties.frontend');
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
@@ -127,14 +128,13 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'update'])->name('faq.update');
     Route::delete('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'destroy'])->name('faq.destroy');
 
-
     //Bidhayak types
     Route::get('bill-types', [BillTypeController::class, 'index'])->name('bill-types.index');
     Route::post('bill-types', [BillTypeController::class, 'store'])->name('bill-types.store');
     Route::get('bill-types/{billType}/edit', [BillTypeController::class, 'edit'])->name('bill-types.edit');
     Route::put('bill-types/{billType}', [BillTypeController::class, 'update'])->name('bill-types.update');
     Route::delete('bill-types/{billType}', [BillTypeController::class, 'destroy'])->name('bill-types.destroy');
-    
+
     //parliamentary-parties
     Route::get('parliamentary-parties', [ParliamentaryPartyController::class, 'index'])->name('parliamentary-parties.index');
     Route::put('parliamentary-parties/sort', [ParliamentaryPartyController::class, 'sort'])->name('parliamentary-parties.sort');
@@ -149,7 +149,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('meetings/{meeting}/edit', [MeetingController::class, 'edit'])->name('meetings.edit');
     Route::put('meetings/{meeting}', [MeetingController::class, 'update'])->name('meetings.update');
     Route::delete('meetings/{meeting}', [MeetingController::class, 'destroy'])->name('meetings.destroy');
-
 
     // Committee Routes
     Route::get('committees', [CommitteeController::class, 'index'])->name('committee.index');
@@ -175,7 +174,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::post('committees/{committee}/activities', [CommitteeActivitycontroller::class, 'storeActivity'])->name('committee.activities.store');
     Route::get('committees/{committee}/activities/{activity}/edit', [CommitteeActivitycontroller::class, 'editActivity'])->name('committee.activities.edit');
     Route::put('committees/{committee}/activities/{activity}', [CommitteeActivitycontroller::class, 'updateActivity'])->name('committee.activities.update');
-
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
