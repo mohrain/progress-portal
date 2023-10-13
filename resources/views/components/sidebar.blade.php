@@ -1,7 +1,8 @@
-<div class="bg-white light-shadow rounded font-noto" style="height: 100%;">
+<div class="bg-white light-shadow rounded font-noto" style="overflow-y: scroll;">
     <div class="p-2 text-center rounded">
         <div class="mun-title-card">
-            <img class="img-reponsive" src="{{ asset(config('constants.nep_gov.logo_sm')) }}" alt="Nepal Government Logo" height="50px">
+            <img class="img-reponsive" src="{{ asset(config('constants.nep_gov.logo_sm')) }}" alt="Nepal Government Logo"
+                height="50px">
             <div class="mt-2">
                 <div>{{ settings('app_name') }}</div>
                 <div>{{ settings('office_name') }}</div>
@@ -85,11 +86,12 @@
             @endhasrole --}}
 
             @can('user.*')
-            <li class="nav-item {{ setActive('user.index') }} {{ setActive('user.create') }} {{ setActive('user.edit') }}">
-                <a class="nav-link" href="{{ route('user.index') }}">
-                    <span class=""><i class="fa fa-users"></i></span>प्रयोगकर्ताहरू
-                </a>
-            </li>
+                <li
+                    class="nav-item {{ setActive('user.index') }} {{ setActive('user.create') }} {{ setActive('user.edit') }}">
+                    <a class="nav-link" href="{{ route('user.index') }}">
+                        <span class=""><i class="fa fa-users"></i></span>प्रयोगकर्ताहरू
+                    </a>
+                </li>
             @endcan
             <li class="nav-item">
                 <a class="nav-link" href="">
@@ -111,12 +113,17 @@
                     <span class="text-success"></span>विधयेक प्रकार
                 </a>
             </li>
-            @hasanyrole('super-admin|admin')
-            <li class="nav-item {{ setActive('settings.index') }}">
-                <a class="nav-link" href="{{ route('settings.index') }}">
-                    <span class="text-success"></span>एप सेटिङहरू
+            <li class="nav-item {{ setActive('parliamentary-parties.index') }}">
+                <a class="nav-link" href="{{ route('parliamentary-parties.index') }}">
+                    <span class="text-success"></span>संसदीय दलहरु
                 </a>
             </li>
+            @hasanyrole('super-admin|admin')
+                <li class="nav-item {{ setActive('settings.index') }}">
+                    <a class="nav-link" href="{{ route('settings.index') }}">
+                        <span class="text-success"></span>एप सेटिङहरू
+                    </a>
+                </li>
             @endhasrole
 
             {{-- @hasanyrole('super-admin|admin')
@@ -165,11 +172,11 @@
             </li> --}}
 
             @hasanyrole('super-admin')
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.logs') }}" target="_blank">
-                    <span class="text-danger"><i class="fas fa-exclamation-triangle"></i></span>लग प्रणाली
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.logs') }}" target="_blank">
+                        <span class="text-danger"><i class="fas fa-exclamation-triangle"></i></span>लग प्रणाली
+                    </a>
+                </li>
             @endhasanyrole
 
         </ul>
