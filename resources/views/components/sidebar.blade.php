@@ -1,8 +1,7 @@
 <div class="bg-white light-shadow rounded font-noto" style="height: 100%;">
     <div class="p-2 text-center rounded">
         <div class="mun-title-card">
-            <img class="img-reponsive" src="{{ asset(config('constants.nep_gov.logo_sm')) }}" alt="Nepal Government Logo"
-                height="50px">
+            <img class="img-reponsive" src="{{ asset(config('constants.nep_gov.logo_sm')) }}" alt="Nepal Government Logo" height="50px">
             <div class="mt-2">
                 <div>{{ settings('app_name') }}</div>
                 <div>{{ settings('office_name') }}</div>
@@ -47,8 +46,15 @@
                     <span class="text-warning"><i class="bi bi-question-lg"></i></span>प्राय: सोधिने प्रश्नहरू
                 </a>
             </li>
+            <li class="nav-item {{ setActive('posts.index') }}">
+                <a href="{{ route('committee.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="fa fa-plus"></i></span>समिति
+                </a>
+            </li>
 
             {{-- <li class="nav-item {{ setActive('suchi.applications') }}">
+
+            <li class="nav-item {{ setActive('suchi.applications') }}">
                 <a href="{{ route('suchi.applications') }}" aria-expanded="false" class="nav-link">
                     <span class="text-warning"><i class="fas fa-clipboard"></i></span>आवेदन फारामहरु
                 </a>
@@ -79,12 +85,11 @@
             @endhasrole --}}
 
             @can('user.*')
-                <li
-                    class="nav-item {{ setActive('user.index') }} {{ setActive('user.create') }} {{ setActive('user.edit') }}">
-                    <a class="nav-link" href="{{ route('user.index') }}">
-                        <span class=""><i class="fa fa-users"></i></span>प्रयोगकर्ताहरू
-                    </a>
-                </li>
+            <li class="nav-item {{ setActive('user.index') }} {{ setActive('user.create') }} {{ setActive('user.edit') }}">
+                <a class="nav-link" href="{{ route('user.index') }}">
+                    <span class=""><i class="fa fa-users"></i></span>प्रयोगकर्ताहरू
+                </a>
+            </li>
             @endcan
             <li class="nav-item">
                 <a class="nav-link" href="">
@@ -107,18 +112,18 @@
                 </a>
             </li>
             @hasanyrole('super-admin|admin')
-                <li class="nav-item {{ setActive('settings.index') }}">
-                    <a class="nav-link" href="{{ route('settings.index') }}">
-                        <span class="text-success"></span>एप सेटिङहरू
-                    </a>
-                </li>
+            <li class="nav-item {{ setActive('settings.index') }}">
+                <a class="nav-link" href="{{ route('settings.index') }}">
+                    <span class="text-success"></span>एप सेटिङहरू
+                </a>
+            </li>
             @endhasrole
 
             {{-- @hasanyrole('super-admin|admin')
             <li class="nav-item {{ setActive('fiscal-year.*') }}">
-                <a class="nav-link" href="{{route('fiscal-year.index')}}">
-                    <span class="amber-text"><i class="fa fa-calendar-alt"></i></span>@lang('navigation.fiscal_year')
-                </a>
+            <a class="nav-link" href="{{route('fiscal-year.index')}}">
+                <span class="amber-text"><i class="fa fa-calendar-alt"></i></span>@lang('navigation.fiscal_year')
+            </a>
             </li>
             @endhasanyrole --}}
 
@@ -160,11 +165,11 @@
             </li> --}}
 
             @hasanyrole('super-admin')
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.logs') }}" target="_blank">
-                        <span class="text-danger"><i class="fas fa-exclamation-triangle"></i></span>लग प्रणाली
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.logs') }}" target="_blank">
+                    <span class="text-danger"><i class="fas fa-exclamation-triangle"></i></span>लग प्रणाली
+                </a>
+            </li>
             @endhasanyrole
 
         </ul>

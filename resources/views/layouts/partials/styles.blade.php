@@ -1,8 +1,10 @@
 <link rel="icon" href="{{ asset(config('constants.nep_gov.logo_sm')) }}">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-<link href="{{ asset('assets/mdb/css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ asset('assets/mdb/css/mdb.min.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+{{-- <link href="{{ asset('assets/mdb/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
+{{-- <link href="{{ asset('assets/mdb/css/mdb.min.css') }}" rel="stylesheet"> --}}
+
 <style>
     @font-face {
         font-family: Kalimati;
@@ -78,6 +80,7 @@
         position: relative;
         margin: 2px;
     }
+
 </style>
 <link rel="stylesheet" href="{{ asset('assets/css/utilities.css') }}">
 <link href="{{ asset('assets/mdb/css/addons/datatables.min.css') }}" rel="stylesheet">

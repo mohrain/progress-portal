@@ -4,6 +4,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\BillTypeController;
 use App\Http\Controllers\CarouselImageController;
+use App\Http\Controllers\CommitteeActivitycontroller;
+use App\Http\Controllers\CommitteeController;
+use App\Http\Controllers\CommitteeNoticecontroller;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FrequentlyAskedQuestionController;
 use App\Http\Controllers\FrontendController;
@@ -115,6 +118,19 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'update'])->name('faq.update');
     Route::delete('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'destroy'])->name('faq.destroy');
 
+<<<<<<< HEAD
+=======
+    //faq
+    Route::get('faq', [FrequentlyAskedQuestionController::class, 'index'])->name('faq.index');
+    Route::get('faq/create', [FrequentlyAskedQuestionController::class, 'create'])->name('faq.create');
+    Route::post('faq', [FrequentlyAskedQuestionController::class, 'store'])->name('faq.store');
+    Route::put('faq/sort', [FrequentlyAskedQuestionController::class, 'sort'])->name('faq.sort');
+    Route::get('faq/{frequentlyAskedQuestion}/edit', [FrequentlyAskedQuestionController::class, 'edit'])->name('faq.edit');
+    Route::put('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'update'])->name('faq.update');
+    Route::delete('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'destroy'])->name('faq.destroy');
+
+
+>>>>>>> a7a7bf8d3d0fca58f32e056aa90e78df48e2b8c3
     //Bidhayak types
     Route::get('bill-types', [BillTypeController::class, 'index'])->name('bill-types.index');
     Route::post('bill-types', [BillTypeController::class, 'store'])->name('bill-types.store');
@@ -137,6 +153,36 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('meetings/{meeting}', [MeetingController::class, 'update'])->name('meetings.update');
     Route::delete('meetings/{meeting}', [MeetingController::class, 'destroy'])->name('meetings.destroy');
 
+<<<<<<< HEAD
+=======
+
+    // Committee Routes
+    Route::get('committees', [CommitteeController::class, 'index'])->name('committee.index');
+    Route::get('committees/create', [CommitteeController::class, 'create'])->name('committee.create');
+    Route::post('committees', [CommitteeController::class, 'store'])->name('committee.store');
+    Route::get('committees/{committee}/general', [CommitteeController::class, 'general'])->name('committee.general');
+    Route::put('committees/{committee}', [CommitteeController::class, 'update'])->name('committee.update');
+    Route::get('committees/{committee}/about', [CommitteeController::class, 'showAboutForm'])->name('committee.show-about-form');
+    Route::post('committees/{committee}/about', [CommitteeController::class, 'saveAbout'])->name('committee.save-about');
+    Route::get('committees/{committee}/responsibility', [CommitteeController::class, 'showResponsibilityForm'])->name('committee.show-responsibility-form');
+    Route::post('committees/{committee}/responsibility', [CommitteeController::class, 'saveResponsibility'])->name('committee.save-responsibility');
+
+    // Committee Notices
+    Route::get('committees/{committee}/notices', [CommitteeNoticecontroller::class, 'notices'])->name('committee.notices');
+    Route::get('committees/{committee}/notices/create', [CommitteeNoticecontroller::class, 'createNoticeForm'])->name('committee.notices.create');
+    Route::post('committees/{committee}/notices', [CommitteeNoticecontroller::class, 'storeNotice'])->name('committee.notices.store');
+    Route::get('committees/{committee}/notices/{notice}/edit', [CommitteeNoticecontroller::class, 'editNotice'])->name('committee.notices.edit');
+    Route::put('committees/{committee}/notices/{notice}', [CommitteeNoticecontroller::class, 'updateNotice'])->name('committee.notices.update');
+
+    // Committee Activities
+    Route::get('committees/{committee}/activities', [CommitteeActivitycontroller::class, 'activities'])->name('committee.activities');
+    Route::get('committees/{committee}/activities/create', [CommitteeActivitycontroller::class, 'createActivityForm'])->name('committee.activities.create');
+    Route::post('committees/{committee}/activities', [CommitteeActivitycontroller::class, 'storeActivity'])->name('committee.activities.store');
+    Route::get('committees/{committee}/activities/{activity}/edit', [CommitteeActivitycontroller::class, 'editActivity'])->name('committee.activities.edit');
+    Route::put('committees/{committee}/activities/{activity}', [CommitteeActivitycontroller::class, 'updateActivity'])->name('committee.activities.update');
+
+
+>>>>>>> a7a7bf8d3d0fca58f32e056aa90e78df48e2b8c3
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
     Route::get('suchi/applications', [SuchiController::class, 'applications'])->name('suchi.applications');
