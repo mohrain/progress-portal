@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BillTypeSeeder::class);
         $this->call(ParliamentaryPartySeeder::class);
         $this->call(ElectionSeeder::class);
+        $this->call(EmployeeDesignationSeeder::class);
 
         if (app()->environment() == 'production') {
         } else {

@@ -124,6 +124,11 @@
                     <span class="text-success"></span>राजनीतिक दल
                 </a>
             </li>
+            <li class="nav-item {{ setActive('employee-designations.index') }}">
+                <a class="nav-link" href="{{ route('employee-designations.index') }}">
+                    <span class="text-success"></span> कर्मचारी पदहरू
+                </a>
+            </li>
             <li class="nav-item {{ setActive('elections.index') }}">
                 <a class="nav-link" href="{{ route('elections.index') }}">
                     <span class="text-success"></span> निर्वाचन वर्षहरू
