@@ -58,6 +58,12 @@
                     <span class="text-success"><i class="bi bi-person-raised-hand"></i></span>सदस्यहरु
                 </a>
             </li>
+            
+            <li class="nav-item {{ setActive('employees.index') }}">
+                <a href="{{ route('employees.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="bi bi-person-vcard"></i></span>कर्मचारीहरु
+                </a>
+            </li>
 
             {{-- <li class="nav-item {{ setActive('suchi.applications') }}">
 
