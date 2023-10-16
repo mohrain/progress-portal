@@ -45,12 +45,13 @@
                         'description' => 'The application name in English',
                     ])
                     @endcomponent
+                    
                 </div>
             @endcomponent
 
-            {{-- Province Details --}}
+            {{-- Office Details --}}
             @component('settings.group', [
-                'title' => 'Province Details',
+                'title' => 'Office Details',
                 'description' => 'The values to be used in the navbar and letter head',
             ])
                 <div>
@@ -58,14 +59,14 @@
                     @component('settings.input', [
                         'label' => 'Office Name',
                         'name' => 'office_name',
-                        'description' => 'The tagline will be used in letter head below Province name',
+                        'description' => 'The tagline will be used in letter head below office name',
                     ])
                     @endcomponent
                     <div class="my-3"></div>
                     @component('settings.input', [
                         'label' => 'Province Name',
                         'name' => 'province_name',
-                        'description' => 'The name of Province to we written in letter head',
+                        'description' => 'The name of Province to we written in Prvince Name',
                     ])
                     @endcomponent
 
