@@ -8,7 +8,7 @@ use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Wildside\Userstamps\Userstamps;
 
-class EmployeeDesignation extends Model
+class Employee extends Model
 {
     use HasFactory, Userstamps, HasSlug;
 
@@ -17,7 +17,7 @@ class EmployeeDesignation extends Model
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('name')
+            ->generateSlugsFrom('name_english')
             ->saveSlugsTo('slug')
             ->doNotGenerateSlugsOnUpdate();
     }
@@ -37,8 +37,13 @@ class EmployeeDesignation extends Model
         return $query->where('status', false);
     }
 
-    public function employees()
+    public function scopePositioned($query, $ascending = true)
     {
-        return $this->hasMany(Employee::class);
+        return $query->orderBy('position', $ascending ? 'asc' : 'desc');
+    }
+
+    public function employeeDesignation()
+    {
+        return $this->belongsTo(EmployeeDesignation::class);
     }
 }

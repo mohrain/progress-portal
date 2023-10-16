@@ -9,6 +9,7 @@ use App\Http\Controllers\CommitteeController;
 use App\Http\Controllers\CommitteeNoticecontroller;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\ElectionController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeDesignationController;
 use App\Http\Controllers\FiscalYearController;
 use App\Http\Controllers\FrequentlyAskedQuestionController;
@@ -196,12 +197,22 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('members/{member}', [MemberController::class, 'update'])->name('members.update');
     Route::delete('members/{member}', [MemberController::class, 'destroy'])->name('members.destroy');
 
-    //Bidhayak types
+    //employee-designations
     Route::get('employee-designations', [EmployeeDesignationController::class, 'index'])->name('employee-designations.index');
     Route::post('employee-designations', [EmployeeDesignationController::class, 'store'])->name('employee-designations.store');
     Route::get('employee-designations/{employeeDesignation}/edit', [EmployeeDesignationController::class, 'edit'])->name('employee-designations.edit');
     Route::put('employee-designations/{employeeDesignation}', [EmployeeDesignationController::class, 'update'])->name('employee-designations.update');
     Route::delete('employee-designations/{employeeDesignation}', [EmployeeDesignationController::class, 'destroy'])->name('employee-designations.destroy');
+
+    //employee
+    Route::get('employees', [EmployeeController::class, 'index'])->name('employees.index');
+    Route::get('employees/create', [EmployeeController::class, 'create'])->name('employees.create');
+    Route::put('employees/sort', [EmployeeController::class, 'sort'])->name('employees.sort');
+    Route::get('employees/search', [EmployeeController::class, 'search'])->name('employees.search');
+    Route::post('employees', [EmployeeController::class, 'store'])->name('employees.store');
+    Route::get('employees/{employee}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
+    Route::put('employees/{employee}', [EmployeeController::class, 'update'])->name('employees.update');
+    Route::delete('employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
