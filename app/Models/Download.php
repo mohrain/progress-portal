@@ -6,13 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-class Activity extends Model
+class Download extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
-
-    public function activitable(): MorphTo
+    public function downloadable(): MorphTo
     {
         return $this->morphTo();
     }

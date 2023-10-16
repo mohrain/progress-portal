@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -25,18 +26,18 @@ class Committee extends Model
             ->doNotGenerateSlugsOnUpdate();
     }
 
-    public function activities()
+    public function notices(): MorphMany
     {
-        return $this->hasMany(Activity::class);
+        return $this->morphMany(Notice::class, 'noticeable')->latest();
     }
 
-    public function notices()
+    public function activities(): MorphMany
     {
-        return $this->hasMany(Notice::class)->latest();
+        return $this->morphMany(Activity::class, 'activitable')->latest();
     }
 
-    public function publications()
+    public function downloads(): MorphMany
     {
-        return $this->hasMany(Publication::class);
+        return $this->morphMany(Download::class, 'downloadable')->latest();
     }
 }

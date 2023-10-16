@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PublicationController extends Controller
+class DownloadController extends Controller
 {
     //
 }

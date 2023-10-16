@@ -59,8 +59,7 @@ class CommitteeController extends Controller
 
     public function saveAbout(Committee $committee, Request $request)
     {
-        return $request;
-        $committee->update($request->about);
+        $committee->update(['about' => $request->about]);
 
         return redirect()->back();
     }
@@ -74,7 +73,7 @@ class CommitteeController extends Controller
 
     public function saveResponsibility(Committee $committee, Request $request)
     {
-        $committee->update($request->responsibilities);
+        $committee->update(['responsibilities' => $request->responsibilities]);
 
         return redirect()->back();
     }
