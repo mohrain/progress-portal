@@ -8,11 +8,14 @@ use App\Http\Controllers\CommitteeActivitycontroller;
 use App\Http\Controllers\CommitteeController;
 use App\Http\Controllers\CommitteeNoticecontroller;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\ElectionController;
+use App\Http\Controllers\FiscalYearController;
 use App\Http\Controllers\FrequentlyAskedQuestionController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MeetingController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ParliamentaryPartyController;
@@ -175,6 +178,23 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('committees/{committee}/activities/{activity}/edit', [CommitteeActivitycontroller::class, 'editActivity'])->name('committee.activities.edit');
     Route::put('committees/{committee}/activities/{activity}', [CommitteeActivitycontroller::class, 'updateActivity'])->name('committee.activities.update');
 
+    //Fiscal year
+    Route::get('elections', [ElectionController::class, 'index'])->name('elections.index');
+    Route::post('elections', [ElectionController::class, 'store'])->name('elections.store');
+    Route::get('elections/{election}/edit', [ElectionController::class, 'edit'])->name('elections.edit');
+    Route::put('elections/{election}', [ElectionController::class, 'update'])->name('elections.update');
+    Route::delete('elections/{election}', [ElectionController::class, 'destroy'])->name('elections.destroy');
+
+    //members
+    Route::get('members', [MemberController::class, 'index'])->name('members.index');
+    Route::get('members/create', [MemberController::class, 'create'])->name('members.create');
+    Route::put('members/sort', [MemberController::class, 'sort'])->name('members.sort');
+    Route::get('members/search', [MemberController::class, 'search'])->name('members.search');
+    Route::post('members', [MemberController::class, 'store'])->name('members.store');
+    Route::get('members/{member}/edit', [MemberController::class, 'edit'])->name('members.edit');
+    Route::put('members/{member}', [MemberController::class, 'update'])->name('members.update');
+    Route::delete('members/{member}', [MemberController::class, 'destroy'])->name('members.destroy');
+
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
     Route::get('suchi/applications', [SuchiController::class, 'applications'])->name('suchi.applications');
@@ -191,11 +211,11 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     // Suchi types route
     Route::resource('suchi-types', SuchiTypeController::class);
 
-    // Fiscal year
-    // Route::get('fiscal-year/{fiscalYear?}', 'FiscalYearController@index')->name('fiscal-year.index');
-    // Route::post('fiscal-year', 'FiscalYearController@store')->name('fiscal-year.store');
-    // Route::put('fiscal-year/{fiscalYear}', 'FiscalYearController@update')->name('fiscal-year.update');
-    // Route::delete('fiscal-year/{fiscalYear}', 'FiscalYearController@destroy')->name('fiscal-year.destroy');
+    // //Fiscal year
+    // Route::get('fiscal-year/{fiscalYear?}', [FiscalYearController::class, 'index'])->name('fiscal-year.index');
+    // Route::post('fiscal-year', [FiscalYearController::class, 'store'])->name('fiscal-year.store');
+    // Route::put('fiscal-year/{fiscalYear}', [FiscalYearController::class, 'update'])->name('fiscal-year.update');
+    // Route::delete('fiscal-year/{fiscalYear}', [FiscalYearController::class, 'destroy'])->name('fiscal-year.destroy');
 
     // Change password
     Route::get('change-password/{user}', [\App\Http\Controllers\UserPasswordController::class, 'form'])->name('password.change.form');

@@ -10,7 +10,7 @@
             </div>
         </div>
     </div>
-    <div id="sidenav-wrapper" class="px-3">
+    <div id="sidenav-wrapper" class="px-3" style="white-space: nowrap;">
         <ul id="sidenav" class="nav flex-column">
             <li class="nav-item {{ setActive('dashboard') }}">
                 <a class="nav-link" href="{{ route('dashboard') }}">
@@ -47,9 +47,15 @@
                     <span class="text-warning"><i class="bi bi-question-lg"></i></span>प्राय: सोधिने प्रश्नहरू
                 </a>
             </li>
-            <li class="nav-item {{ setActive('posts.index') }}">
+            <li class="nav-item {{ setActive('committee.index') }}">
                 <a href="{{ route('committee.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="fa fa-plus"></i></span>समिति
+                </a>
+            </li>
+
+            <li class="nav-item {{ setActive('members.index') }}">
+                <a href="{{ route('members.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="bi bi-person-raised-hand"></i></span>सदस्यहरु
                 </a>
             </li>
 
@@ -115,7 +121,12 @@
             </li>
             <li class="nav-item {{ setActive('parliamentary-parties.index') }}">
                 <a class="nav-link" href="{{ route('parliamentary-parties.index') }}">
-                    <span class="text-success"></span>संसदीय दलहरु
+                    <span class="text-success"></span>राजनीतिक दल
+                </a>
+            </li>
+            <li class="nav-item {{ setActive('elections.index') }}">
+                <a class="nav-link" href="{{ route('elections.index') }}">
+                    <span class="text-success"></span> निर्वाचन वर्षहरू
                 </a>
             </li>
             @hasanyrole('super-admin|admin')

@@ -1,14 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\ParliamentaryParty;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Wildside\Userstamps\Userstamps;
 
-class ParliamentaryParty extends Model
+class Member extends Model
 {
     use HasFactory, Userstamps, HasSlug;
 
@@ -17,7 +18,7 @@ class ParliamentaryParty extends Model
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('name')
+            ->generateSlugsFrom('name_english')
             ->saveSlugsTo('slug')
             ->doNotGenerateSlugsOnUpdate();
     }
@@ -36,13 +37,18 @@ class ParliamentaryParty extends Model
     {
         return $query->where('status', false);
     }
+
     public function scopePositioned($query, $ascending = true)
     {
         return $query->orderBy('position', $ascending ? 'asc' : 'desc');
     }
 
-    public function members()
+    public function election()
     {
-        return $this->hasMany(Member::class);
+        return $this->belongsTo(Election::class);
+    }
+    public function parliamentaryParty()
+    {
+        return $this->belongsTo(ParliamentaryParty::class);
     }
 }
