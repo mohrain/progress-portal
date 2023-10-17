@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Bill;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
@@ -35,5 +36,10 @@ class BillType extends Model
     public function scopeUnpublish($query)
     {
         return $query->where('status', false);
+    }
+
+    public function bills()
+    {
+        return $this->hasMany(Bill::class);
     }
 }

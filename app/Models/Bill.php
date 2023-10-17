@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use App\ParliamentaryParty;
+use App\BillType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Wildside\Userstamps\Userstamps;
 
-class Member extends Model
+class Bill extends Model
 {
     use HasFactory, Userstamps, HasSlug;
 
@@ -18,7 +18,7 @@ class Member extends Model
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('name_english')
+            ->generateSlugsFrom('name')
             ->saveSlugsTo('slug')
             ->doNotGenerateSlugsOnUpdate();
     }
@@ -30,30 +30,32 @@ class Member extends Model
 
     public function scopePublished($query)
     {
-        return $query->where('status', true);
+        return $query->where('active', true);
     }
 
     public function scopeUnpublish($query)
     {
-        return $query->where('status', false);
+        return $query->where('active', false);
+    }
+    public function billType()
+    {
+        return $this->belongsTo(BillType::class);
     }
 
-    public function scopePositioned($query, $ascending = true)
+    public function billCategory()
     {
-        return $query->orderBy('position', $ascending ? 'asc' : 'desc');
+        return $this->belongsTo(BillCategory::class);
     }
 
-    public function election()
+    public function ministry()
     {
-        return $this->belongsTo(Election::class);
-    }
-    public function parliamentaryParty()
-    {
-        return $this->belongsTo(ParliamentaryParty::class);
+        return $this->belongsTo(Ministry::class);
     }
 
-    public function bills()
+    public function member()
     {
-        return $this->hasMany(Bill::class);
+        return $this->belongsTo(Member::class);
     }
+
+
 }

@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="name_english" class="form-label required">Legislator Category</label>
+                                <label for="name_english" class="form-label required">Bill Category</label>
                                 <input type="text" name="name_english"
                                     class="form-control @error('name_english') is-invalid @enderror"
                                     value="{{ old('name_english', $billCategory->name_english) }}" id="name_english">

@@ -22,44 +22,50 @@
                     <span class="text-success"><i class="bi bi-megaphone"></i></span>बैठकहरु
                 </a>
             </li>
-            <li class="nav-item {{ setActive('posts.index') }}">
+            <li class="nav-item {{ setActive('bills.*') }}">
+                <a href="{{ route('bills.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="bi bi-file-earmark-richtext"></i></span>विधेयकहरु
+                </a>
+            </li>
+            <li class="nav-item {{ setActive('posts.*') }}">
                 <a href="{{ route('posts.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="bi bi-list-task"></i></span>पोस्टहरु
                 </a>
             </li>
-            <li class="nav-item {{ setActive('pages.index') }}">
+            
+            <li class="nav-item {{ setActive('pages.*') }}">
                 <a href="{{ route('pages.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="bi bi-file-earmark"></i></span>पेजहरु
                 </a>
             </li>
-            <li class="nav-item {{ setActive('carousel-images.index') }}">
+            <li class="nav-item {{ setActive('carousel-images.*') }}">
                 <a href="{{ route('carousel-images.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="bi bi-file-earmark-slides"></i></span>स्लाइडर फोटोहरु
                 </a>
             </li>
-            <li class="nav-item {{ setActive('modal-images.index') }}">
+            <li class="nav-item {{ setActive('modal-images.*') }}">
                 <a href="{{ route('modal-images.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="bi bi-app-indicator"></i></span>मोडाल फोटोहरु
                 </a>
             </li>
-            <li class="nav-item {{ setActive('faq.index') }}">
+            <li class="nav-item {{ setActive('faq.*') }}">
                 <a href="{{ route('faq.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-warning"><i class="bi bi-question-lg"></i></span>प्राय: सोधिने प्रश्नहरू
                 </a>
             </li>
-            <li class="nav-item {{ setActive('committee.index') }}">
+            <li class="nav-item {{ setActive('committee.*') }}">
                 <a href="{{ route('committee.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="fa fa-plus"></i></span>समिति
                 </a>
             </li>
 
-            <li class="nav-item {{ setActive('members.index') }}">
+            <li class="nav-item {{ setActive('members.*') }}">
                 <a href="{{ route('members.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="bi bi-person-raised-hand"></i></span>सदस्यहरु
                 </a>
             </li>
 
-            <li class="nav-item {{ setActive('employees.index') }}">
+            <li class="nav-item {{ setActive('employees.*') }}">
                 <a href="{{ route('employees.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="bi bi-person-vcard"></i></span>कर्मचारीहरु
                 </a>

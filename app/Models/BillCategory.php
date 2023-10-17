@@ -37,4 +37,9 @@ class BillCategory extends Model
     {
         return $query->where('status', false);
     }
+    
+    public function bills()
+    {
+        return $this->hasMany(Bill::class);
+    }
 }

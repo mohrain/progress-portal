@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\BillCategoryController;
+use App\Http\Controllers\BillController;
 use App\Http\Controllers\BillTypeController;
 use App\Http\Controllers\CarouselImageController;
 use App\Http\Controllers\CommitteeActivitycontroller;
@@ -223,14 +224,22 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('ministries/{ministry}', [MinistryController::class, 'update'])->name('ministries.update');
     Route::delete('ministries/{ministry}', [MinistryController::class, 'destroy'])->name('ministries.destroy');
 
-     //Bidhayak types
-     Route::get('bill-categories', [BillCategoryController::class, 'index'])->name('bill-categories.index');
-     Route::post('bill-categories', [BillCategoryController::class, 'store'])->name('bill-categories.store');
-     Route::get('bill-categories/{billCategory}/edit', [BillCategoryController::class, 'edit'])->name('bill-categories.edit');
-     Route::put('bill-categories/{billCategory}', [BillCategoryController::class, 'update'])->name('bill-categories.update');
-     Route::delete('bill-categories/{billCategory}', [BillCategoryController::class, 'destroy'])->name('bill-categories.destroy');
- 
-     
+    //Bidhayak types
+    Route::get('bill-categories', [BillCategoryController::class, 'index'])->name('bill-categories.index');
+    Route::post('bill-categories', [BillCategoryController::class, 'store'])->name('bill-categories.store');
+    Route::get('bill-categories/{billCategory}/edit', [BillCategoryController::class, 'edit'])->name('bill-categories.edit');
+    Route::put('bill-categories/{billCategory}', [BillCategoryController::class, 'update'])->name('bill-categories.update');
+    Route::delete('bill-categories/{billCategory}', [BillCategoryController::class, 'destroy'])->name('bill-categories.destroy');
+
+    //bills
+    Route::get('bills', [BillController::class, 'index'])->name('bills.index');
+    Route::get('bills/create', [BillController::class, 'create'])->name('bills.create');
+    Route::get('bills/search', [BillController::class, 'search'])->name('bills.search');
+    Route::post('bills', [BillController::class, 'store'])->name('bills.store');
+    Route::get('bills/{bill}/edit', [BillController::class, 'edit'])->name('bills.edit');
+    Route::put('bills/{bill}', [BillController::class, 'update'])->name('bills.update');
+    Route::delete('bills/{bill}', [BillController::class, 'destroy'])->name('bills.destroy');
+
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
     Route::get('suchi/applications', [SuchiController::class, 'applications'])->name('suchi.applications');
