@@ -13,7 +13,7 @@
                 <table class="table table-md table-bordered table-striped  table-hover kalimati-font" >
                     <thead>
                         <th>अधिवेशन</th>
-                        <th>दर्ता नं.</th>
+                        <th style="white-space: nowrap;">दर्ता नं.</th>
                         <th>दर्ता मिति</th>
                         <th>शीर्षक</th>
                         <th>मन्त्रालय</th>
@@ -37,7 +37,7 @@
                                 </td>
                                 <td>
                                     @if ($bill->suggestion_in_the_bill == true)
-                                        <a href="#" class="btn btn-sm btn-success">
+                                        <a href="{{route('bill-suggestions.create',$bill)}}" class="btn btn-sm btn-success">
                                             सुझाप दिनुहोस्
                                         </a>
                                     @endif

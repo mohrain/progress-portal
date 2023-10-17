@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePostRequest extends FormRequest
+class StoreBillSuggestionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,12 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
-            'post_category_id' => 'required',
-            'feature_image' => 'nullable|file|max:2024',
-            'descriptions' => 'nullable',
-            'status' => 'required',
-            'name' => 'nullable',
-            'file.*' => 'nullable|file|max:5000',
+            'name' => 'required',
+            'email' => 'nullable',
+            'contact_number' => 'required',
+            'address' => 'required',
+            'message' => 'required',
+            'file' => 'nullable|file|max:2000',
         ];
     }
 }

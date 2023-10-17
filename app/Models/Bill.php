@@ -57,5 +57,8 @@ class Bill extends Model
         return $this->belongsTo(Member::class);
     }
 
-
+    public function billSuggestions()
+    {
+        return $this->hasMany(BillSuggestion::class);
+    }
 }

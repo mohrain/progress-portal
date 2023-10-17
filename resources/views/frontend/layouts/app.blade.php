@@ -16,7 +16,8 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('assets/nepali-datepicker-v4/css/nepali.datepicker.v4.0.1.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -46,6 +47,11 @@
             object-fit: cover;
             position: relative;
             /* margin: 20px; */
+        }
+
+        label.required:after {
+            content: ' *';
+            color: #fa5661;
         }
     </style>
     @stack('styles')

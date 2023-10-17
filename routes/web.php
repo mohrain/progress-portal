@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\BillCategoryController;
 use App\Http\Controllers\BillController;
+use App\Http\Controllers\BillSuggestionController;
 use App\Http\Controllers\BillTypeController;
 use App\Http\Controllers\CarouselImageController;
 use App\Http\Controllers\CommitteeActivitycontroller;
@@ -48,6 +49,8 @@ Route::get('faqs', [FrequentlyAskedQuestionController::class, 'frontend'])->name
 Route::get('parliamentary-parties', [ParliamentaryPartyController::class, 'frontend'])->name('parliamentary-parties.frontend');
 Route::get('bill-types/{billType}', [BillTypeController::class, 'show'])->name('bill-types.show');
 Route::get('bills/{bill}', [BillController::class, 'show'])->name('bills.show');
+Route::get('bill-suggestions/{bill}', [BillSuggestionController::class, 'create'])->name('bill-suggestions.create');
+Route::post('bill-suggestions/{bill}', [BillSuggestionController::class, 'store'])->name('bill-suggestions.store');
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
@@ -231,6 +234,10 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('bills/{bill}/edit', [BillController::class, 'edit'])->name('bills.edit');
     Route::put('bills/{bill}', [BillController::class, 'update'])->name('bills.update');
     Route::delete('bills/{bill}', [BillController::class, 'destroy'])->name('bills.destroy');
+
+    //bill-suggestions
+    Route::get('bill-suggestions/{bill}/list', [BillSuggestionController::class, 'index'])->name('bill-suggestions.index');
+    Route::delete('bill-suggestions/{bill}', [BillSuggestionController::class, 'destroy'])->name('bill-suggestions.destroy');
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
