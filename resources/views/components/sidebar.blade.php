@@ -58,7 +58,7 @@
                     <span class="text-success"><i class="bi bi-person-raised-hand"></i></span>सदस्यहरु
                 </a>
             </li>
-            
+
             <li class="nav-item {{ setActive('employees.index') }}">
                 <a href="{{ route('employees.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="bi bi-person-vcard"></i></span>कर्मचारीहरु
@@ -123,6 +123,11 @@
             <li class="nav-item {{ setActive('bill-types.index') }}">
                 <a class="nav-link" href="{{ route('bill-types.index') }}">
                     <span class="text-success"></span>विधयेक प्रकार
+                </a>
+            </li>
+            <li class="nav-item {{ setActive('bill-categories.index') }}">
+                <a class="nav-link" href="{{ route('bill-categories.index') }}">
+                    <span class="text-success"></span>विधयेक वर्ग
                 </a>
             </li>
             <li class="nav-item {{ setActive('ministries.index') }}">
