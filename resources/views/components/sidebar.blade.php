@@ -125,9 +125,14 @@
                     <span class="text-success"></span>विधयेक प्रकार
                 </a>
             </li>
+            <li class="nav-item {{ setActive('ministries.index') }}">
+                <a class="nav-link" href="{{ route('ministries.index') }}">
+                    <span class="text-success"></span>मन्त्रालयहरु
+                </a>
+            </li>
             <li class="nav-item {{ setActive('parliamentary-parties.index') }}">
                 <a class="nav-link" href="{{ route('parliamentary-parties.index') }}">
-                    <span class="text-success"></span>राजनीतिक दल
+                    <span class="text-success"></span>राजनीतिक दलहरु
                 </a>
             </li>
             <li class="nav-item {{ setActive('employee-designations.index') }}">

@@ -18,6 +18,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\MinistryController;
 use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ParliamentaryPartyController;
@@ -213,6 +214,13 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('employees/{employee}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
     Route::put('employees/{employee}', [EmployeeController::class, 'update'])->name('employees.update');
     Route::delete('employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
+
+    //Bidhayak types
+    Route::get('ministries', [MinistryController::class, 'index'])->name('ministries.index');
+    Route::post('ministries', [MinistryController::class, 'store'])->name('ministries.store');
+    Route::get('ministries/{ministry}/edit', [MinistryController::class, 'edit'])->name('ministries.edit');
+    Route::put('ministries/{ministry}', [MinistryController::class, 'update'])->name('ministries.update');
+    Route::delete('ministries/{ministry}', [MinistryController::class, 'destroy'])->name('ministries.destroy');
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
