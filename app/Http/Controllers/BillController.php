@@ -65,7 +65,7 @@ class BillController extends Controller
      */
     public function show(Bill $bill)
     {
-        //
+        return view('frontend.bills.show', compact('bill'));
     }
 
     /**

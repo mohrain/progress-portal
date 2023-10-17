@@ -44,9 +44,10 @@ Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('post-categories/{postCategory}', [PostCategoryController::class, 'show'])->name('post-categories.show');
-Route::get('bill-types/{billType}', [BillTypeController::class, 'show'])->name('bill-types.show');
 Route::get('faqs', [FrequentlyAskedQuestionController::class, 'frontend'])->name('faq.frontend');
 Route::get('parliamentary-parties', [ParliamentaryPartyController::class, 'frontend'])->name('parliamentary-parties.frontend');
+Route::get('bill-types/{billType}', [BillTypeController::class, 'show'])->name('bill-types.show');
+Route::get('bills/{bill}', [BillController::class, 'show'])->name('bills.show');
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
@@ -117,15 +118,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('modal-images/{modalImage}/edit', [ModalImageController::class, 'edit'])->name('modal-images.edit');
     Route::put('modal-images/{modalImage}', [ModalImageController::class, 'update'])->name('modal-images.update');
     Route::delete('modal-images/{modalImage}', [ModalImageController::class, 'destroy'])->name('modal-images.destroy');
-
-    //faq
-    Route::get('faq', [FrequentlyAskedQuestionController::class, 'index'])->name('faq.index');
-    Route::get('faq/create', [FrequentlyAskedQuestionController::class, 'create'])->name('faq.create');
-    Route::post('faq', [FrequentlyAskedQuestionController::class, 'store'])->name('faq.store');
-    Route::put('faq/sort', [FrequentlyAskedQuestionController::class, 'sort'])->name('faq.sort');
-    Route::get('faq/{frequentlyAskedQuestion}/edit', [FrequentlyAskedQuestionController::class, 'edit'])->name('faq.edit');
-    Route::put('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'update'])->name('faq.update');
-    Route::delete('faq/{frequentlyAskedQuestion}', [FrequentlyAskedQuestionController::class, 'destroy'])->name('faq.destroy');
 
     //faq
     Route::get('faq', [FrequentlyAskedQuestionController::class, 'index'])->name('faq.index');

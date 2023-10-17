@@ -54,12 +54,11 @@ class BillTypeController extends Controller
      */
     public function show(BillType $billType)
     {
-        //     $teams = $billType
-        //     ->teams()
-        //     ->published()
-        //     ->positioned()
-        //     ->get();
-        // return view('frontend.bill-types.show', compact('bil$billType','teams'));
+        $bills = $billType
+            ->bills()
+            ->latest()
+            ->paginate(50);
+        return view('frontend.bill-types.show', compact('billType', 'bills'));
     }
 
     /**

@@ -73,9 +73,9 @@
                                                         <i class="fas fa-ellipsis-v"></i>
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-arrow">
-                                                        {{-- <a class="dropdown-item "
+                                                        <a class="dropdown-item "
                                                         href="{{ route('bills.show', $bill) }}">Show</a>
-                                                         --}}
+                                                        
                                                         <a class="dropdown-item "
                                                             href="{{ route('bills.edit', $bill) }}">Edit</a>
 
