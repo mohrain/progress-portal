@@ -54,7 +54,7 @@ class BillController extends Controller
         Bill::create($data);
         return redirect()
             ->route('bills.index')
-            ->with('success', 'Bill Entry Created');
+            ->with('success', 'विधयेक सुरक्षित भयो');
     }
 
     /**
@@ -105,7 +105,7 @@ class BillController extends Controller
         $bill->update($data);
         return redirect()
             ->route('bills.index')
-            ->with('success', 'Bill Entry updated');
+            ->with('success', 'विधयेक सम्पादन भयो');
     }
 
     /**
@@ -125,6 +125,31 @@ class BillController extends Controller
         $bill->delete();
         return redirect()
             ->back()
-            ->with('success', 'Bill Deleted');
+            ->with('success', 'विधयेक हटाइयो');
+    }
+
+    public function entryBillFile(Bill $bill)
+    {
+        if ($bill->entry_bill_file) {
+            Storage::delete($bill->entry_bill_file);
+            $bill->update([
+                'entry_bill_file' => '',
+            ]);
+        }
+        return redirect()
+            ->back()
+            ->with('success', 'दर्ता विधेयक फाइल हटाइयो');
+    }
+    public function certificationBillFile(Bill $bill)
+    {
+        if ($bill->certification_bill_file) {
+            Storage::delete($bill->certification_bill_file);
+            $bill->update([
+                'certification_bill_file' => '',
+            ]);
+        }
+        return redirect()
+            ->back()
+            ->with('success', 'प्रमाणीकरण विधेयक फाइल हटाइयो');
     }
 }

@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
-        @isset($title) {{ $title }} | @endisset {{ config('app.name', __('appname')) }}
+        @isset($title)
+            {{ $title }} |
+        @endisset {{ config('app.name', __('appname')) }}
     </title>
 
     @include('layouts.partials.styles')
     @stack('styles')
 
 </head>
+
 <body class="sidebar-opened">
     <div id="app">
         @guest
-        @yield('content')
+            @yield('content')
         @endguest
 
         @auth
-        <div id="sidebar" class="bg-deep-blu p-2" data-collapsed="false">
-            <x-sidebar></x-sidebar>
-        </div>
-        <div id="content-area" class="flex-grow-1 px-md-3">
-            <x-navbar></x-navbar>
-            <div class="p-2">
-                @yield('breadcrumb')
+            <div id="sidebar" class="bg-deep-blu p-2" data-collapsed="false">
+                <x-sidebar></x-sidebar>
             </div>
-            @yield('content')
-        </div>
+            <div id="content-area" class="flex-grow-1 px-md-3">
+                <x-navbar></x-navbar>
+                <div class="p-2">
+                    @yield('breadcrumb')
+                </div>
+                <div class="container-fluid">
+                    @include('alerts.all')
+                </div>
+                @yield('content')
+            </div>
         @endauth
 
     </div>
@@ -84,12 +91,13 @@
                 });
             }
 
-            var today = NepaliFunctions.ConvertDateFormat(NepaliFunctions.GetCurrentBsDate('YYYY-MM-DD'), 'YYYY-MM-DD');
+            var today = NepaliFunctions.ConvertDateFormat(NepaliFunctions.GetCurrentBsDate('YYYY-MM-DD'),
+                'YYYY-MM-DD');
             $(".date-today[value='']").val(today);
 
         });
-
     </script>
     @stack('scripts')
 </body>
+
 </html>

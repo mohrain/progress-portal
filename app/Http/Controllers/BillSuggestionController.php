@@ -97,6 +97,6 @@ class BillSuggestionController extends Controller
         $billSuggestion->delete();
         return redirect()
             ->back()
-            ->with('success', 'Bill Suggestions Deleted');
+            ->with('success', 'सुझाव मेटाइयो');
     }
 }

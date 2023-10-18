@@ -234,6 +234,8 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('bills/{bill}/edit', [BillController::class, 'edit'])->name('bills.edit');
     Route::put('bills/{bill}', [BillController::class, 'update'])->name('bills.update');
     Route::delete('bills/{bill}', [BillController::class, 'destroy'])->name('bills.destroy');
+    Route::get('bills/{bill}/entry-bill-file', [BillController::class, 'entryBillFile'])->name('bills.entryBillFile');
+    Route::get('bills/{bill}/certification-bill-file', [BillController::class, 'certificationBillFile'])->name('bills.certificationBillFile');
 
     //bill-suggestions
     Route::get('bill-suggestions/{bill}/list', [BillSuggestionController::class, 'index'])->name('bill-suggestions.index');

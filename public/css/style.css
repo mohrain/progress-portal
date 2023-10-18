@@ -21,10 +21,20 @@ font-size: 30px;
 font-weight: bold;
 padding-bottom: 10px;
 }
-
 .frontend-title hr {
 border-top: 2px solid #982121;
 }
+
+.frontend-subtitle {
+color: #982121;
+text-align: center;
+font-size: 18px;
+font-weight: bold;
+}
+.frontend-subtitle hr {
+border-top: 2px solid #982121;
+}
+
 
 .bg-theme-color-blue{
 background-color: #14468c;

@@ -66,7 +66,7 @@
                                                             @method('delete')
                                                             @csrf
                                                             <button class="dropdown-item form-control text-danger"
-                                                                type="submit" onclick="return confirm('Are You Sure ?')">
+                                                                type="submit" onclick="return confirm('के तपाई सुनिचित गर्नुहुन्छ  ?')">
                                                                 Delete
                                                             </button>
                                                         </form>

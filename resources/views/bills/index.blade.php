@@ -36,7 +36,20 @@
                                 </thead>
                                 <tbody>
                                     @forelse($bills as $bill)
-                                        <tr>
+                                        @php
+                                            if ($bill->billType->id == 1) {
+                                                $trColor = 'table-info';
+                                            } elseif ($bill->billType->id == 2) {
+                                                $trColor = 'table-secondary';
+                                            } elseif ($bill->billType->id == 3) {
+                                                $trColor = 'table-warning';
+                                            } else {
+                                                $trColor = 'table-light';
+                                            }
+
+                                        @endphp
+
+                                        <tr class="{{$trColor}}">
                                             <td>{{ $bill->billType->name }}</td>
                                             <td>{{ $bill->convention }}</td>
                                             <td>{{ $bill->entry_number }}</td>
@@ -58,11 +71,11 @@
                                             <td>
 
                                                 @if ($bill->entry_bill_file)
-                                                    
-                                                <a href="{{ asset('storage/' . $bill->entry_bill_file) }}" class="btn btn-primary"
-                                                    target="_blank" rel="noopener noreferrer">डाउनलोडस्</a>
+                                                    <a href="{{ asset('storage/' . $bill->entry_bill_file) }}"
+                                                        class="btn btn-primary" target="_blank"
+                                                        rel="noopener noreferrer">डाउनलोडस्</a>
                                                 @else
-                                                    फाइल छैन 
+                                                    फाइल छैन
                                                 @endif
                                             </td>
 
@@ -74,10 +87,10 @@
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-arrow">
                                                         <a class="dropdown-item "
-                                                        href="{{ route('bill-suggestions.index', $bill) }}">Suggestions</a>
+                                                            href="{{ route('bill-suggestions.index', $bill) }}">Suggestions</a>
                                                         <a class="dropdown-item "
-                                                        href="{{ route('bills.show', $bill) }}">Show</a>
-                                                        
+                                                            href="{{ route('bills.show', $bill) }}">Show</a>
+
                                                         <a class="dropdown-item "
                                                             href="{{ route('bills.edit', $bill) }}">Edit</a>
 
@@ -85,7 +98,8 @@
                                                             @method('delete')
                                                             @csrf
                                                             <button class="dropdown-item form-control text-danger"
-                                                                type="submit" onclick="return confirm('Are You Sure ?')">
+                                                                type="submit"
+                                                                onclick="return confirm('के तपाई सुनिचित गर्नुहुन्छ ?')">
                                                                 Delete
                                                             </button>
                                                         </form>

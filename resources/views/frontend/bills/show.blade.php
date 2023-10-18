@@ -98,11 +98,11 @@
                                 <th>दर्ता विधेयक</th>
                                 <td>
                                     @if ($bill->entry_bill_file)
-                                                    
-                                    <a href="{{ asset('storage/' . $bill->entry_bill_file) }}" class="btn btn-primary"
-                                        target="_blank" rel="noopener noreferrer"><i class="bi bi-cloud-arrow-down"></i> डाउनलोडस्</a>
+                                        <a href="{{ asset('storage/' . $bill->entry_bill_file) }}" class="btn btn-primary"
+                                            target="_blank" rel="noopener noreferrer"><i class="bi bi-cloud-arrow-down"></i>
+                                            डाउनलोडस्</a>
                                     @else
-                                        फाइल छैन 
+                                        फाइल छैन
                                     @endif
                                 </td>
                             </tr>
@@ -110,11 +110,11 @@
                                 <th>प्रमाणीकरण विधेयक</th>
                                 <td>
                                     @if ($bill->certification_bill_file)
-                                                    
-                                    <a href="{{ asset('storage/' . $bill->certification_bill_file) }}" class="btn btn-primary"
-                                        target="_blank" rel="noopener noreferrer"><i class="bi bi-cloud-arrow-down"></i> डाउनलोडस्</a>
+                                        <a href="{{ asset('storage/' . $bill->certification_bill_file) }}"
+                                            class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i
+                                                class="bi bi-cloud-arrow-down"></i> डाउनलोडस्</a>
                                     @else
-                                        फाइल छैन 
+                                        फाइल छैन
                                     @endif
                                 </td>
                             </tr>
@@ -123,6 +123,17 @@
                     </table>
                 </div>
             </div>
+            @if ($bill->descriptions)
+                <div class="col-md-12 my-3">
+                    <div class="frontend-subtitle">
+                        विवरण
+                        <hr>
+                    </div>
+                    <p>
+                        {!! $bill->descriptions !!}
+                    </p>
+                </div>
+            @endif
         </div>
     </div>
 @endsection

@@ -49,6 +49,7 @@ class StoreBillRequest extends FormRequest
             'status' => 'nullable',
             'entry_bill_file' => 'nullable|file|max:5000',
             'certification_bill_file' => 'nullable|file|max:5000',
+            'descriptions' => 'nullable',
         ];
     }
 }
