@@ -2,7 +2,7 @@
     <div class="new-upadate">
         ताजा अपडेटहरु
     </div>
-    <marquee direction="left" style="padding: 5px; color:brown;" >
+    <marquee class="bg-white" direction="left" style="padding: 5px; color:brown;" >
         This is a sample scrolling text that has scrolls texts to left.
     </marquee>
 </div>

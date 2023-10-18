@@ -22,8 +22,6 @@
     <div class="container">
         <div class="my-4"></div>
 
-        @include('alerts.success')
-
         <form action="{{ route('settings.sync') }}" method="POST" class="form font-noto">
             @csrf
 
@@ -46,6 +44,15 @@
                     ])
                     @endcomponent
                     
+                </div>
+            @endcomponent
+
+            @component('settings.group', [
+                'title' => 'Current Running Election',
+                'description' => 'Running Election setting',
+            ])
+                <div>
+                    <x-active-election-setting />
                 </div>
             @endcomponent
 
