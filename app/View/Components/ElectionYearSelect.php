@@ -15,12 +15,10 @@ class ElectionYearSelect extends Component
      */
     public $elections;
     public $member;
-    public function __construct(Member $member = null)
+    public function __construct(Member $member=null)
     {
         $this->member = $member;
-        $this->elections = Election::where('election_id', settings('election_id'))
-            ->orderBy('name', 'DESC')
-            ->get();
+        $this->elections = Election::orderBy('name', 'DESC')->get();
     }
 
     /**

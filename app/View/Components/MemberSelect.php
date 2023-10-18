@@ -18,7 +18,7 @@ class MemberSelect extends Component
     public function __construct(Bill $bill = null)
     {
         $this->bill = $bill;
-        $this->members = Member::orderBy('name_english')->get();
+        $this->members = Member::where('election_id',settings('election_id'))->orderBy('name_english')->get();
     }
 
     /**
