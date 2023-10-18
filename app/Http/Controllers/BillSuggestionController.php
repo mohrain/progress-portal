@@ -15,9 +15,13 @@ class BillSuggestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Bill $bill)
     {
-        //
+        $billSuggestions = $bill
+            ->billSuggestions()
+            ->latest()
+            ->paginate(50);
+        return view('bill-suggestions.index', compact('billSuggestions', 'bill'));
     }
 
     /**
@@ -54,9 +58,9 @@ class BillSuggestionController extends Controller
      * @param  \App\Models\BillSuggestion  $billSuggestion
      * @return \Illuminate\Http\Response
      */
-    public function show(BillSuggestion $billSuggestion)
+    public function show(Bill $bill, BillSuggestion $billSuggestion)
     {
-        //
+        return view('bill-suggestions.show', compact('billSuggestion', 'bill'));
     }
 
     /**
@@ -88,8 +92,11 @@ class BillSuggestionController extends Controller
      * @param  \App\Models\BillSuggestion  $billSuggestion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BillSuggestion $billSuggestion)
+    public function destroy(Bill $bill, BillSuggestion $billSuggestion)
     {
-        //
+        $billSuggestion->delete();
+        return redirect()
+            ->back()
+            ->with('success', 'Bill Suggestions Deleted');
     }
 }

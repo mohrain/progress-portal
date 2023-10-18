@@ -28,6 +28,7 @@ class StoreBillSuggestionRequest extends FormRequest
             'email' => 'nullable',
             'contact_number' => 'required',
             'address' => 'required',
+            'subject' => 'required',
             'message' => 'required',
             'file' => 'nullable|file|max:2000',
         ];

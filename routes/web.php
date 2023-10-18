@@ -237,7 +237,8 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
 
     //bill-suggestions
     Route::get('bill-suggestions/{bill}/list', [BillSuggestionController::class, 'index'])->name('bill-suggestions.index');
-    Route::delete('bill-suggestions/{bill}', [BillSuggestionController::class, 'destroy'])->name('bill-suggestions.destroy');
+    Route::get('bill-suggestions/{bill}/{billSuggestion}/show', [BillSuggestionController::class, 'show'])->name('bill-suggestions.show');
+    Route::delete('bill-suggestions/{bill}/{billSuggestion}', [BillSuggestionController::class, 'destroy'])->name('bill-suggestions.destroy');
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');

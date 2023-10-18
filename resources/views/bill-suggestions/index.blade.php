@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('विधयेकहरु')])
+@extends('layouts.app', ['title' => __($bill->name ."-सुझापहरु")])
 
 @section('content')
     <div class="container-fluid mt--7">
@@ -9,12 +9,9 @@
                     <div class="card-header">
                         <div class="d-flex justify-content-between">
                             <div>
-                                {{ $title = 'विधयेकहरु' }}
+                                {{ $title = $bill->name ."-सुझापहरु" }}
                             </div>
-                            <div>
-                                <a href="{{ route('bills.create') }}" class="btn btn-sm btn-primary">नयाँ विधयेक दर्ता</a>
-
-                            </div>
+                           
                         </div>
                     </div>
 
@@ -23,43 +20,27 @@
                         <div class="table-responsive">
                             <table class="table table-md table-bordered kalimati-font" style="white-space: nowrap">
                                 <thead>
-                                    <th>विधेयक</th>
-                                    <th>अधिवेशन</th>
-                                    <th>दर्ता नं.</th>
-                                    <th>दर्ता मिति</th>
-                                    <th>शीर्षक</th>
-                                    <th>मन्त्रालय</th>
-                                    <th>विधेयकमा सुझाव</th>
-                                    <th>अवस्था</th>
-                                    <th>दर्ता विधेयक फाइल</th>
+                                    <th>नाम</th>
+                                    <th>इमेल</th>
+                                    <th>सम्पर्क</th>
+                                    <th>ठेगाना</th>
+                                    <th>बिषय</th>
+                                    <th>फाइल</th>
                                     <th></th>
                                 </thead>
                                 <tbody>
-                                    @forelse($bills as $bill)
+                                    @forelse($billSuggestions as $billSuggestion)
                                         <tr>
-                                            <td>{{ $bill->billType->name }}</td>
-                                            <td>{{ $bill->convention }}</td>
-                                            <td>{{ $bill->entry_number }}</td>
-                                            <td>{{ $bill->entry_date }}</td>
-                                            <td>{{ $bill->name }}</td>
-                                            <td>{{ $bill->ministry->name }}</td>
-                                            <td>
-                                                @if ($bill->suggestion_in_the_bill == true)
-                                                    <span class="badge badge-primary">
-                                                        लिने
-                                                    </span>
-                                                @else
-                                                    <span class="badge badge-secondary">
-                                                        नलिने
-                                                    </span>
-                                                @endif
-                                            </td>
-                                            <td>{{ $bill->status }}</td>
+                                            <td>{{ $billSuggestion->name }}</td>
+                                            <td>{{ $billSuggestion->email }}</td>
+                                            <td>{{ $billSuggestion->contact_number }}</td>
+                                            <td>{{ $billSuggestion->address }}</td>
+                                            <td>{{ $billSuggestion->subject }}</td>
                                             <td>
 
-                                                @if ($bill->entry_bill_file)
+                                                @if ($billSuggestion->file)
                                                     
-                                                <a href="{{ asset('storage/' . $bill->entry_bill_file) }}" class="btn btn-primary"
+                                                <a href="{{ asset('storage/' . $billSuggestion->file) }}" class="btn btn-primary"
                                                     target="_blank" rel="noopener noreferrer">डाउनलोडस्</a>
                                                 @else
                                                     फाइल छैन 
@@ -74,14 +55,9 @@
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-arrow">
                                                         <a class="dropdown-item "
-                                                        href="{{ route('bill-suggestions.index', $bill) }}">Suggestions</a>
-                                                        <a class="dropdown-item "
-                                                        href="{{ route('bills.show', $bill) }}">Show</a>
-                                                        
-                                                        <a class="dropdown-item "
-                                                            href="{{ route('bills.edit', $bill) }}">Edit</a>
+                                                        href="{{ route('bill-suggestions.show', [$bill, $billSuggestion]) }}">Show</a>
 
-                                                        <form action="{{ route('bills.destroy', $bill) }}" method="post">
+                                                        <form action="{{ route('bill-suggestions.destroy', [$bill, $billSuggestion]) }}" method="post">
                                                             @method('delete')
                                                             @csrf
                                                             <button class="dropdown-item form-control text-danger"
@@ -107,7 +83,7 @@
 
                             </table>
                         </div>
-                        {{ $bills->links() }}
+                        {{ $billSuggestions->links() }}
                     </div>
                 </div>
             </div>

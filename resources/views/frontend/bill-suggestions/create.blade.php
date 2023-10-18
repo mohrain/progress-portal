@@ -78,11 +78,11 @@
                             </div>
 
                             <div class="col-md-12 mb-2">
-                                <label for="address" class="form-label text-md-end required">{{ __('बिषय') }}</label>
-                                <input id="address" type="text"
-                                    class="form-control @error('address') is-invalid @enderror" name="address"
-                                    value="{{ old('address') }}" autocomplete="address" placeholder="बिषय">
-                                @error('address')
+                                <label for="subject" class="form-label text-md-end required">{{ __('बिषय') }}</label>
+                                <input id="subject" type="text"
+                                    class="form-control @error('subject') is-invalid @enderror" name="subject"
+                                    value="{{ old('subject') }}" autocomplete="subject" placeholder="बिषय">
+                                @error('subject')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -101,7 +101,7 @@
                             </div>
                             <div class="col-md-12 mb-2">
                                 <label for="file"
-                                    class="form-label text-md-end required">{{ __('फाइल [Image or PDF format upto 2MB.]') }}</label>
+                                    class="form-label text-md-end ">{{ __('फाइल [Image or PDF format upto 2MB.]') }}</label>
                                 <input id="file" type="file"
                                     class="form-control @error('file') is-invalid @enderror" name="file"
                                     value="{{ old('file') }}" autocomplete="file" placeholder="ठेगाना">
