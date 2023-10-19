@@ -23,6 +23,7 @@ use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MinistryController;
 use App\Http\Controllers\ModalImageController;
+use App\Http\Controllers\OfficeBearerController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ParliamentaryPartyController;
 use App\Http\Controllers\PostCategoryController;
@@ -56,8 +57,6 @@ Route::get('members/old', [MemberController::class, 'frontendIndexOld'])->name('
 Route::get('members/{member}', [MemberController::class, 'show'])->name('members.show');
 Route::get('employees', [EmployeeController::class, 'frontendIndex'])->name('employees.frontendIndex');
 Route::get('employees/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
-
-
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
@@ -248,6 +247,14 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('bill-suggestions/{bill}/list', [BillSuggestionController::class, 'index'])->name('bill-suggestions.index');
     Route::get('bill-suggestions/{bill}/{billSuggestion}/show', [BillSuggestionController::class, 'show'])->name('bill-suggestions.show');
     Route::delete('bill-suggestions/{bill}/{billSuggestion}', [BillSuggestionController::class, 'destroy'])->name('bill-suggestions.destroy');
+
+    //office-bearers
+    Route::get('office-bearers', [OfficeBearerController::class, 'index'])->name('office-bearers.index');
+    Route::post('office-bearers', [OfficeBearerController::class, 'store'])->name('office-bearers.store');
+    Route::put('office-bearers/sort', [OfficeBearerController::class, 'sort'])->name('office-bearers.sort');
+    Route::get('office-bearers/{officeBearer}/edit', [OfficeBearerController::class, 'edit'])->name('office-bearers.edit');
+    Route::put('office-bearers/{officeBearer}', [OfficeBearerController::class, 'update'])->name('office-bearers.update');
+    Route::delete('office-bearers/{officeBearer}', [OfficeBearerController::class, 'destroy'])->name('office-bearers.destroy');
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');

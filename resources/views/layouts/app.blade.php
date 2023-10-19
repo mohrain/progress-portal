@@ -97,6 +97,17 @@
 
         });
     </script>
+    <script>
+        /* Select your element */
+        var elm = document.getElementsByClassName("nepali-date-picker");
+        /* Initialize Datepicker with options */
+        elm.nepaliDatePicker({
+            ndpYear: true,
+            ndpMonth: true,
+            ndpYearCount: 200,
+            readOnlyInput: true
+        });
+    </script>
     @stack('scripts')
 </body>
 

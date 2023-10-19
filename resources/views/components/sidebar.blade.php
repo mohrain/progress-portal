@@ -64,6 +64,11 @@
                     <span class="text-success"><i class="bi bi-person-raised-hand"></i></span>सदस्यहरु
                 </a>
             </li>
+            <li class="nav-item {{ setActive('office-bearers.*') }}">
+                <a href="{{ route('office-bearers.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="bi bi-person-bounding-box"></i></span>पदाधिकारीहरु
+                </a>
+            </li>
 
             <li class="nav-item {{ setActive('employees.*') }}">
                 <a href="{{ route('employees.index') }}" aria-expanded="false" class="nav-link">

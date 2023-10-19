@@ -15,4 +15,9 @@ class Election extends Model
     {
         return $this->hasMany(Member::class);
     }
+
+    public function officeBearers()
+    {
+        return $this->hasMany(OfficeBearer::class);
+    }
 }

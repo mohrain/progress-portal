@@ -13,7 +13,7 @@
         <hr class="dropdown-divider">
         <li><a class="dropdown-item" href="#">पदाधिकारीहरु</a></li>
         <hr class="dropdown-divider">
-        <li><a class="dropdown-item" href="{{ route('parliamentary-parties.frontend') }}">संसदीयदलहरु</a></li>
+        <li><a class="dropdown-item" href="{{ route('pages.show', 'sasathaya-thalhara') }}">संसदीयदलहरु</a></li>
         <hr class="dropdown-divider">
         <li><a class="dropdown-item" href="#">पुर्व पदाधिकारीहरु</a></li>
 

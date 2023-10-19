@@ -56,4 +56,10 @@ class Member extends Model
     {
         return $this->hasMany(Bill::class);
     }
+
+    public function officeBearers()
+    {
+        return $this->hasMany(OfficeBearer::class);
+    }
+    
 }
