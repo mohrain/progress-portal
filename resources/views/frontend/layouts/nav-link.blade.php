@@ -11,11 +11,11 @@
             <a class="dropdown-item" href="{{ route('pages.show', 'parathasha-sabha-paracaya') }}">प्रदेश सभा परिचय</a>
         </li>
         <hr class="dropdown-divider">
-        <li><a class="dropdown-item" href="#">पदाधिकारीहरु</a></li>
+        <li><a class="dropdown-item" href="{{route('office-bearers.frontendIndex')}}">पदाधिकारीहरु</a></li>
         <hr class="dropdown-divider">
         <li><a class="dropdown-item" href="{{ route('pages.show', 'sasathaya-thalhara') }}">संसदीयदलहरु</a></li>
         <hr class="dropdown-divider">
-        <li><a class="dropdown-item" href="#">पुर्व पदाधिकारीहरु</a></li>
+        <li><a class="dropdown-item" href="{{route('office-bearers.frontendIndexOld')}}">पुर्व पदाधिकारीहरु</a></li>
 
     </ul>
 </li>

@@ -129,7 +129,7 @@ class MemberController extends Controller
     public function frontendIndex()
     {
         $members = Member::with('election', 'parliamentaryParty')
-            ->where('election_id', settings('election_id'))
+            ->currentElection()
             ->positioned()
             ->paginate(60);
         return view('frontend.members.index', compact('members'));
@@ -138,7 +138,7 @@ class MemberController extends Controller
     public function frontendIndexOld()
     {
         $members = Member::with('election', 'parliamentaryParty')
-            ->whereNotIn('election_id', [settings('election_id')])
+            ->oldElection()
             ->positioned()
             ->paginate(60);
         return view('frontend.members.index', compact('members'));

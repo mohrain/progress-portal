@@ -57,6 +57,8 @@ Route::get('members/old', [MemberController::class, 'frontendIndexOld'])->name('
 Route::get('members/{member}', [MemberController::class, 'show'])->name('members.show');
 Route::get('employees', [EmployeeController::class, 'frontendIndex'])->name('employees.frontendIndex');
 Route::get('employees/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
+Route::get('office-bearers', [OfficeBearerController::class, 'frontendIndex'])->name('office-bearers.frontendIndex');
+Route::get('office-bearers/old', [OfficeBearerController::class, 'frontendIndexOld'])->name('office-bearers.frontendIndexOld');
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);

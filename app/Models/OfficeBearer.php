@@ -16,6 +16,16 @@ class OfficeBearer extends Model
         return $query->orderBy('position', $ascending ? 'asc' : 'desc');
     }
     
+    public function scopeCurrentElection($query)
+    {
+        return $query->where('election_id', settings('election_id'));
+    }
+
+    public function scopeOldElection($query)
+    {
+        return $query->whereNotIn('election_id', [settings('election_id')]);
+    }
+
     public function election()
     {
         return $this->belongsTo(Election::class);

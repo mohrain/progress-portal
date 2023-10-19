@@ -108,4 +108,23 @@ class OfficeBearerController extends Controller
         }
         return response()->json(['message' => 'officeBearer has been sorted'], 200);
     }
+
+    
+    public function frontendIndex()
+    {
+        $officeBearers = OfficeBearer::with('election', 'member')
+        ->currentElection()
+        ->positioned()
+        ->paginate(50);
+        return view('frontend.office-bearers.index', compact('officeBearers'));
+    }
+
+    public function frontendIndexOld()
+    {
+        $officeBearers = OfficeBearer::with('election', 'member')
+        ->oldElection()
+        ->positioned()
+        ->paginate(50);
+        return view('frontend.office-bearers.index', compact('officeBearers'));
+    }
 }
