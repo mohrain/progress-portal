@@ -173,19 +173,19 @@
                 });
 
                 function persistUpdatedOrder() {
-                    var menuItems = [];
+                    var officeBearers = [];
                     $('.order-updated').each(function() {
-                        menuItems.push({
+                        officeBearers.push({
                             id: $(this).attr('data-id'),
                             position: $(this).attr('data-order')
                         });
                     });
-                    console.table(menuItems);
+                    console.table(officeBearers);
                     axios({
                         method: 'put',
                         url: "{{ route('office-bearers.sort') }}",
                         data: {
-                            menuItems: menuItems,
+                            officeBearers: officeBearers,
                         }
                     }).then(function(response) {
                         console.log(response);

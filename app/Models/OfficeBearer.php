@@ -15,15 +15,20 @@ class OfficeBearer extends Model
     {
         return $query->orderBy('position', $ascending ? 'asc' : 'desc');
     }
-    
+
     public function scopeCurrentElection($query)
     {
         return $query->where('election_id', settings('election_id'));
     }
 
-    public function scopeOldElection($query)
+    public function scopeCurrent($query)
     {
-        return $query->whereNotIn('election_id', [settings('election_id')]);
+        return $query->where('end', null);
+    }
+
+    public function scopeOld($query)
+    {
+        return $query->whereNotIn('end', [''] );
     }
 
     public function election()
