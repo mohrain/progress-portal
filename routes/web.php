@@ -18,6 +18,7 @@ use App\Http\Controllers\FiscalYearController;
 use App\Http\Controllers\FrequentlyAskedQuestionController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InformationOfficerController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\MemberController;
@@ -257,6 +258,14 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('office-bearers/{officeBearer}/edit', [OfficeBearerController::class, 'edit'])->name('office-bearers.edit');
     Route::put('office-bearers/{officeBearer}', [OfficeBearerController::class, 'update'])->name('office-bearers.update');
     Route::delete('office-bearers/{officeBearer}', [OfficeBearerController::class, 'destroy'])->name('office-bearers.destroy');
+
+    //information Officers
+    Route::get('information-officers', [InformationOfficerController::class, 'index'])->name('information-officers.index');
+    Route::post('information-officers', [InformationOfficerController::class, 'store'])->name('information-officers.store');
+    Route::put('information-officers/sort', [InformationOfficerController::class, 'sort'])->name('information-officers.sort');
+    Route::get('information-officers/{informationOfficer}/edit', [InformationOfficerController::class, 'edit'])->name('information-officers.edit');
+    Route::put('information-officers/{informationOfficer}', [InformationOfficerController::class, 'update'])->name('information-officers.update');
+    Route::delete('information-officers/{informationOfficer}', [InformationOfficerController::class, 'destroy'])->name('information-officers.destroy');
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');

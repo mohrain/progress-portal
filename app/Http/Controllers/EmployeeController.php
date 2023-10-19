@@ -18,8 +18,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::with('employeeDesignation')
-            ->positioned()
+        $employees = Employee::
+            positioned()
             ->paginate(60);
         return view('employees.index', compact('employees'));
     }
@@ -128,8 +128,7 @@ class EmployeeController extends Controller
 
     public function frontendIndex()
     {
-        $employees = Employee::with('employeeDesignation')
-            ->positioned()
+        $employees = Employee::positioned()
             ->paginate(60);
         return view('frontend.employees.index', compact('employees'));
     }

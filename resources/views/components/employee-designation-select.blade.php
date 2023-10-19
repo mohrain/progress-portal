@@ -6,7 +6,7 @@
         <option value="">छान्नुहोस्</option>
         @foreach ($employeeDesignations as $employeeDesignation)
             <option value="{{ $employeeDesignation->id }}"
-                {{ old('employee_designation_id', $employee->employee_designation_id) == $employeeDesignation->id ? 'selected' : '' }}>
+                {{ old('employee_designation_id', $informationOfficer->employee_designation_id) == $employeeDesignation->id ? 'selected' : '' }}>
                 {{ $employeeDesignation->name }}
             </option>
         @endforeach

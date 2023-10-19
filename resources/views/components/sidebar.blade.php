@@ -48,11 +48,7 @@
                     <span class="text-success"><i class="bi bi-app-indicator"></i></span>मोडाल फोटोहरु
                 </a>
             </li>
-            <li class="nav-item {{ setActive('faq.*') }}">
-                <a href="{{ route('faq.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-warning"><i class="bi bi-question-lg"></i></span>प्राय: सोधिने प्रश्नहरू
-                </a>
-            </li>
+        
             <li class="nav-item {{ setActive('committee.*') }}">
                 <a href="{{ route('committee.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="fa fa-plus"></i></span>समिति
@@ -73,6 +69,16 @@
             <li class="nav-item {{ setActive('employees.*') }}">
                 <a href="{{ route('employees.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="bi bi-person-vcard"></i></span>कर्मचारीहरु
+                </a>
+            </li>
+            <li class="nav-item {{ setActive('information-officers.*') }}">
+                <a href="{{ route('information-officers.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="bi bi-person-video"></i></span>सूचना अधिकारीहरु
+                </a>
+            </li>
+            <li class="nav-item {{ setActive('faq.*') }}">
+                <a href="{{ route('faq.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-warning"><i class="bi bi-question-lg"></i></span>प्राय: सोधिने प्रश्नहरू
                 </a>
             </li>
 

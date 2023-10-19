@@ -37,8 +37,8 @@ class EmployeeDesignation extends Model
         return $query->where('status', false);
     }
 
-    public function employees()
+    public function informationOfficers()
     {
-        return $this->hasMany(Employee::class);
+        return $this->hasMany(InformationOfficer::class);
     }
 }
