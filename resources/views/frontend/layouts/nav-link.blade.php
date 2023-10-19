@@ -46,8 +46,6 @@
             <hr class="dropdown-divider">
         </li>
         <li><a class="dropdown-item" href="{{route('members.frontendIndexOld')}}">भू.पु.सदस्यहरुको सुची </a></li>
-        {{-- <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">परिचयात्म भिडियो</a></li> --}}
     </ul>
 </li>
 <li class="nav-item dropdown">
@@ -79,31 +77,6 @@
     <x-bill-type-view />
 </li>
 <x-post-category-menu-view />
-
-{{-- <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        सूचना
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="{{ route('post-categories.show', 'sasathaya-sacana') }}">संसदीय सूचना</a>
-        </li>
-        <li>
-            <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item" href="{{ route('post-categories.show', 'sacavalya-sacana') }}">सचिबालय सूचना </a>
-        </li>
-    </ul>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('post-categories.show', 'aina-nayama') }}">ऐन, नियम</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('post-categories.show', 'parakashana') }}">प्रकाशन</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('post-categories.show', 'farama') }}">फारम</a>
-</li> --}}
 <li class="nav-item">
     <a class="nav-link" href="#">फोटो संग्रह</a>
 </li>
