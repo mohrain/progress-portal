@@ -4,7 +4,7 @@
         id="election_id">
         <option value="">छान्नुहोस्</option>
         @foreach ($elections as $election)
-            <option value="{{ $election->id }}" {{old('election_id',$member->election_id) || settings('election_id') == $election->id ? 'selected' : ""}}>
+            <option value="{{ $election->id }}" {{old('election_id',$member->election_id ? $member->election_id : settings('election_id'))  == $election->id ? 'selected' : ""}}>
                 {{ $election->name }}
             </option>
         @endforeach

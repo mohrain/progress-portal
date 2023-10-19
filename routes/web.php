@@ -51,6 +51,9 @@ Route::get('bill-types/{billType}', [BillTypeController::class, 'show'])->name('
 Route::get('bills/{bill}', [BillController::class, 'show'])->name('bills.show');
 Route::get('bill-suggestions/{bill}', [BillSuggestionController::class, 'create'])->name('bill-suggestions.create');
 Route::post('bill-suggestions/{bill}', [BillSuggestionController::class, 'store'])->name('bill-suggestions.store');
+Route::get('members', [MemberController::class, 'frontendIndex'])->name('members.frontendIndex');
+Route::get('members/old', [MemberController::class, 'frontendIndexOld'])->name('members.frontendIndexOld');
+Route::get('members/{member}', [MemberController::class, 'frontendShow'])->name('members.frontendShow');
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);

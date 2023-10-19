@@ -25,11 +25,11 @@
         सदस्यहरु
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="#">सदस्यहरुको सुची</a></li>
+        <li><a class="dropdown-item" href="{{route('members.frontendIndex')}}">सदस्यहरुको सुची</a></li>
         <li>
             <hr class="dropdown-divider">
         </li>
-        <li><a class="dropdown-item" href="#">भू.पु.सदस्यहरुको सुची </a></li>
+        <li><a class="dropdown-item" href="{{route('members.frontendIndexOld')}}">भू.पु.सदस्यहरुको सुची </a></li>
         {{-- <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="#">परिचयात्म भिडियो</a></li> --}}
     </ul>

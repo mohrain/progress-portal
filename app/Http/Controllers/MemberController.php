@@ -18,7 +18,9 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $members = Member::with('election','parliamentaryParty')->positioned()->paginate(60);
+        $members = Member::with('election', 'parliamentaryParty')
+            ->positioned()
+            ->paginate(60);
         return view('members.index', compact('members'));
     }
 
@@ -122,5 +124,27 @@ class MemberController extends Controller
         }
 
         return response()->json(['message' => 'member has been sorted'], 200);
+    }
+
+    public function frontendIndex()
+    {
+        $members = Member::with('election', 'parliamentaryParty')
+            ->where('election_id', settings('election_id'))
+            ->positioned()
+            ->paginate(60);
+        return view('frontend.members.index', compact('members'));
+    }
+
+    public function frontendIndexOld()
+    {
+        $members = Member::with('election', 'parliamentaryParty')
+            ->whereNotIn('election_id', [settings('election_id')])
+            ->positioned()
+            ->paginate(60);
+        return view('frontend.members.index', compact('members'));
+    }
+    public function frontendShow(Member $member)
+    {
+        return view('frontend.members.show', compact('member'));
     }
 }

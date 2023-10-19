@@ -40,15 +40,15 @@
                                                 <option value="">छान्नुहोस्</option>
 
                                                 <option value="प्रत्यक्षे"
-                                                    {{ old('election_process',$member->election_process) == 'प्रत्यक्षे' ? 'selected' : '' }}>
+                                                    {{ old('election_process', $member->election_process) == 'प्रत्यक्षे' ? 'selected' : '' }}>
                                                     प्रत्यक्षे
                                                 </option>
                                                 <option value="समनुपातिक"
-                                                    {{ old('election_process',$member->election_process) == 'समनुपातिक' ? 'selected' : '' }}>
+                                                    {{ old('election_process', $member->election_process) == 'समनुपातिक' ? 'selected' : '' }}>
                                                     समनुपातिक
                                                 </option>
                                                 <option value="मनोनित"
-                                                    {{ old('election_process',$member->election_process) == 'मनोनित' ? 'selected' : '' }}>
+                                                    {{ old('election_process', $member->election_process) == 'मनोनित' ? 'selected' : '' }}>
                                                     मनोनित
                                                 </option>
                                             </select>
@@ -102,15 +102,15 @@
                                                 <option value="">छान्नुहोस्</option>
 
                                                 <option value="सदस्य"
-                                                    {{ old('designation',$member->designation) == 'सदस्य' ? 'selected' : '' }}>
+                                                    {{ old('designation', $member->designation) == 'सदस्य' ? 'selected' : '' }}>
                                                     सदस्य
                                                 </option>
                                                 <option value="सभामुख"
-                                                    {{ old('designation',$member->designation) == 'सभामुख' ? 'selected' : '' }}>
+                                                    {{ old('designation', $member->designation) == 'सभामुख' ? 'selected' : '' }}>
                                                     सभामुख
                                                 </option>
                                                 <option value="उपसभामुख"
-                                                    {{ old('designation',$member->designation) == 'उपसभामुख' ? 'selected' : '' }}>
+                                                    {{ old('designation', $member->designation) == 'उपसभामुख' ? 'selected' : '' }}>
                                                     उपसभामुख
                                                 </option>
                                             </select>
@@ -153,13 +153,16 @@
 
                                             <select class="form-control @error('gender') is-invalid @enderror"
                                                 name="gender" id="gender">
-                                                <option value="पुरुष" {{ old('gender',$member->gender) == 'पुरुष' ? 'selected' : '' }}>
+                                                <option value="पुरुष"
+                                                    {{ old('gender', $member->gender) == 'पुरुष' ? 'selected' : '' }}>
                                                     पुरुष
                                                 </option>
-                                                <option value="महिला" {{ old('gender',$member->gender) == 'महिला' ? 'selected' : '' }}>
+                                                <option value="महिला"
+                                                    {{ old('gender', $member->gender) == 'महिला' ? 'selected' : '' }}>
                                                     महिला
                                                 </option>
-                                                <option value="अन्य" {{ old('gender',$member->gender) == 'अन्य' ? 'selected' : '' }}>
+                                                <option value="अन्य"
+                                                    {{ old('gender', $member->gender) == 'अन्य' ? 'selected' : '' }}>
                                                     अन्य
                                                 </option>
                                             </select>
