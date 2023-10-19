@@ -13,7 +13,7 @@ class UpdateInformationOfficerRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class UpdateInformationOfficerRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'employee_designation_id' => 'required',
+            'employee_id' => 'required',
         ];
     }
 }

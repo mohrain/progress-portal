@@ -17,7 +17,7 @@
                                     src="{{ $member->profile ? asset('storage/' . $member->profile) : asset('assets/img/no-image.png') }}"
                                     class="feature-image card-img-top">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title text-theme-color">{{ $member->name }}</h5>
+                                    <h5 class="card-title text-theme-color">मा. {{ $member->name }}</h5>
                                     <div class="cart-text"> {{ $member->parliamentaryParty->name }}</div>
                                     <a href="{{route('members.show',$member)}}" class="btn btn-sm btn-primary">पुरा हेर्नुहोस्</a>
                                 </div>

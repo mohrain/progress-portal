@@ -33,34 +33,7 @@
                 </div>
             </div>
             <div class="col-md-3 my-1">
-                <div class="d-flex gap-3">
-                    <div>
-                        <div class="fw-bold text-center">प्रवक्ता</div>
-                        <hr>
-                        <div class="card" style="width: 8rem;">
-                            <img src="{{ asset('images/profile/bhim-bahadur.jpeg') }}" class="card-img-top"
-                                alt="...">
-                            <div class="text-center p-2">
-                                <h6 class="card-title text-dark">माननीय भीम बहादुर भण्डारी</h6>
-                                {{-- <small class="text-muted">प्रवक्ता</small> --}}
-                                <small class="text-muted">९८४८७६१९१७</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="fw-bold text-center">सूचना अधिकारी</div>
-                        <hr>
-                        <div class="card" style="width: 8rem;">
-                            <img src="{{ asset('images/profile/bhim-bahadur.jpeg') }}" class="card-img-top"
-                                alt="...">
-                            <div class="text-center p-2">
-                                <h6 class="card-title text-dark">माननीय भीम बहादुर भण्डारी</h6>
-                                {{-- <small class="text-muted">सूचना अधिकारी</small> --}}
-                                <small class="text-muted">९८४८६८९७८४</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <x-frontend-information-officer-employee-view />
             </div>
             <div class="col-md-3 my-1">
                 <div class="text-center fw-bold">डाउनलोड नेपाली युनिकोड / फन्ट</div>
@@ -73,8 +46,8 @@
                 </div>
                 <div>
                     <small class="p-1">
-                        <i class="bi bi-chevron-double-right"></i> <a
-                            href="{{ asset('fonts/nepali_Traditional.zip') }}" rel="noopener noreferrer">नेपाली युनिकोड
+                        <i class="bi bi-chevron-double-right"></i> <a href="{{ asset('fonts/nepali_Traditional.zip') }}"
+                            rel="noopener noreferrer">नेपाली युनिकोड
                             ट्रेडिसनल</a>
                     </small>
                 </div>
@@ -145,8 +118,8 @@
                 </div>
                 <div>
                     <small class="p-1">
-                        <i class="bi bi-link-45deg"></i> <a href="https://provincialassembly.p2.gov.np/"
-                            target="_blank" rel="noopener noreferrer">प्रदेश सभा, मधेश प्रदेश</a>
+                        <i class="bi bi-link-45deg"></i> <a href="https://provincialassembly.p2.gov.np/" target="_blank"
+                            rel="noopener noreferrer">प्रदेश सभा, मधेश प्रदेश</a>
                     </small>
                 </div>
                 <div>
@@ -157,8 +130,8 @@
                 </div>
                 <div>
                     <small class="p-1">
-                        <i class="bi bi-link-45deg"></i> <a href="https://pradeshsabha.gandaki.gov.np/"
-                            target="_blank" rel="noopener noreferrer">प्रदेश सभा, गण्डकी प्रदेश</a>
+                        <i class="bi bi-link-45deg"></i> <a href="https://pradeshsabha.gandaki.gov.np/" target="_blank"
+                            rel="noopener noreferrer">प्रदेश सभा, गण्डकी प्रदेश</a>
                     </small>
                 </div>
                 <div>
@@ -185,7 +158,7 @@
                 <a href="">सम्पर्क गर्नुहोस् </a>
             </div>
             <div>
-                <a href="{{route('faq.frontend')}}">प्राय: सोधिने प्रश्नहरू</a>
+                <a href="{{ route('faq.frontend') }}">प्राय: सोधिने प्रश्नहरू</a>
             </div>
             <div>
                 आगन्तुक गणना :
@@ -205,14 +178,14 @@
                     $count = 0;
                     
                     if (file_exists($countFile)) {
-                        $count = (int)file_get_contents($countFile);
+                        $count = (int) file_get_contents($countFile);
                     }
                     
                     $count++;
                     file_put_contents($countFile, $count);
                     
                     echo $count;
-                    ?>                    
+                    ?>
 
                 </span>
             </div>
@@ -223,7 +196,8 @@
     <div class="container">
         <div class="d-md-flex justify-content-between">
             <div>
-                <span> <strong class="kalimati-font">&copy; {{ date('Y') }}</strong>. प्रदेश सभा, सुदूरपश्‍चिम प्रदेश प्रदेश सभा सचिवालय.
+                <span> <strong class="kalimati-font">&copy; {{ date('Y') }}</strong>. प्रदेश सभा, सुदूरपश्‍चिम
+                    प्रदेश प्रदेश सभा सचिवालय.
                     सर्वाधिकार सुरक्षित</span>
             </div>
             <div>

@@ -25,7 +25,7 @@
                                             <div class="card-body">
                                                 <h5 class="card-title text-theme-color">
                                                     
-                                                    {{ $officeBearer->member->name }}
+                                                   मा. {{ $officeBearer->member->name }}
                                                 </h5>
                                                 <div class="cart-text">
                                                     <b>
