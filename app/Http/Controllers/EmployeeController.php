@@ -53,7 +53,7 @@ class EmployeeController extends Controller
         Employee::create($data);
         return redirect()
             ->route('employees.index')
-            ->with('success', 'Employee Created');
+            ->with('success', 'कर्मचारी विवरण सेभ भयो');
     }
 
     /**
@@ -97,7 +97,7 @@ class EmployeeController extends Controller
         $employee->update($data);
         return redirect()
             ->route('employees.index')
-            ->with('success', 'Employee updated');
+            ->with('success', 'कर्मचारी विवरण सम्पादन भयो');
     }
 
     /**
@@ -112,7 +112,7 @@ class EmployeeController extends Controller
         $employee->delete();
         return redirect()
             ->back()
-            ->with('success', 'employee Deleted');
+            ->with('success', 'कर्मचारी विवरण हटाइयो');
     }
 
     public function sort(Request $request)

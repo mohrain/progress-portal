@@ -37,6 +37,7 @@
                                     <th>फोटो</th>
                                     <th>नाम</th>
                                     <th>पद</th>
+                                    <th>शाखा / महाशाखा</th>
                                     <th>लिङ्ग</th>
                                     <th>जन्म मिति</th>
                                     <th>ठेगाना</th>
@@ -61,8 +62,10 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                {{ $employee->employeeDesignation->name }}
-
+                                                {{ $employee->designation }}
+                                            </td>
+                                            <td>
+                                                {{ $employee->branch }}
                                             </td>
                                             <td>
                                                 {{ $employee->gender }}

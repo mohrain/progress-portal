@@ -39,10 +39,13 @@ return new class extends Migration
             $table->string('mother_tongue')->nullable();
             $table->string('religion')->nullable();
             $table->string('education')->nullable();
-            $table
-                ->unsignedBigInteger('employee_designation_id')
-                ->constrained('employee_designations')
-                ->cascadeOnDelete();
+            // $table
+            //     ->unsignedBigInteger('employee_designation_id')
+            //     ->constrained('employee_designations')
+            //     ->cascadeOnDelete();
+            $table->string('designation');
+            $table->string('branch')->nullable();
+
 
             // $table->unsignedBigInteger('parliamentary_party_join_year')->nullable();
 

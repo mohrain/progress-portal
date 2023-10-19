@@ -24,7 +24,8 @@ class StoreEmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'employee_designation_id' => 'required',
+            'designation' => 'required',
+            'branch' => 'nullable',
             'name' => 'required',
             'name_english' => 'required',
             'gender' => 'required',

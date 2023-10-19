@@ -12,7 +12,7 @@
                     </div>
                     @forelse ($officeBearers as $officeBearer)
                         <div class="col-md-6 px-2 my-2">
-                            <div class="card mb-3" style="height: 140px;">
+                            <div class="card mb-3" style="min-height: 140px;">
                                 <div class="row g-0">
                                     <div class="col-md-4">
                                         <img id="newProfilePhotoPreview"

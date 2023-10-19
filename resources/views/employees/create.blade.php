@@ -25,9 +25,9 @@
                             <div class="row">
                                 <div class="col-md-9 order-lg-0 order-1">
                                     <div class="row">
-                                        <div class="col-md-4 mb-2">
+                                        {{-- <div class="col-md-4 mb-2">
                                            <x-employee-designation-select :employee="$employee" />
-                                        </div>
+                                        </div> --}}
                                         <div class="col-md-4 mb-2">
                                             <label for="name" class="form-label required">नाम</label>
                                             <input type="text" name="name"
@@ -56,18 +56,50 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 mb-2">
+                                            <label for="designation"
+                                                class="form-label text-md-end required">{{ __('पद') }}</label>
+                                            <input type="text" name="designation"
+                                                class="form-control @error('designation') is-invalid @enderror"
+                                                value="{{ old('designation', $employee->designation) }}" id="designation"
+                                                aria-describedby="designation">
+
+                                            @error('designation')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-4 mb-2">
+                                            <label for="branch"
+                                                class="form-label text-md-end">{{ __('शाखा / महाशाखा') }}</label>
+                                            <input type="text" name="branch"
+                                                class="form-control @error('branch') is-invalid @enderror"
+                                                value="{{ old('branch', $employee->branch) }}" id="branch"
+                                                aria-describedby="branch">
+
+                                            @error('branch')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="col-md-4 mb-2">
                                             <label for="gender"
                                                 class="form-label text-md-end required">{{ __('लिङ्ग') }}</label>
 
                                             <select class="form-control @error('gender') is-invalid @enderror"
                                                 name="gender" id="gender">
-                                                <option value="पुरुष" {{ old('gender',$employee->gender) == 'पुरुष' ? 'selected' : '' }}>
+                                                <option value="पुरुष"
+                                                    {{ old('gender', $employee->gender) == 'पुरुष' ? 'selected' : '' }}>
                                                     पुरुष
                                                 </option>
-                                                <option value="महिला" {{ old('gender',$employee->gender) == 'महिला' ? 'selected' : '' }}>
+                                                <option value="महिला"
+                                                    {{ old('gender', $employee->gender) == 'महिला' ? 'selected' : '' }}>
                                                     महिला
                                                 </option>
-                                                <option value="अन्य" {{ old('gender',$employee->gender) == 'अन्य' ? 'selected' : '' }}>
+                                                <option value="अन्य"
+                                                    {{ old('gender', $employee->gender) == 'अन्य' ? 'selected' : '' }}>
                                                     अन्य
                                                 </option>
                                             </select>
@@ -78,8 +110,8 @@
                                             @enderror
                                         </div>
 
-                                      
-                                       
+
+
                                         <div class="col-md-4 mb-2">
                                             <label for="email"
                                                 class="form-label text-md-end">{{ __('इमेल') }}</label>
@@ -155,7 +187,7 @@
                                 </div>
                                 <div class=" col-md-12  order-lg-2 order-2">
                                     <div class="row">
-                                    
+
                                         <div class="col-md-3 mb-2">
                                             <label for="permanent_address_district"
                                                 class="form-label text-md-end required">{{ __('स्थाई जिल्ला') }}</label>
@@ -276,7 +308,7 @@
 
                                             </div>
                                         </div>
-                                       
+
                                         <div class="col-md-3 mb-2">
                                             <label for="religion"
                                                 class="form-label text-md-end">{{ __('धर्म') }}</label>
