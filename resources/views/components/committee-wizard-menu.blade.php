@@ -44,6 +44,11 @@
         border-right: 1.8px dotted #fff;
     }
 
+    .committee-wizard-menu a i {
+        margin-right: 10px;
+        opacity: .9;
+    }
+
     .committee-wizard-menu a:first-of-type {
         border-top-left-radius: 4px;
         border-bottom-left-radius: 4px;

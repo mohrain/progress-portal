@@ -9,8 +9,11 @@ use App\Http\Controllers\BillTypeController;
 use App\Http\Controllers\CarouselImageController;
 use App\Http\Controllers\CommitteeActivitycontroller;
 use App\Http\Controllers\CommitteeController;
+use App\Http\Controllers\CommitteeDownloadController;
+use App\Http\Controllers\CommitteeDownloadsController;
 use App\Http\Controllers\CommitteeNoticecontroller;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ElectionController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EmployeeDesignationController;
@@ -186,6 +189,18 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::post('committees/{committee}/activities', [CommitteeActivitycontroller::class, 'storeActivity'])->name('committee.activities.store');
     Route::get('committees/{committee}/activities/{activity}/edit', [CommitteeActivitycontroller::class, 'editActivity'])->name('committee.activities.edit');
     Route::put('committees/{committee}/activities/{activity}', [CommitteeActivitycontroller::class, 'updateActivity'])->name('committee.activities.update');
+
+    // Committee Downloads
+    Route::get('committees/{committee}/downloads', [CommitteeDownloadController::class, 'downloads'])->name('committee.downloads');
+    Route::get('committees/{committee}/downloads/create', [CommitteeDownloadController::class, 'createDownloadForm'])->name('committee.downloads.create');
+    Route::get('committees/{committee}/downloads/{download}/edit', [CommitteeDownloadController::class, 'editDownload'])->name('committee.downloads.edit');
+    Route::put('committees/{committee}/downloads/{download}', [CommitteeNoticecontroller::class, 'updateDownload'])->name('committee.downloads.update');
+
+    // Downloads
+    Route::post('downloads', [DownloadController::class, 'store'])->name('downloads.store');
+    Route::put('downloads/{download}', [DownloadController::class, 'update'])->name('downloads.update');
+    Route::delete('downloads/{download}', [DownloadController::class, 'destroy'])->name('downloads.destroy');
+
 
     //election year
     Route::get('elections', [ElectionController::class, 'index'])->name('elections.index');
