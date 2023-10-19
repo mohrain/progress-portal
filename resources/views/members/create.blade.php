@@ -93,7 +93,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-2">
+                                        {{-- <div class="col-md-4 mb-2">
                                             <label for="designation"
                                                 class="form-label text-md-end required">{{ __('पद') }}</label>
 
@@ -119,7 +119,7 @@
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
-                                        </div>
+                                        </div> --}}
                                         <div class="col-md-4 mb-2">
                                             <label for="name" class="form-label required">नाम</label>
                                             <input type="text" name="name"
@@ -173,32 +173,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="col-md-4 mb-2">
-                                            <label for="dob" class="form-label required">जन्म मिति</label>
-                                            <input type="text" name="dob"
-                                                class="form-control @error('dob') is-invalid @enderror"
-                                                value="{{ old('dob', $member->dob) }}" id="dob"
-                                                aria-describedby="dob">
-                                            <div class="invalid-feedback">
-                                                @error('dob')
-                                                    {{ $message }}
-                                                @enderror
 
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 mb-2">
-                                            <label for="birth_place"
-                                                class="form-label text-md-end required">{{ __('जन्म स्थान') }}</label>
-                                            <input id="birth_place" type="text"
-                                                class="form-control @error('birth_place') is-invalid @enderror"
-                                                name="birth_place" value="{{ old('birth_place', $member->birth_place) }}"
-                                                autocomplete="birth_place">
-                                            @error('birth_place')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
                                         <div class="col-md-4 mb-2">
                                             <label for="email"
                                                 class="form-label text-md-end">{{ __('इमेल') }}</label>
@@ -236,6 +211,7 @@
                                 </div>
                                 <div class=" col-md-12  order-lg-2 order-2">
                                     <div class="row">
+                              
                                         <div class="col-md-3 mb-2">
                                             <label for="mobile"
                                                 class="form-label text-md-end required">{{ __('मोबाइल नं.') }}</label>
@@ -251,13 +227,39 @@
                                         </div>
                                         <div class="col-md-3 mb-2">
                                             <label for="resident_contact_numbe"
-                                                class="form-label text-md-end required">{{ __('निवास सम्पर्क नं.') }}</label>
+                                                class="form-label text-md-end ">{{ __('निवास सम्पर्क नं.') }}</label>
                                             <input id="name" type="tel"
                                                 class="form-control @error('resident_contact_numbe') is-invalid @enderror"
                                                 name="resident_contact_numbe"
                                                 value="{{ old('resident_contact_numbe', $member->resident_contact_numbe) }}"
                                                 autocomplete="resident_contact_numbe" placeholder="9xxxxxxxxx">
                                             @error('resident_contact_numbe')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-3 mb-2">
+                                            <label for="dob" class="form-label required">जन्म मिति</label>
+                                            <input type="text" name="dob"
+                                                class="form-control @error('dob') is-invalid @enderror"
+                                                value="{{ old('dob', $member->dob) }}" id="dob"
+                                                aria-describedby="dob">
+                                            <div class="invalid-feedback">
+                                                @error('dob')
+                                                    {{ $message }}
+                                                @enderror
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-2">
+                                            <label for="birth_place"
+                                                class="form-label text-md-end required">{{ __('जन्म स्थान') }}</label>
+                                            <input id="birth_place" type="text"
+                                                class="form-control @error('birth_place') is-invalid @enderror"
+                                                name="birth_place" value="{{ old('birth_place', $member->birth_place) }}"
+                                                autocomplete="birth_place">
+                                            @error('birth_place')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>

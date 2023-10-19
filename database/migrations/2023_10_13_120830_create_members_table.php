@@ -53,7 +53,7 @@ return new class extends Migration {
             $table->string('election_district');
             $table->string('election_area')->nullable();
             
-            $table->string('designation');
+            $table->string('designation')->nullable();
 
             // $table->unsignedBigInteger('parliamentary_party_join_year')->nullable();
 

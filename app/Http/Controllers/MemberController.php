@@ -53,7 +53,7 @@ class MemberController extends Controller
         Member::create($data);
         return redirect()
             ->route('members.index')
-            ->with('success', 'Member Created');
+            ->with('success', 'सदस्य दर्ता समपन्न भयो');
     }
 
     /**
@@ -97,7 +97,7 @@ class MemberController extends Controller
         $member->update($data);
         return redirect()
             ->route('members.index')
-            ->with('success', 'Member updated');
+            ->with('success', 'सदस्य सम्पादन समपन्न भयो');
     }
 
     /**
@@ -112,7 +112,7 @@ class MemberController extends Controller
         $member->delete();
         return redirect()
             ->back()
-            ->with('success', 'Member Deleted');
+            ->with('success', 'सदस्य हटाइयो');
     }
 
     public function sort(Request $request)

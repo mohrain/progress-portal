@@ -29,7 +29,7 @@ class StoreMemberRequest extends FormRequest
             'election_process' => 'required',
             'election_district' => 'required',
             'election_area' => 'required',
-            'designation' => 'required',
+            'designation' => 'nullable',
             'name' => 'required',
             'name_english' => 'required',
             'gender' => 'required',
