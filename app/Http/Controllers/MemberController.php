@@ -64,7 +64,7 @@ class MemberController extends Controller
      */
     public function show(Member $member)
     {
-        //
+        return view('frontend.members.show', compact('member'));
     }
 
     /**
@@ -142,9 +142,5 @@ class MemberController extends Controller
             ->positioned()
             ->paginate(60);
         return view('frontend.members.index', compact('members'));
-    }
-    public function frontendShow(Member $member)
-    {
-        return view('frontend.members.show', compact('member'));
     }
 }

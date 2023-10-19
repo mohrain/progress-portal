@@ -22,7 +22,7 @@ class SettingsSeeder extends Seeder
             'address_line_two' => '',
             'phone' => '०९१-५२२४८९',
             'email' => ' pradeshsabha7@gmail.com',
-            'election_id' => 1,
+            'election_id' => 2,
             'website' => 'http://pga.sudurpashchim.gov.np/',
             'twitter' => 'https://twitter.com/pradeshsabha7',
             'youtube' => 'https://www.youtube.com/@sudurpaschimpradeshsabha6853',

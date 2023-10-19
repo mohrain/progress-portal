@@ -64,7 +64,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return view('frontend.employees.show', compact('employee'));
     }
 
     /**
@@ -124,5 +124,13 @@ class EmployeeController extends Controller
         }
 
         return response()->json(['message' => 'Employee has been sorted'], 200);
+    }
+
+    public function frontendIndex()
+    {
+        $employees = Employee::with('employeeDesignation')
+            ->positioned()
+            ->paginate(60);
+        return view('frontend.employees.index', compact('employees'));
     }
 }
