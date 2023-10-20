@@ -69,6 +69,12 @@ class CommitteeWizardMenu extends Component
                 'icon' => '<i class="fa fa-download"></i>',
                 'title' => 'प्रकाशनहरु/डाउनलोडस्'
             ],
+            [
+                'route_name' => ('committee.members'),
+                'route_param' => $committee->id,
+                'icon' => '<i class="fa fa-users"></i>',
+                'title' => 'समिति सदस्यहरु'
+            ],
             
         ];
 

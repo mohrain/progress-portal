@@ -11,6 +11,7 @@ use App\Http\Controllers\CommitteeActivitycontroller;
 use App\Http\Controllers\CommitteeController;
 use App\Http\Controllers\CommitteeDownloadController;
 use App\Http\Controllers\CommitteeDownloadsController;
+use App\Http\Controllers\CommitteeMemberController;
 use App\Http\Controllers\CommitteeNoticecontroller;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\DownloadController;
@@ -43,6 +44,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('login', [LoginController::class, 'showLoginForm'])
     ->name('login')
     ->middleware('guest');
+
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', LogoutController::class)->name('logout');
 
@@ -195,6 +197,13 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('committees/{committee}/downloads/create', [CommitteeDownloadController::class, 'createDownloadForm'])->name('committee.downloads.create');
     Route::get('committees/{committee}/downloads/{download}/edit', [CommitteeDownloadController::class, 'editDownload'])->name('committee.downloads.edit');
     Route::put('committees/{committee}/downloads/{download}', [CommitteeNoticecontroller::class, 'updateDownload'])->name('committee.downloads.update');
+
+    // Committee Members
+    Route::get('committees/{committee}/members', [CommitteeMemberController::class, 'members'])->name('committee.members');
+    Route::get('committees/{committee}/members/create', [CommitteeMemberController::class, 'create'])->name('committee.members.create');
+    Route::post('committees/{committee}/members', [CommitteeMemberController::class, 'store'])->name('committee.members.store');
+    Route::get('committees/{committee}/members/{member}/edit', [CommitteeMemberController::class, 'edit'])->name('committee.members.edit');
+    Route::put('committees/{committee}/members/{member}', [CommitteeMemberController::class, 'update'])->name('committee.members.update');
 
     // Downloads
     Route::post('downloads', [DownloadController::class, 'store'])->name('downloads.store');

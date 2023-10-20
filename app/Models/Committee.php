@@ -40,4 +40,9 @@ class Committee extends Model
     {
         return $this->morphMany(Download::class, 'downloadable')->latest();
     }
+
+    public function members()
+    {
+        return $this->hasMany(CommitteeMember::class);
+    }
 }
