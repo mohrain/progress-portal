@@ -114,8 +114,10 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="bg-theme-color-blue py-3 text-center">
-                    Facebook Page
+                <div class="fb-page" data-href="{{ settings('facebook') }}" data-tabs="timeline" data-width="340" data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="{{ settings('facebook') }}" class="fb-xfbml-parse-ignore">
+                        <a href="{{ settings('facebook') }}">Mohrain Websoft</a>
+                    </blockquote>
                 </div>
             </div>
             <div class="col-md-4">
