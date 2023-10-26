@@ -10,9 +10,11 @@
 <div class="bg-theme-color-blue py-3 mb-2 px-2">
     <i class="bi bi-headphones"></i> अडियो संग्रहहरु
 </div>
-<div class="bg-theme-color-blue py-3 mb-2 px-2">
-    <i class="bi bi-chat"></i> जनताका सुझावहरु
-</div>
+<a href="{{ route('contact-us.create') }}">
+    <div class="bg-theme-color-blue py-3 mb-2 px-2">
+        <i class="bi bi-chat"></i> जनताका सुझावहरु
+    </div>
+</a>
 {{-- <div class="bg-theme-color-blue py-3 mb-2 px-2">
     <i class="bi bi-cloud-arrow-down"></i> डाउनलोडस्
 </div> --}}

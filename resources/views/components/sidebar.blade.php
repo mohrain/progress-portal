@@ -76,6 +76,11 @@
                     <span class="text-success"><i class="bi bi-person-video"></i></span>सूचना अधिकारीहरु
                 </a>
             </li>
+            <li class="nav-item {{ setActive('contact-us.*') }}">
+                <a href="{{ route('contact-us.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-warning"><i class="bi bi-info-lg"></i></span>सुझाव/प्रतिक्रियाहरू
+                </a>
+            </li>
             <li class="nav-item {{ setActive('faq.*') }}">
                 <a href="{{ route('faq.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-warning"><i class="bi bi-question-lg"></i></span>प्राय: सोधिने प्रश्नहरू

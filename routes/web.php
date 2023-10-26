@@ -13,6 +13,7 @@ use App\Http\Controllers\CommitteeDownloadController;
 use App\Http\Controllers\CommitteeDownloadsController;
 use App\Http\Controllers\CommitteeMemberController;
 use App\Http\Controllers\CommitteeNoticecontroller;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ElectionController;
@@ -65,6 +66,8 @@ Route::get('employees', [EmployeeController::class, 'frontendIndex'])->name('emp
 Route::get('employees/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
 Route::get('office-bearers', [OfficeBearerController::class, 'frontendIndex'])->name('office-bearers.frontendIndex');
 Route::get('office-bearers/old', [OfficeBearerController::class, 'frontendIndexOld'])->name('office-bearers.frontendIndexOld');
+Route::get('contact-us', [ContactUsController::class, 'create'])->name('contact-us.create');
+Route::post('contact-us', [ContactUsController::class, 'store'])->name('contact-us.store');
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
@@ -210,7 +213,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('downloads/{download}', [DownloadController::class, 'update'])->name('downloads.update');
     Route::delete('downloads/{download}', [DownloadController::class, 'destroy'])->name('downloads.destroy');
 
-
     //election year
     Route::get('elections', [ElectionController::class, 'index'])->name('elections.index');
     Route::post('elections', [ElectionController::class, 'store'])->name('elections.store');
@@ -290,6 +292,11 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('information-officers/{informationOfficer}/edit', [InformationOfficerController::class, 'edit'])->name('information-officers.edit');
     Route::put('information-officers/{informationOfficer}', [InformationOfficerController::class, 'update'])->name('information-officers.update');
     Route::delete('information-officers/{informationOfficer}', [InformationOfficerController::class, 'destroy'])->name('information-officers.destroy');
+
+    //contact-us
+    Route::get('contact-us', [ContactUsController::class, 'index'])->name('contact-us.index');
+    Route::get('contact-us/{contactUs}', [ContactUsController::class, 'show'])->name('contact-us.show');
+    Route::delete('contact-us/{contactUs}', [ContactUsController::class, 'destroy'])->name('contact-us.destroy');
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');

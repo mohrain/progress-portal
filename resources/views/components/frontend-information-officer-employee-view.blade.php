@@ -10,7 +10,7 @@
             <hr>
             <div class="card" style="width: 8rem;">
                 <img src="{{ $informationOfficer->employee->profile ? asset('storage/' . $informationOfficer->employee->profile) : asset('assets/img/no-image.png') }}"
-                    class="card-img-top" alt="...">
+                    class="card-img-top" alt="{{ $informationOfficer->EmployeeDesignation->name }}">
                 <div class="text-center">
                     <a href="{{ route('employees.show', $informationOfficer->employee) }}" class="nav-link text-dark">
                         <b class="card-title text-dark fs-6">{{ $informationOfficer->employee->name }}</b>

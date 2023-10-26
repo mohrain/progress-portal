@@ -155,7 +155,7 @@
                 <a href="/">गृह पृष्ठ </a>
             </div>
             <div>
-                <a href="">सम्पर्क गर्नुहोस् </a>
+                <a href="{{route('contact-us.create')}}">सम्पर्क गर्नुहोस् </a>
             </div>
             <div>
                 <a href="{{ route('faq.frontend') }}">प्राय: सोधिने प्रश्नहरू</a>

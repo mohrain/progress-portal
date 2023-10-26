@@ -5,6 +5,9 @@ background-color: #f2f7fb;
 p{
 text-align: justify;
 }
+a{
+    text-decoration: none;
+}
 .bg-theme-color-red {
 background-color: #982121;
 color: #fff;
@@ -135,13 +138,13 @@ color: #fff;
 text-decoration: none;
 }
 
-.footer .card-img-top{
+.card-img-top{
 height: 120px;
 width: auto;
 object-fit: cover;
 }
 
-.footer .social-media-icon{
+.social-media-icon{
 font-size: 25px;
 }
 
