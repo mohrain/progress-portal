@@ -120,7 +120,7 @@
             </div>
             <div class="col-md-4">
                 <div>
-                    <a class="twitter-timeline" href="https://twitter.com/pradeshsabha7?ref_src=twsrc%5Etfw">Tweets by
+                    <a class="twitter-timeline" href="{{ settings('twitter') }}?ref_src=twsrc%5Etfw">Tweets by
                         pradeshsabha7</a>
                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
