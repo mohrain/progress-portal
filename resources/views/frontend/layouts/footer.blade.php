@@ -155,7 +155,7 @@
                 <a href="/">गृह पृष्ठ </a>
             </div>
             <div>
-                <a href="{{route('contact-us.create')}}">सम्पर्क गर्नुहोस् </a>
+                <a href="{{ route('contact-us.create') }}">सम्पर्क गर्नुहोस् </a>
             </div>
             <div>
                 <a href="{{ route('faq.frontend') }}">प्राय: सोधिने प्रश्नहरू</a>
@@ -196,9 +196,9 @@
     <div class="container">
         <div class="d-md-flex justify-content-between">
             <div>
-                <span> <strong class="kalimati-font">&copy; {{ date('Y') }}</strong>. प्रदेश सभा, सुदूरपश्‍चिम
-                    प्रदेश प्रदेश सभा सचिवालय.
-                    सर्वाधिकार सुरक्षित</span>
+                <strong class="kalimati-font">&copy; {{ date('Y') }}</strong>. प्रदेश सभा, सुदूरपश्‍चिम
+                प्रदेश प्रदेश सभा सचिवालय.
+                सर्वाधिकार सुरक्षित
             </div>
             <div>
                 Designed and Developed By: <a href="https://mohrain.com">Mohrain</a>

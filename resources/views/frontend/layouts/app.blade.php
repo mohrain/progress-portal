@@ -52,6 +52,12 @@
             content: ' *';
             color: #fa5661;
         }
+
+        .invert-colors {
+            filter: invert(100%);
+            background-color: black;
+            color: white;
+        }
     </style>
     @stack('styles')
 
@@ -80,6 +86,17 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="{{ asset('assets/nepali-datepicker-v4/js/nepali.datepicker.v4.0.1.min.js') }}" type="text/javascript">
+    </script>
+    <script>
+        // Function to toggle color inversion
+        function toggleInvertColors() {
+            const body = document.body;
+            body.classList.toggle("invert-colors");
+        }
+
+        // Add a click event listener to the button
+        const toggleButton = document.getElementById("toggleButton");
+        toggleButton.addEventListener("click", toggleInvertColors);
     </script>
     @stack('scripts')
 

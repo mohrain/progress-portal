@@ -22,31 +22,25 @@
 
                     </div>
                     <div>
-                        <a class="nav-link text-white" href="#"><i class="bi bi-envelope"></i> Check mail</a>
+                        <a class="nav-link text-white" href="https://mail.nepal.gov.np"><i class="bi bi-envelope"></i>
+                            Check mail</a>
                     </div>
                     <select class="bg-theme-color-red borderless" style="Border: none;">
                         <option value="np" selected>NP</option>
                         <option value="en">EN</option>
-                      </select>
-                    <div class="social-media-icon">
-                        <a class="nav-link text-white" href="{{ settings('facebook') }}" target="_blank"
-                            rel="noopener noreferrer">
-                            <i class="bi bi-facebook"></i>
-                        </a>
+                    </select>
+                    <div class="btn text-white">
+                        +A
                     </div>
-                    <div class="social-media-icon">
-                        <a class="nav-link text-white" href="{{ settings('twitter') }}" target="_blank"
-                            rel="noopener noreferrer">
-                            <i class="bi bi-twitter-x"></i>
-                        </a>
+                    <div class="btn text-white">
+                        A
                     </div>
-                    <div class="social-media-icon">
-                        <a class="nav-link text-white" href="{{ settings('youtube') }}" target="_blank"
-                            rel="noopener noreferrer">
-                            <i class="bi bi-youtube"></i>
-                        </a>
+                    <div class="btn text-white">
+                        -A
                     </div>
-
+                    <div class="btn" id="toggleButton">
+                       <b>A</b> 
+                    </div>
                 </div>
             </div>
         </div>
