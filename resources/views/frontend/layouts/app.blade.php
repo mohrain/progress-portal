@@ -58,6 +58,10 @@
             background-color: black;
             color: white;
         }
+
+        body {
+            transition: font-size 0.3s;
+        }
     </style>
     @stack('styles')
 
@@ -66,16 +70,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 <body>
-    @include('frontend.layouts.top-nav')
-    @include('frontend.layouts.header')
-    @include('frontend.layouts.desktop-nav')
-    @include('frontend.layouts.mobile-nav')
-    <!-- Content here -->
-    <div class="my-4">
-        @yield('content')
+    <div id="content">
+        @include('frontend.layouts.top-nav')
+        @include('frontend.layouts.header')
+        @include('frontend.layouts.desktop-nav')
+        @include('frontend.layouts.mobile-nav')
+        <!-- Content here -->
+        <div class="my-4">
+            @yield('content')
+        </div>
+        @include('frontend.layouts.footer')
     </div>
-    @include('frontend.layouts.footer')
-
     <!-- Optional JavaScript; choose one of the two! -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -97,6 +102,46 @@
         // Add a click event listener to the button
         const toggleButton = document.getElementById("toggleButton");
         toggleButton.addEventListener("click", toggleInvertColors);
+    </script>
+
+    <script>
+        let currentFontSize = 16; // Initial font size in pixels
+
+        function zoomIn() {
+            currentFontSize += 2; // Increase font size by 2 pixels
+            applyFontSize();
+        }
+
+        function zoomOut() {
+            currentFontSize -= 2; // Decrease font size by 2 pixels
+            applyFontSize();
+        }
+
+        function resetZoom() {
+            currentFontSize = 16; // Reset font size to the original size
+            applyFontSize();
+        }
+
+        function applyFontSize() {
+            document.body.style.fontSize = currentFontSize + 'px';
+        }
+    </script>
+    <script>
+        function toggleImageLoading() {
+            const images = document.querySelectorAll('img');
+            const loadImages = document.getElementById('loadImages').checked;
+
+            images.forEach(image => {
+                if (loadImages) {
+                    // Load the images by setting the src attribute
+                    image.src = image.getAttribute('data-src');
+                } else {
+                    // Remove the src attribute to prevent the images from loading
+                    // image.removeAttribute('src');
+                    location.reload(true);
+                }
+            });
+        }
     </script>
     @stack('scripts')
 
