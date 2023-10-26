@@ -13,7 +13,7 @@
                     class="card-img-top" alt="...">
                 <div class="text-center">
                     <a href="{{ route('employees.show', $informationOfficer->employee) }}" class="nav-link text-dark">
-                        <h6 class="card-title text-dark">{{ $informationOfficer->employee->name }}</h6>
+                        <b class="card-title text-dark fs-6">{{ $informationOfficer->employee->name }}</b>
                         <div>
                             <small class="text-muted">{{ $informationOfficer->employee->designation }}</small>
                         </div>

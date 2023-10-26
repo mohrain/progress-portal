@@ -15,20 +15,7 @@
                 <div class="bg-theme-color-blue py-3 text-center mb-3">
                     प्रदेश सभा सचिव
                 </div>
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-4 text-center">
-                            <img src="{{ asset('images/profile/dev-bahadur.jpeg') }}" class="img-fluid rounded-start"
-                                alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="text-center py-2">
-                                <h5 class="card-title">श्री देव बहादुर बोगटी</h5>
-                                <div class="card-text"><small class="text-muted">प्रदेश सभा सचिव</small></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <x-frontend-provincial-assembly-secretary-view />
             </div>
         </div>
         <div class="row">
@@ -68,7 +55,7 @@
                 <div class="card my-1">
                     <div class="row g-0">
                         <div class="col-md-4 text-center">
-                            <img src="{{ asset('images/profile/koili-devi.jpeg') }}"
+                            <img src="{{ asset('assets/img/no-image.png') }}"
                                 class="img-fluid rounded-start news-thum-image" alt="...">
                         </div>
                         <div class="col-md-8">
@@ -82,7 +69,7 @@
                 <div class="card my-1">
                     <div class="row g-0">
                         <div class="col-md-4 text-center">
-                            <img src="{{ asset('images/profile/koili-devi.jpeg') }}"
+                            <img src="{{ asset('assets/img/no-image.png') }}"
                                 class="img-fluid rounded-start news-thum-image" alt="...">
                         </div>
                         <div class="col-md-8">
@@ -97,7 +84,7 @@
                 <div class="card my-1">
                     <div class="row g-0">
                         <div class="col-md-4 text-center">
-                            <img src="{{ asset('images/profile/koili-devi.jpeg') }}"
+                            <img src="{{ asset('assets/img/no-image.png') }}"
                                 class="img-fluid rounded-start news-thum-image" alt="...">
                         </div>
                         <div class="col-md-8">
@@ -111,7 +98,7 @@
                 <div class="card my-1">
                     <div class="row g-0">
                         <div class="col-md-4 text-center">
-                            <img src="{{ asset('images/profile/koili-devi.jpeg') }}"
+                            <img src="{{ asset('assets/img/no-image.png') }}"
                                 class="img-fluid rounded-start news-thum-image" alt="...">
                         </div>
                         <div class="col-md-8">
