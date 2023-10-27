@@ -24,7 +24,7 @@
                                 {{ $title = 'सदस्यहरु' }}
                             </div>
                             <div>
-                                <a href="{{ route('members.create') }}" class="btn btn-sm btn-primary">नयाँ पोस्ट</a>
+                                <a href="{{ route('members.create') }}" class="btn btn-sm btn-primary">नयाँ सदस्यदर्ता</a>
                             </div>
                         </div>
                     </div>
