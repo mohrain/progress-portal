@@ -2,8 +2,7 @@
     <a class="nav-link" aria-current="page" href="/">गृह पृष्ठ</a>
 </li>
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         प्रदेश सभा
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -20,8 +19,7 @@
     </ul>
 </li>
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         प्रदेश सभा सचिवालय
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -36,8 +34,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         सदस्यहरु
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -49,12 +46,19 @@
     </ul>
 </li>
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         समिती
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="#">विधायन तथा प्रदेश समिती</a></li>
+        @foreach (\App\Models\Committee::get() as $committee)
+        <li><a class="dropdown-item" href="{{ route('frontend.committees.show', $committee->slug) }}">{{ $committee->name }}</a></li>
+        @if (!$loop->last)
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        @endif
+        @endforeach
+        {{-- <li><a class="dropdown-item" href="#">विधायन तथा प्रदेश समिती</a></li>
         <li>
             <hr class="dropdown-divider">
         </li>
@@ -66,12 +70,11 @@
         <li>
             <hr class="dropdown-divider">
         </li>
-        <li><a class="dropdown-item" href="#">सार्बजनिक विकास समिती</a></li>
+        <li><a class="dropdown-item" href="#">सार्बजनिक विकास समिती</a></li> --}}
     </ul>
 </li>
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         विधेयक
     </a>
     <x-bill-type-view />
