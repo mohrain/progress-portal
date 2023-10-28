@@ -22,6 +22,7 @@ use App\Http\Controllers\EmployeeDesignationController;
 use App\Http\Controllers\FiscalYearController;
 use App\Http\Controllers\FrequentlyAskedQuestionController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformationOfficerController;
 use App\Http\Controllers\LanguageController;
@@ -32,6 +33,7 @@ use App\Http\Controllers\ModalImageController;
 use App\Http\Controllers\OfficeBearerController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ParliamentaryPartyController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostCategoryMenuController;
 use App\Http\Controllers\PostController;
@@ -212,6 +214,17 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::post('downloads', [DownloadController::class, 'store'])->name('downloads.store');
     Route::put('downloads/{download}', [DownloadController::class, 'update'])->name('downloads.update');
     Route::delete('downloads/{download}', [DownloadController::class, 'destroy'])->name('downloads.destroy');
+
+    // Gallery
+    Route::get('albums', [AlbumController::class, 'index'])->name('album.index');
+    Route::get('albums/getAlbums', [AlbumController::class, 'getAlbums']);
+    Route::get('albums/create', [AlbumController::class, 'create'])->name('album.create');
+    Route::post('albums', [AlbumController::class, 'store'])->name('album.store');
+    Route::delete('albums/{album}', [AlbumController::class, 'destroy']);
+    Route::get('album/{album}/photos', [PhotoController::class, 'index'])->name('album.photos.index');
+    Route::get('album/{album}/getPhotos', [PhotoController::class, 'getPhotos']);
+    Route::post('album/{album}/photos', [PhotoController::class, 'store'])->name('album.photos.store');
+    Route::delete('photos/{photo}', [PhotoController::class, 'destroy']);
 
     //election year
     Route::get('elections', [ElectionController::class, 'index'])->name('elections.index');
