@@ -221,9 +221,11 @@
                     </table>
                 </div>
             </div>
-            <div class="col-md-12 box">
+            @if ($member->descriptions)
+                <div class="col-md-12 box">
                     <p class="p-3">{!! $member->descriptions !!}</p>
-            </div>
+                </div>
+            @endif
         </div>
     </div>
 @endsection
