@@ -54,6 +54,11 @@
                     <span class="text-success"><i class="fa fa-plus"></i></span>समिति
                 </a>
             </li>
+            <li class="nav-item {{ setActive('album.*') }}">
+                <a href="{{ route('album.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="fa fa-images"></i></span>Galllery
+                </a>
+            </li>
 
             <li class="nav-item {{ setActive('members.*') }}">
                 <a href="{{ route('members.index') }}" aria-expanded="false" class="nav-link">
