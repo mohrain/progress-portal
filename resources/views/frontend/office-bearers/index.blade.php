@@ -12,7 +12,7 @@
                     </div>
                     @forelse ($officeBearers as $officeBearer)
                         <div class="col-md-6 px-2 my-2">
-                            <div class="card mb-3" style="min-height: 140px;">
+                            <div class="card mb-3" style="min-height: 120px;">
                                 <div class="row g-0">
                                     <div class="col-md-4">
                                         <img id="newProfilePhotoPreview"
@@ -25,7 +25,7 @@
                                             <div class="card-body">
                                                 <h5 class="card-title text-theme-color">
                                                     
-                                                   मा. {{ $officeBearer->member->name }}
+                                                   {{ $officeBearer->member->name }}
                                                 </h5>
                                                 <div class="cart-text">
                                                     <b>
