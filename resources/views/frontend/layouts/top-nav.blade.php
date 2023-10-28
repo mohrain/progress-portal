@@ -29,13 +29,13 @@
                         <option value="np" selected>NP</option>
                         <option value="en">EN</option>
                     </select>
-                    <div class="btn text-white" onclick="zoomIn()">
+                    <div class="btn text-white" onclick="zoomIn()" style="font-size: 17px;">
                         अ+
                     </div>
-                    <div class="btn text-white" onclick="resetZoom()">
+                    <div class="btn text-white" onclick="resetZoom()" style="font-size: 14px;">
                         अ
                     </div>
-                    <div class="btn text-white" onclick="zoomOut()">
+                    <div class="btn text-white text-center" onclick="zoomOut()" style="font-size: 11px;">
                         अ-
                     </div>
                     <div class="btn" id="toggleButton">
