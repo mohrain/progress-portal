@@ -206,9 +206,12 @@ export default {
 
   .photo-box {
     padding: .5rem;
-    border: 1px solid #e5e5e5;
     border-radius: 4px;
-    background-color: #fbfbfb;
+      border: 1px solid transparent;
+      &:hover {
+      border-color: #e5e5e5;
+      background-color: #fbfbfb;
+    }
 
     &.active {
       background-color: #e7e7e7;
