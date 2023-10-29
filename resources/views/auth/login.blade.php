@@ -26,7 +26,7 @@
             </div>
             <h2 class="h2-responsive text-center font-weight-bold my-4">{{ __('Login') }}</h2>
             <div class="my-5"></div>
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login.post') }}">
                 @csrf
                 <div class="form-group">
                     <input type="email" id="email" name="email" class="form-control grey lighten-5 p-4  @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>

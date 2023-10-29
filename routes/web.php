@@ -48,7 +48,7 @@ Route::get('login', [LoginController::class, 'showLoginForm'])
     ->name('login')
     ->middleware('guest');
 
-Route::post('login', [LoginController::class, 'login']);
+Route::post('login', [LoginController::class, 'login'])->name('login.post');
 Route::post('logout', LogoutController::class)->name('logout');
 
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
