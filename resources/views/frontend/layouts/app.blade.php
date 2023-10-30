@@ -35,7 +35,6 @@
         .feature-img {
             border: 1px solid #ddd;
             width: 100%;
-            max-height: 80vh;
             object-fit: fill;
             position: relative;
 

@@ -42,7 +42,7 @@
         <li>
             <hr class="dropdown-divider">
         </li>
-        <li><a class="dropdown-item" href="{{route('members.frontendIndexOld')}}">भू.पु.सदस्यहरुको सुची </a></li>
+        <li><a class="dropdown-item" href="{{route('members.frontendIndexOld')}}">पुर्व सदस्यहरुको सुची </a></li>
     </ul>
 </li>
 <li class="nav-item dropdown">
