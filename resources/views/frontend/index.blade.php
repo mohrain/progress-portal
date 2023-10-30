@@ -114,7 +114,9 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="fb-page" data-href="{{ settings('facebook') }}" data-tabs="timeline" data-width="340" data-height="410" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                <div class="fb-page" data-href="{{ settings('facebook') }}" data-tabs="timeline" data-width="340"
+                    data-height="410" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
+                    data-show-facepile="true">
                     <blockquote cite="{{ settings('facebook') }}" class="fb-xfbml-parse-ignore">
                         <a href="{{ settings('facebook') }}">Mohrain Websoft</a>
                     </blockquote>
@@ -122,7 +124,8 @@
             </div>
             <div class="col-md-4">
                 <div>
-                    <a class="twitter-timeline" href="{{ settings('twitter') }}?ref_src=twsrc%5Etfw">Tweets by
+                    <a class="twitter-timeline" data-height="410"
+                        href="{{ settings('twitter') }}?ref_src=twsrc%5Etfw">Tweets by
                         pradeshsabha7</a>
                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
