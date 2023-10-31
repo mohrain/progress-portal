@@ -58,7 +58,9 @@ Route::get('post-categories/{postCategory}', [PostCategoryController::class, 'sh
 Route::get('faqs', [FrequentlyAskedQuestionController::class, 'frontend'])->name('faq.frontend');
 Route::get('parliamentary-parties', [ParliamentaryPartyController::class, 'frontend'])->name('parliamentary-parties.frontend');
 Route::get('bill-types/{billType}', [BillTypeController::class, 'show'])->name('bill-types.show');
+Route::get('bill-types/{billType}/search', [BillController::class, 'frontendSearch'])->name('bills.frontendSearch');
 Route::get('bills/{bill}', [BillController::class, 'show'])->name('bills.show');
+
 Route::get('bill-suggestions/{bill}', [BillSuggestionController::class, 'create'])->name('bill-suggestions.create');
 Route::post('bill-suggestions/{bill}', [BillSuggestionController::class, 'store'])->name('bill-suggestions.store');
 Route::get('members', [MemberController::class, 'frontendIndex'])->name('members.frontendIndex');

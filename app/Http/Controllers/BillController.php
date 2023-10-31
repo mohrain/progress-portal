@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BillType;
 use App\Models\Bill;
 use App\Http\Requests\StoreBillRequest;
 use App\Http\Requests\UpdateBillRequest;
@@ -156,7 +157,6 @@ class BillController extends Controller
 
     public function search(Request $request)
     {
-
         $bills = new Bill();
         if ($request->has('name')) {
             if ($request->name != null) {
@@ -284,5 +284,30 @@ class BillController extends Controller
         $bills = $bills->with('billType', 'billCategory', 'ministry', 'member')->paginate(50);
         $bills->appends(request()->except('page'));
         return view('bills.index', compact('bills'));
+    }
+
+    public function frontendSearch(Request $request, BillType $billType)
+    {
+        $bills = $billType->bills();
+        if ($request->has('name')) {
+            if ($request->name != null) {
+                $bills = $bills->where('name', 'like', '%' . $request->name . '%');
+            }
+        }
+
+        if ($request->has('entry_number')) {
+            if ($request->entry_number != null) {
+                $bills = $bills->where('entry_number', $request->entry_number);
+            }
+        }
+        if ($request->has('bill_date_from')) {
+            if ($request->bill_date_from != null && $request->bill_date_to != null) {
+                $bills = $bills->whereBetween('entry_date', [$request->bill_date_from, $request->bill_date_to]);
+            }
+        }
+
+        $bills = $bills->with('billType', 'billCategory', 'ministry', 'member')->paginate(50);
+        $bills->appends(request()->except('page'));
+        return view('frontend.bill-types.show', compact('billType', 'bills'));
     }
 }
