@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">समिती</th>
+            <th scope="col">समिति</th>
             <th scope="col">मिति</th>
             <th scope="col">समय</th>
         </tr>
