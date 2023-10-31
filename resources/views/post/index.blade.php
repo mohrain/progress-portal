@@ -58,7 +58,7 @@
                                         </div>
 
                                         <div class="col-md-3 mt-md-auto mb-3 text-right">
-                                            <button type="submit" class="btn btn-primary">
+                                            <button type="submit" class="btn btn-primary bi bi-search">
                                                 खोजी गर्नुहोस्
                                             </button>
                                         </div>

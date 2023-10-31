@@ -28,7 +28,7 @@
 
                                 </div>
                                 <div class="col-md-3 mb-2">
-                                    <label for="name" class="form-label required">नाम</label>
+                                    <label for="name" class="form-label required">शीर्षक</label>
                                     <input type="text" name="name"
                                         class="form-control @error('name') is-invalid @enderror"
                                         value="{{ old('name', $bill->name) }}" id="name" aria-describedby="name">

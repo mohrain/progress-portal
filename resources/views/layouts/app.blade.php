@@ -105,7 +105,7 @@
             ndpYear: true,
             ndpMonth: true,
             ndpYearCount: 200,
-            readOnlyInput: true
+            // readOnlyInput: true
         });
     </script>
     @stack('scripts')
