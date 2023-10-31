@@ -21,7 +21,9 @@ class MemberController extends Controller
         $members = Member::with('election', 'parliamentaryParty')
             ->positioned()
             ->paginate(60);
-        return view('members.index', compact('members'));
+        $districts = District::orderBy('name')->get();
+
+        return view('members.index', compact('members', 'districts'));
     }
 
     /**
@@ -142,5 +144,120 @@ class MemberController extends Controller
             ->positioned()
             ->paginate(60);
         return view('frontend.members.index', compact('members'));
+    }
+
+    public function search(Request $request)
+    {
+        $members = new Member();
+        if ($request->has('name')) {
+            if ($request->name != null) {
+                $members = $members->where('name', 'like', '%' . $request->name . '%');
+            }
+        }
+        if ($request->has('election_id')) {
+            if ($request->election_id != null) {
+                $members = $members->where('election_id', $request->election_id);
+            }
+        }
+
+        if ($request->has('parliamentary_party_id')) {
+            if ($request->parliamentary_party_id != null) {
+                $members = $members->where('parliamentary_party_id', $request->parliamentary_party_id);
+            }
+        }
+        if ($request->has('election_process')) {
+            if ($request->election_process != null) {
+                $members = $members->where('election_process', $request->election_process);
+            }
+        }
+        if ($request->has('election_district')) {
+            if ($request->election_district != null) {
+                $members = $members->where('election_district', $request->election_district);
+            }
+        }
+        if ($request->election_area != null) {
+            $members = $members->where('election_area', 'like', '%' . $request->election_area . '%');
+        }
+        if ($request->name_english != null) {
+            $members = $members->where('name_english', 'like', '%' . $request->name_english . '%');
+        }
+        if ($request->has('gender')) {
+            if ($request->gender != null) {
+                $members = $members->where('gender', $request->gender);
+            }
+        }
+        if ($request->has('email')) {
+            if ($request->email != null) {
+                $members = $members->where('email', $request->email);
+            }
+        }
+        if ($request->has('mobile')) {
+            if ($request->mobile != null) {
+                $members = $members->where('mobile', $request->mobile);
+            }
+        }
+
+        if ($request->has('resident_contact_numbe')) {
+            if ($request->resident_contact_numbe != null) {
+                $members = $members->where('resident_contact_numbe', $request->resident_contact_numbe);
+            }
+        }
+        if ($request->has('dob')) {
+            if ($request->dob != null) {
+                $members = $members->where('dob', $request->dob);
+            }
+        }
+        if ($request->birth_place != null) {
+            $members = $members->where('birth_place', 'like', '%' . $request->birth_place . '%');
+        }
+        if ($request->has('permanent_address_district')) {
+            if ($request->permanent_address_district != null) {
+                $members = $members->where('permanent_address_district', $request->permanent_address_district);
+            }
+        }
+
+        if ($request->permanent_address != null) {
+            $members = $members->where('permanent_address', 'like', '%' . $request->permanent_address . '%');
+        }
+        if ($request->has('temporary_address_district')) {
+            if ($request->temporary_address_district != null) {
+                $members = $members->where('temporary_address_district', $request->temporary_address_district);
+            }
+        }
+        if ($request->temporary_address != null) {
+            $members = $members->where('temporary_address', 'like', '%' . $request->temporary_address . '%');
+        }
+        if ($request->father_name != null) {
+            $members = $members->where('father_name', 'like', '%' . $request->father_name . '%');
+        }
+        if ($request->mother_name != null) {
+            $members = $members->where('mother_name', 'like', '%' . $request->mother_name . '%');
+        }
+        if ($request->spouse_name != null) {
+            $members = $members->where('spouse_name', 'like', '%' . $request->spouse_name . '%');
+        }
+        if ($request->child != null) {
+            $members = $members->where('child', 'like', '%' . $request->child . '%');
+        }
+        if ($request->education != null) {
+            $members = $members->where('education', 'like', '%' . $request->education . '%');
+        }
+
+        if ($request->has('religion')) {
+            if ($request->religion != null) {
+                $members = $members->where('religion', $request->religion);
+            }
+        }
+        if ($request->has('mother_tongue')) {
+            if ($request->mother_tongue != null) {
+                $members = $members->where('mother_tongue', $request->mother_tongue);
+            }
+        }
+
+        $members = $members->with('election', 'parliamentaryParty')->paginate(50);
+        $members->appends(request()->except('page'));
+
+        $districts = District::orderBy('name')->get();
+        return view('members.index', compact('members', 'districts'));
     }
 }
