@@ -12,57 +12,63 @@
                                 {{ $title = 'पोस्टहरु' }}
                             </div>
                             <div>
-                                <a href="{{ route('posts.create') }}" class="btn btn-sm btn-primary">नयाँ पोस्ट</a>
-                                {{-- <button class="btn btn-sm btn-secondary" type="button" data-bs-toggle="offcanvas"
-                                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Filter</button>
-                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                                    aria-labelledby="offcanvasRightLabel">
-                                    <div class="offcanvas-header">
-                                        <h5 class="offcanvas-title" id="offcanvasRightLabel">Search</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="offcanvas-body">
-                                        <form action="{{ route('posts.search') }}" method="get">
-                                            <div class="mb-3">
-                                                <label for="title" class="form-label required">Title</label>
-                                                <input type="text" name="title"
-                                                    class="form-control @error('title') is-invalid @enderror" value=""
-                                                    id="title" aria-describedby="title">
+                                <a href="{{ route('posts.create') }}" class="btn btn-sm btn-primary bi bi-plus">नयाँ पोस्ट</a>
 
-                                            </div>
-                                            <x-post-category-select />
-                                            <x-user-select />
-
-                                            <div class="mb-3">
-                                                <label for="status" class="form-label">{{ __('Status') }}</label>
-
-                                                <select class="form-control" name="status" id="status"
-                                                    aria-label="Default select example">
-                                                    <option value="">Choose</option>
-                                                    <option value="1">
-                                                        Publish</option>
-                                                    <option value="0">
-                                                        Unpublish</option>
-                                                </select>
+                                <a class="btn btn-secondary bi bi-funnel " data-toggle="collapse" href="#collapseExample"
+                                    role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    फिल्टर
+                                </a>
 
 
-                                            </div>
-                                            <div class="mb-3">
-                                                <button type="submit" class="btn btn-primary">
-                                                    Search</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div> --}}
                             </div>
                         </div>
                     </div>
 
                     <div class="card-body">
+                        <div class="collapse my-2" id="collapseExample">
+                            <div class="card card-body">
+                                <form action="{{ route('posts.search') }}" method="get">
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label for="title" class="form-label">पोस्ट नाम</label>
+                                                <input type="text" name="title"
+                                                    class="form-control @error('title') is-invalid @enderror" id="title"
+                                                    aria-describedby="title">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <x-post-category-select />
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label for="status" class="form-label">{{ __('स्थिति') }}</label>
+
+                                                <select class="form-control" name="status" id="status"
+                                                    aria-label="Default select example">
+                                                    <option value="" >
+                                                        सबै</option>
+                                                    <option value="1" >
+                                                        प्रकाशित</option>
+                                                    <option value="0">
+                                                        अप्रकाशित</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 mt-md-auto mb-3 text-right">
+                                            <button type="submit" class="btn btn-primary">
+                                                खोजी गर्नुहोस्
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
 
                         <div class="table-responsive">
-                            <table class="table table-md table-bordered">
+                            <table class="table table-md table-bordered kalimati-font">
                                 <thead>
                                     <th>पोस्ट नाम</th>
                                     <th>फिचर फोटो</th>
@@ -82,7 +88,7 @@
                                             </td>
                                             <td>
                                                 @foreach ($post->postCategories as $category)
-                                                    <span class="badge badge-success">{{ $category->name ?? "" }}</span>
+                                                    <span class="badge badge-success">{{ $category->name ?? '' }}</span>
                                                     {{ $loop->last ? '' : '|' }}
                                                 @endforeach
                                             </td>
@@ -100,18 +106,17 @@
                                             </td>
                                             <td class="text-right">
                                                 <div class="dropdown">
-                                                    <a class=" btn-icon-only text-light" href="#"
-                                                        role="button" data-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
+                                                    <a class=" btn-icon-only text-light" href="#" role="button"
+                                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <i class="fas fa-ellipsis-v"></i>
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-arrow">
                                                         <a class="dropdown-item "
-                                                        href="{{ route('posts.show', $post) }}">Show</a>
-                                                        
+                                                            href="{{ route('posts.show', $post) }}">Show</a>
+
                                                         <a class="dropdown-item "
                                                             href="{{ route('posts.edit', $post) }}">Edit</a>
-     
+
                                                         <form action="{{ route('posts.destroy', $post) }}" method="post">
                                                             @method('delete')
                                                             @csrf
@@ -129,7 +134,8 @@
 
                                     @empty
                                         <tr>
-                                            <td colspan="42" class="font-italic text-center">कुनैपनि डाटा उपलब्ध छैन !!!</td>
+                                            <td colspan="42" class="font-italic text-center">कुनैपनि डाटा उपलब्ध छैन !!!
+                                            </td>
                                         </tr>
                                     @endforelse
                                 </tbody>

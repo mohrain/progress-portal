@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -141,5 +142,31 @@ class PostController extends Controller
         return redirect()
             ->back()
             ->with('success', 'पोस्ट हटाइयो');
+    }
+
+    public function search(Request $request){
+        $posts = new Post();
+    //    return $request;
+        if ($request->has('title')) {
+            if ($request->title != null) {
+                $posts = $posts->where('title', 'like', '%' . $request->title . '%');
+            }
+        }
+        if ($request->has('status')) {
+            if ($request->status != null) {
+                $posts = $posts->where('status', $request->status);
+            }
+        }
+        
+        if ($request->post_category_id != [null]) {
+            $post_category_id = $request->post_category_id;
+            $posts = $posts->whereHas('postCategories', function ($query) use ($post_category_id) {
+                $query->where('post_category_id','=', $post_category_id);
+            });
+        }
+
+        $posts = $posts->with('postCategories')->paginate(50);
+        $posts->appends(request()->except('page'));
+        return view('post.index', compact('posts'));
     }
 }
