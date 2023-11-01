@@ -18,9 +18,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::
-            positioned()
-            ->paginate(60);
+        $employees = Employee::positioned()->paginate(60);
+
         return view('employees.index', compact('employees'));
     }
 
@@ -128,8 +127,95 @@ class EmployeeController extends Controller
 
     public function frontendIndex()
     {
-        $employees = Employee::positioned()
-            ->paginate(60);
+        $employees = Employee::positioned()->paginate(60);
         return view('frontend.employees.index', compact('employees'));
     }
+
+    public function search(Request $request)
+    {
+        // return $request;
+
+        $employees = new Employee();
+        if ($request->has('name')) {
+            if ($request->name != null) {
+                $employees = $employees->where('name', 'like', '%' . $request->name . '%');
+            }
+        }
+        if ($request->has('email')) {
+            if ($request->email != null) {
+                $employees = $employees->where('email', $request->email);
+            }
+        }
+
+        if ($request->has('mobile')) {
+            if ($request->mobile != null) {
+                $employees = $employees->where('mobile', $request->mobile);
+            }
+        }
+
+        if ($request->name_english != null) {
+            $employees = $employees->where('name_english', 'like', '%' . $request->name_english . '%');
+        }
+        if ($request->designation != null) {
+            $employees = $employees->where('designation', 'like', '%' . $request->designation . '%');
+        }
+        if ($request->branch != null) {
+            $employees = $employees->where('branch', 'like', '%' . $request->branch . '%');
+        }
+        if ($request->has('gender')) {
+            if ($request->gender != null) {
+                $employees = $employees->where('gender', $request->gender);
+            }
+        }
+        $employees = $employees
+            ->positioned()
+            ->paginate(60);
+        $employees->appends(request()->except('page'));
+        return view('employees.index', compact('employees'));
+    }
+
+    
+    public function frontendSearch(Request $request)
+    {
+        // return $request;
+
+        $employees = new Employee();
+        if ($request->has('name')) {
+            if ($request->name != null) {
+                $employees = $employees->where('name', 'like', '%' . $request->name . '%');
+            }
+        }
+        if ($request->has('email')) {
+            if ($request->email != null) {
+                $employees = $employees->where('email', $request->email);
+            }
+        }
+
+        if ($request->has('mobile')) {
+            if ($request->mobile != null) {
+                $employees = $employees->where('mobile', $request->mobile);
+            }
+        }
+
+        if ($request->name_english != null) {
+            $employees = $employees->where('name_english', 'like', '%' . $request->name_english . '%');
+        }
+        if ($request->designation != null) {
+            $employees = $employees->where('designation', 'like', '%' . $request->designation . '%');
+        }
+        if ($request->branch != null) {
+            $employees = $employees->where('branch', 'like', '%' . $request->branch . '%');
+        }
+        if ($request->has('gender')) {
+            if ($request->gender != null) {
+                $employees = $employees->where('gender', $request->gender);
+            }
+        }
+        $employees = $employees
+            ->positioned()
+            ->paginate(60);
+        $employees->appends(request()->except('page'));
+        return view('frontend.employees.index', compact('employees'));
+    }
+
 }
