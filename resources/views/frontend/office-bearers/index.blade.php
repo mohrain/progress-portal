@@ -11,9 +11,9 @@
                         </div>
                     </div>
                     @forelse ($officeBearers as $officeBearer)
-                        <div class="col-md-6 px-2 my-2">
-                            <div class="card mb-3" style="min-height: 120px;">
-                                <div class="row g-0">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="row">
                                     <div class="col-md-4">
                                         <img id="newProfilePhotoPreview"
                                             src="{{ $officeBearer->member->profile ? asset('storage/' . $officeBearer->member->profile) : asset('assets/img/no-image.png') }}"
@@ -40,7 +40,6 @@
                                                         </div>
                                                     @endif
                                                 </div>
-
                                             </div>
                                         </a>
                                     </div>
