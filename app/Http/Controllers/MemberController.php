@@ -134,7 +134,9 @@ class MemberController extends Controller
             ->currentElection()
             ->positioned()
             ->paginate(60);
-        return view('frontend.members.index', compact('members'));
+        $districts = District::orderBy('name')->get();
+
+        return view('frontend.members.index', compact('members', 'districts'));
     }
 
     public function frontendIndexOld()
@@ -143,7 +145,9 @@ class MemberController extends Controller
             ->oldElection()
             ->positioned()
             ->paginate(60);
-        return view('frontend.members.index', compact('members'));
+        $districts = District::orderBy('name')->get();
+
+        return view('frontend.members.index', compact('members', 'districts'));
     }
 
     public function search(Request $request)
@@ -259,5 +263,103 @@ class MemberController extends Controller
 
         $districts = District::orderBy('name')->get();
         return view('members.index', compact('members', 'districts'));
+    }
+
+    public function frontendSearch(Request $request)
+    {
+        $members = new Member();
+        if ($request->has('name')) {
+            if ($request->name != null) {
+                $members = $members->where('name', 'like', '%' . $request->name . '%');
+            }
+        }
+        if ($request->has('election_id')) {
+            if ($request->election_id != null) {
+                $members = $members->where('election_id', $request->election_id);
+            }
+        }
+
+        if ($request->has('parliamentary_party_id')) {
+            if ($request->parliamentary_party_id != null) {
+                $members = $members->where('parliamentary_party_id', $request->parliamentary_party_id);
+            }
+        }
+        if ($request->has('election_process')) {
+            if ($request->election_process != null) {
+                $members = $members->where('election_process', $request->election_process);
+            }
+        }
+        if ($request->has('election_district')) {
+            if ($request->election_district != null) {
+                $members = $members->where('election_district', $request->election_district);
+            }
+        }
+      
+        if ($request->name_english != null) {
+            $members = $members->where('name_english', 'like', '%' . $request->name_english . '%');
+        }
+        if ($request->has('gender')) {
+            if ($request->gender != null) {
+                $members = $members->where('gender', $request->gender);
+            }
+        }
+        $members = $members
+            ->currentElection()
+            ->positioned()
+            ->paginate(60);
+        $members->appends(request()->except('page'));
+
+        $districts = District::orderBy('name')->get();
+
+        return view('frontend.members.index', compact('members', 'districts'));
+    }
+
+    public function frontendOldSearch(Request $request)
+    {
+        $members = new Member();
+        if ($request->has('name')) {
+            if ($request->name != null) {
+                $members = $members->where('name', 'like', '%' . $request->name . '%');
+            }
+        }
+        if ($request->has('election_id')) {
+            if ($request->election_id != null) {
+                $members = $members->where('election_id', $request->election_id);
+            }
+        }
+
+        if ($request->has('parliamentary_party_id')) {
+            if ($request->parliamentary_party_id != null) {
+                $members = $members->where('parliamentary_party_id', $request->parliamentary_party_id);
+            }
+        }
+        if ($request->has('election_process')) {
+            if ($request->election_process != null) {
+                $members = $members->where('election_process', $request->election_process);
+            }
+        }
+        if ($request->has('election_district')) {
+            if ($request->election_district != null) {
+                $members = $members->where('election_district', $request->election_district);
+            }
+        }
+      
+        if ($request->name_english != null) {
+            $members = $members->where('name_english', 'like', '%' . $request->name_english . '%');
+        }
+        if ($request->has('gender')) {
+            if ($request->gender != null) {
+                $members = $members->where('gender', $request->gender);
+            }
+        }
+        $members = $members
+            ->oldElection()
+            ->positioned()
+            ->paginate(60);
+        $members->appends(request()->except('page'));
+
+        $districts = District::orderBy('name')->get();
+
+        return view('frontend.members.index', compact('members', 'districts'));
     }
 }
