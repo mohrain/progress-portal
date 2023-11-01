@@ -19,7 +19,9 @@ class CurrentParliamentaryPartyController extends Controller
         if (!$currentParliamentaryParty) {
             $currentParliamentaryParty = new CurrentParliamentaryParty();
         }
-        $currentParliamentaryParties = CurrentParliamentaryParty::with('parliamentaryParty')->positioned()->get();
+        $currentParliamentaryParties = CurrentParliamentaryParty::with('parliamentaryParty')
+            ->positioned()
+            ->get();
         return view('current-parliamentery-parties.index', compact('currentParliamentaryParties', 'currentParliamentaryParty'));
     }
 
@@ -80,8 +82,8 @@ class CurrentParliamentaryPartyController extends Controller
     {
         $currentParliamentaryParty->update($request->validated());
         return redirect()
-        ->route('current-parliamentary-parties.index')
-        ->with('success', 'parliamentary party Deleted');
+            ->route('current-parliamentary-parties.index')
+            ->with('success', 'parliamentary party Deleted');
     }
 
     /**
@@ -106,5 +108,13 @@ class CurrentParliamentaryPartyController extends Controller
         }
 
         return response()->json(['message' => 'parliamentary party has been sorted'], 200);
+    }
+
+    public function frontendIndex()
+    {
+        $currentParliamentaryParties = CurrentParliamentaryParty::with('parliamentaryParty')
+            ->positioned()
+            ->get();
+        return view('frontend.current-parliamentery-parties.index', compact('currentParliamentaryParties'));
     }
 }

@@ -76,6 +76,8 @@ Route::get('office-bearers', [OfficeBearerController::class, 'frontendIndex'])->
 Route::get('office-bearers/old', [OfficeBearerController::class, 'frontendIndexOld'])->name('office-bearers.frontendIndexOld');
 Route::get('contact-us', [ContactUsController::class, 'create'])->name('contact-us.create');
 Route::post('contact-us', [ContactUsController::class, 'store'])->name('contact-us.store');
+Route::get('current-parliamentary-parties', [CurrentParliamentaryPartyController::class, 'frontendIndex'])->name('current-parliamentary-parties.frontendIndex');
+
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
