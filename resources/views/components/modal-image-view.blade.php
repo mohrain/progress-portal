@@ -13,14 +13,17 @@
                         @php
                             $fileName = asset('storage/' . $modalImage->image);
                             $ext = substr(strrchr($fileName, '.'), 1);
-                            
                         @endphp
-                        <object data="{{ asset('storage/' . $modalImage->image) }}" type="application/pdf"
-                            width="100%" height="500px">
-                            <p>Unable to display PDF file. <a
-                                    href="{{ asset('storage/' . $modalImage->image) }}">Download</a>
-                            </p>
-                        </object>
+                        @if ($ext == 'pdf' || $ext == 'PFD')
+                            <object data="{{ asset('storage/' . $modalImage->image) }}" type="application/pdf"
+                                width="100%" height="500px">
+                                <p>Unable to display PDF file. <a
+                                        href="{{ asset('storage/' . $modalImage->image) }}">Download</a>
+                                </p>
+                            </object>
+                        @else
+                        <img class="img-fluid" src="{{ asset('storage/' . $modalImage->image) }}" alt="{{$modalImage->name}}">
+                        @endif
                     </div>
                 </div>
             </div>
