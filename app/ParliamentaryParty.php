@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\CurrentParliamentaryParty;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
@@ -44,5 +45,10 @@ class ParliamentaryParty extends Model
     public function members()
     {
         return $this->hasMany(Member::class);
+    }
+
+    public function currentParliamentaryParties()
+    {
+        return $this->hasMany(CurrentParliamentaryParty::class);
     }
 }

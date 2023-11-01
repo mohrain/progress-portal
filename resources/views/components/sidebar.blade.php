@@ -91,6 +91,11 @@
                     <span class="text-warning"><i class="bi bi-question-lg"></i></span>प्राय: सोधिने प्रश्नहरू
                 </a>
             </li>
+            <li class="nav-item {{ setActive('current-parliamentary-parties.*') }}">
+                <a href="{{ route('current-parliamentary-parties.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-warning"><i class="bi bi-align-end"></i></span>राजनीतिक दलहरू
+                </a>
+            </li>
 
             {{-- <li class="nav-item {{ setActive('suchi.applications') }}">
 

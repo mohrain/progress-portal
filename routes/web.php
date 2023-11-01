@@ -23,6 +23,7 @@ use App\Http\Controllers\FiscalYearController;
 use App\Http\Controllers\FrequentlyAskedQuestionController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\CurrentParliamentaryPartyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformationOfficerController;
 use App\Http\Controllers\LanguageController;
@@ -315,6 +316,14 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('contact-us', [ContactUsController::class, 'index'])->name('contact-us.index');
     Route::get('contact-us/{contactUs}', [ContactUsController::class, 'show'])->name('contact-us.show');
     Route::delete('contact-us/{contactUs}', [ContactUsController::class, 'destroy'])->name('contact-us.destroy');
+
+    //current-parliamentary-parties
+    Route::get('current-parliamentary-parties', [CurrentParliamentaryPartyController::class, 'index'])->name('current-parliamentary-parties.index');
+    Route::post('current-parliamentary-parties', [CurrentParliamentaryPartyController::class, 'store'])->name('current-parliamentary-parties.store');
+    Route::put('current-parliamentary-parties/sort', [CurrentParliamentaryPartyController::class, 'sort'])->name('current-parliamentary-parties.sort');
+    Route::get('current-parliamentary-parties/{currentParliamentaryParty}/edit', [CurrentParliamentaryPartyController::class, 'edit'])->name('current-parliamentary-parties.edit');
+    Route::put('current-parliamentary-parties/{currentParliamentaryParty}', [CurrentParliamentaryPartyController::class, 'update'])->name('current-parliamentary-parties.update');
+    Route::delete('current-parliamentary-parties/{currentParliamentaryParty}', [CurrentParliamentaryPartyController::class, 'destroy'])->name('current-parliamentary-parties.destroy');
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
