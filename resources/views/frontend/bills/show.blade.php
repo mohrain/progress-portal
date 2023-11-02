@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="table-responsive bg-white p-2">
+                <div class="table-responsive box p-2">
                     <table class="table table-md table-bordered table-striped  table-hover kalimati-font">
                         <thead>
                             <th>मा. सदस्यहरुलाई वितरण</th>
@@ -38,8 +38,8 @@
                     </table>
                 </div>
             </div>
-            <div class="col-md-4 mt-2">
-                <div class="bg-white p-2">
+            <div class="col-md-4 mt-4">
+                <div class="box p-2">
                     <table class="table table-md table-bordered table-striped  table-hover kalimati-font">
                         <tbody>
                             <tr>
@@ -66,8 +66,8 @@
                     </table>
                 </div>
             </div>
-            <div class="col-md-4 mt-2">
-                <div class="bg-white p-2">
+            <div class="col-md-4 mt-4">
+                <div class="box p-2">
                     <table class="table table-md table-bordered table-striped  table-hover kalimati-font">
                         <tbody>
                             <tr>
@@ -90,8 +90,8 @@
                     </table>
                 </div>
             </div>
-            <div class="col-md-4 mt-2">
-                <div class="bg-white p-2">
+            <div class="col-md-4 mt-4">
+                <div class="box p-2">
                     <table class="table table-md table-bordered table-striped  table-hover kalimati-font">
                         <tbody>
                             <tr>
