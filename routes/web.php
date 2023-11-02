@@ -55,6 +55,7 @@ Route::post('logout', LogoutController::class)->name('logout');
 Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
 Route::get('pages/{page}', [PageController::class, 'show'])->name('pages.show');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::get('posts/{postCategory}/search', [PostController::class, 'frontendSearch'])->name('posts.frontendSearch');
 Route::get('post-categories/{postCategory}', [PostCategoryController::class, 'show'])->name('post-categories.show');
 Route::get('faqs', [FrequentlyAskedQuestionController::class, 'frontend'])->name('faq.frontend');
 Route::get('parliamentary-parties', [ParliamentaryPartyController::class, 'frontend'])->name('parliamentary-parties.frontend');

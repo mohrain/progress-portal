@@ -2,16 +2,52 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <div class="col-md-12 mb-3">
+                <div class="frontend-title">
+                    {{ $postCategory->name }}
+                    <hr>
+                </div>
+                <div class="box p-3">
+                    <form action="{{ route('posts.frontendSearch',$postCategory) }}" method="get">
+                        <div class="row">
+                            <div class="col-md-3 mb-2">
+                                <label for="created_date_from" class="form-label">शुरु मिति</label>
+                                <input type="date" name="created_date_from"
+                                    class="form-control @error('created_date_from') is-invalid @enderror"
+                                    value="" id="created_date_from" aria-describedby="created_date_from">
+    
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <label for="created_date_to" class="form-label">अन्त्य मिति</label>
+                                <input type="date" name="created_date_to"
+                                    class="form-control @error('created_date_to') is-invalid @enderror"
+                                    value="" id="created_date_to" aria-describedby="created_date_to">
+    
+                            </div>
+    
+                         
+                            <div class="col-md-4 mb-2">
+                                <label for="title" class="form-label">शीर्षक</label>
+                                <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
+                                    value="" id="title" aria-describedby="title">
+    
+                            </div>
+    
+    
+                            <div class="col-md-2 mb-2 mt-auto">
+                                <button type="submit" class="btn btn-primary bi bi-search">
+                                    खोजी गर्नुहोस्
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="col-md-9">
                 <div class="row">
+                    
                     <div class="col-md-12">
-                        <div class="frontend-title">
-                            {{ $postCategory->name }}
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <table class="table table-striped table-hover">
+                        <table class="table table-striped table-hover box p-2">
                             <thead>
                                 <tr>
                                     <th scope="col">क्र.स.</th>

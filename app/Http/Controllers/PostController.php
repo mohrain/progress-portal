@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\PostCategory;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -19,9 +21,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::with('postCategories')
-        ->latest()
-        ->paginate(50);
-    return view('post.index', compact('posts'));
+            ->latest()
+            ->paginate(50);
+        return view('post.index', compact('posts'));
     }
 
     /**
@@ -75,7 +77,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('frontend.posts.show', compact('post'));  
+        return view('frontend.posts.show', compact('post'));
     }
 
     /**
@@ -144,9 +146,10 @@ class PostController extends Controller
             ->with('success', 'पोस्ट हटाइयो');
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
         $posts = new Post();
-    //    return $request;
+        //    return $request;
         if ($request->has('title')) {
             if ($request->title != null) {
                 $posts = $posts->where('title', 'like', '%' . $request->title . '%');
@@ -157,16 +160,53 @@ class PostController extends Controller
                 $posts = $posts->where('status', $request->status);
             }
         }
-        
+
         if ($request->post_category_id != [null]) {
             $post_category_id = $request->post_category_id;
             $posts = $posts->whereHas('postCategories', function ($query) use ($post_category_id) {
-                $query->where('post_category_id','=', $post_category_id);
+                $query->where('post_category_id', '=', $post_category_id);
             });
         }
 
         $posts = $posts->with('postCategories')->paginate(50);
         $posts->appends(request()->except('page'));
         return view('post.index', compact('posts'));
+    }
+
+    public function frontendSearch(Request $request, PostCategory $postCategory)
+    {
+        $posts = new Post();
+
+        $post_category_id = $postCategory->id;
+
+        $from = $request->created_date_from. ' 01:00:00';
+        $from = new DateTime($from);
+        $from = $from->format('Y-m-d H:i:s'); 
+
+        $to = $request->created_date_to .' 24:00:00';
+        $to = new DateTime($to);
+       $to = $to->format('Y-m-d H:i:s'); 
+
+
+        if ($request->has('title')) {
+            if ($request->title != null) {
+                $posts = $posts->where('title', 'like', '%' . $request->title . '%');
+            }
+        }
+        if ($request->has('created_date_from')) {
+            if ($request->created_date_from != null && $request->created_date_to != null) {
+                $posts = $posts->whereBetween('created_at', [$from, $to]);
+            }
+        }
+        $posts = $posts->whereHas('postCategories', function ($query) use ($post_category_id) {
+            $query->where('post_category_id', '=', $post_category_id);
+        });
+        $posts = $posts
+            ->with('postCategories')
+            ->latest()
+            ->published()
+            ->paginate(50);
+        $posts->appends(request()->except('page'));
+        return view('frontend.post-category.show', compact('postCategory', 'posts'));
     }
 }
