@@ -10,7 +10,7 @@
                             <hr>
                         </div>
                     </div>
-                    <div class="table-responsive box p-2">
+                    <div class="table-responsive box p-2 kalimati-font">
                         <table class="table table-md table-bordered">
                             <thead>
                                 <tr>
