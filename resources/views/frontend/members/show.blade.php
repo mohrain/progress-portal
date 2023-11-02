@@ -13,40 +13,37 @@
                 <div class="pt-5 text-center">
                     <img src="{{ $member->profile ? asset('storage/' . $member->profile) : asset('assets/img/no-image.png') }}"
                         class="profile-image">
-                    <div class="frontend-title mt-5">
+                    <h5 class="mt-5 fw-bold">
+
                         {{ $member->name }}
 
-                    </div>
-                    <h4>
+                    </h5>
+                    <h6>
                         @if ($member->officeBearers->isEmpty())
-                            <b>
-                                प्रदेश सभा सदस्य
-                            </b>
+                            प्रदेश सभा सदस्य
                         @else
                             @foreach ($member->officeBearers as $officeBearer)
                                 @if ($officeBearer->start != null && $officeBearer->end == null)
-                                    <b>
-                                        {{ $officeBearer->designation == true ? 'सभामुख' : 'उप सभामुख' }}
-                                    </b>
+                                    {{ $officeBearer->designation == true ? 'सभामुख' : 'उप सभामुख' }}
                                 @endif
                             @endforeach
                         @endif
-                    </h4>
+                    </h6>
                     <hr>
-                    <h5>
+                    <div>
                         <b>
                             {{ $member->election_process }}
                         </b>
-                    </h5>
-                    <h5>
+                    </div>
+                    <div>
                         {{ $member->election_district }}, {{ $member->election_area }}
-                    </h5>
+                    </div>
                     <hr>
-                    <h5>
+                    <div>
                         <b>
                             {{ $member->parliamentaryParty->name }}
                         </b>
-                    </h5>
+                    </div>
                 </div>
             </div>
             <div class="col-md-9">

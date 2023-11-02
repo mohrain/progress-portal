@@ -28,16 +28,22 @@ class PostCategorySeeder extends Seeder
                 'parent_id' => 1,
             ],
             [
+                'name' => 'दैनिक कार्यसूची',
+            ],
+            [
                 'name' => 'ऐन, नियम',
             ],
             [
                 'name' => 'प्रकाशन',
             ],
             [
-                'name' => 'फारम',
+                'name' => 'फाराम',
             ],
             [
-                'name' => 'डाउनलोड',
+                'name' => 'सम्पूर्ण विवरण',
+            ],
+            [
+                'name' => 'प्रदेश संसद पुस्तकालय',
             ],
         ];
         foreach ($postCategories as $postCategory) {

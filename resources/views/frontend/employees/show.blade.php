@@ -13,17 +13,17 @@
                 <div class="pt-5 text-center">
                     <img src="{{ $employee->profile ? asset('storage/' . $employee->profile) : asset('assets/img/no-image.png') }}"
                         class="profile-image">
-                    <div class="frontend-title mt-5">
+                    <h5 class="fw-bold mt-5">
                         {{ $employee->name }}
 
-                    </div>
-                    <h5>
-                        {{ $employee->designation }}
                     </h5>
+                    <b>
+                        {{ $employee->designation }}
+                    </b>
                     <hr>
-                    <h6>
+                    <div>
                         {{ $employee->branch }}
-                    </h6>
+                    </div>
                 </div>
             </div>
             <div class="col-md-9">

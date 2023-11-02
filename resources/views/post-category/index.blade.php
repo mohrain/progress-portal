@@ -68,7 +68,7 @@
                             <table class="table table-md table-bordered">
                                 <thead>
                                     <th>नाम</th>
-                                    <th>स्लग</th>
+                                    {{-- <th>स्लग</th> --}}
                                     <th>सब-किसिम</th>
                                     <th>अबस्था</th>
                                     <th></th>

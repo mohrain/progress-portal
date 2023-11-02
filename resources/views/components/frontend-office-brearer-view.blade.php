@@ -8,9 +8,9 @@
             <div class="col-md-8">
                 <a href="{{ route('members.show', $officeBearer->member) }}" class="nav-link text-dark">
                     <div class="text-center py-2">
-                        <h5 class="card-title">{{ $officeBearer->member->name }}</h5>
+                        <b class="card-title">{{ $officeBearer->member->name }}</b>
                         <div class="card-text"><small
-                                class="text-muted">{{ $officeBearer->designation == true ? 'सभामुख' : 'उप सभामुख' }}</small>
+                                class="text-muted">{{ $officeBearer->designation == true ? 'सम्माननीय सभामुख' : 'माननीय उपसभामुख' }}</small>
                         </div>
                     </div>
                 </a>

@@ -19,11 +19,11 @@ return new class extends Migration {
             $table->string('name_english');
             $table->string('profile')->nullable();
             $table->string('gender');
-            $table->string('dob');
+            $table->string('dob')->nullable();;
 
-            $table->string('birth_place');
-            $table->string('permanent_address');
-            $table->string('permanent_address_district');
+            $table->string('birth_place')->nullable();;
+            $table->string('permanent_address')->nullable();;
+            $table->string('permanent_address_district')->nullable();;
 
             $table->string('temporary_address')->nullable();
             $table->string('temporary_address_district')->nullable();

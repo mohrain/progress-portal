@@ -11,11 +11,11 @@
             <a class="dropdown-item" href="{{ route('pages.show', 'parathasha-sabha-paracaya') }}">प्रदेश सभा परिचय</a>
         </li>
         <hr class="dropdown-divider">
-        <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndex') }}">पदाधिकारीहरु</a></li>
+        <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndex') }}">प्रदेशका पदाधिकारीहरु</a></li>
         <hr class="dropdown-divider">
         <li><a class="dropdown-item" href="{{ route('current-parliamentary-parties.frontendIndex') }}">संसदीयदलहरु</a></li>
         <hr class="dropdown-divider">
-        <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndexOld') }}">पुर्व पदाधिकारीहरु</a></li>
+        <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndexOld') }}">पुर्व प्रदेशका पदाधिकारीहरु</a></li>
 
     </ul>
 </li>
@@ -31,7 +31,7 @@
         <hr class="dropdown-divider">
         <li><a class="dropdown-item" href="{{ route('pages.show', 'tharabnatha-saracana') }}">दरबन्दी संरचना</a></li>
         <hr class="dropdown-divider">
-        <li><a class="dropdown-item" href="{{ route('employees.frontendIndex') }}">कर्मचारीहरु</a></li>
+        <li><a class="dropdown-item" href="{{ route('employees.frontendIndex') }}">कर्मचारीहरूका विवरण</a></li>
     </ul>
 </li>
 
@@ -41,11 +41,11 @@
         सदस्यहरु
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="{{ route('members.frontendIndex') }}">सदस्यहरुको सुची</a></li>
+        <li><a class="dropdown-item" href="{{ route('members.frontendIndex') }}">सदस्यहरुका विवरण</a></li>
         <li>
             <hr class="dropdown-divider">
         </li>
-        <li><a class="dropdown-item" href="{{ route('members.frontendIndexOld') }}">पुर्व सदस्यहरुको सुची </a></li>
+        <li><a class="dropdown-item" href="{{ route('members.frontendIndexOld') }}">पुर्व सदस्यहरुका विवरण </a></li>
     </ul>
 </li>
 <li class="nav-item dropdown">
@@ -63,19 +63,7 @@
                 </li>
             @endif
         @endforeach
-        {{-- <li><a class="dropdown-item" href="#">विधायन तथा प्रदेश समिती</a></li>
-        <li>
-            <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item" href="#">सबजनिक लेखा समिती </a></li>
-        <li>
-            <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item" href="#">अर्थ विकास तथा प्राकृतिक स्रोत समिती</a></li>
-        <li>
-            <hr class="dropdown-divider">
-        </li>
-        <li><a class="dropdown-item" href="#">सार्बजनिक विकास समिती</a></li> --}}
+
     </ul>
 </li>
 <li class="nav-item dropdown">

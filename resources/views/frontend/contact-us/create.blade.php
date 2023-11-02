@@ -57,10 +57,10 @@
                         @csrf
                         <div class="row">
                             <div class="col-md-6 mb-2">
-                                <label for="name" class="form-label required">नाम</label>
+                                <label for="name" class="form-label required">नाम, थर</label>
                                 <input type="text" name="name"
                                     class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
-                                    id="name" aria-describedby="name" placeholder="नाम">
+                                    id="name" aria-describedby="name" placeholder="नाम, थर">
                                 <div class="invalid-feedback">
                                     @error('name')
                                         {{ $message }}

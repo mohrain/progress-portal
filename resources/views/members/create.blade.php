@@ -194,7 +194,7 @@
 
                                 <div class="col-md-3 text-center order-lg-1 order-0 my-auto">
                                     <div class="mb-2">
-                                        <label for="newProfilePhoto" class="form-label required">प्रोफाइल फोटो (< 2 MB
+                                        <label for="newProfilePhoto" class="form-label">प्रोफाइल फोटो (< 2 MB
                                                 photo) </label>
                                                 <div class="mb-2 align-self-center">
                                                     <img id="newProfilePhotoPreview"
@@ -214,7 +214,7 @@
                               
                                         <div class="col-md-3 mb-2">
                                             <label for="mobile"
-                                                class="form-label text-md-end required">{{ __('मोबाइल नं.') }}</label>
+                                                class="form-label text-md-end">{{ __('मोबाइल नं.') }}</label>
                                             <input id="name" type="tel"
                                                 class="form-control @error('mobile') is-invalid @enderror" name="mobile"
                                                 value="{{ old('mobile', $member->mobile) }}" autocomplete="mobile"
@@ -240,7 +240,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-3 mb-2">
-                                            <label for="dob" class="form-label required">जन्म मिति</label>
+                                            <label for="dob" class="form-label">जन्म मिति</label>
                                             <input type="text" name="dob"
                                                 class="form-control @error('dob') is-invalid @enderror"
                                                 value="{{ old('dob', $member->dob) }}" id="dob"
@@ -254,7 +254,7 @@
                                         </div>
                                         <div class="col-md-3 mb-2">
                                             <label for="birth_place"
-                                                class="form-label text-md-end required">{{ __('जन्म स्थान') }}</label>
+                                                class="form-label text-md-end">{{ __('जन्म स्थान') }}</label>
                                             <input id="birth_place" type="text"
                                                 class="form-control @error('birth_place') is-invalid @enderror"
                                                 name="birth_place" value="{{ old('birth_place', $member->birth_place) }}"
@@ -267,7 +267,7 @@
                                         </div>
                                         <div class="col-md-3 mb-2">
                                             <label for="permanent_address_district"
-                                                class="form-label text-md-end required">{{ __('स्थाई जिल्ला') }}</label>
+                                                class="form-label text-md-end">{{ __('स्थाई जिल्ला') }}</label>
                                             <select
                                                 class="form-control @error('permanent_address_district') is-invalid @enderror"
                                                 name="permanent_address_district" id="permanent_address_district">
@@ -287,7 +287,7 @@
                                         </div>
                                         <div class="col-md-3 mb-2">
                                             <label for="permanent_address"
-                                                class="form-label text-md-end required">{{ __('स्थाई ठेगाना') }}</label>
+                                                class="form-label text-md-end">{{ __('स्थाई ठेगाना') }}</label>
                                             <input id="permanent_address" type="text"
                                                 class="form-control @error('permanent_address') is-invalid @enderror"
                                                 name="permanent_address"
@@ -334,7 +334,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-3 mb-2">
-                                            <label for="father_name" class="form-label required">बुवाको नाम</label>
+                                            <label for="father_name" class="form-label">बुवाको नाम</label>
                                             <input type="text" name="father_name"
                                                 class="form-control @error('father_name') is-invalid @enderror"
                                                 value="{{ old('father_name', $member->father_name) }}" id="father_name"
@@ -347,7 +347,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3 mb-2">
-                                            <label for="mother_name" class="form-label required">आमाको नाम</label>
+                                            <label for="mother_name" class="form-label">आमाको नाम</label>
                                             <input type="text" name="mother_name"
                                                 class="form-control @error('mother_name') is-invalid @enderror"
                                                 value="{{ old('mother_name', $member->mother_name) }}" id="mother_name"
@@ -482,7 +482,7 @@
                                 </div>
                                 <div class="col-md-12 order-lg-4 order-4">
                                     <div class="mb-2">
-                                        <label for="summernote" class="form-label required">विवरण</label>
+                                        <label for="summernote" class="form-label">विवरण</label>
                                         <textarea name="descriptions" class="" id="summernote" cols="30" rows="10">{!! old('descriptions', $member->descriptions) !!}</textarea>
                                     </div>
                                 </div>
@@ -507,7 +507,7 @@
                 ndpYear: true,
                 ndpMonth: true,
                 ndpYearCount: 200,
-                readOnlyInput: true
+                // readOnlyInput: true
             });
         </script>
         <script>

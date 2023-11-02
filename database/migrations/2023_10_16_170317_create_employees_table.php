@@ -20,10 +20,10 @@ return new class extends Migration
             $table->string('name_english');
             $table->string('profile')->nullable();
             $table->string('gender');
-            $table->string('dob');
+            $table->string('dob')->nullable();
 
-            $table->string('permanent_address');
-            $table->string('permanent_address_district');
+            $table->string('permanent_address')->nullable();
+            $table->string('permanent_address_district')->nullable();
 
             $table->string('temporary_address')->nullable();
             $table->string('temporary_address_district')->nullable();
@@ -39,16 +39,9 @@ return new class extends Migration
             $table->string('mother_tongue')->nullable();
             $table->string('religion')->nullable();
             $table->string('education')->nullable();
-            // $table
-            //     ->unsignedBigInteger('employee_designation_id')
-            //     ->constrained('employee_designations')
-            //     ->cascadeOnDelete();
-            $table->string('designation');
+       
+            $table->string('designation')->nullable();
             $table->string('branch')->nullable();
-
-
-            // $table->unsignedBigInteger('parliamentary_party_join_year')->nullable();
-
             $table->smallInteger('position')->nullable();
             $table->longText('descriptions')->nullable();
             $table->boolean('status')->default(true);

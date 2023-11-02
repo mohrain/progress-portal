@@ -40,7 +40,7 @@
                             </ul>
                      
                         </div>
-                        <div>
+                        {{-- <div>
                             @foreach ($page->documents as $pageDocument)
                             <div class="my-3">
                                 <object data="{{ asset('storage/' . $pageDocument->file) }}" type="application/pdf"
@@ -51,7 +51,7 @@
                                 </object>
                             </div>
                             @endforeach
-                        </div>
+                        </div> --}}
                     @endif
                 </div>
             </div>

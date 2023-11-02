@@ -31,7 +31,7 @@ class UpdateEmployeeRequest extends FormRequest
             'gender' => 'required',
             'email' => 'nullable',
             'mobile' => 'nullable',
-            'dob' => 'required',
+            'dob' => 'nullable',
             'education' => 'nullable',
             'permanent_address_district' => 'nullable',
             'permanent_address' => 'nullable',

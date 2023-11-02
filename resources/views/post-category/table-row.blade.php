@@ -10,7 +10,7 @@
         @endif
         {{ $category->name }}
     </td>
-    <td>{{ $category->slug }}</td>
+    {{-- <td>{{ $category->slug }}</td> --}}
     <td>
         {{ $parentCategoryName ?? null }}
     </td>
