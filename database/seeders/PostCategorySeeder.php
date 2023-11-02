@@ -29,7 +29,9 @@ class PostCategorySeeder extends Seeder
             ],
             [
                 'name' => 'दैनिक कार्यसूची',
+                'parent_id' => 1,
             ],
+         
             [
                 'name' => 'ऐन, नियम',
             ],

@@ -27,9 +27,6 @@ class PageSeeder extends Seeder
             [
                 'title' => 'दरबन्दी संरचना',
             ],
-            [
-                'title' => 'संसदीय दलहरु',
-            ],
             
         ];
         foreach ($pages as $page) {

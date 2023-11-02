@@ -8,7 +8,7 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li>
-            <a class="dropdown-item" href="{{ route('pages.show', 'parathasha-sabha-paracaya') }}">प्रदेश सभा परिचय</a>
+            <a class="dropdown-item" href="{{ route('pages.show', 1) }}">प्रदेश सभा परिचय</a>
         </li>
         <hr class="dropdown-divider">
         <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndex') }}">प्रदेशका पदाधिकारीहरु</a></li>
@@ -26,10 +26,10 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li>
-            <a class="dropdown-item" href="{{ route('pages.show', 'sagathanaka-saracana') }}">संगठनिक संरचना</a>
+            <a class="dropdown-item" href="{{ route('pages.show', 2) }}">संगठनिक संरचना</a>
         </li>
         <hr class="dropdown-divider">
-        <li><a class="dropdown-item" href="{{ route('pages.show', 'tharabnatha-saracana') }}">दरबन्दी संरचना</a></li>
+        <li><a class="dropdown-item" href="{{ route('pages.show', 3) }}">दरबन्दी संरचना</a></li>
         <hr class="dropdown-divider">
         <li><a class="dropdown-item" href="{{ route('employees.frontendIndex') }}">कर्मचारीहरूका विवरण</a></li>
     </ul>

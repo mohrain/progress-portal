@@ -22,10 +22,10 @@ class Page extends Model
             ->doNotGenerateSlugsOnUpdate();
     }
 
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
+    // public function getRouteKeyName()
+    // {
+    //     return 'slug';
+    // }
 
     public function scopePublished($query)
     {
