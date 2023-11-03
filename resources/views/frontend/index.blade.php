@@ -49,69 +49,13 @@
         </div>
         <x-frontend-news />
         <div class="row">
+          
             <div class="col-md-4">
-                <div class="bg-theme-color-blue py-3 text-center">
-                    समाचार तथा गतिबिधिहरु
-                </div>
-                <div class="card my-1">
-                    <div class="row g-0">
-                        <div class="col-md-4 text-center">
-                            <img src="{{ asset('assets/img/no-image.png') }}"
-                                class="img-fluid rounded-start news-thum-image" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="text-center py-2">
-                                <div class="card-text"><small class="text-muted">सम्माननीय सभामुखज्यूसँग अष्ट्रेलियन
-                                        राजदूतको शिष्टचार भेट</small></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card my-1">
-                    <div class="row g-0">
-                        <div class="col-md-4 text-center">
-                            <img src="{{ asset('assets/img/no-image.png') }}"
-                                class="img-fluid rounded-start news-thum-image" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="text-center py-2">
-                                <div class="card-text"><small class="text-muted">संविधान दिवसको अवसरमा सम्माननीय सभामुखको
-                                        शुभकामना ।</small></div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="card my-1">
-                    <div class="row g-0">
-                        <div class="col-md-4 text-center">
-                            <img src="{{ asset('assets/img/no-image.png') }}"
-                                class="img-fluid rounded-start news-thum-image" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="text-center py-2">
-                                <div class="card-text"><small class="text-muted">संविधान दिवसको अवसरमा सम्माननीय सभामुखको
-                                        शुभकामना ।</small></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card my-1">
-                    <div class="row g-0">
-                        <div class="col-md-4 text-center">
-                            <img src="{{ asset('assets/img/no-image.png') }}"
-                                class="img-fluid rounded-start news-thum-image" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="text-center py-2">
-                                <div class="card-text"><small class="text-muted">संविधान दिवसको अवसरमा ।</small></div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="bg-theme-color-blue text-center my-2">
-                    <a href="#" class="btn text-white">सबै समाचारहरु <i class="bi bi-chevron-double-right"></i></a>
+                <div>
+                    <a class="twitter-timeline" data-height="410"
+                        href="{{ settings('twitter') }}?ref_src=twsrc%5Etfw">Tweets by
+                        pradeshsabha7</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
             </div>
             <div class="col-md-4">
@@ -124,11 +68,11 @@
                 </div>
             </div>
             <div class="col-md-4">
+                <div class="bg-theme-color-blue py-3 text-center">
+                   Google Maps
+                </div>
                 <div>
-                    <a class="twitter-timeline" data-height="410"
-                        href="{{ settings('twitter') }}?ref_src=twsrc%5Etfw">Tweets by
-                        pradeshsabha7</a>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    {!! settings('maps') !!}
                 </div>
             </div>
         </div>

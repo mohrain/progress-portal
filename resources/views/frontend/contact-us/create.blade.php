@@ -40,7 +40,9 @@
                 <div class="my-3">
                     <x-frontend-information-officer-employee-view />
                 </div>
-
+                <div>
+                    {!! settings('maps') !!}
+                </div>
             </div>
             <div class="col-md-8">
                 <div>

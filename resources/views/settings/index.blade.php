@@ -115,8 +115,8 @@
 
                     <div class="my-3"></div>
                     @component('settings.input', [
-                        'label' => 'Website',
-                        'name' => 'website',
+                        'label' => 'Maps (Google Maps)',
+                        'name' => 'maps',
                         'description' => '',
                     ])
                     @endcomponent
