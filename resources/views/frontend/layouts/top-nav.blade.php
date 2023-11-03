@@ -49,6 +49,26 @@
                             <label class="form-check-label" for="loadImages">कम ब्यान्डविथ</label>
                         </div>
                     </div>
+                    <div>
+                        <div>
+                            <div class="text-white" style="font-size: 10px;">
+                                डाउनलोड एप
+                            </div>
+                            <div>
+                                <a href="#" class="mx-2">
+                                    <span class="text-white fs-6">
+                                        <i class="bi bi-android2"></i>
+                                    </span>
+                                </a>
+                                <a href="#">
+                                    <span class="text-dark fs-6">
+                                        <i class="bi bi-apple"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>

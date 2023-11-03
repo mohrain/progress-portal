@@ -47,6 +47,7 @@
                 <x-procincial-committee-meeting-view />
             </div>
         </div>
+        <x-frontend-news />
         <div class="row">
             <div class="col-md-4">
                 <div class="bg-theme-color-blue py-3 text-center">
