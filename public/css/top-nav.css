@@ -1,0 +1,23 @@
+.top-nav {
+    display: block; /* Display the top-nav as a block element by default */
+    /* font-size: 12px; */
+    font-family: "Noto Sans", sans-serif;
+    /*     border-bottom: 1px solid rgb(217 217 217 / 46%); */
+    padding: 10px 0;
+}
+
+.topbar-menu .topbar-menu-item {
+    padding: 0 12px;
+    border-right: 1px solid rgb(217 217 217 / 46%);
+}
+.topbar-menu .topbar-menu-item:last-of-type {
+    border-right: none;
+}
+
+.top-nav a {
+    color: inherit;
+}
+.top-nav a:hover {
+    color: #b61e1e;
+}
+

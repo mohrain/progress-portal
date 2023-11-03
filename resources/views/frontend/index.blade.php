@@ -77,5 +77,5 @@
             </div>
         </div>
     </div>
-    <x-modal-image-view />
+    {{-- <x-modal-image-view /> --}}
 @endsection

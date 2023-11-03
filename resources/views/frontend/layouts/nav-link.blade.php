@@ -2,73 +2,54 @@
     <a class="nav-link" aria-current="page" href="/">गृह पृष्ठ</a>
 </li>
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         प्रदेश सभा
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li>
             <a class="dropdown-item" href="{{ route('pages.show', 1) }}">प्रदेश सभा परिचय</a>
         </li>
-        <hr class="dropdown-divider">
         <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndex') }}">प्रदेशका पदाधिकारीहरु</a></li>
-        <hr class="dropdown-divider">
         <li><a class="dropdown-item" href="{{ route('current-parliamentary-parties.frontendIndex') }}">संसदीयदलहरु</a></li>
-        <hr class="dropdown-divider">
         <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndexOld') }}">पुर्व प्रदेशका पदाधिकारीहरु</a></li>
 
     </ul>
 </li>
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         प्रदेश सभा सचिवालय
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li>
             <a class="dropdown-item" href="{{ route('pages.show', 2) }}">संगठनिक संरचना</a>
         </li>
-        <hr class="dropdown-divider">
         <li><a class="dropdown-item" href="{{ route('pages.show', 3) }}">दरबन्दी संरचना</a></li>
-        <hr class="dropdown-divider">
         <li><a class="dropdown-item" href="{{ route('employees.frontendIndex') }}">कर्मचारीहरूका विवरण</a></li>
     </ul>
 </li>
 
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         सदस्यहरु
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li><a class="dropdown-item" href="{{ route('members.frontendIndex') }}">सदस्यहरुका विवरण</a></li>
-        <li>
-            <hr class="dropdown-divider">
-        </li>
         <li><a class="dropdown-item" href="{{ route('members.frontendIndexOld') }}">पुर्व सदस्यहरुका विवरण </a></li>
     </ul>
 </li>
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         समिति
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         @foreach (\App\Models\Committee::get() as $committee)
-            <li><a class="dropdown-item"
-                    href="{{ route('frontend.committees.show', $committee->slug) }}">{{ $committee->name }}</a></li>
-            @if (!$loop->last)
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-            @endif
+        <li><a class="dropdown-item" href="{{ route('frontend.committees.show', $committee->slug) }}">{{ $committee->name }}</a></li>
         @endforeach
 
     </ul>
 </li>
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         विधेयक
     </a>
     <x-bill-type-view />
