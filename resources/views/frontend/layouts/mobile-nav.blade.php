@@ -4,7 +4,7 @@
             <div class="d-flex gap-2">
                 <div>
                     <img class="mobile-logo" src="{{ asset('images/pradeshsavalogo-sudurpaschim.png') }}"
-                        alt="pradeshsavalogo-sudurpaschim" srcset="">
+                        alt="pradeshsavalogo-sudurpaschim">
                 </div>
                 <div class="mobile-brand">
                     <div class="sub-title">{{ settings('app_name') }}</div>

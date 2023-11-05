@@ -1,4 +1,5 @@
 @extends('frontend.layouts.app', ['title' => __('गृह')])
+
 @section('content')
 <div class="container">
     @include('frontend.layouts.marquee')

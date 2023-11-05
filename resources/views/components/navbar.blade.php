@@ -1,6 +1,6 @@
 <div id="navbar" class="p-2">
     <nav class="navbar navbar-expand-lg navbar-light bg-white rounded flex-fill light-shadow">
-        <a id="sidebar-toggler" class="text-white mr-3" onclick="toggleSidebar()">
+        <a href="#" id="sidebar-toggler" class="text-white mr-3" onclick="toggleSidebar()">
             <span class="navbar-toggler-icon"></span>
         </a>
 

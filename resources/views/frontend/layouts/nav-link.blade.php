@@ -56,5 +56,5 @@
 </li>
 <x-post-category-menu-view />
 <li class="nav-item">
-    <a class="nav-link" href="#">फोटो संग्रह</a>
+    <a class="nav-link" href="/gallery">फोटो संग्रह</a>
 </li>
