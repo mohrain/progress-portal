@@ -23,15 +23,29 @@
                     <td>पद</td>
                     <td></td>
                 </tr>
-                @foreach ($committee->members as $member)
+                @foreach ($committeeMembers as $committeeMember)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td><img src="{{ $member->photoUrl() }}" alt="{{ $member->name }}" style="height: 3rem; width: 3rem"></td>
-                    <td>{{ $member->name }}</td>
-                    <td>{{ $member->designation }}</td>
                     <td>
-                        <a href="{{ route('committee.members.edit', [$committee, $member]) }}" class="btn btn-primary btn-sm">Edit</a>
-                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                        <img id="newProfilePhotoPreview"
+                        src="{{ $committeeMember->member->profile ? asset('storage/' . $committeeMember->member->profile) : asset('assets/img/no-image.png') }}"
+                        class="profile-nav">
+                    </td>
+                    <td>{{ $committeeMember->member->name }}</td>
+                    <td>{{ $committeeMember->designation == true ? "सभापति" : "सदस्य" }}</td>
+                    <td>
+                        <div class="d-flex">
+
+                            <a href="{{ route('committee.members.edit', [$committee, $committeeMember]) }}" class="btn btn-primary btn-sm mx-2">Edit</a>
+                            <form action="{{ route('committee.members.destroy', [$committee, $committeeMember]) }}" method="post">
+                                @method('delete')
+                                @csrf
+                                <button class="btn btn-danger btn-sm" type="submit"
+                                    onclick="return confirm('के तपाई सुनिचित गर्नुहुन्छ  ?')">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 @endforeach

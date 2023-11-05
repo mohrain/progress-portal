@@ -24,9 +24,8 @@ class MemberStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'designation' => 'nullable',
-            'photo' => ['required', 'file'],
+            'member_id' => 'required',
+            'designation' => 'required',
         ];
     }
 }

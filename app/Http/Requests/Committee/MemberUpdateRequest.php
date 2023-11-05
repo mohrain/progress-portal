@@ -24,7 +24,8 @@ class MemberUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'member_id' => 'required',
+            'designation' => 'required',
         ];
     }
 }

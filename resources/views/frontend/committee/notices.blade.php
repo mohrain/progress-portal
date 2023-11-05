@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            @include('frontend.layouts.sidebar')
+            <x-frontend.committee-chairman :committee="$committee" />
         </div>
     </div>
 </div>

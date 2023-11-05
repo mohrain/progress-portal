@@ -142,12 +142,12 @@
 
                     @forelse ($members as $member)
                         <div class="col-md-3 px-2 my-2">
-                            <div class="card" style="height: 280px;">
+                            <div class="card" style="height: 320px;">
                                 <img id="newProfilePhotoPreview"
                                     src="{{ $member->profile ? asset('storage/' . $member->profile) : asset('assets/img/no-image.png') }}"
                                     class="feature-image card-img-top">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title text-theme-color">मा. {{ $member->name }}</h5>
+                                    <b class="card-title text-theme-color">मा. {{ $member->name }}</b>
                                     <div class="cart-text"> {{ $member->parliamentaryParty->name }}</div>
                                     <a href="{{ route('members.show', $member) }}" class="btn btn-sm btn-primary">पुरा
                                         हेर्नुहोस्</a>

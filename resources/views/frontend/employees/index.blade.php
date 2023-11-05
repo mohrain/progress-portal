@@ -102,22 +102,21 @@
                         </div>
                     </div>
                     @forelse ($employees as $employee)
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <img id="newProfilePhotoPreview"
-                                            src="{{ $employee->profile ? asset('storage/' . $employee->profile) : asset('assets/img/no-image.png') }}"
-                                            class="feature-image card-img-top">
+                        <div class="col-md-3">
+                            <div class="card" style="height: 320px;">
+                                <img id="newProfilePhotoPreview"
+                                    src="{{ $employee->profile ? asset('storage/' . $employee->profile) : asset('assets/img/no-image.png') }}"
+                                    class="feature-image card-img-top">
+                                <div class="card-body text-center">
+                                    <b class="card-title text-theme-color">मा.
+                                        {{ $employee->name }}
+                                    </b>
+                                    <div class="cart-text">
+                                        {{ $employee->designation }}
                                     </div>
-                                    <div class="col-md-8">
-                                        <a href="{{ route('employees.show', $employee) }}" class="nav-link text-dark">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-theme-color">{{ $employee->name }}</h5>
-                                                <div class="cart-text"> {{ $employee->designation }}</div>
-                                            </div>
-                                        </a>
-                                    </div>
+                                    <a href="{{ route('employees.show', $employee) }}"
+                                        class="btn btn-sm btn-primary">पुरा
+                                        हेर्नुहोस्</a>
                                 </div>
                             </div>
                         </div>

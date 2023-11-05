@@ -72,4 +72,8 @@ class Member extends Model
         return $this->hasMany(OfficeBearer::class);
     }
     
+    public function committeeMembers()
+    {
+        return $this->hasMany(CommitteeMember::class);
+    }
 }

@@ -23,4 +23,9 @@ class CommitteeMember extends Model
     {
         return $this->belongsTo(Committee::class);
     }
+
+    public function member()
+    {
+        return $this->belongsTo(Member::class);
+    }
 }

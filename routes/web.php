@@ -218,6 +218,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::post('committees/{committee}/members', [CommitteeMemberController::class, 'store'])->name('committee.members.store');
     Route::get('committees/{committee}/members/{member}/edit', [CommitteeMemberController::class, 'edit'])->name('committee.members.edit');
     Route::put('committees/{committee}/members/{member}', [CommitteeMemberController::class, 'update'])->name('committee.members.update');
+    Route::delete('committees/{committee}/members/{member}', [CommitteeMemberController::class, 'destroy'])->name('committee.members.destroy');
 
     // Downloads
     Route::post('downloads', [DownloadController::class, 'store'])->name('downloads.store');

@@ -59,7 +59,7 @@
         }
 
         .feature-image {
-            max-height: 180px;
+            height: 200px;
             object-fit: cover;
             position: relative;
             /* margin: 20px; */

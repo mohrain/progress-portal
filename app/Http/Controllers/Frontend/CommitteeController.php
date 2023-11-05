@@ -13,7 +13,7 @@ class CommitteeController extends Controller
     {
         return view('frontend.committee.show', [
             'title' => $committee->name,
-            'committee' => $committee
+            'committee' => $committee,
         ]);
     }
 
@@ -21,87 +21,68 @@ class CommitteeController extends Controller
     {
         return view('frontend.committee.responsibilities', [
             'title' => $committee->name,
-            'committee' => $committee
+            'committee' => $committee,
         ]);
     }
 
     public function notices(Committee $committee)
     {
-        $notices = $committee->notices()
-            ->when(
-                request()->filled('start_date'),
-                fn ($q) => $q->whereDate('created_at', '>=', Carbon::parse(bs_to_ad(request('start_date')))->startOfDay())
-            )
-            ->when(
-                request()->filled('end_date'),
-                fn ($q) => $q->whereDate('created_at', '<=', Carbon::parse(bs_to_ad(request('end_date')))->endOfDay())
-            )
-            ->when(
-                request()->filled('keyword'),
-                fn ($q) => $q->where('title', 'like', '%' . request('keyword') . '%')
-            )
+        $notices = $committee
+            ->notices()
+            ->when(request()->filled('start_date'), fn($q) => $q->whereDate('created_at', '>=', Carbon::parse(bs_to_ad(request('start_date')))->startOfDay()))
+            ->when(request()->filled('end_date'), fn($q) => $q->whereDate('created_at', '<=', Carbon::parse(bs_to_ad(request('end_date')))->endOfDay()))
+            ->when(request()->filled('keyword'), fn($q) => $q->where('title', 'like', '%' . request('keyword') . '%'))
             ->get();
 
         return view('frontend.committee.notices', [
             'title' => $committee->name,
             'committee' => $committee,
-            'notices' => $notices
+            'notices' => $notices,
         ]);
     }
 
     public function activities(Committee $committee)
     {
-        $activities = $committee->activities()
-            ->when(
-                request()->filled('start_date'),
-                fn ($q) => $q->whereDate('created_at', '>=', Carbon::parse(bs_to_ad(request('start_date')))->startOfDay())
-            )
-            ->when(
-                request()->filled('end_date'),
-                fn ($q) => $q->whereDate('created_at', '<=', Carbon::parse(bs_to_ad(request('end_date')))->endOfDay())
-            )
-            ->when(
-                request()->filled('keyword'),
-                fn ($q) => $q->where('title', 'like', '%' . request('keyword') . '%')
-            )
+        $activities = $committee
+            ->activities()
+            ->when(request()->filled('start_date'), fn($q) => $q->whereDate('created_at', '>=', Carbon::parse(bs_to_ad(request('start_date')))->startOfDay()))
+            ->when(request()->filled('end_date'), fn($q) => $q->whereDate('created_at', '<=', Carbon::parse(bs_to_ad(request('end_date')))->endOfDay()))
+            ->when(request()->filled('keyword'), fn($q) => $q->where('title', 'like', '%' . request('keyword') . '%'))
             ->get();
 
         return view('frontend.committee.activities', [
             'title' => $committee->name,
             'committee' => $committee,
-            'activities' => $activities
+            'activities' => $activities,
         ]);
     }
 
     public function downloads(Committee $committee)
     {
-        $downloads = $committee->downloads()
-            ->when(
-                request()->filled('start_date'),
-                fn ($q) => $q->whereDate('created_at', '>=', Carbon::parse(bs_to_ad(request('start_date')))->startOfDay())
-            )
-            ->when(
-                request()->filled('end_date'),
-                fn ($q) => $q->whereDate('created_at', '<=', Carbon::parse(bs_to_ad(request('end_date')))->endOfDay())
-            )
-            ->when(
-                request()->filled('keyword'),
-                fn ($q) => $q->where('title', 'like', '%' . request('keyword') . '%')
-            )
+        $downloads = $committee
+            ->downloads()
+            ->when(request()->filled('start_date'), fn($q) => $q->whereDate('created_at', '>=', Carbon::parse(bs_to_ad(request('start_date')))->startOfDay()))
+            ->when(request()->filled('end_date'), fn($q) => $q->whereDate('created_at', '<=', Carbon::parse(bs_to_ad(request('end_date')))->endOfDay()))
+            ->when(request()->filled('keyword'), fn($q) => $q->where('title', 'like', '%' . request('keyword') . '%'))
             ->get();
 
         return view('frontend.committee.downloads', [
             'title' => $committee->name,
             'committee' => $committee,
-            'downloads' => $downloads
+            'downloads' => $downloads,
         ]);
     }
 
     public function members(Committee $committee)
     {
+        $committeeMembers = $committee
+            ->members()
+            ->with('member')
+            ->get();
         return view('frontend.committee.members', [
             'title' => $committee->name,
-            'committee' => $committee
+            'committee' => $committee,
+            'committeeMembers' => $committeeMembers,
         ]);
     }
 }
