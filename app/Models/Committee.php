@@ -45,4 +45,9 @@ class Committee extends Model
     {
         return $this->hasMany(CommitteeMember::class);
     }
+
+    public function committeeSecretary()
+    {
+        return $this->hasMany(CommitteeSecretary::class);
+    }
 }

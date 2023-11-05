@@ -23,6 +23,7 @@ use App\Http\Controllers\FiscalYearController;
 use App\Http\Controllers\FrequentlyAskedQuestionController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\CommitteeSecretaryController;
 use App\Http\Controllers\CurrentParliamentaryPartyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformationOfficerController;
@@ -220,6 +221,12 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('committees/{committee}/members/{member}', [CommitteeMemberController::class, 'update'])->name('committee.members.update');
     Route::delete('committees/{committee}/members/{member}', [CommitteeMemberController::class, 'destroy'])->name('committee.members.destroy');
 
+
+     // Committee Members
+     Route::get('committees/{committee}/secretary', [CommitteeSecretaryController::class, 'secretary'])->name('committee.secretary');
+     Route::post('committees/{committee}/secretary', [CommitteeSecretaryController::class, 'store'])->name('committee.secretary.store');
+     Route::delete('committees/{committee}/secretary/{committeeSecretary}', [CommitteeSecretaryController::class, 'destroy'])->name('committee.secretary.destroy');
+ 
     // Downloads
     Route::post('downloads', [DownloadController::class, 'store'])->name('downloads.store');
     Route::put('downloads/{download}', [DownloadController::class, 'update'])->name('downloads.update');

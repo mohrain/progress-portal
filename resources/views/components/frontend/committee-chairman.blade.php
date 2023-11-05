@@ -20,5 +20,26 @@
             </div>
         </div>
     @endempty
+    <div class="bg-theme-color-blue py-2 text-center my-3 rounded-1">
+        समिति सचिव
+    </div>
+    @empty($committeeSecretary)
+    @else
+        <div class="card" style="height: 320px;">
+            <img id="newProfilePhotoPreview"
+                src="{{ $committeeSecretary->employee->profile ? asset('storage/' . $committeeSecretary->employee->profile) : asset('assets/img/no-image.png') }}"
+                class="feature-image card-img-top">
+            <div class="card-body text-center">
+                <b class="card-title text-theme-color">
+                    {{ $committeeSecretary->employee->name }}
+                </b>
+                <div class="cart-text">
+                    {{ $committeeSecretary->employee->designation }}
+                </div>
+                <a href="{{ route('employees.show', $committeeSecretary->employee) }}" class="btn btn-sm btn-primary">पुरा
+                    हेर्नुहोस्</a>
+            </div>
+        </div>
+    @endempty
 
 </div>

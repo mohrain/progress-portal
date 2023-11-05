@@ -40,14 +40,11 @@
     }
 
     .feature-image {
-        border: 1px solid #ddd;
-        padding: 2px;
-        max-width: 230px;
-        height: 150px;
-        object-fit: fill;
-        position: relative;
-        /* margin: 20px; */
-    }
+            height: 200px;
+            object-fit: cover;
+            position: relative;
+            /* margin: 20px; */
+        }
 
     .feature-image-thum {
         border: 1px solid #ddd;

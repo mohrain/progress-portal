@@ -14,6 +14,7 @@ class CommitteeChairman extends Component
      */
     public $committeeMember;
     public $committee;
+    public $committeeSecretary;
 
     public function __construct(Committee $committee)
     {
@@ -21,6 +22,11 @@ class CommitteeChairman extends Component
         $this->committeeMember = $this->committee
             ->members()
             ->where('designation', true)
+            ->first();
+
+        $this->committeeSecretary = $committee
+            ->committeeSecretary()
+            ->with('employee')
             ->first();
     }
 

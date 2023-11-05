@@ -75,6 +75,12 @@ class CommitteeWizardMenu extends Component
                 'icon' => '<i class="fa fa-users"></i>',
                 'title' => 'समिति सदस्यहरु'
             ],
+            [
+                'route_name' => ('committee.secretary'),
+                'route_param' => $committee->id,
+                'icon' => '<i class="fa fa-user"></i>',
+                'title' => 'समिति सचिव'
+            ],
             
         ];
 

@@ -108,7 +108,7 @@
                                     src="{{ $employee->profile ? asset('storage/' . $employee->profile) : asset('assets/img/no-image.png') }}"
                                     class="feature-image card-img-top">
                                 <div class="card-body text-center">
-                                    <b class="card-title text-theme-color">मा.
+                                    <b class="card-title text-theme-color">
                                         {{ $employee->name }}
                                     </b>
                                     <div class="cart-text">
