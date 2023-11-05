@@ -26,6 +26,7 @@ Vue.component("gallery-albums", require("./gallery/Albums.vue").default);
 Vue.component("gallery-uploader", require("./gallery/Uploader.vue").default);
 Vue.component("frontend-albums", require("./gallery/FrontendAlbums.vue").default);
 Vue.component("frontend-view-album", require("./gallery/ViewAlbum.vue").default);
+Vue.component("frontend-video-gallery", require("./video/VideoGallery.vue").default);
 
 Vue.use(VueRouter);
 Vue.use(VNepaliDatePicker);

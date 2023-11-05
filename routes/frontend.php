@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Frontend\CommitteeController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\VideoGalleryController;
 
 Route::get('committees/{committee:slug}', [CommitteeController::class, 'show'])->name('frontend.committees.show');
 Route::get('committees/{committee:slug}/responsibilities', [CommitteeController::class, 'responsibilities'])->name('frontend.committees.responsibilities');
@@ -14,3 +15,5 @@ Route::get('gallery', [GalleryController::class, 'index']);
 Route::get('gallery/{album}/photos', [GalleryController::class, 'show']);
 Route::get('gallery/getAlbums', [GalleryController::class, 'getAlbums']);
 Route::get('gallery/{album}/getPhotos', [GalleryController::class, 'getPhotos']);
+
+Route::get('videos', [VideoGalleryController::class, 'index']);

@@ -42,6 +42,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\SuchiController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -222,11 +223,11 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::delete('committees/{committee}/members/{member}', [CommitteeMemberController::class, 'destroy'])->name('committee.members.destroy');
 
 
-     // Committee Members
-     Route::get('committees/{committee}/secretary', [CommitteeSecretaryController::class, 'secretary'])->name('committee.secretary');
-     Route::post('committees/{committee}/secretary', [CommitteeSecretaryController::class, 'store'])->name('committee.secretary.store');
-     Route::delete('committees/{committee}/secretary/{committeeSecretary}', [CommitteeSecretaryController::class, 'destroy'])->name('committee.secretary.destroy');
- 
+    // Committee Members
+    Route::get('committees/{committee}/secretary', [CommitteeSecretaryController::class, 'secretary'])->name('committee.secretary');
+    Route::post('committees/{committee}/secretary', [CommitteeSecretaryController::class, 'store'])->name('committee.secretary.store');
+    Route::delete('committees/{committee}/secretary/{committeeSecretary}', [CommitteeSecretaryController::class, 'destroy'])->name('committee.secretary.destroy');
+
     // Downloads
     Route::post('downloads', [DownloadController::class, 'store'])->name('downloads.store');
     Route::put('downloads/{download}', [DownloadController::class, 'update'])->name('downloads.update');
@@ -242,6 +243,14 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('album/{album}/getPhotos', [PhotoController::class, 'getPhotos']);
     Route::post('album/{album}/photos', [PhotoController::class, 'store'])->name('album.photos.store');
     Route::delete('photos/{photo}', [PhotoController::class, 'destroy']);
+
+    // Video Gallery
+    Route::get('videos', [VideoController::class, 'index'])->name('videos.index');
+    Route::get('videos/create', [VideoController::class, 'create'])->name('videos.create');
+    Route::post('videos', [VideoController::class, 'store'])->name('videos.store');
+    Route::get('videos/{video}/edit', [VideoController::class, 'edit'])->name('videos.edit');
+    Route::post('videos/{video}', [VideoController::class, 'update'])->name('videos.update');
+    Route::delete('videos/{video}', [VideoController::class, 'destroy'])->name('videos.destroy');
 
     //election year
     Route::get('elections', [ElectionController::class, 'index'])->name('elections.index');

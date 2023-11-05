@@ -74,7 +74,7 @@
         प्रत्यक्ष प्रसारण
     </div>
 </a>
-<a class="cta-button v-orange mb-3" href="#">
+<a class="cta-button v-orange mb-3" href="/videos">
     <div class="icon">
         <i class="bi bi-camera-video"></i>
     </div>

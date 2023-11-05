@@ -56,7 +56,12 @@
             </li>
             <li class="nav-item {{ setActive('album.*') }}">
                 <a href="{{ route('album.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="fa fa-images"></i></span>Galllery
+                    <span class="text-success"><i class="fa fa-images"></i></span>Gallery
+                </a>
+            </li>
+            <li class="nav-item {{ setActive('album.*') }}">
+                <a href="{{ route('videos.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="fa fa-video"></i></span>Video Gallery
                 </a>
             </li>
 
