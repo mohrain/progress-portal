@@ -23,7 +23,6 @@ class PostCategoryMenuView extends Component
         $this->postCategories = PostCategory::with('childcategories.childcategories')
             ->where('parent_id', null)
             ->actived()
-            ->orderBy('name')
             ->get();
     }
 
