@@ -24,7 +24,7 @@
                                 {{ $title = 'कर्मचारीहरु' }}
                             </div>
                             <div>
-                                <a href="{{ route('employees.create') }}" class="btn btn-sm btn-primary bi bi-plus">नयाँ पोस्ट</a>
+                                <a href="{{ route('employees.create') }}" class="btn btn-sm btn-primary bi bi-plus">नयाँ कर्मचारी</a>
                                 <a class="btn btn-secondary bi bi-funnel " data-toggle="collapse" href="#collapseExample"
                                     role="button" aria-expanded="false" aria-controls="collapseExample">
                                     फिल्टर
