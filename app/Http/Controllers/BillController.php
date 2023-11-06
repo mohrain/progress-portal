@@ -310,4 +310,9 @@ class BillController extends Controller
         $bills->appends(request()->except('page'));
         return view('frontend.bill-types.show', compact('billType', 'bills'));
     }
+
+    public function print(Bill $bill)
+    {
+        return view('bill-suggestions.print', compact('bill'));
+    }
 }

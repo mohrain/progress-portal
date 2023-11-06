@@ -14,4 +14,9 @@ class BillSuggestion extends Model
     {
         return $this->belongsTo(Bill::class);
     }
+
+    public function billSuggestionSectionWise()
+    {
+        return $this->hasMany(BillSuggestionSectionWise::class);
+    }
 }

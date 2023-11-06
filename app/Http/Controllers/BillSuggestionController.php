@@ -42,11 +42,26 @@ class BillSuggestionController extends Controller
      */
     public function store(StoreBillSuggestionRequest $request, Bill $bill)
     {
+        // return $request;
         $data = $request->validated();
         if ($request->file('file')) {
             $data['file'] = Storage::putFile('bill-suggestion', $request->file('file'));
         }
-        $bill->billSuggestions()->create($data);
+        $billSuggestion = $bill->billSuggestions()->create($data);
+
+        if ($request->section != '') {
+            foreach ($request->section as $key => $section) {
+                $billSuggestion->billSuggestionSectionWise()->create([
+                    'section' => $section,
+                    'sub_section' => $request->sub_section[$key],
+                    'sec' => $request->sec[$key],
+                    'current_arrangement' => $request->current_arrangement[$key],
+                    'procedure_of_amendment' => $request->procedure_of_amendment[$key],
+                    'reason' => $request->reason[$key],
+                ]);
+            }
+        }
+
         return redirect()
             ->back()
             ->with('success', 'तपाईंको सुझाव पठाइयो धन्यवाद');

@@ -28,9 +28,15 @@ class StoreBillSuggestionRequest extends FormRequest
             'email' => 'nullable',
             'contact_number' => 'required',
             'address' => 'required',
-            'subject' => 'required',
-            'message' => 'required',
+            // 'subject' => 'required',
+            // 'message' => 'required',
             'file' => 'nullable|file|max:2000',
+            'section.*' => "nullable",
+            'sub_section.*' => "nullable",
+            'sec.*' => "nullable",
+            'current_arrangement.*' => "nullable",
+            'procedure_of_amendment.*' => "nullable",
+            'reason.*' => "nullable",
         ];
     }
 }

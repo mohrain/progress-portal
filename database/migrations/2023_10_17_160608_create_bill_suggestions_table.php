@@ -18,8 +18,8 @@ return new class extends Migration {
             $table->string('email')->nullable();
             $table->string('contact_number');
             $table->string('address');
-            $table->string('subject');
-            $table->string('message');
+            // $table->string('subject');
+            // $table->string('message');
             $table->string('file')->nullable();
             $table
                 ->unsignedBigInteger('bill_id')

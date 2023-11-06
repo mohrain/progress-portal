@@ -39,10 +39,6 @@
                                         <td>{{ $billSuggestion->address }}</td>
                                     </tr>
                                     <tr>
-                                        <th>बिषय</th>
-                                        <td>{{ $billSuggestion->subject }}</td>
-                                    </tr>
-                                    <tr>
                                         <th>फाइल</th>
                                         <td>
 
@@ -55,23 +51,49 @@
                                             @endif
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th colspan="2" class="text-center">
-                                            सुझाप
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">
-                                           <p>
-                                            {{ $billSuggestion->message }}
-                                           </p>
-                                        </td>
-                                    </tr>
-
-
+                                    @foreach ($billSuggestion->billSuggestionSectionWise as $item)
+                                        <tr>
+                                            <th>दफा / उपदफा / खण्ड</th>
+                                            <td>
+                                                {{ $item->section }} / {{ $item->sub_section }} / {{ $item->sec }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2" class="text-center">
+                                                हालको व्यवस्था
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <p>
+                                                    {{ $item->current_arrangement }}
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2" class="text-center">
+                                                संशोधनको व्यहोरा
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <p>
+                                                    {{ $item->procedure_of_amendment }}
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2" class="text-center">
+                                                कारण
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <p>{{ $item->reason }}</p>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
-
-
                             </table>
                         </div>
                     </div>
