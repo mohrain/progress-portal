@@ -66,7 +66,7 @@
     </div>
     <div class="cta-title">आजको संसद</div>
 </a>
-<a class="cta-button v-red mb-3" href="{{route('live')}}">
+<a class="cta-button v-red mb-3" href="{{route('frontend.live')}}">
     <div class="icon">
         <i class="bi bi-youtube"></i>
     </div>

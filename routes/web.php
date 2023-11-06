@@ -28,6 +28,7 @@ use App\Http\Controllers\CurrentParliamentaryPartyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformationOfficerController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\LiveController;
 use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MinistryController;
@@ -345,6 +346,11 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('current-parliamentary-parties/{currentParliamentaryParty}/edit', [CurrentParliamentaryPartyController::class, 'edit'])->name('current-parliamentary-parties.edit');
     Route::put('current-parliamentary-parties/{currentParliamentaryParty}', [CurrentParliamentaryPartyController::class, 'update'])->name('current-parliamentary-parties.update');
     Route::delete('current-parliamentary-parties/{currentParliamentaryParty}', [CurrentParliamentaryPartyController::class, 'destroy'])->name('current-parliamentary-parties.destroy');
+
+
+    //live
+    Route::get('live', [LiveController::class, 'index'])->name('live.index');
+
 
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');

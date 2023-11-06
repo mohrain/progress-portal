@@ -54,12 +54,17 @@
                     <span class="text-success"><i class="fa fa-plus"></i></span>समिति
                 </a>
             </li>
+            <li class="nav-item {{ setActive('live.*') }}">
+                <a href="{{ route('live.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success"><i class="bi bi-youtube"></i></span>प्रत्यक्ष प्रसारण
+                </a>
+            </li>
             <li class="nav-item {{ setActive('album.*') }}">
                 <a href="{{ route('album.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="fa fa-images"></i></span>Gallery
                 </a>
             </li>
-            <li class="nav-item {{ setActive('album.*') }}">
+            <li class="nav-item {{ setActive('videos.*') }}">
                 <a href="{{ route('videos.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="fa fa-video"></i></span>Video Gallery
                 </a>

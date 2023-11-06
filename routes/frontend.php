@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Frontend\CommitteeController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\LiveController;
 use App\Http\Controllers\VideoGalleryController;
 
 Route::get('committees/{committee:slug}', [CommitteeController::class, 'show'])->name('frontend.committees.show');
@@ -17,4 +18,5 @@ Route::get('gallery/getAlbums', [GalleryController::class, 'getAlbums']);
 Route::get('gallery/{album}/getPhotos', [GalleryController::class, 'getPhotos']);
 
 Route::get('videos', [VideoGalleryController::class, 'index']);
-Route::get('live', [VideoGalleryController::class, 'live'])->name('live');
+
+Route::get('live', [LiveController::class, 'frontend'])->name('frontend.live');

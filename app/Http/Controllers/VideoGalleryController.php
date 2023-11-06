@@ -13,10 +13,4 @@ class VideoGalleryController extends Controller
             'videos' => Video::latest()->get()
         ]);
     }
-
-    public function live(){
-        return view('frontend.live.index', [
-            'videos' => Video::latest()->first(),
-        ]);
-    }
 }
