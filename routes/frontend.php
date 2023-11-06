@@ -17,3 +17,4 @@ Route::get('gallery/getAlbums', [GalleryController::class, 'getAlbums']);
 Route::get('gallery/{album}/getPhotos', [GalleryController::class, 'getPhotos']);
 
 Route::get('videos', [VideoGalleryController::class, 'index']);
+Route::get('live', [VideoGalleryController::class, 'live'])->name('live');

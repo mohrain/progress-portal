@@ -1,4 +1,4 @@
-@extends('frontend.layouts.app', ['title' => __('फोटो संग्रह')])
+@extends('frontend.layouts.app', ['title' => __('भिडियो संग्रह')])
 
 @section('content')
 <div id="app">
