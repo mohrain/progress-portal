@@ -20,6 +20,10 @@ class PostCategorySeeder extends Seeder
                 'name' => 'सूचना',
             ],
             [
+                'name' => 'दैनिक कार्यसूची',
+                'parent_id' => 1,
+            ],
+            [
                 'name' => 'संसदीय सूचना',
                 'parent_id' => 1,
             ],
@@ -27,10 +31,7 @@ class PostCategorySeeder extends Seeder
                 'name' => 'सचिवालय सूचना',
                 'parent_id' => 1,
             ],
-            [
-                'name' => 'दैनिक कार्यसूची',
-                'parent_id' => 1,
-            ],
+        
          
             [
                 'name' => 'ऐन, नियम',
