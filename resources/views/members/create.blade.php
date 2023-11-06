@@ -80,7 +80,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-4 mb-2">
-                                            <label for="election_area" class="form-label required">निर्वाचन क्षेत्र
+                                            <label for="election_area" class="form-label">निर्वाचन क्षेत्र
                                                 नं.</label>
                                             <input type="text" name="election_area"
                                                 class="form-control @error('election_area') is-invalid @enderror"
