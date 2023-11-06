@@ -60,12 +60,12 @@
 
 </style>
 
-<a href="#" class="cta-button v-blue mb-3">
+{{-- <a href="#" class="cta-button v-blue mb-3">
     <div class="icon">
         <i class="bi bi-calendar3"></i>
     </div>
     <div class="cta-title">आजको संसद</div>
-</a>
+</a> --}}
 <a class="cta-button v-red mb-3" href="{{route('frontend.live')}}">
     <div class="icon">
         <i class="bi bi-youtube"></i>
