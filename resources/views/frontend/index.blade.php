@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    @include('frontend.layouts.marquee')
+   <x-frontend.news-scroll />
     <div class="row">
         <div class="col-md-9">
             {{-- @include('frontend.carousel.index') --}}
