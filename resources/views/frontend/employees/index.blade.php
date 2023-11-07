@@ -103,7 +103,7 @@
                     </div>
                     @forelse ($employees as $employee)
                         <div class="col-md-3">
-                            <div class="card" style="height: 320px;">
+                            <div class="card my-2" style="height: 320px;">
                                 <img id="newProfilePhotoPreview"
                                     src="{{ $employee->profile ? asset('storage/' . $employee->profile) : asset('assets/img/no-image.png') }}"
                                     class="feature-image card-img-top">
