@@ -1,7 +1,7 @@
 <div class="mb-3">
-    <label class="form-label required">प्रस्तुतकर्ता</label>
+    <label class="form-label ">प्रस्तुतकर्ता</label>
 
-    <select class="form-control text-capitalize required @error('member_id') is-invalid @enderror" name="member_id"
+    <select class="form-control text-capitalize  @error('member_id') is-invalid @enderror" name="member_id"
         id="member_id">
         <option value="">छान्नुहोस्</option>
         @foreach ($members as $member)

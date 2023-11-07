@@ -69,7 +69,7 @@
                                 <td>{{ $bill->entry_number }}</td>
                                 <td style="white-space: nowrap;">{{ $bill->entry_date }}</td>
                                 <td>{{ $bill->name }}</td>
-                                <td>{{ $bill->ministry->name }}</td>
+                                <td>{{ $bill->ministry->name ?? ""}}</td>
                                 <td>{{ $bill->status }}</td>
                                 <td style="white-space: nowrap;">
                                     <a href="{{ route('bills.show', $bill) }}" class="btn btn-sm btn-primary">

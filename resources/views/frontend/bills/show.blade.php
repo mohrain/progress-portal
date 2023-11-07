@@ -56,11 +56,11 @@
                             </tr>
                             <tr>
                                 <th>प्रस्तुतकर्ता</th>
-                                <td>{{ $bill->member->name }}</td>
+                                <td>{{ $bill->member->name ?? "" }}</td>
                             </tr>
                             <tr>
                                 <th>मन्त्रालय</th>
-                                <td>{{ $bill->ministry->name }}</td>
+                                <td>{{ $bill->ministry->name ?? "" }}</td>
                             </tr>
                         </tbody>
                     </table>

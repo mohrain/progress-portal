@@ -26,14 +26,10 @@ return new class extends Migration {
                 ->constrained('bill_types')
                 ->cascadeOnDelete();
             $table
-                ->unsignedBigInteger('ministry_id')
-                ->constrained('ministries')
-                ->cascadeOnDelete();
+                ->unsignedBigInteger('ministry_id')->nullable();
 
             $table
-                ->unsignedBigInteger('member_id')
-                ->constrained('members')
-                ->cascadeOnDelete();
+                ->unsignedBigInteger('member_id')->nullable();
 
             $table
                 ->unsignedBigInteger('bill_category_id')

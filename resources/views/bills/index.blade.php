@@ -281,7 +281,7 @@
                                             <td>{{ $bill->entry_number }}</td>
                                             <td>{{ $bill->entry_date }}</td>
                                             <td>{{ $bill->name }}</td>
-                                            <td>{{ $bill->ministry->name }}</td>
+                                            <td>{{ $bill->ministry->name ?? "" }}</td>
                                             <td>
                                                 @if ($bill->suggestion_in_the_bill == true)
                                                     <span class="badge badge-primary">
