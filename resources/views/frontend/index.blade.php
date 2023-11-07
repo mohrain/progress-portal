@@ -58,8 +58,12 @@
         </div>
     </div>
     <x-frontend-news />
-    <div class="row">
 
+    <div id="app">
+        <x-frontend.gallery />
+    </div>
+
+    <div class="row">
         <div class="col-md-4">
             <div>
                 <a class="twitter-timeline" data-height="410" href="{{ settings('twitter') }}?ref_src=twsrc%5Etfw">Tweets by
@@ -86,3 +90,7 @@
 </div>
 {{-- <x-modal-image-view /> --}}
 @endsection
+
+@push('scripts')
+<script src="{{ mix('js/app.js') }}"></script>
+@endpush

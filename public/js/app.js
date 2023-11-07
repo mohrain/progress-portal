@@ -2527,11 +2527,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -3262,7 +3257,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".album-grid[data-v-6feaa8de] {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 1rem;\n}\n.album[data-v-6feaa8de] {\n  padding: 0.5rem;\n  background-color: #f5f5f5;\n  border-radius: 4px;\n}\n.album .album-preview[data-v-6feaa8de] {\n  display: block;\n  width: 100%;\n  aspect-ratio: 6/4;\n}\n.album .album-preview img[data-v-6feaa8de] {\n  width: 100%;\n  height: 100%;\n  border-radius: 5px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n.album .album-preview-multiple[data-v-6feaa8de] {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 5px;\n  width: 100%;\n  aspect-ratio: 6/4;\n  border-radius: 5px;\n  overflow: hidden;\n}\n.album .album-preview-multiple img[data-v-6feaa8de] {\n  border-radius: 5px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n.album .album-name[data-v-6feaa8de] {\n  display: block;\n  margin-top: 0.5rem;\n  font-size: 1.1rem;\n  color: initial;\n}\n.album .album-photos-count[data-v-6feaa8de] {\n  font-size: 0.9rem;\n  color: #333;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".album-grid[data-v-6feaa8de] {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 1rem;\n}\n.album[data-v-6feaa8de] {\n  padding: 0.5rem;\n  border-radius: 4px;\n}\n.album .album-preview[data-v-6feaa8de] {\n  display: block;\n  width: 100%;\n  aspect-ratio: 6/4;\n}\n.album .album-preview img[data-v-6feaa8de] {\n  width: 100%;\n  height: 100%;\n  border-radius: 5px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n.album .album-preview-multiple[data-v-6feaa8de] {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 5px;\n  width: 100%;\n  aspect-ratio: 6/4;\n  border-radius: 5px;\n  overflow: hidden;\n}\n.album .album-preview-multiple img[data-v-6feaa8de] {\n  border-radius: 5px;\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n.album .album-name[data-v-6feaa8de] {\n  display: block;\n  margin-top: 0.5rem;\n  font-size: 1.1rem;\n  color: initial;\n  font-weight: 500;\n  color: #282837;\n}\n.album:hover .album-name[data-v-6feaa8de] {\n  text-decoration: underline;\n}\n.album .album-photos-count[data-v-6feaa8de] {\n  font-size: 0.9rem;\n  color: #615f5f;\n  font-family: Verdana, Geneva, Tahoma, sans-serif;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29237,95 +29232,82 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "box" }, [
-    _vm._m(0),
+  return _c("div", [
+    _vm.loading
+      ? _c("div", { staticClass: "text-center py-5" }, [_c("Spinner")], 1)
+      : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "box__body" }, [
-      _vm.loading
-        ? _c("div", { staticClass: "text-center py-5" }, [_c("Spinner")], 1)
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.albums.length
-        ? _c(
-            "div",
-            { staticClass: "album-grid" },
-            _vm._l(_vm.albums, function (album) {
-              return _c(
-                "div",
-                { key: album.id, staticClass: "album" },
-                [
-                  album.preview_photos.length >= 4
-                    ? [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "album-preview-multiple",
-                            attrs: { href: "/gallery/" + album.id + "/photos" },
-                          },
-                          _vm._l(album.preview_photos, function (photoUrl) {
-                            return _c("img", { attrs: { src: photoUrl } })
-                          }),
-                          0
-                        ),
-                      ]
-                    : [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "album-preview",
-                            attrs: { href: "/gallery/" + album.id + "/photos" },
-                          },
-                          [
-                            _c("img", {
-                              attrs: { src: album.preview_photos[0], alt: "" },
-                            }),
-                          ]
-                        ),
-                      ],
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "d-flex justify-content-between align-items-center",
-                    },
-                    [
-                      _c("div", [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "album-name",
-                            attrs: { href: "/gallery/" + album.id + "/photos" },
-                          },
-                          [_vm._v(_vm._s(album.name))]
-                        ),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "album-photos-count" }, [
-                          _vm._v(_vm._s(album.photos_count) + " photos"),
-                        ]),
-                      ]),
+    _vm.albums.length
+      ? _c(
+          "div",
+          { staticClass: "album-grid" },
+          _vm._l(_vm.albums, function (album) {
+            return _c(
+              "div",
+              { key: album.id, staticClass: "album" },
+              [
+                album.preview_photos.length >= 4
+                  ? [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "album-preview-multiple",
+                          attrs: { href: "/gallery/" + album.id + "/photos" },
+                        },
+                        _vm._l(album.preview_photos, function (photoUrl) {
+                          return _c("img", { attrs: { src: photoUrl } })
+                        }),
+                        0
+                      ),
                     ]
-                  ),
-                ],
-                2
-              )
-            }),
-            0
-          )
-        : _vm._e(),
-    ]),
+                  : [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "album-preview",
+                          attrs: { href: "/gallery/" + album.id + "/photos" },
+                        },
+                        [
+                          _c("img", {
+                            attrs: { src: album.preview_photos[0], alt: "" },
+                          }),
+                        ]
+                      ),
+                    ],
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "d-flex justify-content-between align-items-center",
+                  },
+                  [
+                    _c("div", [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "album-name",
+                          attrs: { href: "/gallery/" + album.id + "/photos" },
+                        },
+                        [_vm._v(_vm._s(album.name))]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "album-photos-count" }, [
+                        _vm._v(_vm._s(album.photos_count) + " photos"),
+                      ]),
+                    ]),
+                  ]
+                ),
+              ],
+              2
+            )
+          }),
+          0
+        )
+      : _vm._e(),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "box__header" }, [
-      _c("h1", { staticClass: "box__title" }, [_vm._v("Gallery")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

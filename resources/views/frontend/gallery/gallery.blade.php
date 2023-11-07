@@ -3,7 +3,14 @@
 @section('content')
 <div id="app">
     <div class="container">
-        <frontend-albums />
+        <div class="box">
+            <div class="box__header">
+                <h1 class="box__title">Gallery</h1>
+            </div>
+            <div class="box__body">
+                <frontend-albums />
+            </div>
+        </div>
     </div>
 </div>
 @endsection

@@ -1,29 +1,24 @@
 <template>
-    <div class="box">
-        <div class="box__header">
-            <h1 class="box__title">Gallery</h1>
+    <div>
+        <div v-if="loading" class="text-center py-5">
+            <Spinner />
         </div>
-        <div class="box__body">
-            <div v-if="loading" class="text-center py-5">
-                <Spinner />
-            </div>
-            <div v-if="albums.length" class="album-grid">
-                <div v-for="album in albums" v-bind:key="album.id" class="album">
-                    <template v-if="album.preview_photos.length >= 4">
-                        <a :href="`/gallery/${album.id}/photos`" class="album-preview-multiple">
-                            <img v-for="photoUrl in album.preview_photos" :src="photoUrl">
-                        </a>
-                    </template>
-                    <template v-else>
-                        <a :href="`/gallery/${album.id}/photos`" class="album-preview">
-                            <img :src="album.preview_photos[0]" alt="">
-                        </a>
-                    </template>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <a :href="`/gallery/${album.id}/photos`" class="album-name">{{ album.name }}</a>
-                            <div class="album-photos-count">{{ album.photos_count }} photos</div>
-                        </div>
+        <div v-if="albums.length" class="album-grid">
+            <div v-for="album in albums" v-bind:key="album.id" class="album">
+                <template v-if="album.preview_photos.length >= 4">
+                    <a :href="`/gallery/${album.id}/photos`" class="album-preview-multiple">
+                        <img v-for="photoUrl in album.preview_photos" :src="photoUrl">
+                    </a>
+                </template>
+                <template v-else>
+                    <a :href="`/gallery/${album.id}/photos`" class="album-preview">
+                        <img :src="album.preview_photos[0]" alt="">
+                    </a>
+                </template>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <a :href="`/gallery/${album.id}/photos`" class="album-name">{{ album.name }}</a>
+                        <div class="album-photos-count">{{ album.photos_count }} photos</div>
                     </div>
                 </div>
             </div>
@@ -69,7 +64,7 @@ export default {
 
 .album {
     padding: .5rem;
-    background-color: #f5f5f5;
+    // background-color: #f5f5f5;
     border-radius: 4px;
 
     .album-preview {
@@ -109,11 +104,17 @@ export default {
         margin-top: .5rem;
         font-size: 1.1rem;
         color: initial;
+        font-weight: 500;
+        color: #282837;
+    }
+
+    &:hover .album-name {
+        text-decoration: underline;
     }
 
     .album-photos-count {
         font-size: .9rem;
-        color: #333;
+        color: #615f5f;
         font-family: Verdana, Geneva, Tahoma, sans-serif
     }
 }
