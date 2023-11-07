@@ -110,7 +110,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::delete('pages/{page}', [PageController::class, 'destroy'])->name('pages.destroy');
 
     //documemts
-    Route::delete('documents/{document}', [DocumentController::class, 'destroy'])->name('documents.destroy');
+    Route::get('documents/{document}', [DocumentController::class, 'destroy'])->name('documents.destroy');
 
     //post-categories
     Route::get('post-categories', [PostCategoryController::class, 'index'])->name('post-categories.index');

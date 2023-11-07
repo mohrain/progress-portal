@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Document;
 use App\Http\Requests\StoreDocumentRequest;
 use App\Http\Requests\UpdateDocumentRequest;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
@@ -81,6 +82,8 @@ class DocumentController extends Controller
      */
     public function destroy(Document $document)
     {
-        //
+        Storage::delete($document->file);
+        $document->delete();
+        return redirect()->back();
     }
 }
