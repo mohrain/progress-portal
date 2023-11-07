@@ -162,32 +162,7 @@
             </div>
             <div>
                 आगन्तुक गणना :
-                <span class="kalimati-font btn btn-sm btn-primary px-3">
-
-                    <?php
-                    // Specify the path to the storage directory where 'count.txt' will be stored
-                    $storageDirectory = 'storage/';
-                    
-                    // Ensure the storage directory exists, create it if not
-                    if (!is_dir($storageDirectory)) {
-                        mkdir($storageDirectory, 0777, true);
-                    }
-                    
-                    // Define the file path within the storage directory
-                    $countFile = $storageDirectory . 'count.txt';
-                    $count = 0;
-                    
-                    if (file_exists($countFile)) {
-                        $count = (int) file_get_contents($countFile);
-                    }
-                    
-                    $count++;
-                    file_put_contents($countFile, $count);
-                    
-                    echo $count;
-                    ?>
-
-                </span>
+               <x-frontend.visitor-counter />
             </div>
         </div>
     </div>
