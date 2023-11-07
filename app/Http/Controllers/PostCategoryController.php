@@ -61,7 +61,7 @@ class PostCategoryController extends Controller
      */
     public function show(PostCategory $postCategory)
     {
-        $posts = $postCategory->posts()->published()->latest()->paginate(50);
+        $posts = $postCategory->posts()->published()->latest()->paginate(10);
         return view('frontend.post-category.show', compact('postCategory','posts'));
     }
 
