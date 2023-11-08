@@ -1,7 +1,8 @@
 <link rel="icon" href="{{ asset(config('constants.nep_gov.logo_sm')) }}">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 {{-- <link href="{{ asset('assets/mdb/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
 {{-- <link href="{{ asset('assets/mdb/css/mdb.min.css') }}" rel="stylesheet"> --}}
 
@@ -40,11 +41,11 @@
     }
 
     .feature-image {
-            height: 200px;
-            object-fit: cover;
-            position: relative;
-            /* margin: 20px; */
-        }
+        height: 200px;
+        object-fit: cover;
+        position: relative;
+        /* margin: 20px; */
+    }
 
     .feature-image-thum {
         border: 1px solid #ddd;
@@ -78,6 +79,9 @@
         margin: 2px;
     }
 
+    .fa-ellipsis-v {
+        color: black;
+    }
 </style>
 <link rel="stylesheet" href="{{ asset('assets/css/utilities.css') }}">
 <link href="{{ asset('assets/mdb/css/addons/datatables.min.css') }}" rel="stylesheet">
