@@ -57,8 +57,8 @@
                                                         name="election_process" id="election_process">
                                                         <option value="">सबै</option>
 
-                                                        <option value="प्रत्यक्षे">
-                                                            प्रत्यक्षे
+                                                        <option value="प्रत्यक्ष">
+                                                            प्रत्यक्ष
                                                         </option>
                                                         <option value="समनुपातिक">
                                                             समनुपातिक
