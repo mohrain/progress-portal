@@ -138,8 +138,10 @@ class PostController extends Controller
         }
         $post->documents()->delete();
         $post->postCategories()->detach();
-
-        Storage::delete($post->feature_image);
+        if ($post->feature_image) {
+            # code...
+            Storage::delete($post->feature_image);
+        }
         $post->delete();
         return redirect()
             ->back()
@@ -179,14 +181,13 @@ class PostController extends Controller
 
         $post_category_id = $postCategory->id;
 
-        $from = $request->created_date_from. ' 01:00:00';
+        $from = $request->created_date_from . ' 01:00:00';
         $from = new DateTime($from);
-        $from = $from->format('Y-m-d H:i:s'); 
+        $from = $from->format('Y-m-d H:i:s');
 
-        $to = $request->created_date_to .' 24:00:00';
+        $to = $request->created_date_to . ' 24:00:00';
         $to = new DateTime($to);
-       $to = $to->format('Y-m-d H:i:s'); 
-
+        $to = $to->format('Y-m-d H:i:s');
 
         if ($request->has('title')) {
             if ($request->title != null) {
