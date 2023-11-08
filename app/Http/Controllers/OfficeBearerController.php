@@ -125,6 +125,6 @@ class OfficeBearerController extends Controller
             ->old()
             ->positioned()
             ->paginate(50);
-        return view('frontend.office-bearers.index', compact('officeBearers'));
+        return view('frontend.office-bearers.old-index', compact('officeBearers'));
     }
 }
