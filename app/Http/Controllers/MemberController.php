@@ -147,7 +147,7 @@ class MemberController extends Controller
             ->paginate(60);
         $districts = District::orderBy('name')->get();
 
-        return view('frontend.members.index', compact('members', 'districts'));
+        return view('frontend.members.old-index', compact('members', 'districts'));
     }
 
     public function search(Request $request)
@@ -360,6 +360,6 @@ class MemberController extends Controller
 
         $districts = District::orderBy('name')->get();
 
-        return view('frontend.members.index', compact('members', 'districts'));
+        return view('frontend.members.old-index', compact('members', 'districts'));
     }
 }
