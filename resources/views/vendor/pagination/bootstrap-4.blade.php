@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between kalimati-font">
         <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
             <div>
                 <p class="text-sm text-gray-700 leading-5">
