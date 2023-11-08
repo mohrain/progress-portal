@@ -169,9 +169,9 @@
                                     <th>पद</th>
                                     <th>शाखा / महाशाखा</th>
                                     <th>लिङ्ग</th>
+                                    <th>सम्पर्क</th>
                                     <th>जन्म मिति</th>
                                     <th>ठेगाना</th>
-                                    <th>सम्पर्क</th>
                                     <th>बाबु/आमाको नाम</th>
                                     <th></th>
                                 </thead>
@@ -200,6 +200,14 @@
                                             <td>
                                                 {{ $employee->gender }}
                                             </td>
+                                            <td>
+                                                <div>
+                                                    {{ $employee->mobile }}
+                                                </div>
+                                                <div>
+                                                    {{ $employee->email }}
+                                                </div>
+                                            </td>
                                             <td style="white-space: nowrap;">{{ $employee->dob }}</td>
 
                                             <td>
@@ -212,14 +220,7 @@
                                                     {{ $employee->temporary_address_district }}
                                                 </div>
                                             </td>
-                                            <td>
-                                                <div>
-                                                    {{ $employee->mobile }}
-                                                </div>
-                                                <div>
-                                                    {{ $employee->email }}
-                                                </div>
-                                            </td>
+                                            
                                             <td>
                                                 <div>
                                                     {{ $employee->father_name }}

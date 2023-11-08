@@ -449,9 +449,9 @@
                                     <th>निर्वाचन</th>
                                     <th>राजनितिक दल</th>
                                     <th>लिङ्ग</th>
+                                    <th>सम्पर्क</th>
                                     <th>जन्म मिति</th>
                                     <th>ठेगाना</th>
-                                    <th>सम्पर्क</th>
                                     <th>बाबु/आमाको नाम</th>
                                     <th></th>
                                 </thead>
@@ -484,6 +484,14 @@
                                             <td>
                                                 {{ $member->gender }}
                                             </td>
+                                            <td>
+                                                <div>
+                                                    {{ $member->mobile }}
+                                                </div>
+                                                <div>
+                                                    {{ $member->email }}
+                                                </div>
+                                            </td>
                                             <td style="white-space: nowrap;">{{ $member->dob }}</td>
 
                                             <td>
@@ -496,14 +504,7 @@
                                                     {{ $member->temporary_address_district }}
                                                 </div>
                                             </td>
-                                            <td>
-                                                <div>
-                                                    {{ $member->mobile }}
-                                                </div>
-                                                <div>
-                                                    {{ $member->email }}
-                                                </div>
-                                            </td>
+                                         
                                             <td>
                                                 <div>
                                                     {{ $member->father_name }}
