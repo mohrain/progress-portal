@@ -11,7 +11,7 @@
                         </div>
                     </div>
                     @forelse ($officeBearers as $officeBearer)
-                        <div class="col-md-6">
+                        <div class="col-md-12 my-2">
                             <div class="card">
                                 <div class="row">
                                     <div class="col-md-4">
