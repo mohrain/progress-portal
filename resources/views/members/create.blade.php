@@ -39,7 +39,7 @@
                                                 name="election_process" id="election_process">
                                                 <option value="">छान्नुहोस्</option>
 
-                                                <option value="प्रत्यक्षे"
+                                                <option value="प्रत्यक्ष"
                                                     {{ old('election_process', $member->election_process) == 'प्रत्यक्ष' ? 'selected' : '' }}>
                                                     प्रत्यक्ष
                                                 </option>
