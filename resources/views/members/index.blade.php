@@ -450,9 +450,9 @@
                                     <th>राजनितिक दल</th>
                                     <th>लिङ्ग</th>
                                     <th>सम्पर्क</th>
-                                    <th>जन्म मिति</th>
+                                    {{-- <th>जन्म मिति</th>
                                     <th>ठेगाना</th>
-                                    <th>बाबु/आमाको नाम</th>
+                                    <th>बाबु/आमाको नाम</th> --}}
                                     <th></th>
                                 </thead>
                                 <tbody id="sortable-member">
@@ -492,7 +492,7 @@
                                                     {{ $member->email }}
                                                 </div>
                                             </td>
-                                            <td style="white-space: nowrap;">{{ $member->dob }}</td>
+                                            {{-- <td style="white-space: nowrap;">{{ $member->dob }}</td>
 
                                             <td>
                                                 <div style="white-space: nowrap;">
@@ -512,7 +512,7 @@
                                                 <div>
                                                     {{ $member->mother_name }}
                                                 </div>
-                                            </td>
+                                            </td> --}}
 
                                             <td class="text-right">
                                                 <div class="dropdown">

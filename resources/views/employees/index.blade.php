@@ -170,9 +170,6 @@
                                     <th>शाखा / महाशाखा</th>
                                     <th>लिङ्ग</th>
                                     <th>सम्पर्क</th>
-                                    <th>जन्म मिति</th>
-                                    <th>ठेगाना</th>
-                                    <th>बाबु/आमाको नाम</th>
                                     <th></th>
                                 </thead>
                                 <tbody id="sortable-employee">
@@ -208,27 +205,7 @@
                                                     {{ $employee->email }}
                                                 </div>
                                             </td>
-                                            <td style="white-space: nowrap;">{{ $employee->dob }}</td>
-
-                                            <td>
-                                                <div style="white-space: nowrap;">
-                                                    <b>स्थाई :</b> {{ $employee->permanent_address }},
-                                                    {{ $employee->permanent_address_district }}
-                                                </div>
-                                                <div style="white-space: nowrap;">
-                                                    <b>अस्थायी :</b> {{ $employee->temporary_address }},
-                                                    {{ $employee->temporary_address_district }}
-                                                </div>
-                                            </td>
-                                            
-                                            <td>
-                                                <div>
-                                                    {{ $employee->father_name }}
-                                                </div>
-                                                <div>
-                                                    {{ $employee->mother_name }}
-                                                </div>
-                                            </td>
+                              
 
                                             <td class="text-right">
                                                 <div class="dropdown">

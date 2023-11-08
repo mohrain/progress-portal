@@ -40,8 +40,8 @@
                                                 <option value="">छान्नुहोस्</option>
 
                                                 <option value="प्रत्यक्षे"
-                                                    {{ old('election_process', $member->election_process) == 'प्रत्यक्षे' ? 'selected' : '' }}>
-                                                    प्रत्यक्षे
+                                                    {{ old('election_process', $member->election_process) == 'प्रत्यक्ष' ? 'selected' : '' }}>
+                                                    प्रत्यक्ष
                                                 </option>
                                                 <option value="समनुपातिक"
                                                     {{ old('election_process', $member->election_process) == 'समनुपातिक' ? 'selected' : '' }}>
