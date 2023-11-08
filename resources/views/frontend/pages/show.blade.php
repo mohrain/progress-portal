@@ -27,6 +27,12 @@
                         <div class="col-md-12 my-4">
                             <h5 class="text-theme-color">सम्बन्धित कागजातहरु:</h5>
                             <ul class="list-group list-group-flush">
+                                @php
+                                    $documents = $page
+                                        ->documents()
+                                        ->latest()
+                                        ->get();
+                                @endphp
                                 @foreach ($page->documents as $pageDocument)
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <div><i class="far fa-file-alt"></i> {{ $pageDocument->name }}</div>
@@ -38,7 +44,7 @@
                                     </li>
                                 @endforeach
                             </ul>
-                     
+
                         </div>
                         {{-- <div>
                             @foreach ($page->documents as $pageDocument)

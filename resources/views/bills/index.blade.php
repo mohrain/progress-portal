@@ -249,10 +249,10 @@
                         <div class="table-responsive">
                             <table class="table table-md table-bordered kalimati-font" style="white-space: nowrap">
                                 <thead>
-                                    <th>विधेयक किसिम</th>
                                     <th>अधिवेशन</th>
                                     <th>दर्ता नं.</th>
                                     <th>दर्ता मिति</th>
+                                    <th>विधेयक किसिम</th>
                                     <th>शीर्षक</th>
                                     <th>मन्त्रालय</th>
                                     <th>विधेयकमा सुझाव</th>
@@ -276,10 +276,10 @@
                                         @endphp
 
                                         <tr class="{{ $trColor }}">
-                                            <td>{{ $bill->billType->name }}</td>
                                             <td>{{ $bill->convention }}</td>
                                             <td>{{ $bill->entry_number }}</td>
                                             <td>{{ $bill->entry_date }}</td>
+                                            <td>{{ $bill->billType->name }}</td>
                                             <td>{{ $bill->name }}</td>
                                             <td>{{ $bill->ministry->name ?? "" }}</td>
                                             <td>
