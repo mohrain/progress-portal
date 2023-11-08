@@ -54,7 +54,7 @@
                     </div>
                     <div class="topbar-menu-item">
                         <div id="toggleButton" style="cursor: pointer">
-                            अ
+                            <i class="bi bi-eye"></i>
                         </div>
                     </div>
                     <div class="topbar-menu-item btn">
@@ -76,6 +76,11 @@
                             <div>
                                 <a href="#">
                                     <i class="bi bi-apple"></i>
+                                </a>
+                            </div>
+                            <div>
+                                <a href="https://pga.sudurpashchim.gov.np/" class="text-danger">
+                                    पुरानो साईट
                                 </a>
                             </div>
                         </div>

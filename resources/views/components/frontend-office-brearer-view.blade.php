@@ -26,7 +26,7 @@
         </div>
         <a class="officer-info" href="{{ route('members.show', $officeBearer->member) }}">
             <h4>{{ $officeBearer->member->name }}</h4>
-            <div>{{ $officeBearer->designation == true ? 'सम्माननीय सभामुख' : 'माननीय उपसभामुख' }}</div>
+            <div>{{ $officeBearer->designation == true ? 'माननीय सभामुख' : 'माननीय उपसभामुख' }}</div>
         </a>
     </div>
 </div>

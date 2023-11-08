@@ -59,9 +59,9 @@
     </div>
     <x-frontend-news />
 
-    <div id="app">
+    {{-- <div id="app">
         <x-frontend.gallery />
-    </div>
+    </div> --}}
 
     <div class="row">
         <div class="col-md-4">

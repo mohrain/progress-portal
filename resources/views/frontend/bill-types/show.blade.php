@@ -80,7 +80,7 @@
                                     @if ($bill->suggestion_in_the_bill == true)
                                         <a href="{{ route('bill-suggestions.create', $bill) }}"
                                             class="btn btn-sm btn-success">
-                                            सुझाप दिनुहोस्
+                                            सुझाव दिनुहोस्
                                         </a>
                                     @endif
                                 </td>

@@ -14,9 +14,9 @@
             <div class="d-flex gap-2 align-items-center text-theme-color kalimati-font" style="font-size: 13px;">
                 <div class="text-end">
                     <h5 class="d-inline">
-                        <span id="bsDay"></span> {{-- गते, --}}
-                        <span id="bsMonth"></span>
                         <span id="bsYear"></span>
+                        <span id="bsMonth"></span>
+                        <span id="bsDay"></span> {{-- गते, --}}
                     </h5>
                     <h6>
                         <span id="BsWeek"></span>
