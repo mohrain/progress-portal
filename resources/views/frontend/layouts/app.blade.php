@@ -81,6 +81,17 @@
 
         }
 
+        .profile-nav {
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            padding: 2px;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            position: relative;
+            margin: 2px;
+        }
+
         /* .box {
             box-shadow: 1px 2px 8px -3px rgba(0, 0, 0, 0.66);
             background-color: #fff;
