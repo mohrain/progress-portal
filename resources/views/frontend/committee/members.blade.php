@@ -14,32 +14,51 @@
                             <x-frontend.committee-menu :committee="$committee" />
                         </div>
                         <section>
-                            
-                            <div class="row">
-                                @forelse ($committeeMembers as $committeeMember)
-                                    <div class="col-md-3 px-2 my-2">
-                                        <div class="card" style="height: 320px;">
-                                            <img id="newProfilePhotoPreview"
-                                                src="{{ $committeeMember->member->profile ? asset('storage/' . $committeeMember->member->profile) : asset('assets/img/no-image.png') }}"
-                                                class="feature-image card-img-top">
-                                            <div class="card-body text-center">
-                                                <b class="card-title text-theme-color">मा.
-                                                    {{ $committeeMember->member->name }}
-                                                </b>
-                                                <div class="cart-text">
-                                                    {{ $committeeMember->member->parliamentaryParty->name }}
-                                                </div>
-                                                <a href="{{ route('members.show', $committeeMember->member) }}"
-                                                    class="btn btn-sm btn-primary">पुरा
-                                                    हेर्नुहोस्</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @empty
-                                    <div class="font-italic text-center">
-                                        कुनैपनि डाटा उपलब्ध छैन !!!
-                                    </div>
-                                @endforelse
+
+
+                            <div class="table-responsive box p-2">
+                                <table class="table table-bordered" style="white-space: nowrap;">
+                                    <thead>
+                                        <th>फोटो</th>
+                                        <th>परिचय</th>
+                                    </thead>
+                                    <tbody id="sortable-member">
+                                        @forelse($committeeMembers as $comotteeMember)
+                                            <tr data-id="{{ $comotteeMember->id }}"
+                                                data-order="{{ $comotteeMember->position ?? 0 }}">
+                                                <td class="sort-handle">
+                                                    <img id="newProfilePhotoPreview"
+                                                        src="{{ $comotteeMember->member->profile ? asset('storage/' . $comotteeMember->member->profile) : asset('assets/img/no-image.png') }}"
+                                                        class="profile-nav">
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('members.show', $comotteeMember->member) }}"
+                                                        class="link-dark">
+                                                        <div>
+                                                            मा. {{ $comotteeMember->member->name }}
+                                                        </div>
+
+                                                        <div>
+                                                            @if ($comotteeMember->designation == 'सभापति' || $comotteeMember->designation == 'जेष्ठ सदस्य')
+                                                                {{ $comotteeMember->designation }}
+                                                            @else
+                                                                {{ $comotteeMember->member->parliamentaryParty->name }}
+                                                            @endif
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="42" class="font-italic text-center">कुनैपनि डाटा उपलब्ध छैन
+                                                    !!!
+                                                </td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+
+
+                                </table>
                             </div>
                         </section>
                     </div>

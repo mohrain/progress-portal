@@ -13,7 +13,7 @@
                     {{ $committeeMember->member->name }}
                 </b>
                 <div class="cart-text">
-                    {{ $committeeMember->designation == true ? 'सभापति' : 'सदस्य' }}
+                    {{ $committeeMember->designation }}
                 </div>
                 <a href="{{ route('members.show', $committeeMember->member) }}" class="btn btn-sm btn-primary">पुरा
                     हेर्नुहोस्</a>

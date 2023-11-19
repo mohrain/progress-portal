@@ -32,7 +32,10 @@
                         class="profile-nav">
                     </td>
                     <td>{{ $committeeMember->member->name }}</td>
-                    <td>{{ $committeeMember->designation == true ? "सभापति" : "सदस्य" }}</td>
+                    <td>
+                       
+                        {{ $committeeMember->designation }}
+                    </td>
                     <td>
                         <div class="d-flex">
 

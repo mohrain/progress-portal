@@ -21,7 +21,8 @@ class CommitteeChairman extends Component
         $this->committee = $committee;
         $this->committeeMember = $this->committee
             ->members()
-            ->where('designation', true)
+            ->where('designation', 'सभापति')
+            ->orWhere('designation', 'जेष्ठ सदस्य')
             ->first();
 
         $this->committeeSecretary = $committee

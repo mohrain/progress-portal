@@ -28,10 +28,12 @@
 
                             <select class="form-control" name="designation" id="designation"
                                 aria-label="Default select example">
-                                <option value="0" {{ $member->designation == '0' ? 'selected' : '' }}>
+                                <option value="सदस्य" {{ $member->designation == 'सदस्य' ? 'selected' : '' }}>
                                     सदस्य</option>
-                                <option value="1" {{ $member->designation == '1' ? 'selected' : '' }}>
+                                <option value="सभापति" {{ $member->designation == 'सभापति' ? 'selected' : '' }}>
                                     सभापति</option>
+                                <option value="जेष्ठ सदस्य" {{ $member->designation == 'जेष्ठ सदस्य' ? 'selected' : '' }}>
+                                    जेष्ठ सदस्य</option>
                             </select>
 
                             @error('designation')
