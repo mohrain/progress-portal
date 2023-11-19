@@ -155,19 +155,20 @@
                                                 class="profile-nav">
                                         </td>
                                         <td>
-                                            <div>
-                                                मा. {{ $member->name }}
-                                            </div>
-                                            @php
-                                                $officeBearer = $member
-                                                    ->officeBearers()
-                                                    ->latest()
-                                                    ->first();
-                                            @endphp
-
-                                            <div>
-                                                {{ $officeBearer ? ($officeBearer->designation == true ? 'माननीय सभामुख' : 'माननीय उपसभामुख') : $member->parliamentaryParty->name }}
-                                            </div>
+                                            <a href="{{ route('members.show', $member) }}" class="link-dark">
+                                                <div>
+                                                    मा. {{ $member->name }}
+                                                </div>
+                                                @php
+                                                    $officeBearer = $member
+                                                        ->officeBearers()
+                                                        ->latest()
+                                                        ->first();
+                                                @endphp
+                                                <div>
+                                                    {{ $officeBearer ? ($officeBearer->designation == true ? 'माननीय सभामुख' : 'माननीय उपसभामुख') : $member->parliamentaryParty->name }}
+                                                </div>
+                                            </a>
                                         </td>
                                     </tr>
                                 @empty
