@@ -11,7 +11,7 @@
         </li>
         <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndex') }}">प्रदेशका पदाधिकारीहरु</a></li>
         <li><a class="dropdown-item" href="{{ route('current-parliamentary-parties.frontendIndex') }}">संसदीयदलहरु</a></li>
-        <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndexOld') }}">पुर्व प्रदेशका पदाधिकारीहरु</a></li>
+        <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndexOld') }}">प्रदेशका पुर्व पदाधिकारीहरु</a></li>
 
     </ul>
 </li>
