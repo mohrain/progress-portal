@@ -75,8 +75,10 @@ class CommitteeController extends Controller
 
     public function members(Committee $committee)
     {
+        $designations = ['सभापति','जेष्ठ सदस्य'];
         $committeeMembers = $committee
             ->members()
+            ->WhereNotIn('designation', $designations)
             ->with('member')
             ->get();
         return view('frontend.committee.members', [
