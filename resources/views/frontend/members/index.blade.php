@@ -13,7 +13,7 @@
                             @if (Route::currentRouteName() == 'members.frontendIndex' || Route::currentRouteName() == 'members.frontendSearch')
                                 <form action="{{ route('members.frontendSearch') }}" method="get">
                                 @else
-                                <form action="{{ route('members.frontendOldSearch') }}" method="get">
+                                    <form action="{{ route('members.frontendOldSearch') }}" method="get">
                             @endif
                             <div class="row">
                                 <div class="col-md-6 mb-2">
@@ -140,25 +140,50 @@
                         </div>
                     </div>
 
-                    @forelse ($members as $member)
-                        <div class="col-md-3 px-2 my-2">
-                            <div class="card" style="height: 320px;">
-                                <img id="newProfilePhotoPreview"
-                                    src="{{ $member->profile ? asset('storage/' . $member->profile) : asset('assets/img/no-image.png') }}"
-                                    class="feature-image card-img-top">
-                                <div class="card-body text-center">
-                                    <b class="card-title text-theme-color">मा. {{ $member->name }}</b>
-                                    <div class="cart-text"> {{ $member->parliamentaryParty->name }}</div>
-                                    <a href="{{ route('members.show', $member) }}" class="btn btn-sm btn-primary">पुरा
-                                        हेर्नुहोस्</a>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <div class="font-italic text-center">
-                            कुनैपनि डाटा उपलब्ध छैन !!!
-                        </div>
-                    @endforelse
+                    <div class="table-responsive box p-2">
+                        <table class="table table-bordered" style="white-space: nowrap;">
+                            <thead>
+                                <th>फोटो</th>
+                                <th>परिचय</th>
+                            </thead>
+                            <tbody id="sortable-member">
+                                @forelse($members as $member)
+                                    <tr data-id="{{ $member->id }}" data-order="{{ $member->position ?? 0 }}">
+                                        <td class="sort-handle">
+                                            <img id="newProfilePhotoPreview"
+                                                src="{{ $member->profile ? asset('storage/' . $member->profile) : asset('assets/img/no-image.png') }}"
+                                                class="profile-nav">
+                                        </td>
+                                        <td>
+                                            <div>
+                                                मा. {{ $member->name }}
+                                            </div>
+                                            @php
+                                                $officeBearer = $member
+                                                    ->officeBearers()
+                                                    ->latest()
+                                                    ->first();
+                                            @endphp
+
+                                            <div>
+                                                {{ $officeBearer ? ($officeBearer->designation == true ? 'माननीय सभामुख' : 'माननीय उपसभामुख') : $member->parliamentaryParty->name }}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="42" class="font-italic text-center">कुनैपनि डाटा उपलब्ध छैन
+                                            !!!
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+
+
+                        </table>
+                    </div>
+
+                    {{ $members->links() }}
                 </div>
             </div>
             <div class="col-md-3">
