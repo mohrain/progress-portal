@@ -38,7 +38,7 @@
 <script>
     let currentDate = NepaliFunctions.GetCurrentBsDate('YYYY-MM-DD');
     let bsYear = NepaliFunctions.GetCurrentBsYear();
-    let bsMonth = NepaliFunctions.GetBsMonthInUnicode(NepaliFunctions.GetCurrentBsMonth());
+    let bsMonth = NepaliFunctions.GetBsMonthInUnicode(NepaliFunctions.GetCurrentBsMonth() - 1);
     let bsDay = NepaliFunctions.GetCurrentBsDay();
 
     let bsDate = NepaliFunctions.GetBsFullDate(currentDate, true, "YYYY-MM-DD", );
