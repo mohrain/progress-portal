@@ -48,7 +48,7 @@ if (!function_exists('invalid_feedback')) {
     }
 }
 
-if(!function_exists('referer_route_match')) {
+if (!function_exists('referer_route_match')) {
     /**
      * referer_route_match
      *
@@ -111,7 +111,16 @@ if (!function_exists('bs_date_today')) {
     }
 }
 
-function get_file_url($path)
-{
-    return Storage::url($path);
+if (!function_exists('get_file_url')) {
+    function get_file_url($path)
+    {
+        return Storage::url($path);
+    }
+}
+
+if (!function_exists('is_app')) {
+    function is_app()
+    {
+        return session()->get('agent') == 'android_app';
+    }
 }

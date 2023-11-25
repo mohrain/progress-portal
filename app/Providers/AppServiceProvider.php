@@ -7,8 +7,10 @@ use App\Observers\FiscalYearObserver;
 use App\Observers\SuchiObserver;
 use App\Suchi;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use PDO;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -40,5 +42,8 @@ class AppServiceProvider extends ServiceProvider
         //         }
         //     }
         // }
+
+        Blade::if('app', fn () => is_app());
+        Blade::if('browser', fn () => !is_app());
     }
 }

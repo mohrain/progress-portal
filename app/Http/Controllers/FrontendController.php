@@ -10,6 +10,11 @@ class FrontendController extends Controller
 {
     public function index()
     {
+        if (request()->get('agent') == 'andriod_app') {
+            session()->put('agent', 'android_app');
+        }
+
+        // TODO::maybe we want to have a different view as well
         return view('frontend.index');
     }
 
