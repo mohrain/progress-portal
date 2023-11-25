@@ -1,13 +1,13 @@
-##  Suchi Darta
+##  Assmebly Website
 Dedicated for managing the suchi registration process.
 
 ### Installation
 ```bash
-git clone https:/github.com/jamesbhatta/suchi-darta.git
+git clone https:/github.com/jamesbhatta/parliament.git
 ```
 
 ```bash
-cd suchi-darta
+cd parliament
 ```
 
 ```bash
@@ -26,9 +26,6 @@ php artisan key:generate
 ```
 
 Make sure you have configured database details.
-
-Additionally add the ***google drive credentials*** and ***slack webhook url***.
-
 
 Now migrate  database using:
 
@@ -62,3 +59,7 @@ This Cron will call the Laravel command scheduler every minute. When the `schedu
 - Create a new binding in the boot method for the model in ``app/Providers/RouteServiceProvider.php``
 
 ** Details: https://sampo.co.uk/blog/masking-ids-in-urls-using-hash-ids-in-laravel
+
+
+### Mobile app webview
+Navigate to `/?agent=andriod_app` to let app know that its a mobile app. The app will recognize this throughout that session
