@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Committee;
+use App\Models\Notice;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -41,6 +42,14 @@ class CommitteeController extends Controller
         ]);
     }
 
+    public function noticeShow(Committee $committee, Notice $notice)
+    {
+        return view('frontend.committee.notice-show', [
+            'title' => $committee->name,
+            'committee' => $committee,
+            'notice' => $notice,
+        ]);
+    }
     public function activities(Committee $committee)
     {
         $activities = $committee

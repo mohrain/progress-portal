@@ -49,7 +49,7 @@
                                 <td>{{ $loop->iteration }}.</td>
                                 <td>{{ $notice->title }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary btn-sm">पढ्नुहोस्<i class="fa fa-arrow-right fa-fw"></i></a>
+                                    <a href="{{route('frontend.committees.notices.show',[$committee, $notice])}}" class="btn btn-primary btn-sm">पढ्नुहोस्<i class="fa fa-arrow-right fa-fw"></i></a>
                                 </td>
                             </tr>
                             @endforeach
