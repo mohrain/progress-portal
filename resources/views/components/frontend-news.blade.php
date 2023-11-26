@@ -1,5 +1,10 @@
 <div class="row my-4">
     @foreach ($postCategories as $postCategory)
+        @php
+            if ($postCategory->name == 'स्व: प्रकाशन') {
+                continue;
+            }
+        @endphp
         <div class="col-md-4">
             <div class="bg-theme-color-blue py-3 text-center">
                 {{ $postCategory->name }}
@@ -34,8 +39,9 @@
                         कुनैपनि सूचना छैन !!!
                     </li>
                 @endforelse
-                <a href="{{ route('post-categories.show', $postCategory) }}" class="nav-link bg-theme-color-blue text-center">
-                        सबै सूचनाहरु <i class="bi bi-chevron-double-right"></i>
+                <a href="{{ route('post-categories.show', $postCategory) }}"
+                    class="nav-link bg-theme-color-blue text-center">
+                    सबै सूचनाहरु <i class="bi bi-chevron-double-right"></i>
                 </a>
             </ul>
         </div>
