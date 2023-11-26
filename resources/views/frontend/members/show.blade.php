@@ -15,7 +15,7 @@
                         class="profile-image">
                     <h5 class="mt-5 fw-bold">
 
-                        {{ $member->name }}
+                        मा. {{ $member->name }}
 
                     </h5>
                     <h6>
@@ -56,7 +56,7 @@
                                     नाम
                                 </b>
                             </td>
-                            <td>{{ $member->name }}</td>
+                            <td>माननीय {{ $member->name }}</td>
                         </tr>
                         <tr>
                             <td>
@@ -64,7 +64,7 @@
                                     Name
                                 </b>
                             </td>
-                            <td>{{ $member->name_english }}</td>
+                            <td>Hon {{ $member->name_english }}</td>
                         </tr>
                         @if ($member->email)
                             <tr>
