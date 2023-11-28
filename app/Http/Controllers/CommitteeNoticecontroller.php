@@ -68,6 +68,7 @@ class CommitteeNoticecontroller extends Controller
     public function sms(Committee $committee, Notice $notice)
     {
         $message = $notice->description;
-        return $committee->members()->get();
+        $commetteeMember = $committee->members()->with('member')->get();
+       
     }
 }
