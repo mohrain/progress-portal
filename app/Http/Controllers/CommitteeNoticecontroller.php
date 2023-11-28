@@ -54,4 +54,10 @@ class CommitteeNoticecontroller extends Controller
 
         return redirect()->route('committee.notices', $committee);
     }
+
+    public function destroy(Committee $committee, Notice $notice){
+        $notice->delete();
+        return redirect()->back();
+
+    }
 }

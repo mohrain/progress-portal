@@ -34,4 +34,10 @@ class CommitteeDownloadController extends Controller
             'updateMode' => true
         ]);
     }
+
+    public function destroy(Committee $committee, Download $download){
+        $download->delete();
+        return redirect()->back();
+
+    }
 }

@@ -13,7 +13,7 @@ class CommitteeActivitycontroller extends Controller
         $committee->load('activities');
 
         return view('committee.activities', [
-            'committee' => $committee
+            'committee' => $committee,
         ]);
     }
 
@@ -22,16 +22,18 @@ class CommitteeActivitycontroller extends Controller
         return view('committee.activity-form', [
             'committee' => $committee,
             'activity' => new Activity(),
-            'updateMode' => false
+            'updateMode' => false,
         ]);
     }
 
     public function storeActivity(Committee $committee, Request $request)
     {
-        $committee->activities()->create($request->validate([
-            'title' => 'required',
-            'description' => 'nullable'
-        ]));
+        $committee->activities()->create(
+            $request->validate([
+                'title' => 'required',
+                'description' => 'nullable',
+            ]),
+        );
 
         return redirect()->route('committee.activities', $committee);
     }
@@ -41,17 +43,25 @@ class CommitteeActivitycontroller extends Controller
         return view('committee.activity-form', [
             'committee' => $committee,
             'activity' => $activity,
-            'updateMode' => true
+            'updateMode' => true,
         ]);
     }
 
     public function updateActivity(Committee $committee, Activity $activity, Request $request)
     {
-        $activity->update($request->validate([
-            'title' => 'required',
-            'description' => 'nullable'
-        ]));
+        $activity->update(
+            $request->validate([
+                'title' => 'required',
+                'description' => 'nullable',
+            ]),
+        );
 
         return redirect()->route('committee.activities', $committee);
+    }
+
+    public function destroy(Committee $committee, Activity $activity)
+    {
+        $activity->delete();
+        return redirect()->back();
     }
 }

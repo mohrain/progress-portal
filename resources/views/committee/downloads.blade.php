@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('समिति')])
+@extends('layouts.app', ['title' => __('प्रकाशनहरु/डाउनलोडस्')])
 
 @section('content')
 <div class="container-fluid">

@@ -3,12 +3,12 @@
     @if ($updateMode)
         @method('PUT')
     @endif
-    <input type="text" name="downloadable_type" value="{{ $downloadableType }}">
-    <input type="text" name="downloadable_id" value="{{ $downloadableId }}">
+    {{-- <input type="text" name="downloadable_type" value="{{ $downloadableType }}">
+    <input type="text" name="downloadable_id" value="{{ $downloadableId }}"> --}}
 
-    @if ($redirectTo)
+    {{-- @if ($redirectTo)
     <input type="text" name="redirect_to" value="{{ $redirectTo }}">
-    @endif
+    @endif --}}
 
     <div class="mb-3">
         <label for="title" class="form-label required">शीर्षक</label>
