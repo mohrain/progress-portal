@@ -13,7 +13,7 @@ class CommitteeNoticecontroller extends Controller
         $committee->load('notices');
 
         return view('committee.notices', [
-            'committee' => $committee
+            'committee' => $committee,
         ]);
     }
 
@@ -22,16 +22,18 @@ class CommitteeNoticecontroller extends Controller
         return view('committee.notice-form', [
             'committee' => $committee,
             'notice' => new Notice(),
-            'updateMode' => false
+            'updateMode' => false,
         ]);
     }
 
     public function storeNotice(Committee $committee, Request $request)
     {
-        $committee->notices()->create($request->validate([
-            'title' => 'required',
-            'description' => 'nullable'
-        ]));
+        $committee->notices()->create(
+            $request->validate([
+                'title' => 'required',
+                'description' => 'nullable',
+            ]),
+        );
 
         return redirect()->route('committee.notices', $committee);
     }
@@ -41,23 +43,31 @@ class CommitteeNoticecontroller extends Controller
         return view('committee.notice-form', [
             'committee' => $committee,
             'notice' => $notice,
-            'updateMode' => true
+            'updateMode' => true,
         ]);
     }
 
     public function updateNotice(Committee $committee, Notice $notice, Request $request)
     {
-        $notice->update($request->validate([
-            'title' => 'required',
-            'description' => 'nullable'
-        ]));
+        $notice->update(
+            $request->validate([
+                'title' => 'required',
+                'description' => 'nullable',
+            ]),
+        );
 
         return redirect()->route('committee.notices', $committee);
     }
 
-    public function destroy(Committee $committee, Notice $notice){
+    public function destroy(Committee $committee, Notice $notice)
+    {
         $notice->delete();
         return redirect()->back();
+    }
 
+    public function sms(Committee $committee, Notice $notice)
+    {
+        $message = $notice->description;
+        return $committee->members()->get();
     }
 }

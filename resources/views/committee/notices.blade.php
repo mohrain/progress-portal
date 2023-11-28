@@ -38,6 +38,8 @@
                                             Delete
                                         </button>
                                     </form>
+                                    <a href="{{ route('committee.notices.sms', [$committee, $notice]) }}"
+                                        class="btn btn-primary btn-sm ml-2">Send SMS</a>
                                 </div>
                             </td>
                         </tr>

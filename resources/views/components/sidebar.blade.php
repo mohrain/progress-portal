@@ -152,6 +152,11 @@
                     <span class="text-success"><i class="fas fa-cog"></i></span>सेटिङहरू
                 </a>
             </li>
+            <li class="nav-item {{ setActive('sms.index') }}">
+                <a class="nav-link" href="{{ route('sms.index') }}">
+                    <span class="text-success"></span>SMS
+                </a>
+            </li>
             <li class="nav-item {{ setActive('post-categories.index') }}">
                 <a class="nav-link" href="{{ route('post-categories.index') }}">
                     <span class="text-success"></span>पोस्ट प्रकार

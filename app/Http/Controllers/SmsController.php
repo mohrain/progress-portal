@@ -1,0 +1,94 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Sms;
+use App\Http\Requests\StoreSmsRequest;
+use App\Http\Requests\UpdateSmsRequest;
+use App\Models\Member;
+use PhpParser\Node\Expr\New_;
+
+class SmsController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Sms $sms = null)
+    {
+        if (!$sms) {
+            $sms = new Sms();
+        }
+        $smss = Sms::latest()->get();
+        return view('sms.index', compact('sms','smss'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StoreSmsRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StoreSmsRequest $request)
+    {
+        $message = $request->message;
+        $member = Member::whereIn('id' ,$request->member_id)->get();
+        return $member;
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Sms  $sms
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Sms $sms)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Sms  $sms
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Sms $sms)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateSmsRequest  $request
+     * @param  \App\Models\Sms  $sms
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateSmsRequest $request, Sms $sms)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Sms  $sms
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Sms $sms)
+    {
+        //
+    }
+}

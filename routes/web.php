@@ -41,6 +41,7 @@ use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostCategoryMenuController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProvinceController;
+use App\Http\Controllers\SmsController;
 use App\Http\Controllers\SuchiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
@@ -81,7 +82,6 @@ Route::get('office-bearers/old', [OfficeBearerController::class, 'frontendIndexO
 Route::get('contact-us', [ContactUsController::class, 'create'])->name('contact-us.create');
 Route::post('contact-us', [ContactUsController::class, 'store'])->name('contact-us.store');
 Route::get('current-parliamentary-parties', [CurrentParliamentaryPartyController::class, 'frontendIndex'])->name('current-parliamentary-parties.frontendIndex');
-
 
 Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
@@ -201,6 +201,8 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::post('committees/{committee}/notices', [CommitteeNoticecontroller::class, 'storeNotice'])->name('committee.notices.store');
     Route::get('committees/{committee}/notices/{notice}/edit', [CommitteeNoticecontroller::class, 'editNotice'])->name('committee.notices.edit');
     Route::put('committees/{committee}/notices/{notice}', [CommitteeNoticecontroller::class, 'updateNotice'])->name('committee.notices.update');
+    Route::delete('committees/{committee}/notices/{notice}', [CommitteeNoticecontroller::class, 'destroy'])->name('committee.notices.destroy');
+    Route::get('committees/{committee}/notices/{notice}/sms', [CommitteeNoticecontroller::class, 'sms'])->name('committee.notices.sms');
 
     // Committee Activities
     Route::get('committees/{committee}/activities', [CommitteeActivitycontroller::class, 'activities'])->name('committee.activities');
@@ -208,12 +210,14 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::post('committees/{committee}/activities', [CommitteeActivitycontroller::class, 'storeActivity'])->name('committee.activities.store');
     Route::get('committees/{committee}/activities/{activity}/edit', [CommitteeActivitycontroller::class, 'editActivity'])->name('committee.activities.edit');
     Route::put('committees/{committee}/activities/{activity}', [CommitteeActivitycontroller::class, 'updateActivity'])->name('committee.activities.update');
+    Route::delete('committees/{committee}/activities/{activity}', [CommitteeActivitycontroller::class, 'destroy'])->name('committee.activities.destroy');
 
     // Committee Downloads
     Route::get('committees/{committee}/downloads', [CommitteeDownloadController::class, 'downloads'])->name('committee.downloads');
     Route::get('committees/{committee}/downloads/create', [CommitteeDownloadController::class, 'createDownloadForm'])->name('committee.downloads.create');
     Route::get('committees/{committee}/downloads/{download}/edit', [CommitteeDownloadController::class, 'editDownload'])->name('committee.downloads.edit');
     Route::put('committees/{committee}/downloads/{download}', [CommitteeNoticecontroller::class, 'updateDownload'])->name('committee.downloads.update');
+    Route::delete('committees/{committee}/downloads/{download}', [CommitteeNoticecontroller::class, 'destroy'])->name('committee.downloads.destroy');
 
     // Committee Members
     Route::get('committees/{committee}/members', [CommitteeMemberController::class, 'members'])->name('committee.members');
@@ -222,7 +226,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('committees/{committee}/members/{member}/edit', [CommitteeMemberController::class, 'edit'])->name('committee.members.edit');
     Route::put('committees/{committee}/members/{member}', [CommitteeMemberController::class, 'update'])->name('committee.members.update');
     Route::delete('committees/{committee}/members/{member}', [CommitteeMemberController::class, 'destroy'])->name('committee.members.destroy');
-
 
     // Committee Members
     Route::get('committees/{committee}/secretary', [CommitteeSecretaryController::class, 'secretary'])->name('committee.secretary');
@@ -347,9 +350,12 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('current-parliamentary-parties/{currentParliamentaryParty}', [CurrentParliamentaryPartyController::class, 'update'])->name('current-parliamentary-parties.update');
     Route::delete('current-parliamentary-parties/{currentParliamentaryParty}', [CurrentParliamentaryPartyController::class, 'destroy'])->name('current-parliamentary-parties.destroy');
 
-
     //live
     Route::get('live', [LiveController::class, 'index'])->name('live.index');
+
+    //sms
+    Route::get('sms', [SmsController::class, 'index'])->name('sms.index');
+    Route::post('sms', [SmsController::class, 'store'])->name('sms.store');
 
 
     // Suchi routes
