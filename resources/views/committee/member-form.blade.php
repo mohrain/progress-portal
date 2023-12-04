@@ -21,7 +21,7 @@
                     @endif
                     <div class="row">
                         <div class="col-md-4 form-group">
-                            <x-committee-member-select :committeeMember="$member" />
+                            <x-committee-member-select :committee="$committee" :committeeMember="$member" />
                         </div>
                         <div class="col-md-4 form-group">
                             <label for="designation" class="form-label required">{{ __('पद') }}</label>

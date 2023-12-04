@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Committee;
 use App\Models\Member;
 use Illuminate\View\Component;
 
@@ -13,11 +14,26 @@ class NotificationMemberSelect extends Component
      * @return void
      */
     public $members;
-    public function __construct()
+    public $committeeMembers;
+    public $committeeMember;
+    public $committee;
+    public function __construct(Committee $committee = null)
     {
         $this->members = Member::currentElection()
             ->orderBy('name_english')
             ->get();
+        $this->committee = $committee;
+
+        if ($this->committee) {
+            $this->committeeMembers = $committee
+                ->members()
+                ->with('member')
+                ->get();
+
+            foreach ($this->committeeMembers as $item) {
+                $this->committeeMember[] = $item->member;
+            }
+        }
     }
 
     /**

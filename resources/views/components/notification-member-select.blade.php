@@ -1,16 +1,26 @@
 <div class="mb-3">
+
     <label class="form-label required">To</label>
     <select class="form-control text-capitalize required  @error('member_id') is-invalid @enderror" name="member_id[]"
         id="member_id" multiple data-placeholder="Choose" data-allow-clear="1">
         @foreach ($members as $member)
-            <option value="{{ $member->id }}">
-                <div>
-                    {{ $member->name }}
-                </div>
-                <div>
-                    ({{ $member->parliamentaryParty->name }})
-                </div>
-            </option>
+            @if ($committee)
+                <option value="{{ $member->id }}" @if (in_array($member, $committeeMember)) selected @endif>
+
+                    <div>
+                        {{ $member->name }} - {{ $member->mobile }}
+                    </div>
+                    {{-- <div>
+                ({{ $member->parliamentaryParty->name }})
+            </div> --}}
+                </option>
+            @else
+                <option value="{{ $member->id }}"  {{ old('member_id') == $member->id ? 'selected' : '' }}>
+                    <div>
+                        {{ $member->name }} - {{ $member->mobile }}
+                    </div>
+                </option>
+            @endif
         @endforeach
     </select>
     <div class="invalid-feedback">

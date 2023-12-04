@@ -15,6 +15,7 @@
             </div>
         </div>
         <div class="box__body">
+            
             <table class="table table-bordered table-hover">
                 <tr>
                     <td>क्र स</td>

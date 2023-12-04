@@ -30,7 +30,7 @@
                                     <td>{{ $committee->name }}</td>
                                     </td>
                                     <td class="text-right">
-                                        <a class="btn btn-primary " href="{{ route('committee.general', $committee) }}">Edit</a>
+                                        <a class="btn btn-primary " href="{{ route('committee.general', $committee) }}">View</a>
 
                                         <form action="{{ route('posts.destroy', $committee) }}" method="post" class="d-inline-block">
                                             @method('delete')

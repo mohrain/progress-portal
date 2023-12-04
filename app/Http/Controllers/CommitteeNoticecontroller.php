@@ -68,7 +68,16 @@ class CommitteeNoticecontroller extends Controller
     public function sms(Committee $committee, Notice $notice)
     {
         $message = $notice->description;
-        $commetteeMember = $committee->members()->with('member')->get();
-       
+        $committeeMembers = $committee
+            ->members()
+            ->with('member')
+            ->get();
+
+        foreach ($committeeMembers as $itme) {
+            $committeeMember[] = $itme->member;
+            # ode...
+        }
+
+        return view('sms.index', compact('message', 'committeeMember','committee'));
     }
 }

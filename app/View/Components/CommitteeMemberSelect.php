@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Committee;
 use App\Models\CommitteeMember;
 use App\Models\Member;
 use Illuminate\View\Component;
@@ -15,10 +16,20 @@ class CommitteeMemberSelect extends Component
      */
     public $members;
     public $committeeMember;
-    public function __construct(CommitteeMember $committeeMember = null)
+    public $committeeMembers;
+    public function __construct(Committee $committee, CommitteeMember $committeeMember = null)
     {
         $this->committeeMember = $committeeMember;
-        $this->members = Member::currentElection()->orderBy('name')->get();
+        $this->committeeMembers = $committee
+        ->members()
+        ->with('member')
+        ->get();
+        
+        foreach ($this->committeeMembers as $committeeMember) {
+            $members[] = $committeeMember->member->id;
+            # ode...
+        }
+        $this->members = Member::currentElection()->whereNotIn('id',$members)->orderBy('name')->get();
     }
 
 
