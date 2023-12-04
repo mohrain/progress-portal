@@ -10,12 +10,12 @@
                     <div>
                         {{ $member->name }} - {{ $member->mobile }}
                     </div>
-                    {{-- <div>
-                ({{ $member->parliamentaryParty->name }})
-            </div> --}}
+                    <div>
+                        ({{ $member->parliamentaryParty->name }})
+                    </div>
                 </option>
             @else
-                <option value="{{ $member->id }}"  {{ old('member_id') == $member->id ? 'selected' : '' }}>
+                <option value="{{ $member->id }}" {{ old('member_id') == $member->id ? 'selected' : '' }}>
                     <div>
                         {{ $member->name }} - {{ $member->mobile }}
                     </div>
