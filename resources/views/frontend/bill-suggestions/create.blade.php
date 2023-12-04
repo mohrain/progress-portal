@@ -7,8 +7,6 @@
                     {{ $bill->name }}
                     <hr>
                 </div>
-            </div>
-            <div class="col-md-12">
                 <div>
                     @if (Session::has('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -17,6 +15,15 @@
                         </div>
                     @endif
                 </div>
+            </div>
+            <div class="col-md-5 my-3">
+                <object data="{{ asset('storage/' . $bill->entry_bill_file) }}" type="application/pdf" width="100%"
+                    height="800px">
+                    <p>Unable to display PDF file. <a href="{{ asset('storage/' . $bill->entry_bill_file) }}">Download</a>
+                    </p>
+                </object>
+            </div>
+            <div class="col-md-7">
                 <div class="">
                     <form action="{{ route('bill-suggestions.store', $bill) }}" method="post"
                         enctype="multipart/form-data">
@@ -91,7 +98,7 @@
                             </div>
                             <div class="col-md-12 " id="newinput">
                                 <div class="row box my-2 p-2" id="row">
-                                    <div class="col-md-2 mb-2">
+                                    <div class="col-md-3">
                                         <label for="section" class="form-label text-md-end ">{{ __('दफा') }}</label>
                                         <input id="section" type="text"
                                             class="form-control @error('section') is-invalid @enderror" name="section[]"
@@ -102,7 +109,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    <div class="col-md-2 mb-2">
+                                    <div class="col-md-3">
                                         <label for="sub_section"
                                             class="form-label text-md-end ">{{ __('उपदफा') }}</label>
                                         <input id="sub_section" type="text"
@@ -115,7 +122,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    <div class="col-md-2 mb-2">
+                                    <div class="col-md-3">
                                         <label for="sec" class="form-label text-md-end ">{{ __('खण्ड') }}</label>
                                         <input id="sec" type="text"
                                             class="form-control @error('sec') is-invalid @enderror" name="sec[]"
@@ -126,7 +133,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    <div class="col-md-6 text-end mt-4">
+                                    <div class="col-md-3 text-end mt-4">
                                         {{-- <button class="btn btn-danger bg-danger text-white" id="DeleteRow"
                                             type="button"> <i class="bi bi-trash"></i>हटाउनु होस्</button> --}}
                                     </div>
@@ -183,13 +190,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-12 my-3">
-                <object data="{{ asset('storage/' . $bill->entry_bill_file) }}" type="application/pdf" width="100%"
-                    height="800px">
-                    <p>Unable to display PDF file. <a href="{{ asset('storage/' . $bill->entry_bill_file) }}">Download</a>
-                    </p>
-                </object>
-            </div>
+           
 
         </div>
     </div>
