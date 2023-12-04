@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-5 my-3">
                 <object data="{{ asset('storage/' . $bill->entry_bill_file) }}" type="application/pdf" width="100%"
-                    height="800px">
+                    height="680px">
                     <p>Unable to display PDF file. <a href="{{ asset('storage/' . $bill->entry_bill_file) }}">Download</a>
                     </p>
                 </object>
