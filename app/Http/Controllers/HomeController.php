@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\BillType;
 use App\FiscalYear;
+use App\Models\Bill;
+use App\Models\Committee;
+use App\Models\Employee;
+use App\Models\Member;
 use App\Suchi;
 use App\User;
 use Illuminate\Http\Request;
@@ -24,14 +29,19 @@ class HomeController extends Controller
     {
         $title = 'Dashboard';
 
-        $totalSuchisCount = Suchi::registeredOnly()->count();
-        $totalSuchisApplicationsCount = Suchi::applicationOnly()->count();
+        $billTypes = BillType::get();
+        $committeeCount = Committee::count();
+        $employeeCount = Employee::count();
+        $memberCount = Member::currentElection()->count();
+
         $totalUsersCount = User::count();
 
         return view('home', [
             'title' => $title,
-            'totalSuchisCount' => $totalSuchisCount,
-            'totalSuchisApplicationsCount' => $totalSuchisApplicationsCount,
+            'billTypes' => $billTypes,
+            'committeeCount' => $committeeCount,
+            'employeeCount' => $employeeCount,
+            'memberCount' => $memberCount,
             'totalUsersCount' => $totalUsersCount,
         ]);
     }
