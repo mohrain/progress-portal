@@ -51,7 +51,7 @@
 
                             <div class="mb-3">
                                 <label for="summernote" class="form-label required">Message</label>
-                                <textarea name="message" class="form-control" cols="30" rows="10" placeholder="Text Message">{!! old('message', $sms->message ?? $message ?? "") !!}</textarea>
+                                <textarea name="message" class="form-control" id="summernote" cols="30" rows="10" placeholder="Text Message">{!! old('message', $sms->message ?? $message ?? "") !!}</textarea>
                             </div>
 
                             <div class="mb-3">
