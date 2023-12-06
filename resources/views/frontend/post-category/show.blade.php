@@ -52,7 +52,7 @@
                                 <tr>
                                     <th scope="col">क्र.स.</th>
                                     <th scope="col">शीर्षक</th>
-                                    <th>प्रकाशन मिति</th>
+                                    {{-- <th>प्रकाशन मिति</th> --}}
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -60,9 +60,16 @@
                                 @forelse ($posts as $post)
                                     <tr>
                                         <td class="kalimati-font">{{ $loop->iteration }}</td>
-                                        <td>{{ $post->title }}</td>
-                                        <td >
-                                            {{ $post->created_at }}
+                                        <td>
+                                            <div>
+
+                                                {{ $post->title }}
+                                            </div>
+                                            <small class="text-secondary">
+                                                {{ $post->created_at }}
+                                            </small>
+                                        </td>
+                                        <td>
                                         </td>
                                         <td class="text-end">
                                             <a class="btn btn-primary" href="{{ route('posts.show', $post) }}">पढ्नुहोस् <i
@@ -84,9 +91,9 @@
                     {{ $posts->links() }}
                 </div>
             </div>
-            <div class="col-md-3">
+            {{-- <div class="col-md-3">
                 @include('frontend.layouts.sidebar')
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection
