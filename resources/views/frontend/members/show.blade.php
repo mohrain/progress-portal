@@ -56,7 +56,7 @@
                                     नाम
                                 </b>
                             </td>
-                            <td>माननीय {{ $member->name }}</td>
+                            <td>{{ $member->name }}</td>
                         </tr>
                         <tr>
                             <td>
@@ -64,7 +64,7 @@
                                     Name
                                 </b>
                             </td>
-                            <td>Hon. {{ $member->name_english }}</td>
+                            <td>{{ $member->name_english }}</td>
                         </tr>
                         @if ($member->email)
                             <tr>
