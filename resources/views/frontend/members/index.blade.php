@@ -163,7 +163,7 @@
                                                         ->first();
                                                 @endphp
                                                 <div>
-                                                    {{ $officeBearer ? ($officeBearer->designation == true ? '' : '') :  मा. }} {{ $member->name }}
+                                                    {{ $officeBearer ? ($officeBearer->designation == true ? '' : '') :  "मा." }} {{ $member->name }}
                                                 </div>
                                                 <div>
                                                     {{ $officeBearer ? ($officeBearer->designation == true ? 'माननीय सभामुख' : 'माननीय उपसभामुख') : $member->parliamentaryParty->name }}
