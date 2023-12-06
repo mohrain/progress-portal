@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mb-3">
+            <div class="col-md-9 mb-3">
                 <div class="frontend-title">
                     {{ $postCategory->name }}
                     <hr>
@@ -44,7 +44,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-12">
                         <table class="table table-striped table-hover box p-2">
