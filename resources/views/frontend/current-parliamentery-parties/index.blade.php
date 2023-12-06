@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="frontend-title">
-                            {{ "राजनीतिक दलहरू" }}
+                            प्रदेश सभामा प्रतिनिधित्व गर्ने संसदीय दलहरु
                             <hr>
                         </div>
                     </div>
