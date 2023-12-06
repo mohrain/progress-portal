@@ -11,6 +11,7 @@
             </div>
             <div class="col-md-6 my-2">
                 <h4>प्रदेश सभाका सभामुखहरू</h4>
+                <hr>
                 @forelse ($officeBearers as $officeBearer)
                     @if ($officeBearer->designation == true)
                         <div class="my-2">
@@ -57,6 +58,7 @@
             </div>
             <div class="col-md-6 my-2">
                 <h4>प्रदेश सभाका उपसभामुखहरू</h4>
+                <hr>
                 @forelse ($officeBearers as $officeBearer)
                     @if ($officeBearer->designation == false)
                         <div class="my-2">
