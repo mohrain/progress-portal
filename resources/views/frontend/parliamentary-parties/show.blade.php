@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-9">
                 <div class="frontend-title">
-                    संसदीय दलहरु
+                    प्रदेश सभामा प्रतिनिधित्व गर्ने संसदीय दलहरु
                     <hr>
                 </div>
                 <table class="table table-md table-bordered">
