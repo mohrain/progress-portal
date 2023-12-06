@@ -72,7 +72,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-3 mb-2">
-                                <label for="branch" class="form-label text-md-end">{{ __('शाखा / महाशाखा') }}</label>
+                                <label for="branch" class="form-label text-md-end">{{ __('महाशाखा/शाखा/इकाई') }}</label>
                                 <input type="text" name="branch"
                                     class="form-control @error('branch') is-invalid @enderror" value="" id="branch"
                                     aria-describedby="branch">
