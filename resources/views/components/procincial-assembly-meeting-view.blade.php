@@ -12,7 +12,7 @@
             <tr>
                 <th class="kalimati-font">{{ $loop->iteration }}</th>
                 <td>{{ $meeting->name }}</td>
-                <td id="date_bs_table-{{ $meeting->id }}">
+                <td class="kalimati-font" id="date_bs_table-{{ $meeting->id }}">
                 </td>
                 <td class="kalimati-font">
                     <?php
@@ -31,8 +31,8 @@
             </tr>
             @push('scripts')
                 <script>
-                    document.getElementById("date_bs_table-{{ $meeting->id }}").innerHTML = NepaliFunctions.GetBsFullDate(
-                        NepaliFunctions.AD2BS("{{ $meeting->date }}"), true, "YYYY-MM-DD");
+                    document.getElementById("date_bs_table-{{ $meeting->id }}").innerHTML = 
+                        NepaliFunctions.AD2BS("{{ $meeting->date }}");
                 </script>
             @endpush
         @empty
