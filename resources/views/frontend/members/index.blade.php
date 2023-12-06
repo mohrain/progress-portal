@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-12 mb-5">
                         <div class="frontend-title">
-                            प्रदेश सभाका सदस्यहरु
+                            प्रदेश सभा सदस्यहरु
                             <hr>
                         </div>
                         <div class="box p-3">
@@ -87,7 +87,7 @@
                                 </div>
                                 <div class="col-md-3 mb-2">
                                     <label for="election_district"
-                                        class="form-label text-md-end ">{{ __('निर्वाचन जिल्ला') }}</label>
+                                        class="form-label text-md-end ">{{ __('जिल्ला') }}</label>
 
                                     <select class="form-control @error('election_district') is-invalid @enderror"
                                         name="election_district" id="election_district">
@@ -156,15 +156,15 @@
                                         </td>
                                         <td>
                                             <a href="{{ route('members.show', $member) }}" class="link-dark">
-                                                <div>
-                                                    मा. {{ $member->name }}
-                                                </div>
                                                 @php
                                                     $officeBearer = $member
                                                         ->officeBearers()
                                                         ->latest()
                                                         ->first();
                                                 @endphp
+                                                <div>
+                                                    {{ $officeBearer ? ($officeBearer->designation == true ? '' : '') :  मा. }} {{ $member->name }}
+                                                </div>
                                                 <div>
                                                     {{ $officeBearer ? ($officeBearer->designation == true ? 'माननीय सभामुख' : 'माननीय उपसभामुख') : $member->parliamentaryParty->name }}
                                                 </div>
