@@ -69,8 +69,7 @@
                                                 {{ $post->created_at }}
                                             </small>
                                         </td>
-                                        <td>
-                                        </td>
+                                        
                                         <td class="text-end">
                                             <a class="btn btn-primary" href="{{ route('posts.show', $post) }}">पढ्नुहोस् <i
                                                     class="bi bi-chevron-double-right"></i></a>
