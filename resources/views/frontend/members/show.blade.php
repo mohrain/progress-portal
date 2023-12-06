@@ -24,7 +24,7 @@
                         @else
                             @foreach ($member->officeBearers as $officeBearer)
                                 @if ($officeBearer->start != null && $officeBearer->end == null)
-                                    {{ $officeBearer->designation == true ? 'माननीय सभामुख' : 'माननीय उप सभामुख' }}
+                                    {{ $officeBearer->designation == true ? 'माननीय सभामुख' : 'माननीय उपसभामुख' }}
                                 @endif
                             @endforeach
                         @endif

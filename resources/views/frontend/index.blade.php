@@ -34,7 +34,7 @@
                 <div class="card-header bg-transparent border-0">
                 </div>
                 <div class="card-body">
-                    <h5 class="fw-bolder text-primary text-center mb-3">सुदूरपश्चिम प्रदेश सभाको परिचय</h5>
+                    <h5 class="fw-bolder text-primary text-center mb-3">सुदूरपश्‍चिम प्रदेश सभाको परिचय</h5>
                     <x-frontend-about-us-view />
                 </div>
             </div>
