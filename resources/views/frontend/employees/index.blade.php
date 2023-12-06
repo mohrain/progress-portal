@@ -99,7 +99,7 @@
                         <th>फोटो</th>
                         <th>नाम</th>
                         <th>पद</th>
-                        <th>शाखा / महाशाखा</th>
+                        <th>महाशाखा/शाखा/इकाई</th>
                         <th>सम्पर्क</th>
                     </thead>
                     <tbody id="sortable-employee">
