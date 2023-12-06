@@ -55,9 +55,9 @@
                     @endif
                 </div>
             </div>
-            <div class="col-md-3">
+            {{-- <div class="col-md-3">
                 @include('frontend.layouts.sidebar')
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection
