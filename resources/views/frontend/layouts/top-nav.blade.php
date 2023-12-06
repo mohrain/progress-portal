@@ -79,7 +79,7 @@
                                 </a>
                             </div>
                             <div>
-                                <a href="https://pga.sudurpashchim.gov.np/" class="text-danger">
+                                <a href="https://pga.sudurpashchim.gov.np/" class="text-danger" target="_blank">
                                     पुरानो साईट
                                 </a>
                             </div>

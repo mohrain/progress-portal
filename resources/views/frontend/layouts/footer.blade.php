@@ -100,8 +100,8 @@
                 </div>
                 <div>
                     <small class="p-1">
-                        <i class="bi bi-link-45deg"></i> <a href="https://www.opmcm.gov.np/" target="_blank"
-                            rel="noopener noreferrer">प्रधानमन्त्री तथा मन्त्रिपरिषद्को कार्यालय</a>
+                        <i class="bi bi-link-45deg"></i> <a href="https://p7.gov.np/" target="_blank"
+                            rel="noopener noreferrer">सुदूरपश्चिम प्रदेश पोर्टल</a>
                     </small>
                 </div>
                 <div>
