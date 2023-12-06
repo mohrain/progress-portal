@@ -15,7 +15,7 @@
                         class="profile-image">
                     <h5 class="mt-5 fw-bold">
 
-                        मा. {{ $member->name }}
+                         {{ $member->name }}
 
                     </h5>
                     <h6>
@@ -24,7 +24,7 @@
                         @else
                             @foreach ($member->officeBearers as $officeBearer)
                                 @if ($officeBearer->start != null && $officeBearer->end == null)
-                                    {{ $officeBearer->designation == true ? 'सभामुख' : 'उप सभामुख' }}
+                                    {{ $officeBearer->designation == true ? 'माननीय सभामुख' : 'माननीय उप सभामुख' }}
                                 @endif
                             @endforeach
                         @endif
@@ -64,7 +64,7 @@
                                     Name
                                 </b>
                             </td>
-                            <td>Hon {{ $member->name_english }}</td>
+                            <td>Hon. {{ $member->name_english }}</td>
                         </tr>
                         @if ($member->email)
                             <tr>
