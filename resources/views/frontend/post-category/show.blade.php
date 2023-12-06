@@ -44,7 +44,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
                         <table class="table table-striped table-hover box p-2">
