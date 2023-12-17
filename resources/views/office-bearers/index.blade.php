@@ -35,7 +35,7 @@
                                 <option value="1" {{ $officeBearer->designation == '1' ? 'selected' : '' }}>
                                     सभामुख</option>
                                 <option value="0" {{ $officeBearer->designation == '0' ? 'selected' : '' }}>
-                                    उप सभामुख</option>
+                                    उपसभामुख</option>
                             </select>
 
                             @error('designation')
