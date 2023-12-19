@@ -145,7 +145,7 @@ class MemberController extends Controller
     {
         $members = Member::with('election', 'parliamentaryParty')
             ->oldElection()
-            ->positioned()
+            ->orderBy('name_english')
             ->paginate(60);
         $districts = District::orderBy('name')->get();
 
@@ -356,7 +356,7 @@ class MemberController extends Controller
         }
         $members = $members
             ->oldElection()
-            ->positioned()
+            ->orderBy('name_english')
             ->paginate(60);
         $members->appends(request()->except('page'));
 
