@@ -110,7 +110,9 @@ class MemberController extends Controller
      */
     public function destroy(Member $member)
     {
-        Storage::delete($member->profile);
+        if ($member->profile) {
+            Storage::delete($member->profile);
+        }
         $member->delete();
         return redirect()
             ->back()

@@ -107,7 +107,9 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        Storage::delete($employee->profile);
+        if ($employee->profile) {
+            Storage::delete($employee->profile);
+        }
         $employee->delete();
         return redirect()
             ->back()
