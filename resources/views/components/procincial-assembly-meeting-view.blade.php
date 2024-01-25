@@ -32,7 +32,7 @@
             @push('scripts')
                 <script>
                     document.getElementById("date_bs_table-{{ $meeting->id }}").innerHTML = 
-                        NepaliFunctions.AD2BS("{{ $meeting->date }}");
+                        NepaliFunctions.AD2BS("{{ $meeting->date }}", "YYYY-MM-DD");
                 </script>
             @endpush
         @empty

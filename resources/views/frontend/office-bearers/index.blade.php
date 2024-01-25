@@ -29,7 +29,7 @@
                                                 </h5>
                                                 <div class="cart-text">
                                                     <b>
-                                                        {{ $officeBearer->designation == true ? 'सभामुख' : 'उपसभामुख' }}
+                                                        {{ $officeBearer->designation == true ? 'माननीय सभामुख' : 'माननीय उपसभामुख' }}
                                                     </b>
                                                     @if ($officeBearer->end)
                                                         <div>
