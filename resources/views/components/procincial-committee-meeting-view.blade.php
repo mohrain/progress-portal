@@ -12,7 +12,7 @@
         <tr>
             <th scope="row" class="kalimati-font">{{ $loop->iteration }}</th>
             <td>{{ $meeting->name }}</td>
-            <td id="date_bs_table-{{ $meeting->id }}"></td>
+            <td id="date_bs_table-{{ $meeting->id }}" class="kalimati-font"></td>
             <td class="kalimati-font">
                 <?php
                     $time = strtotime($meeting->time . 'Asia/Kathmandu');
