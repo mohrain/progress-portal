@@ -25,6 +25,7 @@ class CommitteeMemberSelect extends Component
         ->with('member')
         ->get();
         
+        $members = [];
         foreach ($this->committeeMembers as $committeeMember) {
             $members[] = $committeeMember->member->id;
             # ode...
