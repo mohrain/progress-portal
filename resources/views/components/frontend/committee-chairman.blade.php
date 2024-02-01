@@ -4,15 +4,18 @@
     </div>
     @empty($committeeMember->member)
     @else
-        <div class="card" style="height: 320px;">
-            <img id="newProfilePhotoPreview"
+        <div class="card">
+            <div style="aspct-ratio: 1/1; width: 100%">
+                <img id="newProfilePhotoPreview"
                 src="{{ $committeeMember->member->profile ? asset('storage/' . $committeeMember->member->profile) : asset('assets/img/no-image.png') }}"
-                class="feature-image card-img-top">
+                class="w-100 h-100"
+                style="object-fit: contain;">
+            </div>
             <div class="card-body text-center">
                 <b class="card-title text-theme-color">मा.
                     {{ $committeeMember->member->name }}
                 </b>
-                <div class="cart-text">
+                <div class="cart-text mb-1">
                     {{ $committeeMember->designation }}
                 </div>
                 <a href="{{ route('members.show', $committeeMember->member) }}" class="btn btn-sm btn-primary">पुरा
@@ -25,15 +28,18 @@
     </div>
     @empty($committeeSecretary)
     @else
-        <div class="card" style="height: 320px;">
-            <img id="newProfilePhotoPreview"
+        <div class="card">
+            <div style="aspct-ratio: 1/1; width: 100%">
+                <img id="newProfilePhotoPreview"
                 src="{{ $committeeSecretary->employee->profile ? asset('storage/' . $committeeSecretary->employee->profile) : asset('assets/img/no-image.png') }}"
-                class="feature-image card-img-top">
+                class="w-100 h-100"
+                style="object-fit: contain;">
+            </div>
             <div class="card-body text-center">
                 <b class="card-title text-theme-color">
                     {{ $committeeSecretary->employee->name }}
                 </b>
-                <div class="cart-text">
+                <div class="cart-text mb-1">
                     {{ $committeeSecretary->employee->designation }}
                 </div>
                 <a href="{{ route('employees.show', $committeeSecretary->employee) }}" class="btn btn-sm btn-primary">पुरा

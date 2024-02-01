@@ -56,6 +56,7 @@ class BillTypeController extends Controller
     {
         $bills = $billType
             ->bills()
+            ->published()
             ->latest()
             ->paginate(50);
         return view('frontend.bill-types.show', compact('billType', 'bills'));

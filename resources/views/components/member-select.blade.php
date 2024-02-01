@@ -8,7 +8,7 @@
             <option value="{{ $member->id }}"
                 {{ old('member_id', $bill->member_id) == $member->id ? 'selected' : '' }}>
                 <div>
-                    {{ $member->name }}
+                    माननीय {{ $member->name }}
                 </div>
                 <div>
                     ({{ $member->parliamentaryParty->name }})

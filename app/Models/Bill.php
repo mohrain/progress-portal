@@ -37,6 +37,7 @@ class Bill extends Model
     {
         return $query->where('active', false);
     }
+
     public function billType()
     {
         return $this->belongsTo(BillType::class);

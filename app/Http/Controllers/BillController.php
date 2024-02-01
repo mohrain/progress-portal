@@ -21,7 +21,8 @@ class BillController extends Controller
     {
         $bills = Bill::with('billType', 'billCategory', 'ministry', 'member')
             ->latest()
-            ->paginate(50);
+            ->paginate(10);
+
         return view('bills.index', compact('bills'));
     }
 
@@ -53,7 +54,11 @@ class BillController extends Controller
         if ($request->file('certification_bill_file')) {
             $data['certification_bill_file'] = Storage::putFile('bill-certification', $request->file('certification_bill_file'));
         }
+
+        $data['active'] = $request->has('is_draft') ? false : true;
+
         Bill::create($data);
+
         return redirect()
             ->route('bills.index')
             ->with('success', 'विधयेक सुरक्षित भयो');
@@ -67,6 +72,9 @@ class BillController extends Controller
      */
     public function show(Bill $bill)
     {
+        if (!$bill->active) {
+            abort(404);
+        }
         return view('frontend.bills.show', compact('bill'));
     }
 
@@ -105,6 +113,11 @@ class BillController extends Controller
         }
 
         $bill->update($data);
+
+        $bill->update([
+            'active' => $request->has('is_draft') ? false : true
+        ]);
+
         return redirect()
             ->route('bills.index')
             ->with('success', 'विधयेक सम्पादन भयो');
@@ -314,5 +327,17 @@ class BillController extends Controller
     public function print(Bill $bill)
     {
         return view('bill-suggestions.print', compact('bill'));
+    }
+
+    public function markDraft(Bill $bill)
+    {
+        $bill->update(['active' => false]);
+        return redirect()->back()->with('success', 'Action successful');
+    }
+
+    public function markPublish(Bill $bill)
+    {
+        $bill->update(['active' => true]);
+        return redirect()->back()->with('success', 'Action successful');
     }
 }

@@ -11,7 +11,6 @@
                             <div>
                                 {{ $title = 'विधयेक दर्ता' }}
                             </div>
-
                         </div>
                     </div>
 
@@ -393,6 +392,7 @@
                                 </div>
 
                                 <div class="col-md-12 mb-3 text-right">
+                                    <button type="submit" name="is_draft" value="true" class="btn btn-light mr-2">Save as draft</button>
                                     <button type="submit" class="btn btn-primary">
                                         {{ $bill->id ? 'सम्पादन' : 'सुरक्षित' }}</button>
                                 </div>

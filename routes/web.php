@@ -66,6 +66,8 @@ Route::get('parliamentary-parties', [ParliamentaryPartyController::class, 'front
 Route::get('bill-types/{billType}', [BillTypeController::class, 'show'])->name('bill-types.show');
 Route::get('bill-types/{billType}/search', [BillController::class, 'frontendSearch'])->name('bills.frontendSearch');
 Route::get('bills/{bill}', [BillController::class, 'show'])->name('bills.show');
+Route::post('bills-mark-draft/{bill}', [BillController::class, 'markDraft'])->name('bills.mark-draft');
+Route::post('bills-mark-publish/{bill}', [BillController::class, 'markPublish'])->name('bills.mark-publish');
 
 Route::get('bill-suggestions/{bill}', [BillSuggestionController::class, 'create'])->name('bill-suggestions.create');
 Route::post('bill-suggestions/{bill}', [BillSuggestionController::class, 'store'])->name('bill-suggestions.store');

@@ -280,7 +280,12 @@
                                             <td>{{ $bill->entry_number }}</td>
                                             <td>{{ $bill->entry_date }}</td>
                                             <td>{{ $bill->billType->name }}</td>
-                                            <td>{{ $bill->name }}</td>
+                                            <td>
+                                                <div>{{ $bill->name }}</div>
+                                                @if(!$bill->active)
+                                                <div class="badge badge-danger">Draft</div>
+                                                @endif
+                                            </td>
                                             <td>{{ $bill->ministry->name ?? "" }}</td>
                                             <td>
                                                 @if ($bill->suggestion_in_the_bill == true)
@@ -318,8 +323,28 @@
                                                         <a class="dropdown-item "
                                                             href="{{ route('bills.show', $bill) }}">Show</a>
 
-                                                        <a class="dropdown-item "
-                                                            href="{{ route('bills.edit', $bill) }}">Edit</a>
+                                                        <a class="dropdown-item" href="{{ route('bills.edit', $bill) }}">Edit</a>
+                                                            
+                                                        @if($bill->active)
+                                                        <form action="{{ route('bills.mark-draft', $bill) }}" method="POST">
+                                                        @csrf
+                                                            <button class="dropdown-item form-control text-danger"
+                                                            type="submit"
+                                                            onclick="return confirm('के तपाई सुनिचित गर्नुहुन्छ ?')">
+                                                            Unpublish
+                                                            </button>
+                                                        </form>
+                                                        @else
+                                                        <form action="{{ route('bills.mark-publish', $bill) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            <button class="dropdown-item form-control text-success"
+                                                            type="submit"
+                                                            onclick="return confirm('के तपाई सुनिचित गर्नुहुन्छ ?')">
+                                                            Publish
+                                                            </button>
+                                                        </form>
+                                                        @endif
 
                                                         <form action="{{ route('bills.destroy', $bill) }}"
                                                             method="post">
@@ -349,6 +374,7 @@
 
                             </table>
                         </div>
+                        <div class="mt-3"></div>
                         {{ $bills->links() }}
                     </div>
                 </div>
