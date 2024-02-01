@@ -56,7 +56,7 @@
                             </tr>
                             <tr>
                                 <th>प्रस्तुतकर्ता</th>
-                                <td>{{ $bill->member->name ?? "" }}</td>
+                                <td>@if($bill->member?->name)माननीय @endif {{ $bill->member?->name ?? "" }}</td>
                             </tr>
                             <tr>
                                 <th>मन्त्रालय</th>
