@@ -3,8 +3,8 @@
         <a class="navbar-brand" href="/">
             <div class="d-flex gap-2">
                 <div>
-                    <img class="mobile-logo" src="{{ asset('images/pradeshsavalogo-sudurpaschim.png') }}"
-                        alt="pradeshsavalogo-sudurpaschim">
+                    <img class="mobile-logo" src="{{ asset('images/sudurpashchim-province-assembly-logo-400x400.png') }}"
+                        alt="pradeshsava-logo-sudurpaschim">
                 </div>
                 <div class="mobile-brand">
                     <div class="sub-title">{{ settings('app_name') }}</div>

@@ -3,7 +3,7 @@
         <div id="header" class="d-flex justify-content-between">
             <div class="d-flex align-items-center gap-3 gap-md-4">
                 <div>
-                    <img class="logo" src="{{ asset('images/pradeshsavalogo-sudurpaschim.png') }}" alt="pradeshsavalogo-sudurpaschim" srcset="">
+                    <img class="logo" src="{{ asset('images/sudurpashchim-province-assembly-logo-400x400.png') }}" alt="pradeshsava-logo-sudurpaschim" srcset="">
                 </div>
                 <div>
                     <h5 class="fw-bolder">{{ settings('app_name') }}</h5>
