@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title ? $title . ' - ' : '' }} {{ config('app.name') }}</title>
     <!-- Favicons -->
-    <link href="{{ asset('images/nep-gov-logo.png') }}" rel="icon">
+    <link href="{{ asset('images/sudurpashchim-province-assembly-logo-400x400.png') }}" rel="icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,7 +63,7 @@
         }
 
         .feature-image {
-            height: 200px;
+            height: 190px;
             object-fit: cover;
             position: relative;
             /* margin: 20px; */

@@ -11,7 +11,7 @@
         </li>
         <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndex') }}">पदाधिकारीहरु</a></li>
         <li><a class="dropdown-item" href="{{ route('current-parliamentary-parties.frontendIndex') }}">संसदीय दल</a></li>
-        <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndexOld') }}">पुर्व पदाधिकारीहरु</a></li>
+        <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndexOld') }}">पूर्व पदाधिकारीहरु</a></li>
 
     </ul>
 </li>
@@ -34,7 +34,7 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li><a class="dropdown-item" href="{{ route('members.frontendIndex') }}">सदस्यहरुका विवरण</a></li>
-        <li><a class="dropdown-item" href="{{ route('members.frontendIndexOld') }}">पुर्व सदस्यहरुका विवरण </a></li>
+        <li><a class="dropdown-item" href="{{ route('members.frontendIndexOld') }}">पूर्व सदस्यहरुका विवरण </a></li>
     </ul>
 </li>
 <li class="nav-item dropdown">
