@@ -127,7 +127,10 @@ class PageController extends Controller
             Storage::delete($pageDocument->file);
         }
         $page->documents()->delete();
-        Storage::delete($page->feature_image);
+        if ($page->feature_image) {
+            # code...
+            Storage::delete($page->feature_image);
+        }
         $page->delete();
         return redirect()
             ->back()

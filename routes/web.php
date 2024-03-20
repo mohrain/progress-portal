@@ -41,6 +41,7 @@ use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostCategoryMenuController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProvinceController;
+use App\Http\Controllers\ProvincialAssemblyLibraryController;
 use App\Http\Controllers\SmsController;
 use App\Http\Controllers\SuchiController;
 use App\Http\Controllers\UserController;
@@ -360,7 +361,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('sms', [SmsController::class, 'index'])->name('sms.index');
     Route::post('sms', [SmsController::class, 'store'])->name('sms.store');
 
-
     // Suchi routes
     Route::get('suchi', [SuchiController::class, 'index'])->name('suchi.index');
     Route::get('suchi/applications', [SuchiController::class, 'applications'])->name('suchi.applications');
@@ -392,6 +392,15 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::post('settings', [\App\Http\Controllers\SettingsController::class, 'sync'])->name('settings.sync');
 
     Route::get('configuration-checklist', [\App\Http\Controllers\ConfigurationChecklistController::class, 'index'])->name('configuration-checklist.index');
+
+    //ProvincialAssemblyLibrary
+    Route::get('provincial-assembly-library', [ProvincialAssemblyLibraryController::class, 'index'])->name('provincial-assembly-library.index');
+    Route::get('provincial-assembly-library/create', [ProvincialAssemblyLibraryController::class, 'create'])->name('provincial-assembly-library.create');
+    Route::post('provincial-assembly-library', [ProvincialAssemblyLibraryController::class, 'store'])->name('provincial-assembly-library.store');
+    Route::get('provincial-assembly-library/{provincialAssemblyLibrary}/', [ProvincialAssemblyLibraryController::class, 'show'])->name('provincial-assembly-library.show');
+    Route::get('provincial-assembly-library/{provincialAssemblyLibrary}/edit', [ProvincialAssemblyLibraryController::class, 'edit'])->name('provincial-assembly-library.edit');
+    Route::put('provincial-assembly-library/{provincialAssemblyLibrary}', [ProvincialAssemblyLibraryController::class, 'update'])->name('provincial-assembly-library.update');
+    Route::delete('provincial-assembly-library/{provincialAssemblyLibrary}', [ProvincialAssemblyLibraryController::class, 'destroy'])->name('provincial-assembly-library.destroy');
 });
 
 // Suchi Print

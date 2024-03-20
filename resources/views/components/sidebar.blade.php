@@ -91,6 +91,11 @@
                     <span class="text-success"><i class="bi bi-person-video"></i></span>सूचना अधिकारीहरु
                 </a>
             </li>
+            <li class="nav-item {{ setActive('provincial-assembly-library.*') }}">
+                <a href="{{ route('provincial-assembly-library.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-warning"><i class="bi bi-book"></i></span>प्रदेश सभा पुस्तकालय
+                </a>
+            </li>
             <li class="nav-item {{ setActive('contact-us.*') }}">
                 <a href="{{ route('contact-us.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-warning"><i class="bi bi-info-lg"></i></span>सुझाव/प्रतिक्रियाहरू
