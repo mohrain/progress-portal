@@ -95,6 +95,10 @@ Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 Route::get('language/{locale}', [LanguageController::class, 'setLocale'])->name('locale');
 // Route::get('set-active-fiscal-year/{fiscalYear}', 'MiscController@setActiveFiscalYear')->name('set-active-fiscal-year');
 
+Route::get('provincial-assembly-library', [ProvincialAssemblyLibraryController::class, 'frontendIndex'])->name('provincial-assembly-library.frontendIndex');
+Route::get('provincial-assembly-library/{provincialAssemblyLibrary}', [ProvincialAssemblyLibraryController::class, 'show'])->name('provincial-assembly-library.show');
+
+
 Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::resources([
         'user' => UserController::class,
@@ -397,7 +401,6 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('provincial-assembly-library', [ProvincialAssemblyLibraryController::class, 'index'])->name('provincial-assembly-library.index');
     Route::get('provincial-assembly-library/create', [ProvincialAssemblyLibraryController::class, 'create'])->name('provincial-assembly-library.create');
     Route::post('provincial-assembly-library', [ProvincialAssemblyLibraryController::class, 'store'])->name('provincial-assembly-library.store');
-    Route::get('provincial-assembly-library/{provincialAssemblyLibrary}/', [ProvincialAssemblyLibraryController::class, 'show'])->name('provincial-assembly-library.show');
     Route::get('provincial-assembly-library/{provincialAssemblyLibrary}/edit', [ProvincialAssemblyLibraryController::class, 'edit'])->name('provincial-assembly-library.edit');
     Route::put('provincial-assembly-library/{provincialAssemblyLibrary}', [ProvincialAssemblyLibraryController::class, 'update'])->name('provincial-assembly-library.update');
     Route::delete('provincial-assembly-library/{provincialAssemblyLibrary}', [ProvincialAssemblyLibraryController::class, 'destroy'])->name('provincial-assembly-library.destroy');

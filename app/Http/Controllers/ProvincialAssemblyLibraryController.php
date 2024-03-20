@@ -66,7 +66,7 @@ class ProvincialAssemblyLibraryController extends Controller
      */
     public function show(ProvincialAssemblyLibrary $provincialAssemblyLibrary)
     {
-        //
+        return view('frontend.provincial-assembly-library.show',compact('provincialAssemblyLibrary'));
     }
 
     /**
@@ -126,8 +126,12 @@ class ProvincialAssemblyLibraryController extends Controller
             Storage::delete($provincialAssemblyLibrary->cover_image);
         }
         $provincialAssemblyLibrary->delete();
-        return redirect()
-            ->back()
-            ->with('success', 'किताब हटाइयो');
+        return redirect()->back()->with('success', 'किताब हटाइयो');
+    }
+
+    public function frontendIndex()
+    {
+        $provincialAssemblyLibraries = ProvincialAssemblyLibrary::latest()->paginate(50);
+        return view('frontend.provincial-assembly-library.index', compact('provincialAssemblyLibraries'));
     }
 }

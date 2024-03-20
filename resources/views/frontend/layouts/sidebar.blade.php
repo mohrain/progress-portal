@@ -98,7 +98,7 @@
         सम्पूर्ण विवरण (Varbatim)
     </div>
 </a>
-<a class="cta-button v-pink mb-3" href="{{ route('post-categories.show', 9) }}">
+<a class="cta-button v-pink mb-3" href="{{ route('provincial-assembly-library.frontendIndex') }}">
     <div class="icon">
         <i class="bi bi-book"></i>
     </div>
