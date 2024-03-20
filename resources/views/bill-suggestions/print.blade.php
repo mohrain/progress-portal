@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container-fluid mt-5">
         <div class="row justify-content-center">
 
             <div class="col-md-12">
@@ -28,28 +28,31 @@
 
                     <div class="card-body">
                         @forelse($bill->billSuggestions as $billSuggestion)
-                            <div class="table-responsive">
-                                <table class="table table-md table-bordered kalimati-font" style="white-space: nowrap">
 
-                                    <tbody>
+                            @if ($billSuggestion->billSuggestionSectionWise->isNotEmpty())
+                                <div>
+                                    <table class="table table-md table-bordered kalimati-font">
 
-                                        <tr>
-                                            <th>नाम</th>
-                                            <td>{{ $billSuggestion->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>इमेल</th>
-                                            <td>{{ $billSuggestion->email }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>सम्पर्क</th>
-                                            <td>{{ $billSuggestion->contact_number }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>ठेगाना</th>
-                                            <td>{{ $billSuggestion->address }}</td>
-                                        </tr>
-                                        <tr>
+                                        <tbody>
+
+                                            <tr>
+                                                <th>नाम</th>
+                                                <td>{{ $billSuggestion->name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>इमेल</th>
+                                                <td>{{ $billSuggestion->email }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>सम्पर्क</th>
+                                                <td>{{ $billSuggestion->contact_number }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th>ठेगाना</th>
+                                                <td>{{ $billSuggestion->address }}</td>
+                                            </tr>
+
+                                            {{-- <tr>
                                             <th>फाइल</th>
                                             <td>
 
@@ -61,54 +64,51 @@
                                                     फाइल छैन
                                                 @endif
                                             </td>
-                                        </tr>
-                                        @foreach ($billSuggestion->billSuggestionSectionWise as $item)
-                                            <tr>
-                                                <th>दफा / उपदफा / खण्ड</th>
-                                                <td>
-                                                    {{ $item->section }} / {{ $item->sub_section }} /
-                                                    {{ $item->sec }}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th colspan="2" class="text-center">
-                                                    हालको व्यवस्था
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <p>
-                                                        {{ $item->current_arrangement }}
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th colspan="2" class="text-center">
-                                                    संशोधनको व्यहोरा
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <p>
-                                                        {{ $item->procedure_of_amendment }}
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th colspan="2" class="text-center">
-                                                    कारण
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">
-                                                    <p>{{ $item->reason }}</p>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                            <hr class="my-5">
+                                        </tr> --}}
+                                        </tbody>
+                                    </table>
+                                    @foreach ($billSuggestion->billSuggestionSectionWise as $item)
+                                        <table class="table table-md table-bordered kalimati-font">
+                                            <tbody>
+                                                <tr>
+                                                    <td><b>दफा :</b> {{ $item->section }} </td>
+                                                    <td><b>उपदफा :</b> {{ $item->sub_section }}</td>
+                                                    <td><b>खण्ड :</b> {{ $item->sec }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="text-center" style="width: 33%;">
+                                                        हालको व्यवस्था
+                                                    </th>
+                                                    <th class="text-center" style="width: 33%;">
+                                                        संशोधनको व्यहोरा
+                                                    </th>
+                                                    <th class="text-center" style="width: 34%;">
+                                                        कारण
+                                                    </th>
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td>
+                                                        <p>
+                                                            {{ $item->current_arrangement }}
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            {{ $item->procedure_of_amendment }}
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p>{{ $item->reason }}</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    @endforeach
+                                </div>
+                                <hr class="my-5">
+                            @endif
                         @empty
 
                             <div colspan="42" class="font-italic text-center">कुनैपनि डाटा उपलब्ध छैन !!!

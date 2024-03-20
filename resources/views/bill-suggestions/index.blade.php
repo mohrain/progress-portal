@@ -21,7 +21,7 @@
                     <div class="card-body">
 
                         <div class="table-responsive">
-                            <table class="table table-md table-bordered kalimati-font" style="white-space: nowrap">
+                            <table class="table table-md table-bordered" style="white-space: nowrap">
                                 <thead>
                                     <th>नाम</th>
                                     <th>इमेल</th>
@@ -35,8 +35,8 @@
                                         <tr>
                                             <td>{{ $billSuggestion->name }}</td>
                                             <td>{{ $billSuggestion->email }}</td>
-                                            <td>{{ $billSuggestion->contact_number }}</td>
-                                            <td>{{ $billSuggestion->address }}</td>
+                                            <td class="kalimati-font">{{ $billSuggestion->contact_number }}</td>
+                                            <td class="kalimati-font">{{ $billSuggestion->address }}</td>
                                             <td>
 
                                                 @if ($billSuggestion->file)
@@ -57,6 +57,8 @@
                                                     <div class="dropdown-menu dropdown-menu-arrow">
                                                         <a class="dropdown-item "
                                                             href="{{ route('bill-suggestions.show', [$bill, $billSuggestion]) }}">Show</a>
+                                                            <a class="dropdown-item "
+                                                            href="{{ route('bill-suggestions.print', [$bill, $billSuggestion]) }}" target="_blank">Print</a>
 
                                                         <form
                                                             action="{{ route('bill-suggestions.destroy', [$bill, $billSuggestion]) }}"

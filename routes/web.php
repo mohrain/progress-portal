@@ -321,6 +321,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     //bill-suggestions
     Route::get('bill-suggestions/{bill}/list', [BillSuggestionController::class, 'index'])->name('bill-suggestions.index');
     Route::get('bill-suggestions/{bill}/{billSuggestion}/show', [BillSuggestionController::class, 'show'])->name('bill-suggestions.show');
+    Route::get('bill-suggestions/{bill}/{billSuggestion}/print', [BillSuggestionController::class, 'print'])->name('bill-suggestions.print');
     Route::delete('bill-suggestions/{bill}/{billSuggestion}', [BillSuggestionController::class, 'destroy'])->name('bill-suggestions.destroy');
 
     //office-bearers

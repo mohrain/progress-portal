@@ -114,4 +114,9 @@ class BillSuggestionController extends Controller
             ->back()
             ->with('success', 'सुझाव मेटाइयो');
     }
+
+    public function print(Bill $bill, BillSuggestion $billSuggestion)
+    {
+        return view('bill-suggestions.single-suggestion-print', compact('billSuggestion', 'bill'));
+    }
 }
