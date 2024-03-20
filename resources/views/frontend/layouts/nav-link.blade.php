@@ -10,6 +10,9 @@
             <a class="dropdown-item" href="{{ route('pages.show', 1) }}">प्रदेश सभा परिचय</a>
         </li>
         <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndex') }}">पदाधिकारीहरु</a></li>
+        <li>
+            <a class="dropdown-item" href="{{ route('pages.show', 5) }}">कार्यव्यवस्था परामर्श समिति</a>
+        </li>
         <li><a class="dropdown-item" href="{{ route('current-parliamentary-parties.frontendIndex') }}">संसदीय दल</a></li>
         <li><a class="dropdown-item" href="{{ route('office-bearers.frontendIndexOld') }}">पूर्व पदाधिकारीहरु</a></li>
 
