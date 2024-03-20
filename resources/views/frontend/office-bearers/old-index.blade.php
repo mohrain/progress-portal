@@ -5,7 +5,7 @@
 
             <div class="col-md-12">
                 <div class="frontend-title">
-                    प्रदेश सभाका पुर्व पदाधिकारीहरु
+                    प्रदेश सभाका पूर्व पदाधिकारीहरु
                     <hr>
                 </div>
             </div>

@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-md-12 mb-5">
                         <div class="frontend-title">
-                            पुर्व प्रदेश सभाका सदस्यहरु
+                            पूर्व प्रदेश सभाका सदस्यहरु
                             <hr>
                         </div>
                         <div class="box p-3">
