@@ -99,10 +99,10 @@
                             <div class="col-md-12 " id="newinput">
                                 <div class="row box my-2 p-2" id="row">
                                     <div class="col-md-3">
-                                        <label for="section" class="form-label text-md-end ">{{ __('दफा') }}</label>
+                                        <label for="section" class="form-label text-md-end required">{{ __('दफा') }}</label>
                                         <input id="section" type="text"
                                             class="form-control @error('section') is-invalid @enderror" name="section[]"
-                                            value="{{ old('section[]') }}" autocomplete="section" placeholder="दफा">
+                                            value="{{ old('section[]') }}" autocomplete="section" placeholder="दफा" required>
                                         @error('section')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -139,9 +139,9 @@
                                     </div>
                                     <div class="col-md-4 mb-2">
                                         <label for="current_arrangement"
-                                            class="form-label text-md-end ">{{ __('हालको व्यवस्था') }}</label>
+                                            class="form-label text-md-end required">{{ __('हालको व्यवस्था') }}</label>
                                         <textarea id="current_arrangement" class="form-control @error('current_arrangement') is-invalid @enderror"
-                                            name="current_arrangement[]" rows="5" placeholder="हालको व्यवस्था">{{ old('current_arrangement[]') }}</textarea>
+                                            name="current_arrangement[]" rows="5" placeholder="हालको व्यवस्था" required>{{ old('current_arrangement[]') }}</textarea>
                                         @error('current_arrangement')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -149,10 +149,10 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-4 mb-2">
-                                        <label for="procedure_of_amendment"
+                                        <label for="procedure_of_amendment required"
                                             class="form-label text-md-end ">{{ __('संशोधनको व्यहोरा') }}</label>
                                         <textarea id="procedure_of_amendment" class="form-control @error('procedure_of_amendment') is-invalid @enderror"
-                                            name="procedure_of_amendment[]" rows="5" placeholder="संशोधनको व्यहोरा">{{ old('procedure_of_amendment[]') }}</textarea>
+                                            name="procedure_of_amendment[]" rows="5" placeholder="संशोधनको व्यहोरा" required>{{ old('procedure_of_amendment[]') }}</textarea>
                                         @error('procedure_of_amendment')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -160,9 +160,9 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-4 mb-2">
-                                        <label for="reason" class="form-label text-md-end ">{{ __('कारण') }}</label>
+                                        <label for="reason" class="form-label text-md-end required">{{ __('कारण') }}</label>
                                         <textarea id="reason" class="form-control @error('reason') is-invalid @enderror" name="reason[]" rows="5"
-                                            placeholder="कारण">{{ old('reason[]') }}</textarea>
+                                            placeholder="कारण" required>{{ old('reason[]') }}</textarea>
                                         @error('reason')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
