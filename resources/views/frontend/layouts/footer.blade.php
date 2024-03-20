@@ -173,9 +173,8 @@
     <div class="container">
         <div class="d-md-flex justify-content-between">
             <div>
-                <strong class="kalimati-font">&copy; {{ date('Y') }}</strong>. प्रदेश सभा, सुदूरपश्‍चिम
-                प्रदेश प्रदेश सभा सचिवालय.
-                सर्वाधिकार सुरक्षित
+                <strong class="kalimati-font">&copy; {{ date('Y') }}</strong>. {{ settings('app_name') }}, {{ settings('province_name') }}, {{ settings('office_name') }}.
+                सर्वाधिकार सुरक्षित 
             </div>
             <div>
                 Designed and Developed By: <a href="https://mohrain.com">Mohrain</a>
