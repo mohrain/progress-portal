@@ -1,12 +1,14 @@
 <div class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 my-1">
+            <div class="col-md-3 my-1 text-center">
                 <div class="fw-bold">सम्पर्क ठेगाना</div>
                 <hr>
+                <h5 class="fw-bolder">{{ settings('app_name') }}</h5>
+                <h6 class="text-white fw-bold">{{ settings('office_name') }}</h6>
                 <div class="py-1">
                     <a class="text-white" href="#">
-                        <i class="bi bi-geo-alt"></i> {{ settings('address_line_one') }}
+                        <i class="bi bi-geo-alt"></i> {{ settings('province_name') }}, {{ settings('address_line_one') }}
                     </a>
                 </div>
                 <div class="py-1">
@@ -32,7 +34,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-3 my-1">
+            <div class="col-md-4 my-1">
                 <x-frontend-information-officer-employee-view />
             </div>
             <div class="col-md-3 my-1">
@@ -89,7 +91,7 @@
                 </div>
 
             </div>
-            <div class="col-md-3 my-1">
+            <div class="col-md-2 my-1">
                 <b>महत्वपुर्ण लिंकहरु</b>
                 <hr>
                 <div>

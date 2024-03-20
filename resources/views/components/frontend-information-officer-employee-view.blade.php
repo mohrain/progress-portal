@@ -8,9 +8,9 @@
         <div>
             <div class="fw-bold text-center">{{ $informationOfficer->EmployeeDesignation->name }}</div>
             <hr>
-            <div class="card" style="width: 8rem;">
+            <div class="card" style="width: 11rem;">
                 <img src="{{ $informationOfficer->employee->profile ? asset('storage/' . $informationOfficer->employee->profile) : asset('assets/img/no-image.png') }}"
-                    class="card-img-top" alt="{{ $informationOfficer->EmployeeDesignation->name }}">
+                    class="card-img-top" alt="{{ $informationOfficer->EmployeeDesignation->name }}" style="height: 160px;">
                 <div class="text-center">
                     <a href="{{ route('employees.show', $informationOfficer->employee) }}" class="nav-link text-dark">
                         <b class="card-title text-dark">{{ $informationOfficer->employee->name }}</b>
