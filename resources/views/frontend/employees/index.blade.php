@@ -5,7 +5,13 @@
 
             <div class="col-md-12 mb-5 ">
                 <div class="frontend-title">
-                    कर्मचारीहरु
+                    @if (request()->route()->getName() === 'employees.frontendSearchOld' ||
+                            request()->route()->getName() === 'employees.frontendIndexOld')
+                         पूर्व कर्मचारीहरु
+                        @else
+                        कर्मचारीहरु
+                    @endif
+                  
                     <hr>
                 </div>
                 <div class="box p-3">
