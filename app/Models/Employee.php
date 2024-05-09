@@ -36,6 +36,14 @@ class Employee extends Model
     {
         return $query->where('status', false);
     }
+    public function scopeCurrentEmployee($query)
+    {
+        return $query->where('end_date',null);
+    }
+    public function scopeOldEmployee($query)
+    {
+        return $query->whereNotNull('end_date');
+    }
 
     public function scopePositioned($query, $ascending = true)
     {

@@ -194,6 +194,20 @@
                                 <td>{{ $employee->mother_tongue }}</td>
                             </tr>
                         @endif
+                        @if ($employee->end_date)
+                            <tr>
+                                <td>
+                                    <b>
+                                        कार्यकाल
+                                    </b>
+                                </td>
+                                <td>
+                                    <div class="kalimati-font">{{ $employee->joining_date ?? '-' }} देखि
+                                        {{ $employee->end_date ?? '-' }} सम्म
+                                    </div>
+                                </td>
+                            </tr>
+                        @endif
 
                     </table>
                 </div>

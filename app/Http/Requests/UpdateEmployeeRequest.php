@@ -44,6 +44,8 @@ class UpdateEmployeeRequest extends FormRequest
             'religion' => 'nullable',
             'mother_tongue' => 'nullable',
             'descriptions' => 'nullable',
+            'joining_date' => 'nullable',
+            'end_date' => 'nullable',
             'profile' => 'nullable|file|max:2024',
         ];
     }

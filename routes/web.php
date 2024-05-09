@@ -78,8 +78,10 @@ Route::get('members/old-member', [MemberController::class, 'frontendIndexOld'])-
 Route::get('members/old-member/search', [MemberController::class, 'frontendOldSearch'])->name('members.frontendOldSearch');
 Route::get('members/{member}', [MemberController::class, 'show'])->name('members.show');
 Route::get('employees', [EmployeeController::class, 'frontendIndex'])->name('employees.frontendIndex');
+Route::get('employees/old', [EmployeeController::class, 'frontendIndexOld'])->name('employees.frontendIndexOld');
 Route::get('employees/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
 Route::get('employees/frontend/search', [EmployeeController::class, 'frontendSearch'])->name('employees.frontendSearch');
+Route::get('employees/frontend/search/old', [EmployeeController::class, 'frontendSearchOld'])->name('employees.frontendSearchOld');
 Route::get('office-bearers', [OfficeBearerController::class, 'frontendIndex'])->name('office-bearers.frontendIndex');
 Route::get('office-bearers/old', [OfficeBearerController::class, 'frontendIndexOld'])->name('office-bearers.frontendIndexOld');
 Route::get('contact-us', [ContactUsController::class, 'create'])->name('contact-us.create');
