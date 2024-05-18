@@ -28,7 +28,7 @@
         </li>
         <li><a class="dropdown-item" href="{{ route('pages.show', 3) }}">दरबन्दी संरचना</a></li>
         <li><a class="dropdown-item" href="{{ route('employees.frontendIndex') }}">कर्मचारी विवरण</a></li>
-        <li><a class="dropdown-item" href="{{ route('employees.frontendIndexOld') }}">पूर्व कर्मचारी विवरण</a></li>
+        {{-- <li><a class="dropdown-item" href="{{ route('employees.frontendIndexOld') }}">पूर्व कर्मचारी विवरण</a></li> --}}
     </ul>
 </li>
 
