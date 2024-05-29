@@ -176,7 +176,7 @@ class EmployeeController extends Controller
         return view('employees.index', compact('employees'));
     }
 
-    
+
     public function frontendSearch(Request $request)
     {
         // return $request;
@@ -267,6 +267,23 @@ class EmployeeController extends Controller
             ->paginate(60);
         $employees->appends(request()->except('page'));
         return view('frontend.employees.index', compact('employees'));
+    }
+    public function changeStatus($id){
+        $employee=Employee::find($id);
+        $employeeStatus=null;
+        if($employee->status){
+            $employeeStatus=false;
+        }else{
+            $employeeStatus=true;
+        }
+        $employee->update([
+            'status'=>$employeeStatus
+        ]);
+
+        return $employee->status;
+        return response()->json([
+            'success'=>true,
+        ]);
     }
 
 }

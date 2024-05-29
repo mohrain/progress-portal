@@ -18,18 +18,18 @@
 
     </ul>
 </li>
-<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        प्रदेश सभा सचिवालय
+<li class="nav-item">
+    <a class="nav-link" href="{{{route('department.index')}}}">
+        संघीय संसद सचिवालय
     </a>
-    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li>
             <a class="dropdown-item" href="{{ route('pages.show', 2) }}">संगठनिक संरचना</a>
         </li>
         <li><a class="dropdown-item" href="{{ route('pages.show', 3) }}">दरबन्दी संरचना</a></li>
         <li><a class="dropdown-item" href="{{ route('employees.frontendIndex') }}">कर्मचारी विवरण</a></li>
-        {{-- <li><a class="dropdown-item" href="{{ route('employees.frontendIndexOld') }}">पूर्व कर्मचारी विवरण</a></li> --}}
-    </ul>
+        <li><a class="dropdown-item" href="{{ route('employees.frontendIndexOld') }}">पूर्व कर्मचारी विवरण</a></li>
+    </ul> --}}
 </li>
 
 <li class="nav-item dropdown">

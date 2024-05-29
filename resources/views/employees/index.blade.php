@@ -24,7 +24,8 @@
                                 {{ $title = 'कर्मचारीहरु' }}
                             </div>
                             <div>
-                                <a href="{{ route('employees.create') }}" class="btn btn-sm btn-primary bi bi-plus">कर्मचारी दर्ता</a>
+                                <a href="{{ route('employees.create') }}" class="btn btn-sm btn-primary bi bi-plus">कर्मचारी
+                                    दर्ता</a>
                                 <a class="btn btn-secondary bi bi-funnel " data-toggle="collapse" href="#collapseExample"
                                     role="button" aria-expanded="false" aria-controls="collapseExample">
                                     फिल्टर
@@ -43,9 +44,8 @@
                                         <div class="col-md-3 mb-2">
                                             <label for="name" class="form-label ">नाम</label>
                                             <input type="text" name="name"
-                                                class="form-control @error('name') is-invalid @enderror"
-                                                value="" id="name"
-                                                aria-describedby="name">
+                                                class="form-control @error('name') is-invalid @enderror" value=""
+                                                id="name" aria-describedby="name">
                                             <div class="invalid-feedback">
                                                 @error('name')
                                                     {{ $message }}
@@ -58,8 +58,7 @@
                                             <label for="name_english" class="form-label ">English Name</label>
                                             <input type="text" name="name_english"
                                                 class="form-control @error('name_english') is-invalid @enderror"
-                                                value="" id="name_english"
-                                                aria-describedby="name_english">
+                                                value="" id="name_english" aria-describedby="name_english">
                                             <div class="invalid-feedback">
                                                 @error('name_english')
                                                     {{ $message }}
@@ -72,8 +71,7 @@
                                                 class="form-label text-md-end ">{{ __('पद') }}</label>
                                             <input type="text" name="designation"
                                                 class="form-control @error('designation') is-invalid @enderror"
-                                                value="" id="designation"
-                                                aria-describedby="designation">
+                                                value="" id="designation" aria-describedby="designation">
 
                                             @error('designation')
                                                 <span class="invalid-feedback" role="alert">
@@ -85,9 +83,8 @@
                                             <label for="branch"
                                                 class="form-label text-md-end">{{ __('शाखा / महाशाखा') }}</label>
                                             <input type="text" name="branch"
-                                                class="form-control @error('branch') is-invalid @enderror"
-                                                value="" id="branch"
-                                                aria-describedby="branch">
+                                                class="form-control @error('branch') is-invalid @enderror" value=""
+                                                id="branch" aria-describedby="branch">
 
                                             @error('branch')
                                                 <span class="invalid-feedback" role="alert">
@@ -102,7 +99,7 @@
 
                                             <select class="form-control @error('gender') is-invalid @enderror"
                                                 name="gender" id="gender">
-                                                <option value="" selected >छान्नुहोस्
+                                                <option value="" selected>छान्नुहोस्
                                                 </option>
                                                 <option value="पुरुष">
                                                     पुरुष
@@ -128,8 +125,7 @@
                                                 class="form-label text-md-end">{{ __('इमेल') }}</label>
                                             <input id="name" type="email"
                                                 class="form-control @error('email') is-invalid @enderror" name="email"
-                                                value="" autocomplete="email"
-                                                placeholder="example@domin.com">
+                                                value="" autocomplete="email" placeholder="example@domin.com">
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -141,17 +137,16 @@
                                                 class="form-label text-md-end ">{{ __('मोबाइल नं.') }}</label>
                                             <input id="name" type="tel"
                                                 class="form-control @error('mobile') is-invalid @enderror" name="mobile"
-                                                value="" autocomplete="mobile"
-                                                placeholder="9xxxxxxxxx">
+                                                value="" autocomplete="mobile" placeholder="9xxxxxxxxx">
                                             @error('mobile')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
                                         </div>
-                                  
-                                    
-                                      
+
+
+
                                         <div class="col-md-3 mt-md-auto mb-3 text-right">
                                             <button type="submit" class="btn btn-primary bi bi-search">
                                                 खोजी गर्नुहोस्
@@ -170,6 +165,7 @@
                                     <th>शाखा / महाशाखा</th>
                                     <th>लिङ्ग</th>
                                     <th>सम्पर्क</th>
+                                    <th>स्थिति</th>
                                     <th></th>
                                 </thead>
                                 <tbody id="sortable-employee">
@@ -205,7 +201,14 @@
                                                     {{ $employee->email }}
                                                 </div>
                                             </td>
-                              
+                                            <td>
+                                                <label class="switch">
+                                                    <input type="checkbox" data-id="{{ $employee->id }}"
+                                                        id="employeeStatus" {{ $employee->status ? 'checked' : '' }}>
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </td>
+
 
                                             <td class="text-right">
                                                 <div class="dropdown">
@@ -301,7 +304,94 @@
                     e.preventDefault();
                     persistUpdatedOrder();
                 });
+                $("#employeeStatus").click(function(e) {
+                    var id= $(this).attr('data-id')
+                    changeStatus(id);
+                })
+
+                function changeStatus(myId) {
+                    var url = "{{ route('employee.status', ':id') }}";
+                    url = url.replace(':id', myId);
+                    $.ajax({
+                        url: url,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data) {
+                            var html = '<p>' + data.name + '</p>';
+                            $('#cf-data-container').html(html);
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
+
+                    // alert("Hello");
+                }
             });
         </script>
     @endpush
 @endsection
+
+@push('styles')
+    <style>
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 15px;
+            width: 15px;
+            left: 4px;
+            bottom: 5px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+@endpush

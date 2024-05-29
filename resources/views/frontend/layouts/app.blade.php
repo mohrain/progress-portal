@@ -129,14 +129,12 @@
         <div class="my-4">
             @yield('content')
         </div>
-        
+
         @browser
         @include('frontend.layouts.footer')
         @endbrowser
     </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -147,6 +145,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="{{ asset('assets/nepali-datepicker-v4/js/nepali.datepicker.v4.0.1.min.js') }}" type="text/javascript">
     </script>
+
     <script>
         // Function to toggle color inversion
         function toggleInvertColors() {
@@ -227,6 +226,8 @@
 
     </script>
     @stack('scripts')
+
+
 </body>
 
 </html>

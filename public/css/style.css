@@ -173,25 +173,31 @@ a {
 }
 
 /*============
-* Box 
+* Box
 *=============*/
 .box {
     background-color: #fff;
     border-radius: 5px;
     /* box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.12); */
   }
-  
+
   .box__header {
     padding: 10px 25px;
   }
-  
+
   .box__title {
     font-size: 1.2rem;
     color: #2572bc;
     font-weight: 600;
     font-family: "Noto Sans", sans-serif;
   }
-  
+
   .box__body {
     padding: 15px 25px;
   }
+.title{
+    border-bottom: 1px solid #982121;
+}
+.btn-groups a{
+    border: 1px solid #ccc !important;
+}

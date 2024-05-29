@@ -4,7 +4,7 @@
 <div class="container">
    <x-frontend.news-scroll />
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-9 pb-4">
             {{-- @include('frontend.carousel.index') --}}
             <x-carousel-image-view />
         </div>
@@ -19,8 +19,9 @@
             <x-frontend-provincial-assembly-secretary-view />
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-9">
+    <div class="row" style="position: relative">
+        <div class="col-md-9"></div>
+        <div class="col-md-9 pb-3" style="position: absolute;height: 100%">
             {{-- <div class="bg-theme-color-blue py-3 text-center">
                 सुदूरपश्चिम प्रदेश सभाको परिचय
             </div>
@@ -30,7 +31,7 @@
                 </div>
             </div> --}}
 
-            <div class="card border-0 rounded-2 shadow-sm">
+            <div class="card border-0 rounded-2 shadow-sm h-100">
                 <div class="card-header bg-transparent border-0">
                 </div>
                 <div class="card-body">
@@ -39,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 h-100">
             @include('frontend.layouts.sidebar')
         </div>
     </div>

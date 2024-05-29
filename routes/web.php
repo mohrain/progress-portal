@@ -1,53 +1,60 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\BillCategoryController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SmsController;
 use App\Http\Controllers\BillController;
-use App\Http\Controllers\BillSuggestionController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LiveController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\MediaController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\SuchiController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\MeetingController;
 use App\Http\Controllers\BillTypeController;
-use App\Http\Controllers\CarouselImageController;
-use App\Http\Controllers\CommitteeActivitycontroller;
-use App\Http\Controllers\CommitteeController;
-use App\Http\Controllers\CommitteeDownloadController;
-use App\Http\Controllers\CommitteeDownloadsController;
-use App\Http\Controllers\CommitteeMemberController;
-use App\Http\Controllers\CommitteeNoticecontroller;
-use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ElectionController;
 use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\EmployeeDesignationController;
-use App\Http\Controllers\FiscalYearController;
-use App\Http\Controllers\FrequentlyAskedQuestionController;
 use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\AlbumController;
-use App\Http\Controllers\CommitteeSecretaryController;
-use App\Http\Controllers\CurrentParliamentaryPartyController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\InformationOfficerController;
 use App\Http\Controllers\LanguageController;
-use App\Http\Controllers\LiveController;
-use App\Http\Controllers\MeetingController;
-use App\Http\Controllers\MemberController;
 use App\Http\Controllers\MinistryController;
-use App\Http\Controllers\ModalImageController;
-use App\Http\Controllers\OfficeBearerController;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\ParliamentaryPartyController;
-use App\Http\Controllers\PhotoController;
-use App\Http\Controllers\PostCategoryController;
-use App\Http\Controllers\PostCategoryMenuController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProvinceController;
+use App\Http\Controllers\CommitteeController;
+use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\FiscalYearController;
+use App\Http\Controllers\ModalImageController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\InformationController;
+use App\Http\Controllers\BillCategoryController;
+use App\Http\Controllers\OfficeBearerController;
+use App\Http\Controllers\PostCategoryController;
+use App\Http\Controllers\CarouselImageController;
+use App\Http\Controllers\BillSuggestionController;
+use App\Http\Controllers\CommitteeMemberController;
+use App\Http\Controllers\CommitteeNoticecontroller;
+use App\Http\Controllers\DepartmentAudioController;
+use App\Http\Controllers\DepartmentVideoController;
+use App\Http\Controllers\PostCategoryMenuController;
+use App\Http\Controllers\CommitteeActivitycontroller;
+use App\Http\Controllers\CommitteeDownloadController;
+use App\Http\Controllers\CommitteeDownloadsController;
+use App\Http\Controllers\CommitteeSecretaryController;
+use App\Http\Controllers\DepartmentActivityController;
+use App\Http\Controllers\InformationOfficerController;
+use App\Http\Controllers\ParliamentaryPartyController;
+use App\Http\Controllers\EmployeeDesignationController;
+use App\Http\Controllers\DepartmentPublicationController;
+use App\Http\Controllers\FrequentlyAskedQuestionController;
+use App\Http\Controllers\CurrentParliamentaryPartyController;
 use App\Http\Controllers\ProvincialAssemblyLibraryController;
-use App\Http\Controllers\SmsController;
-use App\Http\Controllers\SuchiController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\VideoController;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 // Auth::routes(['register' => false]);
 Route::get('login', [LoginController::class, 'showLoginForm'])
@@ -99,6 +106,7 @@ Route::get('language/{locale}', [LanguageController::class, 'setLocale'])->name(
 
 Route::get('provincial-assembly-library', [ProvincialAssemblyLibraryController::class, 'frontendIndex'])->name('provincial-assembly-library.frontendIndex');
 Route::get('provincial-assembly-library/{provincialAssemblyLibrary}', [ProvincialAssemblyLibraryController::class, 'show'])->name('provincial-assembly-library.show');
+
 
 
 Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
@@ -406,7 +414,59 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('provincial-assembly-library/{provincialAssemblyLibrary}/edit', [ProvincialAssemblyLibraryController::class, 'edit'])->name('provincial-assembly-library.edit');
     Route::put('provincial-assembly-library/{provincialAssemblyLibrary}', [ProvincialAssemblyLibraryController::class, 'update'])->name('provincial-assembly-library.update');
     Route::delete('provincial-assembly-library/{provincialAssemblyLibrary}', [ProvincialAssemblyLibraryController::class, 'destroy'])->name('provincial-assembly-library.destroy');
+
+    Route::get('departments/list', [DepartmentController::class, 'list'])->name('department.list');
+    Route::get('departments/create', [DepartmentController::class, 'create'])->name('department.create');
+    Route::delete('departments/{slug}/delete', [DepartmentController::class, 'deleteDepartment'])->name('department.delete');
+    Route::get('departments/{slug}/view', [DepartmentController::class, 'edit'])->name('department.edit');
+    Route::put('departments/{id}/update', [DepartmentController::class, 'update'])->name('department.update');
+    Route::get('departments/{slug}/work-duty-authority', [DepartmentController::class, 'duty'])->name('department.duty');
+    Route::put('departments/{id}/work-duty-authority/update', [DepartmentController::class, 'workUpdate'])->name('department.work.update');
+    Route::get('departments/{slug}/notices', [DepartmentController::class, 'notices'])->name('department.notices');
+    Route::get('departments/{slug}/notices/create', [DepartmentController::class, 'noticesCreate'])->name('department.notices.create');
+    Route::get('departments/{slug}/activities', [DepartmentController::class, 'activity'])->name('department.activity');
+    Route::get('departments/{slug}/activities/create', [DepartmentController::class, 'activityCreate'])->name('department.activity.create');
+    Route::get('departments/{slug}/publications', [DepartmentController::class, 'publications'])->name('department.publications');
+    Route::get('departments/{slug}/publications/create', [DepartmentController::class, 'publicationsCreate'])->name('department.publications.create');
+    Route::get('departments/{slug}/audio', [DepartmentController::class, 'media'])->name('department.media');
+    Route::get('departments/{slug}/video', [DepartmentController::class, 'video'])->name('department.video');
+    Route::get('departments/branch', [DepartmentController::class, 'branch'])->name('department.branch');
+
+    Route::post('information/store',[InformationController::class,'store'])->name('information.store');
+    Route::get('departments/{slug}/notices/{id}/edit',[InformationController::class,'edit'])->name('information.edit');
+    Route::put('departments/{slug}/notices/{id}/update',[InformationController::class,'update'])->name('information.update');
+    Route::delete('departments/{id}/delete/information',[InformationController::class,'delete'])->name('information.delete');
+
+    Route::post('department/activity/store',[DepartmentActivityController::class,'store'])->name('department.activity.store');
+    Route::get('departments/activity/{slug}/{id}/edit',[DepartmentActivityController::class,'edit'])->name('department.activity.edit');
+    Route::put('departments/activity/{slug}/{id}/update',[DepartmentActivityController::class,'update'])->name('department.activity.update');
+    Route::delete('departments/activity/{id}/delete/department',[DepartmentActivityController::class,'delete'])->name('department.activity.delete');
+
+    Route::post('department/publicationstore',[DepartmentPublicationController::class,'store'])->name('department.publication.store');
+    Route::get('departments/publication{slug}{id}/edit',[DepartmentPublicationController::class,'edit'])->name('department.publication.edit');
+    Route::put('departments/publication{slug}/{id}/update',[DepartmentPublicationController::class,'update'])->name('department.publication.update');
+    Route::delete('departments/activity/{id}/delete/department',[DepartmentPublicationController::class,'delete'])->name('department.publication.delete');
+
+    Route::post('department/{slug}/media',[DepartmentAudioController::class,'store'])->name('media.store');
+    Route::delete('department/{slug}/media/{id}/delete',[DepartmentAudioController::class,'delete'])->name('media.delete');
+    Route::post('department/{slug}/video',[DepartmentVideoController::class,'store'])->name('video.store');
+    Route::delete('department/{slug}/video/{id}/delete',[DepartmentVideoController::class,'delete'])->name('video.delete');
+
+    Route::get('employee/status/{id}', [EmployeeController::class, 'changeStatus'])->name('employee.status');
 });
+Route::get('departments', [DepartmentController::class, 'index'])->name('department.index');
+Route::post('departments', [DepartmentController::class, 'store'])->name('department.store');
+
+Route::get('departments/{slug}', [DepartmentController::class, 'introFront'])->name('department.introFront');
+Route::get('departments/{slug}/work-duty-authority', [DepartmentController::class, 'workFront'])->name('department.workFront');
+Route::get('departments/{slug}/notices', [DepartmentController::class, 'noticeFront'])->name('department.noticeFront');
+Route::get('departments/{slug}/notices/{id}/detail', [InformationController::class, 'detail'])->name('information.detail');
+Route::get('departments/{slug}/activities', [DepartmentActivityController::class, 'activiityFront'])->name('department.activiityFront');
+Route::get('departments/{slug}/activity/{id}/detail', [DepartmentActivityController::class, 'detail'])->name('activity.detail');
+Route::get('departments/{slug}/publication', [DepartmentPublicationController::class, 'publicationFront'])->name('department.publicationFront');
+Route::get('departments/{slug}/publication/{id}/detail', [DepartmentPublicationController::class, 'detail'])->name('publication.detail');
+Route::get('departments/{slug}/audio', [DepartmentAudioController::class, 'audioFront'])->name('department.audioFront');
+Route::get('departments/{slug}/video', [DepartmentVideoController::class, 'videoFront'])->name('department.videoFront');
 
 // Suchi Print
 //   Route::get('suchi-print-application/{suchi}', [SuchiPrintController::class, 'index'])->name('suchi-print-application');

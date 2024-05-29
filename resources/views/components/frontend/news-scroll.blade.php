@@ -3,7 +3,7 @@
         ताजा अपडेटहरु
     </div>
     <div class="bg-white flex-grow-1 py-2 px-2 rounded-end">
-        <marquee direction="left" style="line-height: 1;">
+        <marquee onmouseover="this.stop();" onmouseout="this.start();" direction="left" style="line-height: 1;">
             @foreach ($news as $item)
                 <a href="{{ route('posts.show', $item) }}" class="me-3">
                     <i class="bi bi-forward-fill">{{ $item->title }}</i>

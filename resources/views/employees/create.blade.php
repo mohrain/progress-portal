@@ -170,8 +170,8 @@
 
                                 <div class="col-md-3 text-center order-lg-1 order-0 my-auto">
                                     <div class="mb-2">
-                                        <label for="newProfilePhoto" class="form-label ">प्रोफाइल फोटो (< 2 MB
-                                                photo) </label>
+                                        <label for="newProfilePhoto" class="form-label ">प्रोफाइल फोटो (< 2 MB photo)
+                                                </label>
                                                 <div class="mb-2 align-self-center">
                                                     <img id="newProfilePhotoPreview"
                                                         src="{{ $employee->profile ? asset('storage/' . $employee->profile) : asset('assets/img/no-image.png') }}"
@@ -389,32 +389,34 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                        <div class="col-md-3 mb-2">
-                                            <label for="joining_date" class="form-label">सुरु मिति</label>
-                                            <input type="text" name="joining_date"
-                                                class="form-control @error('joining_date') is-invalid @enderror"
-                                                value="{{ old('joining_date', $employee->joining_date) }}" id="joining_date"
-                                                aria-describedby="joining_date">
-                                            <div class="invalid-feedback">
-                                                @error('joining_date')
-                                                    {{ $message }}
-                                                @enderror
+                                        @if (!$employee->id)
+                                            <div class="col-md-3 mb-2">
+                                                <label for="joining_date" class="form-label">सुरु मिति</label>
+                                                <input type="text" name="joining_date"
+                                                    class="form-control @error('joining_date') is-invalid @enderror"
+                                                    value="{{ old('joining_date', $employee->joining_date) }}"
+                                                    id="joining_date" aria-describedby="joining_date">
+                                                <div class="invalid-feedback">
+                                                    @error('joining_date')
+                                                        {{ $message }}
+                                                    @enderror
 
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3 mb-2">
-                                            <label for="end_date" class="form-label">समाप्त मिति</label>
-                                            <input type="text" name="end_date"
-                                                class="form-control @error('end_date') is-invalid @enderror"
-                                                value="{{ old('end_date', $employee->end_date) }}" id="end_date"
-                                                aria-describedby="end_date">
-                                            <div class="invalid-feedback">
-                                                @error('end_date')
-                                                    {{ $message }}
-                                                @enderror
+                                            <div class="col-md-3 mb-2">
+                                                <label for="end_date" class="form-label">समाप्त मिति</label>
+                                                <input type="text" name="end_date"
+                                                    class="form-control @error('end_date') is-invalid @enderror"
+                                                    value="{{ old('end_date', $employee->end_date) }}" id="end_date"
+                                                    aria-describedby="end_date">
+                                                <div class="invalid-feedback">
+                                                    @error('end_date')
+                                                        {{ $message }}
+                                                    @enderror
 
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-md-12 order-lg-4 order-4">
@@ -446,8 +448,8 @@
                 ndpYearCount: 200,
                 // readOnlyInput: true
             });
-               /* Select your element */
-               var elm = document.getElementById("joining_date");
+            /* Select your element */
+            var elm = document.getElementById("joining_date");
             /* Initialize Datepicker with options */
             elm.nepaliDatePicker({
                 ndpYear: true,

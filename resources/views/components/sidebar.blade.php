@@ -32,7 +32,7 @@
                     <span class="text-success"><i class="bi bi-list-task"></i></span>पोस्टहरु
                 </a>
             </li>
-            
+
             <li class="nav-item {{ setActive('pages.*') }}">
                 <a href="{{ route('pages.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="bi bi-file-earmark"></i></span>पेजहरु
@@ -48,7 +48,7 @@
                     <span class="text-success"><i class="bi bi-app-indicator"></i></span>मोडाल फोटोहरु
                 </a>
             </li>
-        
+
             <li class="nav-item {{ setActive('committee.*') }}">
                 <a href="{{ route('committee.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="fa fa-plus"></i></span>समिति
@@ -143,7 +143,11 @@
                 </a>
             </li>
             @endhasrole --}}
-
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('department.list')}}">
+                    <span class="text-success"><i class="fas fa-cog"></i></span>सचिवालयका शाखाहरु
+                </a>
+            </li>
             @can('user.*')
                 <li
                     class="nav-item {{ setActive('user.index') }} {{ setActive('user.create') }} {{ setActive('user.edit') }}">
