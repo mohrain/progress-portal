@@ -26,14 +26,16 @@ class CommitteeController extends Controller
         ]);
     }
 
-    public function notices(Committee $committee)
+    public function notices(Committee $committee,Request $request)
     {
+        // return Notice::get();
         $notices = $committee
-            ->notices()
-            ->when(request()->filled('start_date'), fn($q) => $q->whereDate('created_at', '>=', Carbon::parse(bs_to_ad(request('start_date')))->startOfDay()))
-            ->when(request()->filled('end_date'), fn($q) => $q->whereDate('created_at', '<=', Carbon::parse(bs_to_ad(request('end_date')))->endOfDay()))
-            ->when(request()->filled('keyword'), fn($q) => $q->where('title', 'like', '%' . request('keyword') . '%'))
-            ->get();
+        ->notices()
+        ->when(request()->filled('start_date'), fn($q) => $q->whereDate('created_at', '>=', Carbon::parse(bs_to_ad(request('start_date')))->startOfDay()))
+        ->when(request()->filled('end_date'), fn($q) => $q->whereDate('created_at', '<=', Carbon::parse(bs_to_ad(request('end_date')))->endOfDay()))
+        ->when(request()->filled('keywords'), fn($q) => $q->where('title', 'like', '%' . request('keywords') . '%'))
+        ->get();
+        // return $notices;
 
         return view('frontend.committee.notices', [
             'title' => $committee->name,
@@ -56,7 +58,7 @@ class CommitteeController extends Controller
             ->activities()
             ->when(request()->filled('start_date'), fn($q) => $q->whereDate('created_at', '>=', Carbon::parse(bs_to_ad(request('start_date')))->startOfDay()))
             ->when(request()->filled('end_date'), fn($q) => $q->whereDate('created_at', '<=', Carbon::parse(bs_to_ad(request('end_date')))->endOfDay()))
-            ->when(request()->filled('keyword'), fn($q) => $q->where('title', 'like', '%' . request('keyword') . '%'))
+            ->when(request()->filled('keywords'), fn($q) => $q->where('title', 'like', '%' . request('keywords') . '%'))
             ->get();
 
         return view('frontend.committee.activities', [

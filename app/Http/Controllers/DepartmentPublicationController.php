@@ -67,8 +67,20 @@ class DepartmentPublicationController extends Controller
         return view('deartments.fronts.noticeDetail',compact('department','publication'));
     }
 
-    public function publicationFront($slug){
+    public function publicationFront($slug, Request $request){
         $department=Department::with('publication')->where('slug',$slug)->first();
-        return view('deartments.fronts.publication',compact('department'));
+
+        $publication=DepartmentPublication::where('department_id',$department->id)
+        ->when($request->filled('start_date'), function ($query) {
+            $query->where('created_at', '>=',  bs_to_ad(request('start_date')));
+        })
+        ->when($request->filled('end_date'), function ($query) {
+            $query->where('created_at', '<=',  bs_to_ad(request('end_date')));
+        })
+        ->when($request->filled('keywords'), function ($query) {
+            $query->where('name', 'like', '%'.(request('keywords')).'%');
+        });
+        $publications=$publication->get();
+        return view('deartments.fronts.publication',compact('department','publications'));
     }
 }

@@ -121,16 +121,23 @@ a {
 }
 
 .footer {
-    background-color: #14468c;
-    color: #fff;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    /* background-color: #14468c; */
+    /* color: #fff; */
+    padding: 20px 30px;
 }
 .footer a {
-    color: #fff;
+    color: #000;
     text-decoration: none;
 }
-
+.footer-logo{
+    height: 60px;
+}
+.important-links i{
+    font-size: 23px;
+}
+.important-links a{
+    font-size: 17px;
+}
 .card-img-top {
     height: 120px;
     width: auto;

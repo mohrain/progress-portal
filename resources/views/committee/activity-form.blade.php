@@ -7,6 +7,7 @@
 
     <section class="box mt-4">
         <div class="box__body">
+            <div class="box__title mb-3">गतिविधिहरु <i>({{$committee->name}})</i></div>
             <form action="{{ $updateMode ? route('committee.activities.update', [$committee, $activity]) : route('committee.activities.store', $committee) }}" method="POST">
                 @csrf
                 @if($updateMode)

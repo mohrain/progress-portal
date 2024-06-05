@@ -7,7 +7,7 @@
 
     <section class="box mt-4">
         <div class="box__header">
-            <div class="box__title">परिचय</div>
+            <div class="box__title">परिचय <i>({{$committee->name}})</i></div>
         </div>
         <div class="box__body">
             <form action="{{ route('committee.save-about', $committee) }}" method="POST">

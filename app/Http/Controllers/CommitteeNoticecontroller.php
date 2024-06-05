@@ -10,7 +10,7 @@ class CommitteeNoticecontroller extends Controller
 {
     public function notices(Committee $committee)
     {
-        $committee->load('notices');
+       $committee->load('notices');
 
         return view('committee.notices', [
             'committee' => $committee,

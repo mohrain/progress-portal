@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="col-md-3 text-center">
                                     <div class="form-group">
-                                        <input type="search" name="keywords" class="form-control" value="{{ request('keyword') }}" placeholder="समिति सूचना खोज्नुहोस्">
+                                        <input type="search" name="keywords" class="form-control" value="{{ request('keyword') }}" placeholder="समिति गतिविधिहरु खोज्नुहोस्">
                                     </div>
                                 </div>
                                 <div class="col-md-3 text-center">

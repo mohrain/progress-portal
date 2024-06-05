@@ -166,6 +166,7 @@
                     <span class="text-success"></span>SMS
                 </a>
             </li>
+
             <li class="nav-item {{ setActive('post-categories.index') }}">
                 <a class="nav-link" href="{{ route('post-categories.index') }}">
                     <span class="text-success"></span>पोस्ट प्रकार
@@ -204,6 +205,11 @@
             <li class="nav-item {{ setActive('elections.index') }}">
                 <a class="nav-link" href="{{ route('elections.index') }}">
                     <span class="text-success"></span> निर्वाचन वर्षहरू
+                </a>
+            </li>
+            <li class="nav-item {{ setActive('federal.index') }}">
+                <a class="nav-link" href="{{ route('federal.index') }}">
+                    <span class="text-success"></span>संघीय संसद सचिवालय
                 </a>
             </li>
             @hasanyrole('super-admin|admin')

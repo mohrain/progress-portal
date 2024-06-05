@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Employee;
 use App\Models\Department;
 use App\Models\Information;
 use App\Models\OfficeBearer;
 use Illuminate\Http\Request;
 use App\Models\DepartmentAudio;
+use App\Models\DepartmentVideo;
 use App\Models\DepartmentActivity;
 use App\Models\DepartmentPublication;
-use App\Models\DepartmentVideo;
+use App\Models\Federalparliment;
 
 class DepartmentController extends Controller
 {
     public function index(){
         $departments=Department::orderBy('order','desc')->get();
-        return view('deartments.fronts.index',compact('departments'));
+        $federalparliment=Federalparliment::first();
+        return view('deartments.fronts.index',compact('departments','federalparliment'));
     }
 
     public function list(){
@@ -145,10 +148,23 @@ class DepartmentController extends Controller
         return view('deartments.fronts.work',compact('department'));
     }
 
-    public function noticeFront($slug){
+    public function noticeFront($slug,Request $request){
         $department=Department::with('information')->where('slug',$slug)->first();
 
-        return view('deartments.fronts.notice',compact('department'));
+        $information=Information::where('department_id',$department->id)
+        ->when($request->filled('start_date'), function ($query) {
+            $query->where('created_at', '>=',  bs_to_ad(request('start_date')));
+        })
+        ->when($request->filled('end_date'), function ($query) {
+            $query->where('created_at', '<=',  bs_to_ad(request('end_date')));
+        })
+        ->when($request->filled('keywords'), function ($query) {
+            $query->where('name', 'like', '%'.(request('keywords')).'%');
+        });
+        $informations=$information->get();
+
+        // return $startDate = date($startDate);
+        return view('deartments.fronts.notice',compact('department','informations'));
     }
 
     public function deleteDepartment($slug){

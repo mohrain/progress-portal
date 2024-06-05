@@ -6,6 +6,7 @@ use App\Models\Download;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 
 class DownloadController extends Controller
 {
@@ -73,5 +74,11 @@ class DownloadController extends Controller
         $download->delete();
 
         return redirect()->back();
+    }
+
+    public function footerDownload($file)
+    {
+        $file = "./downloadable/".$file;
+        return Response::download($file);
     }
 }

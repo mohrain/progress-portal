@@ -7,7 +7,7 @@
 
     <section class="box mt-4">
         <div class="box__header">
-            <div class="box__title">काम, कर्तव्य र अधिकार</div>
+            <div class="box__title">काम, कर्तव्य र अधिकार <i>({{$committee->name}})</i></div>
         </div>
         <div class="box__body">
             <form action="{{ route('committee.save-responsibility', $committee) }}" method="POST">

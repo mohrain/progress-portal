@@ -8,7 +8,7 @@
         <section class="box mt-4">
             <div class="box__header">
                 <div class="d-flex justify-content-between align-items-center">
-                    <div class="box__title">{{ $updateMode ? 'सदस्य सम्पादन गर्नुहोस्' : 'नयाँ सदस्य थप्नुहोस्' }}</div>
+                    <div class="box__title">{{ $updateMode ? 'सदस्य सम्पादन गर्नुहोस्' : 'नयाँ सदस्य थप्नुहोस्' }} <i>({{$committee->name}})</i></div>
                 </div>
             </div>
             <div class="box__body">

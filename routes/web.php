@@ -42,11 +42,13 @@ use App\Http\Controllers\CommitteeMemberController;
 use App\Http\Controllers\CommitteeNoticecontroller;
 use App\Http\Controllers\DepartmentAudioController;
 use App\Http\Controllers\DepartmentVideoController;
+use App\Http\Controllers\FederalparlimentController;
 use App\Http\Controllers\PostCategoryMenuController;
 use App\Http\Controllers\CommitteeActivitycontroller;
 use App\Http\Controllers\CommitteeDownloadController;
 use App\Http\Controllers\CommitteeDownloadsController;
 use App\Http\Controllers\CommitteeSecretaryController;
+use App\Http\Controllers\CommitteeVideoController;
 use App\Http\Controllers\DepartmentActivityController;
 use App\Http\Controllers\InformationOfficerController;
 use App\Http\Controllers\ParliamentaryPartyController;
@@ -248,6 +250,22 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('committees/{committee}/secretary', [CommitteeSecretaryController::class, 'secretary'])->name('committee.secretary');
     Route::post('committees/{committee}/secretary', [CommitteeSecretaryController::class, 'store'])->name('committee.secretary.store');
     Route::delete('committees/{committee}/secretary/{committeeSecretary}', [CommitteeSecretaryController::class, 'destroy'])->name('committee.secretary.destroy');
+
+    Route::get('committees/{committee}/audio', [CommitteeSecretaryController::class, 'audio'])->name('committee.audio');
+    Route::get('committees/{committee}/audio/create', [CommitteeSecretaryController::class, 'audioCreate'])->name('committee.audio.create');
+    Route::post('committees/{committee}/audio/store', [CommitteeSecretaryController::class, 'audioStore'])->name('committee.store.audio');
+    Route::get('committees/{committee}/audio/{audio}', [CommitteeSecretaryController::class, 'audioEdit'])->name('committee.edit.audio');
+    Route::put('committees/{committee}/audio/{audio}/update', [CommitteeSecretaryController::class, 'audioUpdate'])->name('committee.update.audio');
+    Route::delete('committees/audio/{audio}/delete', [CommitteeSecretaryController::class, 'audioDelete'])->name('committee.delete.audio');
+
+    Route::get('committees/{committee}/video', [CommitteeVideoController::class, 'index'])->name('committee.video.index');
+    Route::get('committees/{committee}/video/create', [CommitteeVideoController::class, 'videoCreate'])->name('committee.video.create');
+    Route::post('committees/{committee}/video/store', [CommitteeVideoController::class, 'videoStore'])->name('committee.store.video');
+    Route::get('committees/{committee}/video/{video}', [CommitteeVideoController::class, 'videoEdit'])->name('committee.edit.video');
+    Route::put('committees/{committee}/video/{video}/update', [CommitteeVideoController::class, 'videoUpdate'])->name('committee.update.video');
+    Route::delete('committees/video/{video}/delete', [CommitteeVideoController::class, 'videoDelete'])->name('committee.delete.video');
+
+
 
     // Downloads
     Route::post('downloads', [DownloadController::class, 'store'])->name('downloads.store');
@@ -453,6 +471,10 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::delete('department/{slug}/video/{id}/delete',[DepartmentVideoController::class,'delete'])->name('video.delete');
 
     Route::get('employee/status/{id}', [EmployeeController::class, 'changeStatus'])->name('employee.status');
+
+    Route::get('federal-parliament-secretariat', [FederalparlimentController::class, 'index'])->name('federal.index');
+    Route::post('federal-parliament-secretariat', [FederalparlimentController::class, 'store'])->name('federal.store');
+
 });
 Route::get('departments', [DepartmentController::class, 'index'])->name('department.index');
 Route::post('departments', [DepartmentController::class, 'store'])->name('department.store');
@@ -460,6 +482,7 @@ Route::post('departments', [DepartmentController::class, 'store'])->name('depart
 Route::get('departments/{slug}', [DepartmentController::class, 'introFront'])->name('department.introFront');
 Route::get('departments/{slug}/work-duty-authority', [DepartmentController::class, 'workFront'])->name('department.workFront');
 Route::get('departments/{slug}/notices', [DepartmentController::class, 'noticeFront'])->name('department.noticeFront');
+Route::get('departments/{slug}/notices/filter', [DepartmentController::class, 'noticeFilter'])->name('department.noticeFilter');
 Route::get('departments/{slug}/notices/{id}/detail', [InformationController::class, 'detail'])->name('information.detail');
 Route::get('departments/{slug}/activities', [DepartmentActivityController::class, 'activiityFront'])->name('department.activiityFront');
 Route::get('departments/{slug}/activity/{id}/detail', [DepartmentActivityController::class, 'detail'])->name('activity.detail');
@@ -467,6 +490,7 @@ Route::get('departments/{slug}/publication', [DepartmentPublicationController::c
 Route::get('departments/{slug}/publication/{id}/detail', [DepartmentPublicationController::class, 'detail'])->name('publication.detail');
 Route::get('departments/{slug}/audio', [DepartmentAudioController::class, 'audioFront'])->name('department.audioFront');
 Route::get('departments/{slug}/video', [DepartmentVideoController::class, 'videoFront'])->name('department.videoFront');
+Route::get('download/{file}', [DownloadController::class, 'footerDownload'])->name('footerDownload');
 
 // Suchi Print
 //   Route::get('suchi-print-application/{suchi}', [SuchiPrintController::class, 'index'])->name('suchi-print-application');

@@ -8,7 +8,7 @@
         <section class="box mt-4">
             <div class="box__header">
                 <div class="d-flex justify-content-between align-items-center">
-                    <div class="box__title">गतिविधिहरु</div>
+                    <div class="box__title">गतिविधिहरु <i>({{$committee->name}})</i></div>
                     <div>
                         <a href="{{ route('committee.activities.create', $committee) }}" class="btn btn-primary">Add New</a>
                     </div>

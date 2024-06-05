@@ -64,10 +64,22 @@ class DepartmentActivityController extends Controller
         $department->delete();
         return redirect()->back()->with('success', "गतिबिधि सफलतापुर्बक हटाइयो");
     }
-    public function activiityFront($slug)
+    public function activiityFront($slug,Request $request)
     {
         $department = Department::with('activity')->where('slug', $slug)->first();
-        return view('deartments.fronts.activity', compact('department'));
+
+        $activity=DepartmentActivity::where('department_id',$department->id)
+        ->when($request->filled('start_date'), function ($query) {
+            $query->where('created_at', '>=',  bs_to_ad(request('start_date')));
+        })
+        ->when($request->filled('end_date'), function ($query) {
+            $query->where('created_at', '<=',  bs_to_ad(request('end_date')));
+        })
+        ->when($request->filled('keywords'), function ($query) {
+            $query->where('name', 'like', '%'.(request('keywords')).'%');
+        });
+        $activities=$activity->get();
+        return view('deartments.fronts.activity', compact('department','activities'));
     }
 
     public function detail($slug,$id){

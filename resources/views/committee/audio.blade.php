@@ -8,9 +8,9 @@
     <section class="box mt-4">
         <div class="box__header">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="box__title">समिति सदस्यहरु <i>({{$committee->name}})</i></div>
+                <div class="box__title">अडियो <i>({{$committee->name}})</i></div>
                 <div>
-                    <a href="{{ route('committee.members.create', $committee) }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ route('committee.audio.create', $committee) }}" class="btn btn-primary">Add New</a>
                 </div>
             </div>
         </div>
@@ -19,12 +19,11 @@
             <table class="table table-bordered table-hover">
                 <tr>
                     <td>क्र स</td>
-                    <td>फोटो</td>
                     <td>नाम</td>
-                    <td>पद</td>
+                    <td>अडियो</td>
                     <td></td>
                 </tr>
-                @foreach ($committeeMembers as $committeeMember)
+                {{-- @foreach ($audios as $committeeMember)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>
@@ -52,6 +51,32 @@
                         </div>
                     </td>
                 </tr>
+                @endforeach --}}
+
+                @foreach ($audios as $audio)
+                    <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td>{{$audio->name}}</td>
+                        <td>
+                            <audio controls>
+                                <source src="{{ asset('storage') . '/' . $audio->audio }}" type="audio/mpeg">
+                            </audio>
+                        </td>
+                        <td>
+                            <div class="d-flex">
+
+                                <a href="{{ route('committee.edit.audio', [$committee, $audio]) }}" class="btn btn-primary btn-sm mx-2">Edit</a>
+                                <form action="{{ route('committee.delete.audio', [$audio]) }}" method="post">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm" type="submit"
+                                        onclick="return confirm('के तपाई सुनिचित गर्नुहुन्छ  ?')">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
                 @endforeach
             </table>
         </div>

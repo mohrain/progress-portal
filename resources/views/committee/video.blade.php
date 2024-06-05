@@ -8,28 +8,37 @@
         <section class="box mt-4">
             <div class="box__header">
                 <div class="d-flex justify-content-between align-items-center">
-                    <div class="box__title">सूचनाहरु <i>({{$committee->name}})</i></div>
+                    <div class="box__title">भिडिओ <i>({{ $committee->name }})</i></div>
                     <div>
-                        <a href="{{ route('committee.notices.create', $committee) }}" class="btn btn-primary">Add New</a>
+                        <a href="{{ route('committee.video.create', $committee) }}" class="btn btn-primary">Add New</a>
                     </div>
                 </div>
             </div>
             <div class="box__body">
+
                 <table class="table table-bordered table-hover">
                     <tr>
                         <td>क्र स</td>
-                        <td>शीर्षक</td>
+                        <td>नाम</td>
+                        <td>भिडिओ</td>
                         <td></td>
                     </tr>
-                    @foreach ($committee->notices as $notice)
+
+                    @foreach ($videos as $audio)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $notice->title }}</td>
+                            <td>{{ $audio->name }}</td>
+                            <td>
+                                <a href="{{ $audio->url }}">
+                                    <img src="{{asset('storage').'/'.$audio->thumbnail}}" alt="adsas" height="50px">
+                                </a>
+                            </td>
                             <td>
                                 <div class="d-flex">
-                                    <a href="{{ route('committee.notices.edit', [$committee, $notice]) }}"
-                                        class="btn btn-primary btn-sm mr-2">Edit</a>
-                                    <form action="{{ route('committee.notices.destroy', [$committee, $notice]) }}"
+
+                                    <a href="{{ route('committee.edit.video', [$committee, $audio]) }}"
+                                        class="btn btn-primary btn-sm mx-2">Edit</a>
+                                    <form action="{{ route('committee.delete.video', [$audio]) }}"
                                         method="post">
                                         @method('delete')
                                         @csrf
@@ -38,8 +47,6 @@
                                             Delete
                                         </button>
                                     </form>
-                                    <a href="{{ route('committee.notices.sms', [$committee, $notice]) }}"
-                                        class="btn btn-primary btn-sm ml-2">Send SMS</a>
                                 </div>
                             </td>
                         </tr>

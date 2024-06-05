@@ -1,9 +1,15 @@
 <div class="committee-wizard-menu">
     @foreach ($menus as $menu)
-    <a href="{{ route($menu['route_name'], $menu['route_param']) }}" @class(['active'=> $menu['active']])>
-        <div class="work-description ">{!! $menu['icon'] ?? null !!} {{ $menu['title'] }}</div>
-    </a>
+        <a href="{{ route($menu['route_name'], $menu['route_param']) }}" @class(['active' => $menu['active']])>
+            <div class="work-description ">{!! $menu['icon'] ?? null !!} {{ $menu['title'] }}</div>
+        </a>
     @endforeach
+    <a href="{{ route('committee.audio', $committee) }}"   class=" {{ Route::getCurrentRoute()->getName() == 'committee.audio' ? 'active' : '' }}">
+        <div class="work-description "><i class="fa fa-headphones"></i> अडियो</div>
+    </a>
+    <a href="{{ route('committee.video.index', $committee) }}"  class=" {{ Route::getCurrentRoute()->getName() == 'committee.video.index' ? 'active' : '' }}">
+        <div class="work-description "><i class="fa fa-film"></i> भिडियो</div>
+    </a>
     {{-- <a href="{{ route('committee.show-about-form', $committee) }}" class="active">
     <div class="work-description "><i class="fa fa-info-circle"></i> परिचय</div>
     </a>
@@ -31,39 +37,38 @@
 </div>
 
 @push('styles')
-<style>
-    .committee-wizard-menu {
-        display: flex;
-        border-radius: 4px;
-    }
+    <style>
+        .committee-wizard-menu {
+            display: flex;
+            border-radius: 4px;
+        }
 
-    .committee-wizard-menu a {
-        background-color: #0054a6;
-        padding: 10px 15px;
-        color: #fff;
-        border-right: 1.8px dotted #fff;
-    }
+        .committee-wizard-menu a {
+            background-color: #0054a6;
+            padding: 10px 15px;
+            color: #fff;
+            border-right: 1.8px dotted #fff;
+        }
 
-    .committee-wizard-menu a i {
-        margin-right: 10px;
-        opacity: .9;
-    }
+        .committee-wizard-menu a i {
+            margin-right: 10px;
+            opacity: .9;
+        }
 
-    .committee-wizard-menu a:first-of-type {
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-    }
+        .committee-wizard-menu a:first-of-type {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
 
-    .committee-wizard-menu a:last-of-type {
-        border-right: none;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-    }
+        .committee-wizard-menu a:last-of-type {
+            border-right: none;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
 
-    .committee-wizard-menu a.active {
-        background-color: red;
-        color: #fff;
-    }
-
-</style>
+        .committee-wizard-menu a.active {
+            background-color: red;
+            color: #fff;
+        }
+    </style>
 @endpush

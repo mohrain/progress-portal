@@ -8,7 +8,7 @@
     <section class="box mt-4">
         <div class="box__header">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="box__title">प्रकाशनहरु/डाउनलोडस्</div>
+                <div class="box__title">प्रकाशनहरु/डाउनलोडस् <i>({{$committee->name}})</i></div>
             </div>
         </div>
         <div class="box__body">

@@ -8,7 +8,7 @@
         <section class="box mt-4">
             <div class="box__header">
                 <div class="d-flex justify-content-between align-items-center">
-                    <div class="box__title">समिति सचिव</div>
+                    <div class="box__title">समिति सचिव <i>({{$committee->name}})</i></div>
                     @empty($committeeSecretary)
                     @else
                         <form action="{{ route('committee.secretary.destroy', [$committee, $committeeSecretary]) }}" method="post">
