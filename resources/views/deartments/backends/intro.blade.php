@@ -2,6 +2,11 @@
 
 @section('departmentContent')
 <div class="card mt-2">
+    <div class="box__header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="box__title">साखाको परिचय <i>({{$department->name}})</i></div>
+        </div>
+    </div>
     <div class="card-body">
         <form action="{{route('department.update',$department->id)}}" method="POST" class="form">
             @csrf
@@ -13,8 +18,8 @@
                 <input type="text" id="input-name" name="name" class="form-control" autocomplete="off"
                     value="{{ old('name',$department->name) }}">
             </div>
-            <div class="form-group">
-                <label>पदाधिकारी</label>
+            {{-- <div class="form-group">
+                <label>साखा प्रमुख </label>
                 <select class="form-control text-capitalize required @error('employee_id') is-invalid @enderror"
                     name="employee_id" id="employee_id">
                     <option value="">छान्नुहोस्</option>
@@ -27,7 +32,7 @@
                         </option>
                     @endforeach
                 </select>
-            </div>
+            </div> --}}
             <div class="form-group">
                 <label for="input-name">सचिवालयका शाखा परिचय</label>
                 <textarea name="description" class="form-control" id="summernote" cols="30" rows="10" placeholder="Text Message">{{$department->description}}</textarea>

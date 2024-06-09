@@ -3,7 +3,9 @@
 @section('content')
     <div class="container-fluid">
 
-        <x-committee-wizard-menu :committee="$committee" />
+        @if (Auth::user()->roles[0]->name != 'sachib')
+            <x-committee-wizard-menu :committee="$committee" />
+        @endif
 
         <section class="box mt-4">
             <div class="box__header">
@@ -30,7 +32,7 @@
                             <td>{{ $audio->name }}</td>
                             <td>
                                 <a href="{{ $audio->url }}">
-                                    <img src="{{asset('storage').'/'.$audio->thumbnail}}" alt="adsas" height="50px">
+                                    <img src="{{ asset('storage') . '/' . $audio->thumbnail }}" alt="adsas" height="50px">
                                 </a>
                             </td>
                             <td>
@@ -38,8 +40,7 @@
 
                                     <a href="{{ route('committee.edit.video', [$committee, $audio]) }}"
                                         class="btn btn-primary btn-sm mx-2">Edit</a>
-                                    <form action="{{ route('committee.delete.video', [$audio]) }}"
-                                        method="post">
+                                    <form action="{{ route('committee.delete.video', [$audio]) }}" method="post">
                                         @method('delete')
                                         @csrf
                                         <button class="btn btn-danger btn-sm" type="submit"

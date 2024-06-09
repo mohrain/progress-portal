@@ -46,11 +46,13 @@
                 </div>
             </div>
         </div> --}}
-        <div class="card-body">
-            <div class="mb-3 d-flex justify-content-between align-items-center">
-                <h5> प्रकाशनहरु/डाउनलोडस्</h5>
+        <div class="box__header">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="box__title">प्रकाशनहरु/डाउनलोडस् <i>({{ $department->name }})</i></div>
                 <a href="{{route('department.publications.create',$department->slug)}}" class="btn btn-primary">प्रकाशन थप्नुहोस</a>
             </div>
+        </div>
+        <div class="card-body">
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -69,7 +71,7 @@
                                     <a href="{{ route('department.activity.edit', [$department->slug, $publication->id]) }}"
                                         class="btn btn-warning">Edit</a>
 
-                                        {{-- <form action="{{route('department.activity.delete',$publication->id)}}" method="POST" onsubmit="return confirm('Are you sure ?')">
+                                    {{-- <form action="{{route('department.activity.delete',$publication->id)}}" method="POST" onsubmit="return confirm('Are you sure ?')">
                                             @csrf
 
                                             @method('delete')

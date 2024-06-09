@@ -7,7 +7,10 @@ use App\Http\Requests\StoreCommitteeSecretaryRequest;
 use App\Http\Requests\UpdateCommitteeSecretaryRequest;
 use App\Models\Committee;
 use App\Models\CommitteeAudio;
+use App\Models\Employee;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class CommitteeSecretaryController extends Controller
@@ -32,35 +35,38 @@ class CommitteeSecretaryController extends Controller
     public function audio(Committee $committee)
     {
 
-            $audios=CommitteeAudio::where('committee_id', $committee->id)->get();
+        $audios = CommitteeAudio::where('committee_id', $committee->id)->get();
         return view('committee.audio', [
             'committee' => $committee,
-            'audios'=>$audios
+            'audios' => $audios
         ]);
     }
 
-    public function audioCreate(Committee $committee){
+    public function audioCreate(Committee $committee)
+    {
 
-        $audio=new CommitteeAudio();
+        $audio = new CommitteeAudio();
         return view('committee.audio-form', [
             'committee' => $committee,
             'committeeAudio' => $audio,
         ]);
     }
-    public function audioStore(Request $request, Committee $committee){
-        $data=$request->validate([
-            'name'=>'required',
-            'audio'=>'required',
+    public function audioStore(Request $request, Committee $committee)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'audio' => 'required',
         ]);
 
-        if($request->file('audio')){
-            $data['audio']=$request->file('audio')->store('audio');
+        if ($request->file('audio')) {
+            $data['audio'] = $request->file('audio')->store('audio');
         }
-        $data['committee_id']=$committee->id;
+        $data['committee_id'] = $committee->id;
         CommitteeAudio::create($data);
-        return redirect()->route('committee.audio',$committee);
+        return redirect()->route('committee.audio', $committee);
     }
-    public function audioEdit(Committee $committee,CommitteeAudio $audio){
+    public function audioEdit(Committee $committee, CommitteeAudio $audio)
+    {
 
         return view('committee.audio-form', [
             'committee' => $committee,
@@ -68,25 +74,27 @@ class CommitteeSecretaryController extends Controller
         ]);
     }
 
-    public function audioUpdate(Request $request,Committee $committee,CommitteeAudio $audio){
+    public function audioUpdate(Request $request, Committee $committee, CommitteeAudio $audio)
+    {
 
-        $data=$request->validate([
-            'name'=>'required',
-            'audio'=>'nullable',
+        $data = $request->validate([
+            'name' => 'required',
+            'audio' => 'nullable',
         ]);
 
-        if($request->file('audio')){
-            if($audio->audio){
+        if ($request->file('audio')) {
+            if ($audio->audio) {
                 Storage::delete($audio->audio);
             }
-            $data['audio']=$request->file('audio')->store('audio');
+            $data['audio'] = $request->file('audio')->store('audio');
         }
         $audio->update($data);
 
-        return redirect()->route('committee.audio',$committee);
+        return redirect()->route('committee.audio', $committee);
     }
-    public function audioDelete(CommitteeAudio $audio){
-        if($audio->audio){
+    public function audioDelete(CommitteeAudio $audio)
+    {
+        if ($audio->audio) {
             Storage::delete($audio->audio);
         }
         $audio->delete();
@@ -110,9 +118,39 @@ class CommitteeSecretaryController extends Controller
      * @param  \App\Http\Requests\StoreCommitteeSecretaryRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCommitteeSecretaryRequest $request, Committee $committee)
+    // public function store(StoreCommitteeSecretaryRequest $request, Committee $committee)
+    // {
+    //     $committee->committeeSecretary()->create($request->validated());
+    //     return redirect()->back();
+    // }
+
+    public function store(Request $request, Committee $committee)
     {
-        $committee->committeeSecretary()->create($request->validated());
+        $empData=$request->validate([
+            'employee_id' => 'required'
+
+        ]);
+        if ($request->email) {
+            $useData=$request->validate([
+                'email' => 'required|email',
+                'password' => 'required|confirmed|min:8',
+                'username' => 'required|unique:users,username',
+            ]);
+        }
+        // return ""
+        $committee->committeeSecretary()->create($empData);
+        if($request->email){
+            $employee=Employee::find($request->employee_id);
+            $useData['name']= $employee->name;
+            $useData['password']= Hash::make($request->password);
+            $user=User::create($useData);
+            $user->assignRole('sachib');
+
+            $employee->update([
+                'user_id'=> $user->id,
+                'email'=> $user->email,
+            ]);
+        }
         return redirect()->back();
     }
 
@@ -158,6 +196,13 @@ class CommitteeSecretaryController extends Controller
      */
     public function destroy(Committee $committee, CommitteeSecretary $committeeSecretary)
     {
+        $employee=Employee::find($committeeSecretary->employee_id);
+        if( $employee->user_id ) {
+            User::find($employee->user_id)->delete();
+            $employee->update([
+                'user_id'=>''
+            ]);
+        }
         $committeeSecretary->delete();
         return redirect()->back();
     }

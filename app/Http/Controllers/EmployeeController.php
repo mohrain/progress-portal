@@ -286,4 +286,10 @@ class EmployeeController extends Controller
         ]);
     }
 
+    public function getData($id){
+        $employee=Employee::find($id);
+
+        return response()->json($employee);
+    }
+
 }

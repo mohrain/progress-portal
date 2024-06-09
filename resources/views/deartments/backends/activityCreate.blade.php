@@ -13,7 +13,11 @@
             @endpush
         @endif --}}
 
-
+        <div class="box__header">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="box__title">गतिविधि <i>({{$department->name}})</i></div>
+               </div>
+        </div>
         <div class="card-body">
             <form action="{{$activity->id ? route('department.activity.update',[$department->slug,$activity->id]) : route('department.activity.store') }}" method="POST" enctype="multipart/form-data" class="form">
                         @csrf

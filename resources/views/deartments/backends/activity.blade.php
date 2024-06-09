@@ -13,12 +13,13 @@
             @endpush
         @endif
 
-
-        <div class="card-body">
-            <div class="mb-3 d-flex justify-content-between align-items-center">
-                <h5>गतिविधिहरु</h5>
+        <div class="box__header">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="box__title">गतिविधिहरु <i>({{$department->name}})</i></div>
                 <a href="{{route('department.activity.create',$department->slug)}}" class="btn btn-primary">गतिबिधि थप्नुहोस</a>
             </div>
+        </div>
+        <div class="card-body">
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>

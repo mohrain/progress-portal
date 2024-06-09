@@ -3,7 +3,9 @@
 @section('content')
 <div class="container-fluid">
 
-    <x-committee-wizard-menu :committee="$committee" />
+    @if (Auth::user()->roles[0]->name != 'sachib')
+            <x-committee-wizard-menu :committee="$committee" />
+        @endif
 
     <section class="box mt-4">
         <div class="box__body">

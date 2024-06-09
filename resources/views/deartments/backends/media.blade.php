@@ -2,6 +2,11 @@
 
 @section('departmentContent')
     <div class="card mt-2">
+        <div class="box__header">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="box__title">अडियो <i>({{ $department->name }})</i></div>
+            </div>
+        </div>
         <div class="card-body">
             <form action="{{ route('media.store', $department->slug) }}" method="POST" class="form"
                 enctype="multipart/form-data">
@@ -14,14 +19,14 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="input-name">नाम</label>
-                            <input type="text" class="form-control" name="name" id="">
+                            <input type="text" class="form-control" name="name" value="{{old('name')}}" id="">
                         </div>
                     </div>
                     <div class="col-md-6">
 
                     <div class="form-group">
                         <label for="input-name">अडियो</label>
-                        <input type="file" class="form-control" name="audio" id="">
+                        <input type="file" class="form-control" name="audio" id="" accept="audio/*">
                     </div>
                     </div>
                     <div class="col-12">

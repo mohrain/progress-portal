@@ -325,6 +325,8 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('employees/{employee}', [EmployeeController::class, 'update'])->name('employees.update');
     Route::delete('employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
 
+    Route::get('employees/{id}/get', [EmployeeController::class, 'getData'])->name('employees.getData');
+
     //ministry
     Route::get('ministries', [MinistryController::class, 'index'])->name('ministries.index');
     Route::post('ministries', [MinistryController::class, 'store'])->name('ministries.store');
@@ -449,6 +451,11 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('departments/{slug}/audio', [DepartmentController::class, 'media'])->name('department.media');
     Route::get('departments/{slug}/video', [DepartmentController::class, 'video'])->name('department.video');
     Route::get('departments/branch', [DepartmentController::class, 'branch'])->name('department.branch');
+
+    Route::get('departments/{slug}/head-of-department', [DepartmentController::class, 'hod'])->name('department.hod');
+    Route::post('departments/{id}/head-of-department/update', [DepartmentController::class, 'hodStore'])->name('department.hodStore');
+    Route::delete('departments/{slug}/secretary/{id}', [DepartmentController::class, 'hodDestroy'])->name('department.hodDestroy');
+
 
     Route::post('information/store',[InformationController::class,'store'])->name('information.store');
     Route::get('departments/{slug}/notices/{id}/edit',[InformationController::class,'edit'])->name('information.edit');

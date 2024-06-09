@@ -8,6 +8,7 @@ use App\Models\Bill;
 use App\Models\Committee;
 use App\Models\Employee;
 use App\Models\Member;
+use App\Models\ProvincialAssemblyLibrary;
 use App\Suchi;
 use App\User;
 use Illuminate\Http\Request;
@@ -35,6 +36,7 @@ class HomeController extends Controller
         $memberCount = Member::currentElection()->count();
 
         $totalUsersCount = User::count();
+        $totalBooksCount = ProvincialAssemblyLibrary::count();
 
         return view('home', [
             'title' => $title,
@@ -43,6 +45,7 @@ class HomeController extends Controller
             'employeeCount' => $employeeCount,
             'memberCount' => $memberCount,
             'totalUsersCount' => $totalUsersCount,
+            'totalBooksCount'=>$totalBooksCount,
         ]);
     }
 }

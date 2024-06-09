@@ -17,7 +17,8 @@
 
 </head>
 
-<body class="sidebar-opened">
+<body class="@auth
+{{ Auth::user()->roles[0]->name == 'librarian' ? '' : 'sidebar-opened' }} @endauth ">
     <div id="app">
         @guest
             @yield('content')

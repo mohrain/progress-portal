@@ -13,49 +13,15 @@
             @endpush
         @endif
 
-        <div class="modal fade bd-example-modal-lg" id="noticeExample" tabindex="-1" role="dialog"
-            aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content p-2">
-                    <form
-                        action="{{ $information->id ? route('information.update', [$department->slug, $information->id]) : route('information.store') }}"
-                        method="POST" enctype="multipart/form-data" class="form">
-                        @csrf
-                        @isset($information->id)
-                            @method('put')
-                        @endisset
-                        <input type="hidden" value="{{ $department->id }}" name="department_id">
-                        <div class="form-group">
-                            <label for="input-name">शीर्षक</label>
-                            <input type="text" class="form-control" name="name"
-                                value="{{ old('name', $information->name) }}" id="">
-                        </div>
-                        {{-- <div class="form-group">
-                            <label for="input-name">फाइल</label>
-                            <input type="file" class="form-control" name="file" value="{{old('file',$information->file)}}" id="">
-                        </div> --}}
-
-                        <div class="form-group">
-                            <label for="input-name">विवरण</label>
-                            <textarea name="description" class="form-control" id="summernote" cols="30" rows="10"
-                                placeholder="Text Message">{{ old('description', $information->description) }}</textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <button type="submit"
-                                class="btn btn-success z-depth-0">{{ $information->id ? 'अपडेट' : 'सेभ' }}
-                                गर्नुहोस्</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="mb-3 d-flex justify-content-between align-items-center">
-                <h5>सूचनाहरु</h5>
+        <div class="box__header">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="box__title">सूचनाहरु <i>({{$department->name}})</i></div>
                 <a href="{{route('department.notices.create',$department->slug)}}" class="btn btn-primary">सूचना
                     थप्नुहोस</a>
             </div>
+        </div>
+        <div class="card-body">
+
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>

@@ -20,18 +20,17 @@
             <div class="col-md-12">
                 @include('alerts.all')
             </div>
-
             @foreach ($billTypes as $billType)
                 <div class="col-md-3">
                     <x-dashboard-count-tile :link="route('bills.index')">
                         <x-slot name="count">{{ $billType->bills->count() }}</x-slot>
-                        <x-slot name="title">{{$billType->name}}हरू</x-slot>
+                        <x-slot name="title">{{ $billType->name }}हरू</x-slot>
                     </x-dashboard-count-tile>
                 </div>
             @endforeach
             <div class="col-md-3">
                 <x-dashboard-count-tile :link="route('committee.index')">
-                    <x-slot name="count">{{$committeeCount}}</x-slot>
+                    <x-slot name="count">{{ $committeeCount }}</x-slot>
                     <x-slot name="title">समितीहरू</x-slot>
                 </x-dashboard-count-tile>
             </div>
@@ -47,12 +46,27 @@
                     <x-slot name="title">कर्मचारीहरू</x-slot>
                 </x-dashboard-count-tile>
             </div>
-            <div class="col-md-3">
-                <x-dashboard-count-tile :link="route('user.index')">
-                    <x-slot name="count">{{ $totalUsersCount }}</x-slot>
-                    <x-slot name="title">प्रयोगकर्ताहरू</x-slot>
-                </x-dashboard-count-tile>
-            </div>
+            @if (Auth::user()->roles[0]->name != 'librarian')
+                <div class="col-md-3">
+                    <x-dashboard-count-tile :link="route('user.index')">
+                        <x-slot name="count">{{ $totalUsersCount }}</x-slot>
+                        <x-slot name="title">प्रयोगकर्ताहरू</x-slot>
+                    </x-dashboard-count-tile>
+                </div>
+            @endif
+
+            @role('librarian')
+                <div class="col-md-3">
+                    {{-- <x-dashboard-count-tile :link="route('provincial-assembly-library.index')">
+                        <x-slot name="count">{{ $totalBooksCount }}</x-slot>
+                        <x-slot name="title">पुस्तक</x-slot>
+                    </x-dashboard-count-tile> --}}
+                    <a class="dashboard-count-tile d-flex align-items-center p-4 rounded my-3 card z-depth-0" href="{{ route('provincial-assembly-library.index')}}">
+                        <h1>{{ $totalBooksCount }}</h1>
+                       <span>पुस्तक</span>
+                    </a>
+                </div>
+            @endrole
 
         </div>
     </div>

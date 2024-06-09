@@ -21,8 +21,15 @@
                 </div>
             </div>
         </div> --}}
+        <div class="box__header">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="box__title">प्रकाशनहरु/डाउनलोडस् <i>({{ $department->name }})</i></div>
+            </div>
+        </div>
         <div class="card-body">
-            <form action="{{$publication->id ? route('department.activity.update',[$department->slug,$publication->id]) : route('department.publication.store') }}" method="POST" enctype="multipart/form-data" class="form">
+            <form
+                action="{{ $publication->id ? route('department.activity.update', [$department->slug, $publication->id]) : route('department.publication.store') }}"
+                method="POST" enctype="multipart/form-data" class="form">
                 @csrf
                 @isset($publication->id)
                     @method('put')
@@ -30,12 +37,14 @@
                 <input type="hidden" value="{{ $department->id }}" name="department_id">
                 <div class="form-group">
                     <label for="input-name">शीर्षक</label>
-                    <input type="text" class="form-control" name="name" value="{{old('name',$publication->name)}}" id="">
+                    <input type="text" class="form-control" name="name" value="{{ old('name', $publication->name) }}"
+                        id="">
                 </div>
 
                 <div class="form-group">
                     <label for="input-name">फाइल</label>
-                    <input type="file" class="form-control" name="file" value="{{old('file',$publication->file)}}" id="">
+                    <input type="file" class="form-control" name="file" value="{{ old('file', $publication->file) }}"
+                        id="">
                 </div>
 
                 <div class="form-group float-right">

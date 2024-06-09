@@ -10,109 +10,110 @@
             </div>
         </div>
     </div>
-    <div id="sidenav-wrapper" class="px-3" style="white-space: nowrap;">
+    <div id="sidenav-wrapper" class="px-3" style="white-space: nowrap;min-height:100vh">
         <ul id="sidenav" class="nav flex-column">
             <li class="nav-item {{ setActive('dashboard') }}">
                 <a class="nav-link" href="{{ route('dashboard') }}">
                     <span class="text-warning"><i class="fa fa-cube"></i></span>ड्यासबोर्ड
                 </a>
             </li>
-            <li class="nav-item {{ setActive('meetings.index') }}">
-                <a href="{{ route('meetings.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="bi bi-megaphone"></i></span>बैठकहरु
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('bills.*') }}">
-                <a href="{{ route('bills.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="bi bi-file-earmark-richtext"></i></span>विधेयकहरु
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('posts.*') }}">
-                <a href="{{ route('posts.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="bi bi-list-task"></i></span>पोस्टहरु
-                </a>
-            </li>
+            @hasanyrole('super-admin|admin')
+                <li class="nav-item {{ setActive('meetings.index') }}">
+                    <a href="{{ route('meetings.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="bi bi-megaphone"></i></span>बैठकहरु
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('bills.*') }}">
+                    <a href="{{ route('bills.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="bi bi-file-earmark-richtext"></i></span>विधेयकहरु
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('posts.*') }}">
+                    <a href="{{ route('posts.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="bi bi-list-task"></i></span>पोस्टहरु
+                    </a>
+                </li>
 
-            <li class="nav-item {{ setActive('pages.*') }}">
-                <a href="{{ route('pages.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="bi bi-file-earmark"></i></span>पेजहरु
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('carousel-images.*') }}">
-                <a href="{{ route('carousel-images.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="bi bi-file-earmark-slides"></i></span>स्लाइडर फोटोहरु
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('modal-images.*') }}">
-                <a href="{{ route('modal-images.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="bi bi-app-indicator"></i></span>मोडाल फोटोहरु
-                </a>
-            </li>
+                <li class="nav-item {{ setActive('pages.*') }}">
+                    <a href="{{ route('pages.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="bi bi-file-earmark"></i></span>पेजहरु
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('carousel-images.*') }}">
+                    <a href="{{ route('carousel-images.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="bi bi-file-earmark-slides"></i></span>स्लाइडर फोटोहरु
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('modal-images.*') }}">
+                    <a href="{{ route('modal-images.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="bi bi-app-indicator"></i></span>मोडाल फोटोहरु
+                    </a>
+                </li>
 
-            <li class="nav-item {{ setActive('committee.*') }}">
-                <a href="{{ route('committee.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="fa fa-plus"></i></span>समिति
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('live.*') }}">
-                <a href="{{ route('live.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="bi bi-youtube"></i></span>प्रत्यक्ष प्रसारण
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('album.*') }}">
-                <a href="{{ route('album.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="fa fa-images"></i></span>Gallery
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('videos.*') }}">
-                <a href="{{ route('videos.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="fa fa-video"></i></span>Video Gallery
-                </a>
-            </li>
+                <li class="nav-item {{ setActive('committee.*') }}">
+                    <a href="{{ route('committee.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="fa fa-plus"></i></span>समिति
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('live.*') }}">
+                    <a href="{{ route('live.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="bi bi-youtube"></i></span>प्रत्यक्ष प्रसारण
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('album.*') }}">
+                    <a href="{{ route('album.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="fa fa-images"></i></span>Gallery
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('videos.*') }}">
+                    <a href="{{ route('videos.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="fa fa-video"></i></span>Video Gallery
+                    </a>
+                </li>
 
-            <li class="nav-item {{ setActive('members.*') }}">
-                <a href="{{ route('members.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="bi bi-person-raised-hand"></i></span>सदस्यहरु
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('office-bearers.*') }}">
-                <a href="{{ route('office-bearers.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="bi bi-person-bounding-box"></i></span>पदाधिकारीहरु
-                </a>
-            </li>
+                <li class="nav-item {{ setActive('members.*') }}">
+                    <a href="{{ route('members.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="bi bi-person-raised-hand"></i></span>सदस्यहरु
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('office-bearers.*') }}">
+                    <a href="{{ route('office-bearers.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="bi bi-person-bounding-box"></i></span>पदाधिकारीहरु
+                    </a>
+                </li>
 
-            <li class="nav-item {{ setActive('employees.*') }}">
-                <a href="{{ route('employees.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="bi bi-person-vcard"></i></span>कर्मचारीहरु
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('information-officers.*') }}">
-                <a href="{{ route('information-officers.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success"><i class="bi bi-person-video"></i></span>सूचना अधिकारीहरु
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('provincial-assembly-library.*') }}">
-                <a href="{{ route('provincial-assembly-library.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-warning"><i class="bi bi-book"></i></span>प्रदेश सभा पुस्तकालय
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('contact-us.*') }}">
-                <a href="{{ route('contact-us.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-warning"><i class="bi bi-info-lg"></i></span>सुझाव/प्रतिक्रियाहरू
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('faq.*') }}">
-                <a href="{{ route('faq.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-warning"><i class="bi bi-question-lg"></i></span>प्राय: सोधिने प्रश्नहरू
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('current-parliamentary-parties.*') }}">
-                <a href="{{ route('current-parliamentary-parties.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-warning"><i class="bi bi-align-end"></i></span>राजनीतिक दलहरू
-                </a>
-            </li>
+                <li class="nav-item {{ setActive('employees.*') }}">
+                    <a href="{{ route('employees.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="bi bi-person-vcard"></i></span>कर्मचारीहरु
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('information-officers.*') }}">
+                    <a href="{{ route('information-officers.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success"><i class="bi bi-person-video"></i></span>सूचना अधिकारीहरु
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('provincial-assembly-library.*') }}">
+                    <a href="{{ route('provincial-assembly-library.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-warning"><i class="bi bi-book"></i></span>प्रदेश सभा पुस्तकालय
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('contact-us.*') }}">
+                    <a href="{{ route('contact-us.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-warning"><i class="bi bi-info-lg"></i></span>सुझाव/प्रतिक्रियाहरू
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('faq.*') }}">
+                    <a href="{{ route('faq.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-warning"><i class="bi bi-question-lg"></i></span>प्राय: सोधिने प्रश्नहरू
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('current-parliamentary-parties.*') }}">
+                    <a href="{{ route('current-parliamentary-parties.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-warning"><i class="bi bi-align-end"></i></span>राजनीतिक दलहरू
+                    </a>
+                </li>
 
-            {{-- <li class="nav-item {{ setActive('suchi.applications') }}">
+                {{-- <li class="nav-item {{ setActive('suchi.applications') }}">
 
             <li class="nav-item {{ setActive('suchi.applications') }}">
                 <a href="{{ route('suchi.applications') }}" aria-expanded="false" class="nav-link">
@@ -126,7 +127,7 @@
                 </a>
             </li> --}}
 
-            {{-- <li class="nav-item {{ setActive('project.index') }}">
+                {{-- <li class="nav-item {{ setActive('project.index') }}">
             <a href="{{route('project.index')}}" aria-expanded="false" class="nav-link">
                 <span class="text-secondary"><i class="fa fa-cube"></i></span>@lang('navigation.Projects')
             </a>
@@ -143,76 +144,76 @@
                 </a>
             </li>
             @endhasrole --}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('department.list')}}">
-                    <span class="text-success"><i class="fas fa-cog"></i></span>सचिवालयका शाखाहरु
-                </a>
-            </li>
-            @can('user.*')
-                <li
-                    class="nav-item {{ setActive('user.index') }} {{ setActive('user.create') }} {{ setActive('user.edit') }}">
-                    <a class="nav-link" href="{{ route('user.index') }}">
-                        <span class=""><i class="fa fa-users"></i></span>प्रयोगकर्ताहरू
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('department.list') }}">
+                        <span class="text-success"><i class="fas fa-cog"></i></span>सचिवालयका शाखाहरु
                     </a>
                 </li>
-            @endcan
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <span class="text-success"><i class="fas fa-cog"></i></span>सेटिङहरू
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('sms.index') }}">
-                <a class="nav-link" href="{{ route('sms.index') }}">
-                    <span class="text-success"></span>SMS
-                </a>
-            </li>
+                @can('user.*')
+                    <li
+                        class="nav-item {{ setActive('user.index') }} {{ setActive('user.create') }} {{ setActive('user.edit') }}">
+                        <a class="nav-link" href="{{ route('user.index') }}">
+                            <span class=""><i class="fa fa-users"></i></span>प्रयोगकर्ताहरू
+                        </a>
+                    </li>
+                @endcan
+                <li class="nav-item">
+                    <a class="nav-link" href="">
+                        <span class="text-success"><i class="fas fa-cog"></i></span>सेटिङहरू
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('sms.index') }}">
+                    <a class="nav-link" href="{{ route('sms.index') }}">
+                        <span class="text-success"></span>SMS
+                    </a>
+                </li>
 
-            <li class="nav-item {{ setActive('post-categories.index') }}">
-                <a class="nav-link" href="{{ route('post-categories.index') }}">
-                    <span class="text-success"></span>पोस्ट प्रकार
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('post-category-menu.index') }}">
-                <a class="nav-link" href="{{ route('post-category-menu.index') }}">
-                    <span class="text-success"></span>पोस्ट प्रकार मेनु
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('bill-types.index') }}">
-                <a class="nav-link" href="{{ route('bill-types.index') }}">
-                    <span class="text-success"></span>विधयेक प्रकार
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('bill-categories.index') }}">
-                <a class="nav-link" href="{{ route('bill-categories.index') }}">
-                    <span class="text-success"></span>विधयेक वर्ग
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('ministries.index') }}">
-                <a class="nav-link" href="{{ route('ministries.index') }}">
-                    <span class="text-success"></span>मन्त्रालयहरु
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('parliamentary-parties.index') }}">
-                <a class="nav-link" href="{{ route('parliamentary-parties.index') }}">
-                    <span class="text-success"></span>राजनीतिक दलहरु
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('employee-designations.index') }}">
-                <a class="nav-link" href="{{ route('employee-designations.index') }}">
-                    <span class="text-success"></span> कर्मचारी पदहरू
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('elections.index') }}">
-                <a class="nav-link" href="{{ route('elections.index') }}">
-                    <span class="text-success"></span> निर्वाचन वर्षहरू
-                </a>
-            </li>
-            <li class="nav-item {{ setActive('federal.index') }}">
-                <a class="nav-link" href="{{ route('federal.index') }}">
-                    <span class="text-success"></span>संघीय संसद सचिवालय
-                </a>
-            </li>
-            @hasanyrole('super-admin|admin')
+                <li class="nav-item {{ setActive('post-categories.index') }}">
+                    <a class="nav-link" href="{{ route('post-categories.index') }}">
+                        <span class="text-success"></span>पोस्ट प्रकार
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('post-category-menu.index') }}">
+                    <a class="nav-link" href="{{ route('post-category-menu.index') }}">
+                        <span class="text-success"></span>पोस्ट प्रकार मेनु
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('bill-types.index') }}">
+                    <a class="nav-link" href="{{ route('bill-types.index') }}">
+                        <span class="text-success"></span>विधयेक प्रकार
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('bill-categories.index') }}">
+                    <a class="nav-link" href="{{ route('bill-categories.index') }}">
+                        <span class="text-success"></span>विधयेक वर्ग
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('ministries.index') }}">
+                    <a class="nav-link" href="{{ route('ministries.index') }}">
+                        <span class="text-success"></span>मन्त्रालयहरु
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('parliamentary-parties.index') }}">
+                    <a class="nav-link" href="{{ route('parliamentary-parties.index') }}">
+                        <span class="text-success"></span>राजनीतिक दलहरु
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('employee-designations.index') }}">
+                    <a class="nav-link" href="{{ route('employee-designations.index') }}">
+                        <span class="text-success"></span> कर्मचारी पदहरू
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('elections.index') }}">
+                    <a class="nav-link" href="{{ route('elections.index') }}">
+                        <span class="text-success"></span> निर्वाचन वर्षहरू
+                    </a>
+                </li>
+                <li class="nav-item {{ setActive('federal.index') }}">
+                    <a class="nav-link" href="{{ route('federal.index') }}">
+                        <span class="text-success"></span>संघीय संसद सचिवालय
+                    </a>
+                </li>
+
                 <li class="nav-item {{ setActive('settings.index') }}">
                     <a class="nav-link" href="{{ route('settings.index') }}">
                         <span class="text-success"></span>एप सेटिङहरू
@@ -264,6 +265,113 @@
             <li class="nav-item pl-5 {{ setActive('ward.*') }}">
                 <a class="nav-link" href="{{ route('ward.index') }}">@lang('navigation.ward')</a>
             </li> --}}
+            @hasanyrole('sachib')
+                <li class="nav-item">
+                    <a class="nav-link {{ setActive('committee.general') }}"
+                        href="{{ route('committee.general', Auth::user()->employee->committeeSecretary->committee) }}">
+                        <i class="fa fa-info-circle"></i> सामान्य जानकारी
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{ route('committee.show-about-form', Auth::user()->employee->committeeSecretary->committee) }}">
+                        <i class="fa fa-info-circle"></i> परिचय
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{ route('committee.show-responsibility-form', Auth::user()->employee->committeeSecretary->committee) }}">
+                        <i class="fa fa-tasks"></i> काम, कर्तव्य र अधिकार
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{ route('committee.notices', Auth::user()->employee->committeeSecretary->committee) }}">
+                        <i class="fa fa-flag"></i> सूचनाहरु
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{ route('committee.activities', Auth::user()->employee->committeeSecretary->committee) }}">
+                        <i class="fa fa-rss"></i> गतिविधिहरु
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{ route('committee.downloads', Auth::user()->employee->committeeSecretary->committee) }}">
+                        <i class="fa fa-download"></i> प्रकाशनहरु/डाउनलोडस्
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{ route('committee.members', Auth::user()->employee->committeeSecretary->committee) }}">
+                        <i class="fa fa-users"></i> समिति सदस्यहरु
+                    </a>
+                </li>
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="{{ route('committee.notices',Auth::user()->employee->committeeSecretary->committee) }}" >
+                        <i class="fa fa-user"></i> समिति सचिव
+                    </a>
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{ route('committee.audio', Auth::user()->employee->committeeSecretary->committee) }}">
+                        <i class="fa fa-headphones"></i> अडियो
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{ route('committee.video.index', Auth::user()->employee->committeeSecretary->committee) }}">
+                        <i class="fa fa-film"></i> भिडियो
+                    </a>
+                </li>
+            @endhasanyrole
+
+            @hasanyrole('hod')
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{route('department.edit',Auth::user()->employee->department->slug)}}">
+                        <i class="fa fa-info-circle"></i> परिचय
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{route('department.duty',Auth::user()->employee->department->slug)}}">
+                        <i class="fa fa-tasks"></i> काम, कर्तव्य र अधिकार
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{route('department.notices',Auth::user()->employee->department->slug)}}">
+                        <i class="fa fa-flag"></i> सूचनाहरु
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{route('department.activity',Auth::user()->employee->department->slug)}}">
+                        <i class="fa fa-rss"></i> गतिविधिहरु
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{route('department.publications',Auth::user()->employee->department->slug)}}">
+                        <i class="fa fa-download"></i> प्रकाशनहरु/डाउनलोडस्
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{route('department.media',Auth::user()->employee->department->slug)}}">
+                        <i class="fa fa-headphones"></i> अडियो
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="{{route('department.video',Auth::user()->employee->department->slug)}}">
+                        <i class="fa fa-film"></i> भिडियो
+                    </a>
+                </li>
+            @endhasanyrole
 
             @hasanyrole('super-admin')
                 <li class="nav-item">

@@ -2,6 +2,11 @@
 
 @section('departmentContent')
     <div class="card mt-2">
+        <div class="box__header">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="box__title"> भिडियो <i>({{ $department->name }})</i></div>
+            </div>
+        </div>
         <div class="card-body">
             <form action="{{ route('video.store', $department->slug) }}" method="POST" class="form"
                 enctype="multipart/form-data">
@@ -14,20 +19,20 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="input-name">नाम</label>
-                            <input type="text" class="form-control" name="name" id="">
+                            <input type="text" class="form-control" name="name" value="{{old('name')}}" id="">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="input-name">यु.आर.एल.</label>
-                            <input type="text" class="form-control" name="url" id="">
+                            <input type="text" class="form-control" name="url" value="{{old('url')}}" id="">
                         </div>
                     </div>
                     <div class="col-md-4">
 
                         <div class="form-group">
                             <label for="input-name">थम्बनेल</label>
-                            <input type="file" class="form-control" name="thumbnail" id="">
+                            <input type="file" class="form-control" name="thumbnail" value="{{old('thumbnail')}}" accept="image/*" id="">
                         </div>
 
                     </div>
@@ -63,8 +68,9 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $video->name }}</td>
                                     <td>
-                                        <a href="{{$video->url}}">
-                                            <img src="{{ asset('storage') . '/' . $video->thumbnail }}" width="100px" alt="">
+                                        <a href="{{ $video->url }}">
+                                            <img src="{{ asset('storage') . '/' . $video->thumbnail }}" width="100px"
+                                                alt="">
                                         </a>
                                     </td>
 

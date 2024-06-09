@@ -389,7 +389,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                        @if (!$employee->id)
+                                        {{-- @if (!$employee->id)
                                             <div class="col-md-3 mb-2">
                                                 <label for="joining_date" class="form-label">सुरु मिति</label>
                                                 <input type="text" name="joining_date"
@@ -416,7 +416,7 @@
 
                                                 </div>
                                             </div>
-                                        @endif
+                                        @endif --}}
                                     </div>
                                 </div>
                                 <div class="col-md-12 order-lg-4 order-4">

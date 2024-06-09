@@ -208,6 +208,18 @@
                                 </td>
                             </tr>
                         @endif
+                        {{-- <tr>
+                            <td>
+                                <b>
+                                    लगइन अनुमति
+                                </b>
+                            </td>
+                            <td>
+                                <div class="kalimati-font">
+                                    {{$employee->user_id ? "छ" : "छैन"}}
+                                </div>
+                            </td>
+                        </tr> --}}
 
                     </table>
                 </div>

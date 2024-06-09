@@ -64,4 +64,9 @@ class Employee extends Model
     {
         return $this->hasOne(CommitteeSecretary::class);
     }
+
+    public function department()
+    {
+        return $this->hasOne(Department::class);
+    }
 }

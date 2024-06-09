@@ -6,6 +6,8 @@
     </div>
     <div class="px-2">
         <div class=" py-1">
+            @if (Auth::user()->roles[0]->name != 'hod')
+
 
             <div class="committee-wizard-menu">
                 <a href="{{ route('department.edit', $department->slug) }}"
@@ -36,8 +38,12 @@
                     class=" {{ Route::getCurrentRoute()->getName() == 'department.video' ? 'active' : '' }}">
                     <div class="work-description "><i class="fa fa-film"></i> भिडियो</div>
                 </a>
+                <a href="{{ route('department.hod', $department->slug) }}"
+                    class=" {{ Route::getCurrentRoute()->getName() == 'department.hod' ? 'active' : '' }}">
+                    <div class="work-description "><i class="fa fa-user"></i> साखा प्रमुख </div>
+                </a>
             </div>
-
+            @endif
         </div>
         @yield('departmentContent')
 
