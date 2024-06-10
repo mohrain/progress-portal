@@ -26,7 +26,7 @@
                 <span class="text-success"><i class="i bi-file-earmark-richtext pr-2"></i></span>विधेयकहरु
             </a>
         </div>
-        <div class="sidebar-menu multi-level">
+        {{-- <div class="sidebar-menu multi-level">
             <a href="#" aria-expanded="false" class="nav-link parent-menu">
                 <span><span class="text-success"><i class="bi bi-megaphone pr-2"></i></span>Configuration</span>
                 <i class="fas fa-angle-right arrow-icon"></i>
@@ -39,13 +39,24 @@
                 <a href="{{ route('pages.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success pr-4"></span>पेजहरु
                 </a>
-                <a href="{{ route('carousel-images.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success pr-4"></span>स्लाइडर फोटोहरु
-                </a>
-                <a href="{{ route('modal-images.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success pr-4"></span>मोडाल फोटोहरु
-                </a>
+
             </div>
+        </div> --}}
+
+        {{-- <li class="nav-item {{ setActive('carousel-images.*') }}">
+            <a href="{{ route('carousel-images.index') }}" aria-expanded="false" class="nav-link">
+                <span class="text-success"><i class="bi bi-file-earmark-slides"></i></span>स्लाइडर फोटोहरु
+            </a>
+        </li> --}}
+        <div class="sidebar-menu {{ setActive('posts.index') }}">
+            <a href="{{ route('posts.index') }}" aria-expanded="false" class="nav-link">
+                <span class="text-success"><i class="bi bi-file-earmark-slides pr-2"></i></span>पोस्टहरु
+            </a>
+        </div>
+        <div class="sidebar-menu {{ setActive('pages.index') }}">
+            <a href="{{ route('pages.index') }}" aria-expanded="false" class="nav-link">
+                <span class="text-success"><i class="bi bi-file-earmark-slides pr-2"></i></span>पेजहरु
+            </a>
         </div>
         <div class="sidebar-menu {{ setActive('committee.*') }}">
             <a href="{{ route('committee.index') }}" aria-expanded="false" class="nav-link">
@@ -68,7 +79,12 @@
                 <a href="{{ route('carousel-images.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success pr-4"></span>Video Gallery
                 </a>
-
+                <a href="{{ route('carousel-images.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success pr-4"></span>स्लाइडर फोटोहरु
+                </a>
+                <a href="{{ route('modal-images.index') }}" aria-expanded="false" class="nav-link">
+                    <span class="text-success pr-4"></span>मोडाल फोटोहरु
+                </a>
             </div>
         </div>
         <div class="sidebar-menu {{ setActive('members.*') }}">
