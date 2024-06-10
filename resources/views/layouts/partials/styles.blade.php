@@ -5,6 +5,7 @@
     integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 {{-- <link href="{{ asset('assets/mdb/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
 {{-- <link href="{{ asset('assets/mdb/css/mdb.min.css') }}" rel="stylesheet"> --}}
+<link rel="stylesheet" href="{{asset('css/sidebar.css')}}">
 
 <style>
     @font-face {
@@ -82,6 +83,20 @@
     .fa-ellipsis-v {
         color: black;
     }
+
+    .sub-menu {
+        height: 0;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    .parent-item.active-menu .sub-menu {
+        height: auto !important;
+    }
+    .parent-item.active-menu .arrow-icon{
+        transform: rotate(90deg)
+    }
 </style>
 <link rel="stylesheet" href="{{ asset('assets/css/utilities.css') }}">
 <link href="{{ asset('assets/mdb/css/addons/datatables.min.css') }}" rel="stylesheet">
@@ -91,8 +106,11 @@
 <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css"
+    integrity="sha256-FdatTf20PQr/rWg+cAKfl6j4/IY3oohFAJ7gVC3M34E=" crossorigin="anonymous">
 
 <!-- select2-bootstrap4-theme -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.min.css"> <!-- for live demo page -->
+<link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4.min.css">
+<!-- for live demo page -->
 @laravelPWA

@@ -20,6 +20,7 @@
             <div class="col-md-12">
                 @include('alerts.all')
             </div>
+
             @foreach ($billTypes as $billType)
                 <div class="col-md-3">
                     <x-dashboard-count-tile :link="route('bills.index')">

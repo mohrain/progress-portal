@@ -389,6 +389,22 @@
                                                 </span>
                                             @enderror
                                         </div>
+                                        <div class="col-md-3 mb-2">
+                                            <label for="spouse_name" class="form-label ">स्थिति</label>
+                                            <select name="status" id="status" aria-label="Default select example"
+                                                class="form-control">
+                                                <option value="1" {{$employee->status==1 ? 'selected' : ''}}>
+                                                    प्रकाशित</option>
+                                                <option value="0" {{$employee->status==0 ? 'selected' : ''}}>
+                                                    अप्रकाशित</option>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                @error('status')
+                                                    {{ $message }}
+                                                @enderror
+
+                                            </div>
+                                        </div>
                                         {{-- @if (!$employee->id)
                                             <div class="col-md-3 mb-2">
                                                 <label for="joining_date" class="form-label">सुरु मिति</label>

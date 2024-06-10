@@ -46,6 +46,7 @@ class UpdateEmployeeRequest extends FormRequest
             'descriptions' => 'nullable',
             'joining_date' => 'nullable',
             'end_date' => 'nullable',
+            'status' => 'nullable',
             'profile' => 'nullable|file|max:2024',
         ];
     }
