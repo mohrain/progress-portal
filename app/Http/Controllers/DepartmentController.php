@@ -132,6 +132,16 @@ class DepartmentController extends Controller
         $publication = new DepartmentPublication();
         return view('deartments.backends.publicationCreate', compact('department', 'publication'));
     }
+
+    public function publicationsedit ($slug,$id){
+        $department = Department::where('slug', $slug)->first();
+        $publication = DepartmentPublication::find($id);
+        return view('deartments.backends.publicationCreate', compact('department', 'publication'));
+    }
+
+    public function publicationsupdate ($slug,$id){
+        $publication = DepartmentPublication::find($id);
+    }
     public function media($slug)
     {
         $department = Department::where('slug', $slug)->first();

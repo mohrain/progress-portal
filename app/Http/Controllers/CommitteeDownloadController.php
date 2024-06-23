@@ -10,8 +10,8 @@ class CommitteeDownloadController extends Controller
 {
     public function downloads(Committee $committee)
     {
-        $committee->load('downloads');
-        
+        return $committee->load('downloads');
+
         return view('committee.downloads', [
             'committee' => $committee
         ]);

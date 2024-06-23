@@ -11,7 +11,7 @@
             <div class="form-group">
                 <label for="input-name">विवरण</label>
                 <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="summernote" cols="30" rows="10"
-                                placeholder="Text Message">{{old('description',$federalParliment->description)}}</textarea>
+                                placeholder="Text Message">{{old('description',$federalParliment->description ?? '')}}</textarea>
                                 <x-invalid-feedback field="description" />
             </div>
             <div class="form-group">

@@ -34,7 +34,7 @@ class DepartmentPublicationController extends Controller
     public function update($slug,$id,Request $request){
         $data=$request->validate([
             'name'=>'required',
-            'file'=>'required',
+            'file'=>'nullable',
         ]);
         $publication=DepartmentPublication::find($id);
         if($request->file('file')){

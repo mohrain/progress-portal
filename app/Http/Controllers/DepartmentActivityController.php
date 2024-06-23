@@ -32,7 +32,7 @@ class DepartmentActivityController extends Controller
         $activity = new DepartmentActivity();
         $activities = DepartmentActivity::latest()->get();
         $activity = DepartmentActivity::find($id);
-        return view('deartments.backends.activity', compact('department', 'activity', 'activities', 'activity'));
+        return view('deartments.backends.activityCreate', compact('department', 'activity', 'activities', 'activity'));
     }
 
     public function update(Request $request, $slug, $id)
@@ -41,7 +41,7 @@ class DepartmentActivityController extends Controller
             'name' => 'required',
             'description' => 'required',
         ]);
-        $department=Department::find($id);
+        $department=DepartmentActivity::find($id);
 
         if($request->file('department')){
             if($department->file){

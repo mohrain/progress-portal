@@ -12,6 +12,7 @@ class DownloadController extends Controller
 {
     public function store(Request $request)
     {
+        return $request;
         $request->validate([
             'title' => 'required',
             'file' => 'required',

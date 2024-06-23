@@ -28,7 +28,7 @@
         </div>
         <div class="card-body">
             <form
-                action="{{ $publication->id ? route('department.activity.update', [$department->slug, $publication->id]) : route('department.publication.store') }}"
+                action="{{ $publication->id ? route('department.publication.update', [$department->slug, $publication->id]) : route('department.publication.store') }}"
                 method="POST" enctype="multipart/form-data" class="form">
                 @csrf
                 @isset($publication->id)

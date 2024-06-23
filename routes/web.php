@@ -448,6 +448,8 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('departments/{slug}/activities/create', [DepartmentController::class, 'activityCreate'])->name('department.activity.create');
     Route::get('departments/{slug}/publications', [DepartmentController::class, 'publications'])->name('department.publications');
     Route::get('departments/{slug}/publications/create', [DepartmentController::class, 'publicationsCreate'])->name('department.publications.create');
+    Route::get('departments/{slug}/{id}/publications/edit', [DepartmentController::class, 'publicationsedit'])->name('department.publications.edit');
+    Route::put('departments/{slug}/{id}/publications/update', [DepartmentController::class, 'publicationsupdate'])->name('department.publications.update');
     Route::get('departments/{slug}/audio', [DepartmentController::class, 'media'])->name('department.media');
     Route::get('departments/{slug}/video', [DepartmentController::class, 'video'])->name('department.video');
     Route::get('departments/branch', [DepartmentController::class, 'branch'])->name('department.branch');
@@ -465,7 +467,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::post('department/activity/store',[DepartmentActivityController::class,'store'])->name('department.activity.store');
     Route::get('departments/activity/{slug}/{id}/edit',[DepartmentActivityController::class,'edit'])->name('department.activity.edit');
     Route::put('departments/activity/{slug}/{id}/update',[DepartmentActivityController::class,'update'])->name('department.activity.update');
-    Route::delete('departments/activity/{id}/delete/department',[DepartmentActivityController::class,'delete'])->name('department.activity.delete');
+    Route::delete('departments/activity/{id}/delete',[DepartmentActivityController::class,'delete'])->name('department.activity.delete');
 
     Route::post('department/publicationstore',[DepartmentPublicationController::class,'store'])->name('department.publication.store');
     Route::get('departments/publication{slug}{id}/edit',[DepartmentPublicationController::class,'edit'])->name('department.publication.edit');

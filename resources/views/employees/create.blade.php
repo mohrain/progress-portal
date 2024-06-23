@@ -394,9 +394,9 @@
                                             <select name="status" id="status" aria-label="Default select example"
                                                 class="form-control">
                                                 <option value="1" {{$employee->status==1 ? 'selected' : ''}}>
-                                                    प्रकाशित</option>
+                                                    सक्रिय</option>
                                                 <option value="0" {{$employee->status==0 ? 'selected' : ''}}>
-                                                    अप्रकाशित</option>
+                                                    निस्क्रिय</option>
                                             </select>
                                             <div class="invalid-feedback">
                                                 @error('status')

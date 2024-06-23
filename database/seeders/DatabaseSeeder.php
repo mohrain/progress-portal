@@ -15,8 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $admin = Role::firstOrCreate(['name' => 'sachib']);
-        // $admin = Role::firstOrCreate(['name' => 'librarian']);
+        $admin = Role::firstOrCreate(['name' => 'sachib']);
+        $admin = Role::firstOrCreate(['name' => 'librarian']);
         $admin = Role::firstOrCreate(['name' => 'hod']);
 
 
@@ -25,23 +25,23 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
 
 
-        // $this->call(PermissionsSeeder::class);
-        // $this->call(RolesSeeder::class);
-        // $this->call(SettingsSeeder::class);
-        // $this->call(AddressSeeder::class);
-        // $this->call(FiscalYearSeeder::class);
-        // $this->call(PageSeeder::class);
-        // $this->call(PostCategorySeeder::class);
-        // $this->call(BillTypeSeeder::class);
-        // $this->call(ParliamentaryPartySeeder::class);
-        // $this->call(ElectionSeeder::class);
-        // $this->call(EmployeeDesignationSeeder::class);
-        // $this->call(MinistrySeeder::class);
-        // $this->call(BillCategorySeeder::class);
-        // $this->call(CommitteeSeeder::class);
+        $this->call(PermissionsSeeder::class);
+        $this->call(RolesSeeder::class);
+        $this->call(SettingsSeeder::class);
+        $this->call(AddressSeeder::class);
+        $this->call(FiscalYearSeeder::class);
+        $this->call(PageSeeder::class);
+        $this->call(PostCategorySeeder::class);
+        $this->call(BillTypeSeeder::class);
+        $this->call(ParliamentaryPartySeeder::class);
+        $this->call(ElectionSeeder::class);
+        $this->call(EmployeeDesignationSeeder::class);
+        $this->call(MinistrySeeder::class);
+        $this->call(BillCategorySeeder::class);
+        $this->call(CommitteeSeeder::class);
 
-        // if (app()->environment() == 'production') {
-        // } else {
-        // }
+        if (app()->environment() == 'production') {
+        } else {
+        }
     }
 }

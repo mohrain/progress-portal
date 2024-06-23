@@ -121,7 +121,7 @@ class PostController extends Controller
             }
         }
         return redirect()
-            ->back()
+            ->route('posts.edit',$post)
             ->with('success', 'पोस्ट सम्पादन');
     }
 

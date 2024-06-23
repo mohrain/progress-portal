@@ -29,7 +29,7 @@ class InformationController extends Controller
 
         $department=Department::where('slug',$slug)->first();
         $informations=Information::where('department_id',$department->id)->latest()->get();
-        return view('deartments.backends.info',compact('department','informations','information'));
+        return view('deartments.backends.infoCreate',compact('department','informations','information'));
     }
 
     public function update($slug,$id,Request $request){

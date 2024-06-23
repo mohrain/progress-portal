@@ -68,16 +68,16 @@
                             <td>{{ $publication->name }}</td>
                             <td>
                                 <div class="d-flex">
-                                    <a href="{{ route('department.activity.edit', [$department->slug, $publication->id]) }}"
+                                    <a href="{{ route('department.publication.edit', [$department->slug, $publication->id]) }}"
                                         class="btn btn-warning">Edit</a>
 
-                                    {{-- <form action="{{route('department.activity.delete',$publication->id)}}" method="POST" onsubmit="return confirm('Are you sure ?')">
+                                    <form action="{{route('department.publication.delete',$publication->id)}}" method="POST" onsubmit="return confirm('Are you sure ?')">
                                             @csrf
 
                                             @method('delete')
                                             <button class="
                                             btn btn-danger ml-2" type="submit">Delete</button>
-                                        </form> --}}
+                                        </form>
                                 </div>
                             </td>
                         </tr>

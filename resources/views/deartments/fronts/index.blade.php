@@ -8,7 +8,7 @@
                     <h5 class="text-theme-color fw-bold">संघीय संसद सचिवालय</h5>
                 </div>
                 <div class="contents">
-                    {!!$federalparliment->description!!}
+                    {!!$federalparliment->description ?? ''!!}
 
 
 

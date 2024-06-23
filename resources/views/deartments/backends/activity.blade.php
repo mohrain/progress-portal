@@ -29,6 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{-- {{$activities}} --}}
                     @foreach ($activities as $activity)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
@@ -38,13 +39,13 @@
                                     <a href="{{ route('department.activity.edit', [$department->slug, $activity->id]) }}"
                                         class="btn btn-warning">Edit</a>
 
-                                        {{-- <form action="{{route('department.activity.delete',$activity->id)}}" method="POST" onsubmit="return confirm('Are you sure ?')">
+                                        <form action="{{route('department.activity.delete',$activity->id)}}" method="POST" onsubmit="return confirm('Are you sure ?')">
                                             @csrf
 
                                             @method('delete')
                                             <button class="
                                             btn btn-danger ml-2" type="submit">Delete</button>
-                                        </form> --}}
+                                        </form>
                                 </div>
                             </td>
                         </tr>
