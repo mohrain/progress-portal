@@ -7,7 +7,7 @@
         <div class="card">
             <div style="aspct-ratio: 1/1; width: 100%">
                 <img id="newProfilePhotoPreview"
-                src="{{ $committeeMember->member->profile ? asset('storage/' . $committeeMember->member->profile) : asset('assets/img/no-image.png') }}"
+                src="{{ $committeeMember->member?->profile ? asset('storage/' . $committeeMember->member->profile) : asset('assets/img/no-image.png') }}"
                 class="w-100 h-100"
                 style="object-fit: contain;">
             </div>
@@ -26,8 +26,7 @@
     <div class="bg-theme-color-blue py-2 text-center my-3 rounded-1">
         समिति सचिव
     </div>
-    @empty($committeeSecretary)
-    @else
+    @if($committeeSecretary && $committeeSecretary->employee)
         <div class="card">
             <div style="aspct-ratio: 1/1; width: 100%">
                 <img id="newProfilePhotoPreview"
@@ -46,6 +45,6 @@
                     हेर्नुहोस्</a>
             </div>
         </div>
-    @endempty
+    @endif
 
 </div>
