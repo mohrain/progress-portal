@@ -14,9 +14,10 @@
             <div class="d-flex gap-2 align-items-center text-theme-color kalimati-font" style="font-size: 13px;">
                 <div class="text-end">
                     <h5 class="d-inline">
-                        <span id="bsYear"></span>
-                        <span id="bsMonth"></span>
-                        <span id="bsDay"></span> {{-- गते, --}}
+                        <span id="bsYear" class=""></span>
+                        <span id="bsMonth" class=""></span>
+                        <span id="bsDay" class=""></span>
+                        {{-- <span>{{current_day()}}</span> --}}
                     </h5>
                     <h6>
                         <span id="BsWeek"></span>
@@ -39,7 +40,9 @@
     let currentDate = NepaliFunctions.GetCurrentBsDate('YYYY-MM-DD');
     let bsYear = NepaliFunctions.GetCurrentBsYear();
     let bsMonth = NepaliFunctions.GetBsMonthInUnicode(NepaliFunctions.GetCurrentBsMonth() - 1);
-    let bsDay = NepaliFunctions.GetCurrentBsDay();
+    // let bsDay = NepaliFunctions.GetCurrentBsDay();
+
+    let bsDay = {{current_day()}};
 
     let bsDate = NepaliFunctions.GetBsFullDate(currentDate, true, "YYYY-MM-DD", );
     let bsWeek = NepaliFunctions.GetBsFullDayInUnicode(currentDate, 'YYYY-MM-DD')

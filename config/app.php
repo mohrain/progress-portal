@@ -176,6 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // Berkayk\OneSignal\OneSignalServiceProvider::class,
 
     ],
 
@@ -231,6 +232,7 @@ return [
 
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
+        // 'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class,
     ],
 
 ];

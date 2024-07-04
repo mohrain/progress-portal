@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Berkayk\OneSignal\OneSignalFacade;
 use App\Http\Controllers\SmsController;
 use App\Http\Controllers\BillController;
 use App\Http\Controllers\HomeController;
@@ -27,6 +28,7 @@ use App\Http\Controllers\MinistryController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\CommitteeController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\SuchiTypeController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\FiscalYearController;
@@ -38,6 +40,7 @@ use App\Http\Controllers\OfficeBearerController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\CarouselImageController;
 use App\Http\Controllers\BillSuggestionController;
+use App\Http\Controllers\CommitteeVideoController;
 use App\Http\Controllers\CommitteeMemberController;
 use App\Http\Controllers\CommitteeNoticecontroller;
 use App\Http\Controllers\DepartmentAudioController;
@@ -48,7 +51,6 @@ use App\Http\Controllers\CommitteeActivitycontroller;
 use App\Http\Controllers\CommitteeDownloadController;
 use App\Http\Controllers\CommitteeDownloadsController;
 use App\Http\Controllers\CommitteeSecretaryController;
-use App\Http\Controllers\CommitteeVideoController;
 use App\Http\Controllers\DepartmentActivityController;
 use App\Http\Controllers\InformationOfficerController;
 use App\Http\Controllers\ParliamentaryPartyController;
@@ -58,6 +60,17 @@ use App\Http\Controllers\FrequentlyAskedQuestionController;
 use App\Http\Controllers\CurrentParliamentaryPartyController;
 use App\Http\Controllers\ProvincialAssemblyLibraryController;
 
+Route::get("notify",function(){
+    Route::get('/', function () {
+        OneSignalFacade::sendNotificationToAll(
+            "Test message is for the  notification",
+            $url = null,
+            $data = null,
+            $buttons = null,
+            $schedule = null
+        );
+    });
+});
 // Auth::routes(['register' => false]);
 Route::get('login', [LoginController::class, 'showLoginForm'])
     ->name('login')

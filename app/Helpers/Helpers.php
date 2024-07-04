@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use App\Services\FiscalYearService;
 use Illuminate\Support\Facades\Storage;
 
@@ -123,4 +124,10 @@ if (!function_exists('is_app')) {
     {
         return session()->get('agent') == 'android_app';
     }
+}
+
+function current_day(){
+    $day=ad_to_bs(now()->format('Y-m-d'));
+    $day=Carbon::parse($day);
+    return $day->format('d');
 }
