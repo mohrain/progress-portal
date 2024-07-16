@@ -20,7 +20,7 @@
 </li>
 <li class="nav-item">
     <a class="nav-link" href="{{{route('department.index')}}}">
-        संघीय संसद सचिवालय
+        प्रदेश सभा सचिवालय
     </a>
     {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li>

@@ -5,7 +5,7 @@
         <div class="row py-3">
             <div class="col-lg-8">
                 <div class="title mb-4">
-                    <h5 class="text-theme-color fw-bold">संघीय संसद सचिवालय</h5>
+                    <h5 class="text-theme-color fw-bold">प्रदेश सभा सचिवालय</h5>
                 </div>
                 <div class="contents">
                     {!!$federalparliment->description ?? ''!!}
