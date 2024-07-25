@@ -189,9 +189,9 @@
         <div class="footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-lg-4 col-md-6">
                         {{-- <div class="border-bottom mb-3">
-                            <h5 class="fw-bold px-md-5">सम्पर्क ठेगाना</h5>
+                            <h5 class="fw-bold px-lg-5">सम्पर्क ठेगाना</h5>
                         </div> --}}
                         <div class="fw-bold">सम्पर्क ठेगाना</div>
                         <hr>
@@ -228,76 +228,80 @@
                             </a>
                         </div>
                     </div>
-                    {{-- <div class="col-md-4">
+                    {{-- <div class="col-lg-4">
                         <div class="border-bottom mb-3">
                             <h5 class="fw-bold text-center">स. प्रवक्ता/सूचना अधिकारी</h5>
                         </div>
                     </div> --}}
 
-                    <div class="col-md-4 my-1">
+                    <div class="col-lg-4 col-md-6 my-1">
                         <x-frontend-information-officer-employee-view />
                     </div>
-                    <div class="col-md-4 my-1 important-links">
+                    <div class="col-lg-4 col-md-12 my-1 important-links">
                         <div class="fw-bold text-center">महत्वपुर्ण लिंकहरु</div>
                         <hr>
-                        <div class="px-md-5">
-                            <small class="p-1">
-                                <i class="bi bi-link-45deg text-danger"></i> <a href="https://nepal.gov.np/"
-                                    target="_blank" rel="noopener noreferrer">नेपाल सरकारको पोर्टल</a>
-                            </small>
-                        </div>
-                        <div class="px-md-5">
-                            <small class="p-1">
-                                <i class="bi bi-link-45deg text-danger"></i> <a href="https://p7.gov.np/"
-                                    target="_blank" rel="noopener noreferrer">सुदूरपश्चिम प्रदेश पोर्टल</a>
-                            </small>
-                        </div>
-                        <div class="px-md-5">
-                            <small class="p-1">
-                                <i class="bi bi-link-45deg text-danger"></i> <a href="https://hr.parliament.gov.np/np"
-                                    target="_blank" rel="noopener noreferrer">प्रतिनिधि सभा,नेपाल</a>
-                            </small>
-                        </div>
-                        <div class="px-md-5">
-                            <small class="p-1">
-                                <i class="bi bi-link-45deg text-danger"></i> <a
-                                    href="https://pradeshsabha.koshi.gov.np/" target="_blank"
-                                    rel="noopener noreferrer">प्रदेश सभा, कोशी प्रदेश</a>
-                            </small>
-                        </div>
-                        <div class="px-md-5">
-                            <small class="p-1">
-                                <i class="bi bi-link-45deg text-danger"></i> <a
-                                    href="https://provincialassembly.p2.gov.np/" target="_blank"
-                                    rel="noopener noreferrer">प्रदेश सभा, मधेश प्रदेश</a>
-                            </small>
-                        </div>
-                        <div class="px-md-5">
-                            <small class="p-1">
-                                <i class="bi bi-link-45deg text-danger"></i> <a
-                                    href="https://provincialassembly.bagamati.gov.np/" target="_blank"
-                                    rel="noopener noreferrer">प्रदेश सभा, बागमती प्रदेश</a>
-                            </small>
-                        </div>
-                        <div class="px-md-5">
-                            <small class="p-1">
-                                <i class="bi bi-link-45deg text-danger"></i> <a
-                                    href="https://pradeshsabha.gandaki.gov.np/" target="_blank"
-                                    rel="noopener noreferrer">प्रदेश सभा, गण्डकी प्रदेश</a>
-                            </small>
-                        </div>
-                        <div class="px-md-5">
-                            <small class="p-1">
-                                <i class="bi bi-link-45deg text-danger"></i> <a href="https://assembly.lumbini.gov.np/"
-                                    target="_blank" rel="noopener noreferrer">प्रदेश सभा, लुम्बिनी प्रदेश</a>
-                            </small>
-                        </div>
-                        <div class="px-md-5">
-                            <small class="p-1">
-                                <i class="bi bi-link-45deg text-danger"></i> <a
-                                    href="https://assembly.karnali.gov.np/np" target="_blank"
-                                    rel="noopener noreferrer">प्रदेश सभा, कर्णाली प्रदेश</a>
-                            </small>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-4 col-sm-6">
+                                <small class="p-1">
+                                    <i class="bi bi-link-45deg text-danger"></i> <a href="https://nepal.gov.np/"
+                                        target="_blank" rel="noopener noreferrer">नेपाल सरकारको पोर्टल</a>
+                                </small>
+                            </div>
+                            <div class="col-lg-12 col-md-4 col-sm-6">
+                                <small class="p-1">
+                                    <i class="bi bi-link-45deg text-danger"></i> <a href="https://p7.gov.np/"
+                                        target="_blank" rel="noopener noreferrer">सुदूरपश्चिम प्रदेश पोर्टल</a>
+                                </small>
+                            </div>
+                            <div class="col-lg-12 col-md-4 col-sm-6">
+                                <small class="p-1">
+                                    <i class="bi bi-link-45deg text-danger"></i> <a
+                                        href="https://hr.parliament.gov.np/np" target="_blank"
+                                        rel="noopener noreferrer">प्रतिनिधि सभा,नेपाल</a>
+                                </small>
+                            </div>
+                            <div class="col-lg-12 col-md-4 col-sm-6">
+                                <small class="p-1">
+                                    <i class="bi bi-link-45deg text-danger"></i> <a
+                                        href="https://pradeshsabha.koshi.gov.np/" target="_blank"
+                                        rel="noopener noreferrer">प्रदेश सभा, कोशी प्रदेश</a>
+                                </small>
+                            </div>
+                            <div class="col-lg-12 col-md-4 col-sm-6">
+                                <small class="p-1">
+                                    <i class="bi bi-link-45deg text-danger"></i> <a
+                                        href="https://provincialassembly.p2.gov.np/" target="_blank"
+                                        rel="noopener noreferrer">प्रदेश सभा, मधेश प्रदेश</a>
+                                </small>
+                            </div>
+                            <div class="col-lg-12 col-md-4 col-sm-6">
+                                <small class="p-1">
+                                    <i class="bi bi-link-45deg text-danger"></i> <a
+                                        href="https://provincialassembly.bagamati.gov.np/" target="_blank"
+                                        rel="noopener noreferrer">प्रदेश सभा, बागमती प्रदेश</a>
+                                </small>
+                            </div>
+                            <div class="col-lg-12 col-md-4 col-sm-6">
+                                <small class="p-1">
+                                    <i class="bi bi-link-45deg text-danger"></i> <a
+                                        href="https://pradeshsabha.gandaki.gov.np/" target="_blank"
+                                        rel="noopener noreferrer">प्रदेश सभा, गण्डकी प्रदेश</a>
+                                </small>
+                            </div>
+                            <div class="col-lg-12 col-md-4 col-sm-6">
+                                <small class="p-1">
+                                    <i class="bi bi-link-45deg text-danger"></i> <a
+                                        href="https://assembly.lumbini.gov.np/" target="_blank"
+                                        rel="noopener noreferrer">प्रदेश सभा, लुम्बिनी प्रदेश</a>
+                                </small>
+                            </div>
+                            <div class="col-lg-12 col-md-4 col-sm-6">
+                                <small class="p-1">
+                                    <i class="bi bi-link-45deg text-danger"></i> <a
+                                        href="https://assembly.karnali.gov.np/np" target="_blank"
+                                        rel="noopener noreferrer">प्रदेश सभा, कर्णाली प्रदेश</a>
+                                </small>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -307,63 +311,69 @@
         <div class="py-2" style="background-color:#F2F2F2">
             <hr>
             <div class="row downloadadble-footer">
-                <div class="col-lg-3 px-5">
+                <div class="col-lg-3 col-md-4 px-5">
                     <label class="text-primary">डाउनलोड नेपाली युनिकोड</label>
 
                     <ul class="mt-3 p-0" style="list-style: none">
                         <li>
-                            <a href="{{route('footerDownload','nepali_romanised.zip')}}" class="text-dark" style="font-size: 13px;">नेपाली युनिकोड रोमनाइज</a>
+                            <a href="{{ route('footerDownload', 'nepali_romanised.zip') }}" class="text-dark"
+                                style="font-size: 13px;">नेपाली युनिकोड रोमनाइज</a>
                         </li>
                         <li>
-                            <a href="{{route('footerDownload','nepali_Traditional.zip')}}" class="text-dark" style="font-size: 13px;">नेपाली युनिकोड ट्रेडिसनल</a>
+                            <a href="{{ route('footerDownload', 'nepali_Traditional.zip') }}" class="text-dark"
+                                style="font-size: 13px;">नेपाली युनिकोड ट्रेडिसनल</a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-md-8 px-5">
                     <label class="text-primary">डाउनलोड नेपाली फन्ट</label>
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
                             <ul class="mt-3 p-0" style="list-style: none">
                                 <li class="" style="font-size: 13px;">
-                                    <a class="text-dark" href="{{route('footerDownload','Kalimati.ttf')}}">Kalimati</a>
+                                    <a class="text-dark"
+                                        href="{{ route('footerDownload', 'Kalimati.ttf') }}">Kalimati</a>
                                 </li>
                                 <li class="text-dark" style="font-size: 13px;">
-                                    <a class="text-dark" href="{{route('footerDownload','PREETI.TTF')}}">Preeti</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-4">
-                            <ul class="mt-3 p-0" style="list-style: none">
-                                <li class="text-dark" style="font-size: 13px;">
-                                    <a class="text-dark" href="{{route('footerDownload','HIMALI.TTF')}}">FontasyHimali</a>
-                                </li>
-                                <li class="text-dark" style="font-size: 13px;">
-                                    <a class="text-dark" href="{{route('footerDownload','SAGAR.TTF')}}">Sagarmatha</a>
+                                    <a class="text-dark" href="{{ route('footerDownload', 'PREETI.TTF') }}">Preeti</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 col-md-4 col-sm-4">
                             <ul class="mt-3 p-0" style="list-style: none">
                                 <li class="text-dark" style="font-size: 13px;">
-                                    <a class="text-dark" href="{{route('footerDownload','pcsnepal.TTF')}}">PCS Nepali</a>
+                                    <a class="text-dark"
+                                        href="{{ route('footerDownload', 'HIMALI.TTF') }}">FontasyHimali</a>
                                 </li>
                                 <li class="text-dark" style="font-size: 13px;">
-                                    <a class="text-dark" href="{{route('footerDownload','kokila.zip')}}">Kokila</a>
+                                    <a class="text-dark"
+                                        href="{{ route('footerDownload', 'SAGAR.TTF') }}">Sagarmatha</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <ul class="mt-3 p-0" style="list-style: none">
+                                <li class="text-dark" style="font-size: 13px;">
+                                    <a class="text-dark" href="{{ route('footerDownload', 'pcsnepal.TTF') }}">PCS
+                                        Nepali</a>
+                                </li>
+                                <li class="text-dark" style="font-size: 13px;">
+                                    <a class="text-dark" href="{{ route('footerDownload', 'kokila.zip') }}">Kokila</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 px-5">
                     <label class="text-primary">नमुना फाराम डाउनलोड</label>
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
                             <ul class="mt-3 p-0" style="list-style: none">
                                 <li class="text-dark" style="font-size: 13px;">बिदा फाराम</li>
                                 <li class="text-dark" style="font-size: 13px;">वेव एस.एम.एस. फाराम</li>
                             </ul>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
                             <ul class="mt-3 p-0" style="list-style: none">
                                 <li class="text-dark" style="font-size: 13px;">माग फाराम</li>
                                 <li class="text-dark" style="font-size: 13px;">सरुवा निवेदन (अनुसूची-९)</li>
