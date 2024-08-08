@@ -41,6 +41,8 @@
                     <h5 class="text-theme-color fw-bold">पदाधिकारी</h5>
 
                 </div>
+                @if ($department->employee)
+
                 <div class="d-flex align-items-center">
                     <b>
                         {{ $department->employee->name }}, शाखा प्रमुख
@@ -53,6 +55,7 @@
                             alt="pradeshsava-logo-sudurpaschim" >
                     @endif
                 </div>
+                @endif
                 {{-- <ul style="list-style: none" class="m-0 p-0">
                     @foreach ($departments as $department)
                         <li style="font-size:20px;color:#31709A"> <i style="font-size:18px" class="fa fa-list"></i>

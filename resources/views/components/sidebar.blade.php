@@ -172,7 +172,7 @@
                     <span class="text-success pr-4"></span>निर्वाचन वर्षहरू
                 </a>
                 <a href="{{ route('federal.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success pr-4"></span>संघीय संसद सचिवालय
+                    <span class="text-success pr-4"></span>प्रदेश सभा सचिवालय
                 </a>
                 <a href="{{ route('settings.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success pr-4"></span>एप सेटिङहरू

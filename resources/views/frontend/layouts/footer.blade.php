@@ -385,7 +385,7 @@
             <hr class="m-0 p-0">
             <div class="container">
 
-                <div class="d-md-flex mt-3  justify-content-evenly pb-3">
+                {{-- <div class="d-md-flex mt-3  justify-content-evenly pb-3">
                     <a href="/">गृह पृष्ठ </a>
                     <div class="m-0 p-0">
                     </div>
@@ -396,6 +396,25 @@
                         <a href="{{ route('faq.frontend') }}">प्राय: सोधिने प्रश्नहरू</a>
                     </div>
                     <div class="m-0 p-0">
+                        आगन्तुक गणना :
+                        <x-frontend.visitor-counter />
+                    </div>
+                </div> --}}
+
+                <div class="row px-4">
+                    <div class="col-lg-3 col-md-2 col-sm-6">
+
+                        <a href="/">गृह पृष्ठ </a>
+                    </div>
+                    {{-- <div class="col-lg-3 col-md-3 col-sm-6">
+                    </div> --}}
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <a href="{{ route('contact-us.create') }}">सम्पर्क गर्नुहोस् </a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <a href="{{ route('faq.frontend') }}">प्राय: सोधिने प्रश्नहरू</a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6">
                         आगन्तुक गणना :
                         <x-frontend.visitor-counter />
                     </div>
