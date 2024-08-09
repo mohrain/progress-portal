@@ -54,11 +54,19 @@ class BillTypeController extends Controller
      */
     public function show(BillType $billType)
     {
-        $bills = $billType
-            ->bills()
-            ->published()
-            ->latest()
-            ->paginate(50);
+        if($billType->id==1 || $billType->id==3){
+            $bills = BillType::find(1)
+                ->bills()
+                ->published()
+                ->latest()
+                ->paginate(50);
+        }else{
+            $bills = $billType
+                ->bills()
+                ->published()
+                ->latest()
+                ->paginate(50);
+        }
         return view('frontend.bill-types.show', compact('billType', 'bills'));
     }
 

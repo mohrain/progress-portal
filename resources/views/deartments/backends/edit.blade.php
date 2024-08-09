@@ -7,42 +7,75 @@
     <div class="px-2">
         <div class=" py-1">
             @if (Auth::user()->roles[0]->name != 'hod')
-
-
-            <div class="committee-wizard-menu">
-                <a href="{{ route('department.edit', $department->slug) }}"
-                    class=" {{ Route::getCurrentRoute()->getName() == 'department.edit' ? 'active' : '' }}">
-                    <div class="work-description "><i class="fa fa-info-circle"></i> परिचय</div>
-                </a>
-                <a href="{{ route('department.duty', $department->slug) }}"
-                    class=" {{ Route::getCurrentRoute()->getName() == 'department.duty' ? 'active' : '' }} ">
-                    <div class="work-description "><i class="fa fa-tasks"></i> काम, कर्तव्य र अधिकार</div>
-                </a>
-                <a href="{{ route('department.notices', $department->slug) }}"
-                    class=" {{ Route::getCurrentRoute()->getName() == 'department.notices' ? 'active' : '' }}">
-                    <div class="work-description "><i class="fa fa-flag"></i> सूचनाहरु</div>
-                </a>
-                <a href="{{ route('department.activity', $department->slug) }}"
-                    class=" {{ Route::getCurrentRoute()->getName() == 'department.activity' ? 'active' : '' }}">
-                    <div class="work-description "><i class="fa fa-rss"></i> गतिविधिहरु</div>
-                </a>
-                <a href="{{ route('department.publications', $department->slug) }}"
-                    class=" {{ Route::getCurrentRoute()->getName() == 'department.publications' ? 'active' : '' }} ">
-                    <div class="work-description  tab-active "><i class="fa fa-download"></i> प्रकाशनहरु/डाउनलोडस्</div>
-                </a>
-                <a href="{{ route('department.media', $department->slug) }}"
-                    class=" {{ Route::getCurrentRoute()->getName() == 'department.media' ? 'active' : '' }}">
-                    <div class="work-description "><i class="fa fa-headphones"></i> अडियो</div>
-                </a>
-                <a href="{{ route('department.video', $department->slug) }}"
-                    class=" {{ Route::getCurrentRoute()->getName() == 'department.video' ? 'active' : '' }}">
-                    <div class="work-description "><i class="fa fa-film"></i> भिडियो</div>
-                </a>
-                <a href="{{ route('department.hod', $department->slug) }}"
-                    class=" {{ Route::getCurrentRoute()->getName() == 'department.hod' ? 'active' : '' }}">
-                    <div class="work-description "><i class="fa fa-user"></i> साखा प्रमुख </div>
-                </a>
-            </div>
+                <div class="committee-wizard-menu">
+                    <a href="{{ route('department.edit', $department->slug) }}"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.edit' ? 'active' : '' }}">
+                        <div class="work-description "><i class="fa fa-info-circle"></i> परिचय</div>
+                    </a>
+                    <a href="{{ route('department.duty', $department->slug) }}"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.duty' ? 'active' : '' }} ">
+                        <div class="work-description "><i class="fa fa-tasks"></i> काम, कर्तव्य र अधिकार</div>
+                    </a>
+                    <a href="{{ route('department.notices', $department->slug) }}"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.notices' ? 'active' : '' }}">
+                        <div class="work-description "><i class="fa fa-flag"></i> सूचनाहरु</div>
+                    </a>
+                    <a href="{{ route('department.activity', $department->slug) }}"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.activity' ? 'active' : '' }}">
+                        <div class="work-description "><i class="fa fa-rss"></i> गतिविधिहरु</div>
+                    </a>
+                    <a href="{{ route('department.publications', $department->slug) }}"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.publications' ? 'active' : '' }} ">
+                        <div class="work-description  tab-active "><i class="fa fa-download"></i> प्रकाशनहरु/डाउनलोडस्</div>
+                    </a>
+                    <a href="{{ route('department.media', $department->slug) }}"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.media' ? 'active' : '' }}">
+                        <div class="work-description "><i class="fa fa-headphones"></i> अडियो</div>
+                    </a>
+                    <a href="{{ route('department.video', $department->slug) }}"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.video' ? 'active' : '' }}">
+                        <div class="work-description "><i class="fa fa-film"></i> भिडियो</div>
+                    </a>
+                    <a href="{{ route('department.hod', $department->slug) }}"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.hod' ? 'active' : '' }}">
+                        <div class="work-description "><i class="fa fa-user"></i> साखा प्रमुख </div>
+                    </a>
+                </div>
+            @elseif(request('menu') == true)
+                <div class="committee-wizard-menu">
+                    <a href="{{ route('department.edit', $department->slug) }}?menu=true"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.edit' ? 'active' : '' }}">
+                        <div class="work-description "><i class="fa fa-info-circle"></i> परिचय</div>
+                    </a>
+                    <a href="{{ route('department.duty', $department->slug) }}?menu=true"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.duty' ? 'active' : '' }} ">
+                        <div class="work-description "><i class="fa fa-tasks"></i> काम, कर्तव्य र अधिकार</div>
+                    </a>
+                    <a href="{{ route('department.notices', $department->slug) }}?menu=true"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.notices' ? 'active' : '' }}">
+                        <div class="work-description "><i class="fa fa-flag"></i> सूचनाहरु</div>
+                    </a>
+                    <a href="{{ route('department.activity', $department->slug) }}?menu=true"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.activity' ? 'active' : '' }}">
+                        <div class="work-description "><i class="fa fa-rss"></i> गतिविधिहरु</div>
+                    </a>
+                    <a href="{{ route('department.publications', $department->slug) }}?menu=true"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.publications' ? 'active' : '' }} ">
+                        <div class="work-description  tab-active "><i class="fa fa-download"></i> प्रकाशनहरु/डाउनलोडस्</div>
+                    </a>
+                    <a href="{{ route('department.media', $department->slug) }}?menu=true"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.media' ? 'active' : '' }}">
+                        <div class="work-description "><i class="fa fa-headphones"></i> अडियो</div>
+                    </a>
+                    <a href="{{ route('department.video', $department->slug) }}?menu=true"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.video' ? 'active' : '' }}">
+                        <div class="work-description "><i class="fa fa-film"></i> भिडियो</div>
+                    </a>
+                    <a href="{{ route('department.hod', $department->slug) }}?menu=true"
+                        class=" {{ Route::getCurrentRoute()->getName() == 'department.hod' ? 'active' : '' }}">
+                        <div class="work-description "><i class="fa fa-user"></i> साखा प्रमुख </div>
+                    </a>
+                </div>
             @endif
         </div>
         @yield('departmentContent')

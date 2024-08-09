@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="box p-3">
-                <form action="{{ route('bills.frontendSearch',$billType) }}" method="get">
+                <form action="{{ route('bills.frontendSearch', $billType) }}" method="get">
                     <div class="row">
                         <div class="col-md-2 mb-2">
                             <label for="bill_date_from" class="form-label">शुरु मिति</label>
@@ -58,7 +58,12 @@
                         <th>दर्ता मिति</th>
                         <th>शीर्षक</th>
                         <th>मन्त्रालय</th>
-                        <th>अवस्था</th>
+                        @if ($billType->id != 1 && $billType->id != 3)
+                            <th>अवस्था</th>
+                        @endif
+                        @if ($billType->id == 3)
+                            <th>प्रमाणीकरण मिति</th>
+                        @endif
                         <th></th>
                         <th>विधेयकमा सुझाव</th>
                     </thead>
@@ -69,8 +74,13 @@
                                 <td>{{ $bill->entry_number }}</td>
                                 <td style="white-space: nowrap;">{{ $bill->entry_date }}</td>
                                 <td>{{ $bill->name }}</td>
-                                <td>{{ $bill->ministry->name ?? ""}}</td>
-                                <td>{{ $bill->status }}</td>
+                                <td>{{ $bill->ministry->name ?? '' }}</td>
+                                @if ($billType->id != 1 && $billType->id != 3)
+                                    <td>{{ $bill->status }}</td>
+                                @endif
+                                @if ($billType->id == 3)
+                                <td>{{$bill->authentication_date}}</td>
+                            @endif
                                 <td style="white-space: nowrap;">
                                     <a href="{{ route('bills.show', $bill) }}" class="btn btn-sm btn-primary">
                                         पढ्नुहोस् <i class="bi bi-chevron-double-right"></i>

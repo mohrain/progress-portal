@@ -4,7 +4,7 @@
 <div class="card mt-2">
     <div class="box__header">
         <div class="d-flex justify-content-between align-items-center">
-            <div class="box__title">साखाको परिचय <i>({{$department->name}})</i></div>
+            <div class="box__title">साखाको परिचय <i>({{$department->department_id ? $department->department->name.'/'.$department->name : $department->name}})</i></div>
         </div>
     </div>
     <div class="card-body">

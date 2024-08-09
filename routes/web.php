@@ -466,6 +466,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('departments/{slug}/audio', [DepartmentController::class, 'media'])->name('department.media');
     Route::get('departments/{slug}/video', [DepartmentController::class, 'video'])->name('department.video');
     Route::get('departments/branch', [DepartmentController::class, 'branch'])->name('department.branch');
+    Route::get('sub-departments/{departmentSlug}', [DepartmentController::class, 'subdepartment'])->name('department.subdepartment');
 
     Route::get('departments/{slug}/head-of-department', [DepartmentController::class, 'hod'])->name('department.hod');
     Route::post('departments/{id}/head-of-department/update', [DepartmentController::class, 'hodStore'])->name('department.hodStore');
@@ -500,7 +501,8 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
 });
 Route::get('departments', [DepartmentController::class, 'index'])->name('department.index');
 Route::post('departments', [DepartmentController::class, 'store'])->name('department.store');
-
+Route::get('all-employees',[DepartmentController::class,'allStaffs'])->name('allStaff');
+Route::get('employees/{slug}',[DepartmentController::class,'staffShow'])->name('staffShow');
 Route::get('departments/{slug}', [DepartmentController::class, 'introFront'])->name('department.introFront');
 Route::get('departments/{slug}/work-duty-authority', [DepartmentController::class, 'workFront'])->name('department.workFront');
 Route::get('departments/{slug}/notices', [DepartmentController::class, 'noticeFront'])->name('department.noticeFront');

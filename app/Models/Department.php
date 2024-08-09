@@ -44,4 +44,7 @@ class Department extends Model
     public function employee(){
         return $this->belongsTo(Employee::class);
     }
+    public function department(){
+        return $this->belongsTo(Department::class);
+    }
 }

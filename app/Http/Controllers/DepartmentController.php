@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\District;
 use Carbon\Carbon;
 use App\Models\Employee;
 use App\Models\Department;
@@ -10,11 +12,10 @@ use App\Models\OfficeBearer;
 use Illuminate\Http\Request;
 use App\Models\DepartmentAudio;
 use App\Models\DepartmentVideo;
-use App\Models\DepartmentActivity;
-use App\Models\DepartmentPublication;
 use App\Models\Federalparliment;
-use App\User;
+use App\Models\DepartmentActivity;
 use Illuminate\Support\Facades\Hash;
+use App\Models\DepartmentPublication;
 
 class DepartmentController extends Controller
 {
@@ -27,14 +28,15 @@ class DepartmentController extends Controller
 
     public function list()
     {
-        $departments = Department::with('employee')->latest()->where('status', 1)->get();
+        $departments = Department::with('employee','department')->latest()->where('status', 1)->get()->groupBy('department_id');
         return view('deartments.backends.list', compact('departments'));
     }
 
     public function create()
     {
         // $officeBeareds= Employee::latest()->get();
-        return view('deartments.backends.index');
+        $departments = Department::where('status', 1)->get();
+        return view('deartments.backends.index',compact('departments'));
     }
 
     public function store(Request $request)
@@ -47,6 +49,8 @@ class DepartmentController extends Controller
         $data = $request->validate([
             'name' => 'required',
             'description' => 'required',
+            'department_id'=>'nullable',
+            'status'=>'required',
         ]);
         $data['order'] = $order;
         Department::create($data);
@@ -55,7 +59,7 @@ class DepartmentController extends Controller
     }
     public function edit($slug)
     {
-        $department = Department::where('slug', $slug)->first();
+        $department = Department::with('department')->where('slug', $slug)->first();
         $officeBeareds = Employee::latest()->get();
         return view('deartments.backends.intro', compact('officeBeareds', 'department'));
     }
@@ -256,5 +260,36 @@ class DepartmentController extends Controller
             'employee_id' => null
         ]);
         return redirect()->back();
+    }
+
+    public function subdepartment($departmentSlug){
+        $department=Department::where('slug',$departmentSlug)->first();
+        $departments=Department::where('department_id',$department->id)->latest()->get();
+        return view('deartments.backends.subdepartment.index',compact('departments'));
+    }
+
+    public function allStaffs(Request $request){
+        $employees=Employee::latest()->where('status',1);
+        if($request->name){
+            $employees=$employees->where('name','like','%'.$request->name.'%');
+        }
+        if($request->name_english){
+            $employees=$employees->where('name_english','like','%'.$request->name_english.'%');
+        }
+        if($request->branch){
+            $employees=$employees->where('branch','like','%'.$request->branch.'%');
+        }
+        if($request->designation){
+            $employees=$employees->where('designation','like','%'.$request->designation.'%');
+        }
+        if($request->permanent_address_district){
+            $employees=$employees->where('permanent_address_district',$request->permanent_address_district);
+        }
+        if($request->gender){
+            $employees=$employees->where('gender',$request->gender);
+        }
+        $employees=$employees->paginate(50);
+        $districts=District::latest()->get();
+        return view('deartments.fronts.staff',compact('employees','districts'));
     }
 }

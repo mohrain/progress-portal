@@ -14,8 +14,13 @@ class FederalparlimentController extends Controller
 
     public function store(Request $request){
         $data=$request->validate([
-            'description'=>'required'
+            'description'=>'required',
+            'document'=>'nullable'
         ]);
+
+        if($request->file('document')){
+            $data['document']=$request->file('document')->store('documents');
+        }
 
         $federalParliment=Federalparliment::first();
 

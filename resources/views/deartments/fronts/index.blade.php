@@ -10,12 +10,15 @@
                 <div class="contents">
                     {!!$federalparliment->description ?? ''!!}
 
+                    {{-- {{$federalparliment}} --}}
 
 
                 </div>
                 <div class="title">
-                    <b>संगठनात्मक संरचना</b>
+                    <a class="text-theme-color fw-bold" href="{{asset('storage').'/'.$federalparliment->document}}">संगठनात्मक संरचना</a>
                 </div>
+
+                <a href="{{route('allStaff')}}" class="btn mt-3" style="background-color:#cccccc42;border: 1px solid #ccc">प्रदेश सभा सचिवालयका <br> कर्मचारीहरु</a>
             </div>
 
             <div class="col-lg-4">

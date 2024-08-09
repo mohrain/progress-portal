@@ -134,7 +134,7 @@
         </div>
 
         @can('user.*')
-            <div class="sidebar-menu {{ setActive('department.list') }}">
+            <div class="sidebar-menu {{ setActive('user.index') }}">
                 <a href="{{ route('user.index') }}" aria-expanded="false" class="nav-link">
                     <span class="text-success"><i class="fa fa-users pr-2"></i></span>प्रयोगकर्ताहरू
                 </a>
@@ -254,8 +254,14 @@
     @endhasanyrole
 
     @hasanyrole('hod')
-        <div class="sidebar-menu {{ setActive('department.duty') }}">
-            <a href="{{ route('department.duty', Auth::user()->employee->department->slug) }}"
+        <div class="sidebar-menu {{ setActive('department.subdepartment') }}">
+            <a href="{{ route('department.subdepartment', Auth::user()->employee->department->slug) }}"
+                aria-expanded="false" class="nav-link">
+                <span class="text-success"><i class="fa fa-boxes pr-2"></i></span>शाखाहरु
+            </a>
+        </div>
+        <div class="sidebar-menu {{ setActive('department.edit') }}">
+            <a href="{{ route('department.edit', Auth::user()->employee->department->slug) }}"
                 aria-expanded="false" class="nav-link">
                 <span class="text-success"><i class="fa fa-info-circle pr-2"></i></span>परिचय
             </a>

@@ -9,5 +9,5 @@ class Federalparliment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['description'];
+    protected $fillable = ['description','document'];
 }
