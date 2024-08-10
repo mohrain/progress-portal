@@ -8,17 +8,19 @@
                     <h5 class="text-theme-color fw-bold">प्रदेश सभा सचिवालय</h5>
                 </div>
                 <div class="contents">
-                    {!!$federalparliment->description ?? ''!!}
+                    {!! $federalparliment->description ?? '' !!}
 
                     {{-- {{$federalparliment}} --}}
 
 
                 </div>
                 <div class="title">
-                    <a class="text-theme-color fw-bold" href="{{asset('storage').'/'.$federalparliment->document}}">संगठनात्मक संरचना</a>
+                    <a class="text-theme-color fw-bold" target="_blank"
+                        href="{{ asset('storage') . '/' . $federalparliment->document }}">संगठनात्मक संरचना</a>
                 </div>
 
-                <a href="{{route('allStaff')}}" class="btn mt-3" style="background-color:#cccccc42;border: 1px solid #ccc">प्रदेश सभा सचिवालयका <br> कर्मचारीहरु</a>
+                <a href="{{ route('allStaff') }}" class="btn mt-3"
+                    style="background-color:#cccccc42;border: 1px solid #ccc">प्रदेश सभा सचिवालयका कर्मचारीहरु</a>
             </div>
 
             <div class="col-lg-4">
@@ -28,9 +30,12 @@
                 </div>
                 <ul style="list-style: none" class="m-0 p-0">
                     @foreach ($departments as $department)
-                        <li style="font-size:20px;color:#31709A"> <i style="font-size:18px" class="fa fa-list"></i>
-                            <a href="{{route('department.introFront',$department->slug)}}"><span style="color:#31709A">{{$department->name}}</span></a>
-                        </li>
+                        @if (!$department->department_id)
+                            <li style="font-size:20px;color:#31709A"> <i style="font-size:18px" class="fa fa-list"></i>
+                                <a href="{{ route('department.introFront', $department->slug) }}"><span
+                                        style="color:#31709A">{{ $department->name }}</span></a>
+                            </li>
+                        @endif
                     @endforeach
                 </ul>
             </div>

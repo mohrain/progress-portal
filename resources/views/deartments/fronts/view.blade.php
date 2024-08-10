@@ -38,31 +38,41 @@
 
             <div class="col-lg-3">
                 <div class="title mb-4">
-                    <h5 class="text-theme-color fw-bold">पदाधिकारी</h5>
+                    <h5 class="text-theme-color fw-bold">प्रमुख</h5>
 
                 </div>
                 @if ($department->employee)
-
-                <div class="d-flex align-items-center">
-                    <b>
-                        {{ $department->employee->name }}, शाखा प्रमुख
-                    </b>
-                    @if ($department->employee->profile)
-                        <img class="profileImg" src="{{ asset('storage') . '/' . $department->employee->profile }}" alt="">
-                    @else
-                        <img class="profileImg"
-                            src="{{ asset('images/sudurpashchim-province-assembly-logo-400x400.png') }}"
-                            alt="pradeshsava-logo-sudurpaschim" >
-                    @endif
-                </div>
+                    <div class="d-flex align-items-center">
+                        <b>
+                            {{ $department->employee->name }}, {{ $department->employee->position }}
+                        </b>
+                        @if ($department->employee->profile)
+                            <img class="profileImg" src="{{ asset('storage') . '/' . $department->employee->profile }}"
+                                alt="">
+                        @else
+                            <img class="profileImg"
+                                src="{{ asset('images/sudurpashchim-province-assembly-logo-400x400.png') }}"
+                                alt="pradeshsava-logo-sudurpaschim">
+                        @endif
+                    </div>
                 @endif
-                {{-- <ul style="list-style: none" class="m-0 p-0">
-                    @foreach ($departments as $department)
-                        <li style="font-size:20px;color:#31709A"> <i style="font-size:18px" class="fa fa-list"></i>
-                            <a href="{{route('department.introFront',$department->slug)}}"><span style="color:#31709A">{{$department->name}}</span></a>
-                        </li>
-                    @endforeach --}}
-                </ul>
+
+                @if (count($departments) > 0)
+                    <div>
+                        <div class="title my-4">
+                            <h5 class="text-theme-color fw-bold"> इकाईहरू</h5>
+
+                        </div>
+                        <ul style="list-style: none" class="m-0 p-0">
+                            @foreach ($departments as $department)
+                                <li style="font-size:20px;color:#31709A"> <i style="font-size:18px" class="fa fa-list"></i>
+                                    <a href="{{ route('department.introFront', $department->slug) }}"><span
+                                            style="color:#31709A">{{ $department->name }}</span></a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
         </div>
         {{-- <x-modal-image-view /> --}}
