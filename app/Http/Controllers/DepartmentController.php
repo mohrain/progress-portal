@@ -113,9 +113,11 @@ class DepartmentController extends Controller
     public function activity($slug)
     {
         $department = Department::where('slug', $slug)->first();
+        $departments = Department::where('department_id', $department->id)->get();
+
         $activity = new DepartmentActivity();
         $activities = DepartmentActivity::latest()->get();
-        return view('deartments.backends.activity', compact('department', 'activity', 'activities'));
+        return view('deartments.backends.activity', compact('department', 'activity', 'activities', 'departments'));
     }
 
     public function activityCreate($slug)
@@ -127,9 +129,11 @@ class DepartmentController extends Controller
     public function publications($slug)
     {
         $department = Department::where('slug', $slug)->first();
+        $departments = Department::where('department_id', $department->id)->get();
+
         $publication = new DepartmentPublication();
         $publications = DepartmentPublication::where('department_id', $department->id)->latest()->get();
-        return view('deartments.backends.publication', compact('department', 'publications', 'publication'));
+        return view('deartments.backends.publication', compact('department', 'publications', 'publication', 'departments'));
     }
 
     public function publicationsCreate($slug)
@@ -190,7 +194,11 @@ class DepartmentController extends Controller
 
     public function noticeFront($slug, Request $request)
     {
+
+
         $department = Department::with('information')->where('slug', $slug)->first();
+
+        $departments = Department::where('department_id', $department->id)->get();
 
         $information = Information::where('department_id', $department->id)
             ->when($request->filled('start_date'), function ($query) {
@@ -205,7 +213,7 @@ class DepartmentController extends Controller
         $informations = $information->get();
 
         // return $startDate = date($startDate);
-        return view('deartments.fronts.notice', compact('department', 'informations'));
+        return view('deartments.fronts.notice', compact('department', 'informations', 'departments'));
     }
 
     public function deleteDepartment($slug)

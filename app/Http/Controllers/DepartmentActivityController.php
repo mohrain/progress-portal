@@ -11,17 +11,17 @@ class DepartmentActivityController extends Controller
 {
     public function store(Request $request)
     {
-        $data=$request->validate([
+        $data = $request->validate([
             'department_id' => 'required',
             'name' => 'required',
             'description' => 'required',
         ]);
 
-        if($request->file('file')){
-            $data['file']=$request->file('file')->store('file');
+        if ($request->file('file')) {
+            $data['file'] = $request->file('file')->store('file');
         }
-        $activity=DepartmentActivity::create($data);
-        $department=Department::find($activity->department_id);
+        $activity = DepartmentActivity::create($data);
+        $department = Department::find($activity->department_id);
         // return redirect()->back()->with('success', "");
         return redirect()->route('department.activity', $department->slug)->with('success', 'नया गतिबिधि सफलतापुर्बक थपियो');
     }
@@ -37,17 +37,17 @@ class DepartmentActivityController extends Controller
 
     public function update(Request $request, $slug, $id)
     {
-        $data=$request->validate([
+        $data = $request->validate([
             'name' => 'required',
             'description' => 'required',
         ]);
-        $department=DepartmentActivity::find($id);
+        $department = DepartmentActivity::find($id);
 
-        if($request->file('department')){
-            if($department->file){
+        if ($request->file('department')) {
+            if ($department->file) {
                 Storage::delete($department->file);
             }
-            $data['file']=$request->file('file')->store('file');
+            $data['file'] = $request->file('file')->store('file');
         }
         $department->update($data);
 
@@ -56,37 +56,39 @@ class DepartmentActivityController extends Controller
 
     public function delete($id)
     {
-        $department=DepartmentActivity::find($id);
-        if($department->file){
+        $department = DepartmentActivity::find($id);
+        if ($department->file) {
             Storage::delete($department->file);
         }
 
         $department->delete();
         return redirect()->back()->with('success', "गतिबिधि सफलतापुर्बक हटाइयो");
     }
-    public function activiityFront($slug,Request $request)
+    public function activiityFront($slug, Request $request)
     {
         $department = Department::with('activity')->where('slug', $slug)->first();
+        $departments = Department::where('department_id', $department->id)->get();
 
-        $activity=DepartmentActivity::where('department_id',$department->id)
-        ->when($request->filled('start_date'), function ($query) {
-            $query->where('created_at', '>=',  bs_to_ad(request('start_date')));
-        })
-        ->when($request->filled('end_date'), function ($query) {
-            $query->where('created_at', '<=',  bs_to_ad(request('end_date')));
-        })
-        ->when($request->filled('keywords'), function ($query) {
-            $query->where('name', 'like', '%'.(request('keywords')).'%');
-        });
-        $activities=$activity->get();
-        return view('deartments.fronts.activity', compact('department','activities'));
+        $activity = DepartmentActivity::where('department_id', $department->id)
+            ->when($request->filled('start_date'), function ($query) {
+                $query->where('created_at', '>=',  bs_to_ad(request('start_date')));
+            })
+            ->when($request->filled('end_date'), function ($query) {
+                $query->where('created_at', '<=',  bs_to_ad(request('end_date')));
+            })
+            ->when($request->filled('keywords'), function ($query) {
+                $query->where('name', 'like', '%' . (request('keywords')) . '%');
+            });
+        $activities = $activity->get();
+        return view('deartments.fronts.activity', compact('department', 'activities', 'departments'));
     }
 
-    public function detail($slug,$id){
-        $department=Department::where('slug',$slug)->first();
-        $activity=DepartmentActivity::find($id);
-        $fileUrl='storage/'.$activity->file;
+    public function detail($slug, $id)
+    {
+        $department = Department::where('slug', $slug)->first();
+        $activity = DepartmentActivity::find($id);
+        $fileUrl = 'storage/' . $activity->file;
         // return response()->file($fileUrl);
-        return view('deartments.fronts.activityDetail',compact('activity','department'));
+        return view('deartments.fronts.activityDetail', compact('activity', 'department'));
     }
 }
