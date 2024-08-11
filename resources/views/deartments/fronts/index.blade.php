@@ -15,8 +15,12 @@
 
                 </div>
                 <div class="title">
-                    <a class="text-theme-color fw-bold" target="_blank"
-                        href="{{ asset('storage') . '/' . $federalparliment->document }}">संगठनात्मक संरचना</a>
+                    @if ($federalparliment->document)
+                        <a class="text-theme-color fw-bold" target="_blank"
+                            href="{{ asset('storage') . '/' . $federalparliment->document }}">संगठनात्मक संरचना</a>
+                    @else
+                        <a class="text-theme-color fw-bold" target="_blank" href="#">संगठनात्मक संरचना</a>
+                    @endif
                 </div>
 
                 <a href="{{ route('allStaff') }}" class="btn mt-3"
