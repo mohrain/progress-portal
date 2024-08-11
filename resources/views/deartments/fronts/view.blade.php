@@ -44,7 +44,7 @@
                 @if ($department->employee)
                     <div class="d-flex align-items-center">
                         <b>
-                            {{ $department->employee->name }}, {{ $department->employee->position }}
+                            {{ $department->employee->name }},{{ $department->employee->designation ?? '' }}
                         </b>
                         @if ($department->employee->profile)
                             <img class="profileImg" src="{{ asset('storage') . '/' . $department->employee->profile }}"

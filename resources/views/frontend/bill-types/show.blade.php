@@ -58,10 +58,10 @@
                         <th>दर्ता मिति</th>
                         <th>शीर्षक</th>
                         <th>मन्त्रालय</th>
-                        @if ($billType->id != 1 && $billType->id != 3)
+                        @if ($billType->id != 1 && $billType->id != 4)
                             <th>अवस्था</th>
                         @endif
-                        @if ($billType->id == 3)
+                        @if ($billType->id == 4)
                             <th>प्रमाणीकरण मिति</th>
                         @endif
                         <th></th>
@@ -75,11 +75,12 @@
                                 <td style="white-space: nowrap;">{{ $bill->entry_date }}</td>
                                 <td>{{ $bill->name }}</td>
                                 <td>{{ $bill->ministry->name ?? '' }}</td>
-                                @if ($billType->id != 1 && $billType->id != 3)
+                                @if ($billType->id != 1 && $billType->id != 4)
                                     <td>{{ $bill->status }}</td>
                                 @endif
-                                @if ($billType->id == 3)
-                                    <td>{{ $bill->authentication_date }}</td>
+                                @if ($billType->id == 4)
+                                    <td class=""> <span
+                                            style="white-space: nowrap;">{{ $bill->authentication_date }}</span></td>
                                 @endif
                                 <td style="white-space: nowrap;">
                                     <a href="{{ route('bills.show', $bill) }}" class="btn btn-sm btn-primary">
