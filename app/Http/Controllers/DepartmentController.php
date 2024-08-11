@@ -16,6 +16,7 @@ use App\Models\Federalparliment;
 use App\Models\DepartmentActivity;
 use Illuminate\Support\Facades\Hash;
 use App\Models\DepartmentPublication;
+use Spatie\Permission\Models\Role;
 
 class DepartmentController extends Controller
 {
@@ -78,7 +79,8 @@ class DepartmentController extends Controller
     public function duty($slug)
     {
         $department = Department::where('slug', $slug)->first();
-        return view('deartments.backends.job', compact('department'));
+        $department = Department::get();
+        return view('deartments.backends.job', compact('department', 'departments'));
     }
 
     public function workUpdate($id, Request $request)
@@ -181,8 +183,9 @@ class DepartmentController extends Controller
     public function workFront($slug)
     {
         $department = Department::where('slug', $slug)->first();
+        $departments = Department::where('department_id', $department->id)->get();
 
-        return view('deartments.fronts.work', compact('department'));
+        return view('deartments.fronts.work', compact('department', 'departments'));
     }
 
     public function noticeFront($slug, Request $request)
@@ -239,7 +242,8 @@ class DepartmentController extends Controller
             $userData['password'] = Hash::make($request->password);
 
             $user = User::create($userData);
-            $user->assignRole('hod');
+            $role = Role::firstOrCreate(['name' => 'hod']);
+            $user->assignRole($role);
             Employee::find($request->employee_id)->update([
                 'user_id' => $user->id,
                 'email' => $user->email

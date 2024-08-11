@@ -57,7 +57,7 @@
                     </div>
                 @endif
 
-                @if (count($departments) > 0)
+                @if ($departments)
                     <div>
                         <div class="title my-4">
                             <h5 class="text-theme-color fw-bold"> इकाईहरू</h5>

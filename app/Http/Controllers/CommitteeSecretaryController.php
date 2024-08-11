@@ -12,6 +12,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Role;
 
 class CommitteeSecretaryController extends Controller
 {
@@ -126,12 +127,12 @@ class CommitteeSecretaryController extends Controller
 
     public function store(Request $request, Committee $committee)
     {
-        $empData=$request->validate([
+        $empData = $request->validate([
             'employee_id' => 'required'
 
         ]);
         if ($request->email) {
-            $useData=$request->validate([
+            $useData = $request->validate([
                 'email' => 'required|email',
                 'password' => 'required|confirmed|min:8',
                 'username' => 'required|unique:users,username',
@@ -139,16 +140,18 @@ class CommitteeSecretaryController extends Controller
         }
         // return ""
         $committee->committeeSecretary()->create($empData);
-        if($request->email){
-            $employee=Employee::find($request->employee_id);
-            $useData['name']= $employee->name;
-            $useData['password']= Hash::make($request->password);
-            $user=User::create($useData);
-            $user->assignRole('sachib');
+        if ($request->email) {
+            $employee = Employee::find($request->employee_id);
+            $useData['name'] = $employee->name;
+            $useData['password'] = Hash::make($request->password);
 
+
+            $user = User::create($useData);
+            $role = Role::firstOrCreate(['name' => 'sachib']);
+            $user->assignRole($role);
             $employee->update([
-                'user_id'=> $user->id,
-                'email'=> $user->email,
+                'user_id' => $user->id,
+                'email' => $user->email,
             ]);
         }
         return redirect()->back();
@@ -196,11 +199,11 @@ class CommitteeSecretaryController extends Controller
      */
     public function destroy(Committee $committee, CommitteeSecretary $committeeSecretary)
     {
-        $employee=Employee::find($committeeSecretary->employee_id);
-        if( $employee->user_id ) {
+        $employee = Employee::find($committeeSecretary->employee_id);
+        if ($employee->user_id) {
             User::find($employee->user_id)->delete();
             $employee->update([
-                'user_id'=>''
+                'user_id' => ''
             ]);
         }
         $committeeSecretary->delete();

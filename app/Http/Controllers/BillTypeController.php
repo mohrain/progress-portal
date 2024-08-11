@@ -54,13 +54,13 @@ class BillTypeController extends Controller
      */
     public function show(BillType $billType)
     {
-        if($billType->id==1 || $billType->id==3){
+        if ($billType->id == 1 || $billType->id == 2) {
             $bills = BillType::find(1)
                 ->bills()
                 ->published()
                 ->latest()
                 ->paginate(50);
-        }else{
+        } else {
             $bills = $billType
                 ->bills()
                 ->published()

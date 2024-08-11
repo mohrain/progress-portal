@@ -79,8 +79,8 @@
                                     <td>{{ $bill->status }}</td>
                                 @endif
                                 @if ($billType->id == 3)
-                                <td>{{$bill->authentication_date}}</td>
-                            @endif
+                                    <td>{{ $bill->authentication_date }}</td>
+                                @endif
                                 <td style="white-space: nowrap;">
                                     <a href="{{ route('bills.show', $bill) }}" class="btn btn-sm btn-primary">
                                         पढ्नुहोस् <i class="bi bi-chevron-double-right"></i>
