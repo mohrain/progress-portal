@@ -189,6 +189,15 @@
             </a>
         </div>
 
+        {{-- <div class="p-2 text-center rounded">
+            <div class="mun-title-card">
+                <div class="mt-2">
+                    <h3 class="text-center">{{ Auth::user()->employee->committeeSecretary->committee->name }}</h3>
+
+                </div>
+            </div>
+        </div> --}}
+
         <div class="sidebar-menu {{ setActive('committee.show-about-form') }}">
             <a href="{{ route('committee.show-about-form', Auth::user()->employee->committeeSecretary->committee) }}"
                 aria-expanded="false" class="nav-link">
@@ -243,44 +252,47 @@
                 <span class="text-success"><i class="fa fa-film pr-2"></i></span>भिडियो
             </a>
         </div>
-        <div class="p-2 text-center rounded" style="position: absolute;bottom:0">
-            <div class="mun-title-card">
-                <div class="mt-2">
-                    <h3 class="text-center">{{Auth::user()->employee->committeeSecretary->committee->name}}</h3>
-                    {{-- <h5 class="text-right font-weight-bold">(शाखा)</h5> --}}
-                </div>
-            </div>
-        </div>
     @endhasanyrole
 
     @hasanyrole('hod')
+        {{-- <div class="p-2 text-center rounded">
+            <div class="mun-title-card">
+                <div class="mt-2">
+                    <h3 class="text-center">{{ Auth::user()->employee->department->name }}</h3>
+
+                </div>
+            </div>
+        </div> --}}
         <div class="sidebar-menu {{ setActive('department.subdepartment') }}">
             <a href="{{ route('department.subdepartment', Auth::user()->employee->department->slug) }}"
                 aria-expanded="false" class="nav-link">
                 <span class="text-success"><i class="fa fa-boxes pr-2"></i></span>शाखाहरु
             </a>
         </div>
+
+
+
         <div class="sidebar-menu {{ setActive('department.edit') }}">
-            <a href="{{ route('department.edit', Auth::user()->employee->department->slug) }}"
-                aria-expanded="false" class="nav-link">
+            <a href="{{ route('department.edit', Auth::user()->employee->department->slug) }}" aria-expanded="false"
+                class="nav-link">
                 <span class="text-success"><i class="fa fa-info-circle pr-2"></i></span>परिचय
             </a>
         </div>
         <div class="sidebar-menu {{ setActive('department.duty') }}">
-            <a href="{{ route('department.duty', Auth::user()->employee->department->slug) }}"
-                aria-expanded="false" class="nav-link">
+            <a href="{{ route('department.duty', Auth::user()->employee->department->slug) }}" aria-expanded="false"
+                class="nav-link">
                 <span class="text-success"><i class="fa fa-tasks pr-2"></i></span>काम, कर्तव्य र अधिकार
             </a>
         </div>
         <div class="sidebar-menu {{ setActive('department.notices') }}">
-            <a href="{{ route('department.notices', Auth::user()->employee->department->slug) }}"
-                aria-expanded="false" class="nav-link">
+            <a href="{{ route('department.notices', Auth::user()->employee->department->slug) }}" aria-expanded="false"
+                class="nav-link">
                 <span class="text-success"><i class="fa fa-flag pr-2"></i></span>सूचनाहरु
             </a>
         </div>
         <div class="sidebar-menu {{ setActive('department.activity') }}">
-            <a href="{{ route('department.activity', Auth::user()->employee->department->slug) }}"
-                aria-expanded="false" class="nav-link">
+            <a href="{{ route('department.activity', Auth::user()->employee->department->slug) }}" aria-expanded="false"
+                class="nav-link">
                 <span class="text-success"><i class="fa fa-rss pr-2"></i></span>गतिविधिहरु
             </a>
         </div>
@@ -291,29 +303,17 @@
             </a>
         </div>
         <div class="sidebar-menu {{ setActive('department.media') }}">
-            <a href="{{ route('department.media', Auth::user()->employee->department->slug) }}"
-                aria-expanded="false" class="nav-link">
+            <a href="{{ route('department.media', Auth::user()->employee->department->slug) }}" aria-expanded="false"
+                class="nav-link">
                 <span class="text-success"><i class="fa fa-headphones pr-2"></i></span>अडियो
             </a>
         </div>
 
         <div class="sidebar-menu {{ setActive('department.video') }}">
-            <a href="{{ route('department.video', Auth::user()->employee->department->slug) }}"
-                aria-expanded="false" class="nav-link">
+            <a href="{{ route('department.video', Auth::user()->employee->department->slug) }}" aria-expanded="false"
+                class="nav-link">
                 <span class="text-success"><i class="fa fa-film pr-2"></i></span>भिडियो
             </a>
-        </div>
-
-
-
-
-        <div class="p-2 text-center rounded" style="position: absolute;bottom:0">
-            <div class="mun-title-card">
-                <div class="mt-2">
-                    <h3 class="text-center">{{Auth::user()->employee->department->name}}</h3>
-                    {{-- <h5 class="text-right font-weight-bold">(शाखा)</h5> --}}
-                </div>
-            </div>
         </div>
     @endhasanyrole
 

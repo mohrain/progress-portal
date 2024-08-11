@@ -32,7 +32,8 @@
                     </div> --}}
                     <div class="topbar-menu-item">
                         <div class="dropdown">
-                            <button class="border rounded bg-white border-0 dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="border rounded bg-white border-0 dropdown-toggle" type="button"
+                                id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-earth text-muted me-2"></i> NP
                             </button>
                             <ul class="dropdown-menu py-0" aria-labelledby="dropdownMenu2">
@@ -59,7 +60,8 @@
                     </div>
                     <div class="topbar-menu-item btn">
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="loadImages" onclick="toggleImageLoading()">
+                            <input class="form-check-input" type="checkbox" id="loadImages"
+                                onclick="toggleImageLoading()">
                             <label class="form-check-label" for="loadImages">कम ब्यान्डविथ</label>
                         </div>
                     </div>
@@ -69,7 +71,8 @@
                                 डाउनलोड एप
                             </div>
                             <div>
-                                <a href="#" class="mx-2">
+                                <a href="https://play.google.com/store/apps/details?id=com.mohrainweb.sudurpaschim&pcampaignid=web_share"
+                                    class="mx-2">
                                     <i class="bi bi-android2"></i>
                                 </a>
                             </div>

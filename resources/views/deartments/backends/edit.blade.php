@@ -38,7 +38,7 @@
                     </a>
                     <a href="{{ route('department.hod', $department->slug) }}"
                         class=" {{ Route::getCurrentRoute()->getName() == 'department.hod' ? 'active' : '' }}">
-                        <div class="work-description "><i class="fa fa-user"></i> साखा प्रमुख </div>
+                        <div class="work-description "><i class="fa fa-user"></i> शाखा प्रमुख </div>
                     </a>
                 </div>
             @elseif(request('menu') == true)

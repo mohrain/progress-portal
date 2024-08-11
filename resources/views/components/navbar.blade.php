@@ -6,7 +6,14 @@
             </a>
         @endif
 
-        <a class="navbar-brand" href="{{ route('dashboard') }}">{{ __('app.name') }}</a>
+        <a class="navbar-brand" href="{{ route('dashboard') }}">
+            @if (Auth::user()->hasRole('hod') || Auth::user()->hasRole('sachib'))
+                <h4 class="text-center">{{ Auth::user()->employee->department->name }}</h4>
+            @else
+                {{ __('app.name') }}
+            @endif
+
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
             aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

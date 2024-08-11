@@ -79,7 +79,7 @@ class DepartmentController extends Controller
     public function duty($slug)
     {
         $department = Department::where('slug', $slug)->first();
-        $department = Department::get();
+        $departments = Department::get();
         return view('deartments.backends.job', compact('department', 'departments'));
     }
 
@@ -287,7 +287,8 @@ class DepartmentController extends Controller
 
     public function allStaffs(Request $request)
     {
-        $employees = Employee::latest()->where('status', 1);
+        $employees = Employee::where('status', 1);
+
         if ($request->name) {
             $employees = $employees->where('name', 'like', '%' . $request->name . '%');
         }
@@ -306,8 +307,13 @@ class DepartmentController extends Controller
         if ($request->gender) {
             $employees = $employees->where('gender', $request->gender);
         }
-        $employees = $employees->paginate(50);
+
+        // Order by position before paginating
+        $employees = $employees->positioned()->paginate(50);
+
+
         $districts = District::latest()->get();
+
         return view('deartments.fronts.staff', compact('employees', 'districts'));
     }
 }

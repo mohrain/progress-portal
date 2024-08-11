@@ -4,7 +4,7 @@
     <div class="card mt-2">
         <div class="box__header">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="box__title">साखा प्रमुख <i>({{ $department->name }})</i></div>
+                <div class="box__title">शाखा प्रमुख <i>({{ $department->name }})</i></div>
 
                 @empty($hod)
                 @else
@@ -25,16 +25,16 @@
                     @csrf
                     @method('put')
                     <div class="form-group">
-                        <label>साखा प्रमुख </label>
+                        <label>शाखा प्रमुख </label>
                         <select class="form-control text-capitalize required @error('employee_id') is-invalid @enderror"
                             name="employee_id" id="employee_id">
                             <option value="">छान्नुहोस्</option>
                             @foreach ($officeBeareds as $officeBeared)
-                                @if ($officeBeared->department || $officeBeared->committeeSecretary)
+                                {{-- @if ($officeBeared->department || $officeBeared->committeeSecretary)
                                     @php
                                         continue;
                                     @endphp
-                                @endif
+                                @endif --}}
                                 <option value="{{ $officeBeared->id }}"
                                     {{ $department->employee_id == $officeBeared->id ? 'selected' : '' }}>
                                     <div>
