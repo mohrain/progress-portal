@@ -15,7 +15,7 @@
 
                 </div>
                 <div class="title">
-                    @if ($federalparliment->document)
+                    @if ($federalparliment?->document)
                         <a class="text-theme-color fw-bold" target="_blank"
                             href="{{ asset('storage') . '/' . $federalparliment->document }}">संगठनात्मक संरचना</a>
                     @else
