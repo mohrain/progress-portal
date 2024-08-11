@@ -5,6 +5,9 @@
         id="bill_type_id">
         {{-- <option value="">छान्नुहोस्</option> --}}
         @foreach ($billTypes as $billType)
+            @if ($billType->id == 2)
+                @continue;
+            @endif
             <option value="{{ $billType->id }}"
                 {{ old('bill_type_id', $bill->bill_type_id) == $billType->id ? 'selected' : '' }}>
                 <div>
