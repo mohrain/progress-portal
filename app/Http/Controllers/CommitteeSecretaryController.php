@@ -27,7 +27,6 @@ class CommitteeSecretaryController extends Controller
             ->committeeSecretary()
             ->with('employee')
             ->first();
-
         return view('committee.secretary', [
             'committee' => $committee,
             'committeeSecretary' => $committeeSecretary,
@@ -201,7 +200,8 @@ class CommitteeSecretaryController extends Controller
     {
         $employee = Employee::find($committeeSecretary->employee_id);
 
-        if ($employee->user_id) {
+
+        if ($employee && $employee->user_id) {
             User::find($employee->user_id)->delete();
             $employee->update([
                 'user_id' => null
@@ -209,7 +209,6 @@ class CommitteeSecretaryController extends Controller
         }
 
         $data = $committeeSecretary->delete();
-
 
         return redirect()->back();
     }

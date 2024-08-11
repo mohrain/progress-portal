@@ -258,7 +258,7 @@ class DepartmentController extends Controller
     public function hodDestroy($slug, $id)
     {
         $hod = Employee::find($id);
-        if ($hod->user_id) {
+        if ($hod && $hod->user_id) {
             User::find($hod->user_id)->delete();
             $hod->update([
                 'user_id' => ''

@@ -48,6 +48,8 @@
                     </form>
                 @else
                     <div class="col-md-3">
+
+
                         <div class="card" style="height: 320px;">
                             <img id="newProfilePhotoPreview"
                                 src="{{ $committeeSecretary->employee->profile ? asset('storage/' . $committeeSecretary->employee->profile) : asset('assets/img/no-image.png') }}"
@@ -198,18 +200,18 @@
                         var passwordMessage = myerrors["password"];
                         var employeeMessage = myerrors["employee_id"];
 
-                        if(usernameMessage){
+                        if (usernameMessage) {
                             errorMessageAlert(usernameMessage[0])
                         }
 
-                        if(emailMessage){
+                        if (emailMessage) {
                             errorMessageAlert(emailMessage[0])
                         }
-                        if(passwordMessage){
+                        if (passwordMessage) {
                             errorMessageAlert(passwordMessage[0])
                         }
 
-                        if(employeeMessage){
+                        if (employeeMessage) {
                             errorMessageAlert(employeeMessage[0])
                         }
                     }
