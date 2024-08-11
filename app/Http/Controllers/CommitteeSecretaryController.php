@@ -200,13 +200,17 @@ class CommitteeSecretaryController extends Controller
     public function destroy(Committee $committee, CommitteeSecretary $committeeSecretary)
     {
         $employee = Employee::find($committeeSecretary->employee_id);
+
         if ($employee->user_id) {
             User::find($employee->user_id)->delete();
             $employee->update([
-                'user_id' => ''
+                'user_id' => null
             ]);
         }
-        $committeeSecretary->delete();
+
+        $data = $committeeSecretary->delete();
+
+
         return redirect()->back();
     }
 }
