@@ -140,45 +140,47 @@
                 </a>
             </div>
         @endcan
-        <div class="sidebar-menu multi-level">
-            <a href="#" aria-expanded="false" class="nav-link parent-menu">
-                <span><span class="text-success"><i class="fas fa-cog pr-2"></i></span>सेटिङहरू</span>
-                <i class="fas fa-angle-right arrow-icon"></i>
-            </a>
+        @hasrole('super-admin')
+            <div class="sidebar-menu multi-level">
+                <a href="#" aria-expanded="false" class="nav-link parent-menu">
+                    <span><span class="text-success"><i class="fas fa-cog pr-2"></i></span>सेटिङहरू</span>
+                    <i class="fas fa-angle-right arrow-icon"></i>
+                </a>
 
-            <div class="sub-menus">
-                <a href="{{ route('sms.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success pr-4"></span>SMS
-                </a>
-                <a href="{{ route('post-categories.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success pr-4"></span>पोस्ट प्रकार
-                </a>
-                <a href="{{ route('post-category-menu.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success pr-4"></span>पोस्ट प्रकार मेनु
-                </a>
-                <a href="{{ route('bill-types.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success pr-4"></span>विधयेक प्रकार
-                </a>
-                <a href="{{ route('bill-categories.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success pr-4"></span>विधयेक वर्ग
-                </a>
-                <a href="{{ route('ministries.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success pr-4"></span>मन्त्रालयहरु
-                </a>
-                <a href="{{ route('parliamentary-parties.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success pr-4"></span>राजनीतिक दलहरु
-                </a>
-                <a href="{{ route('elections.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success pr-4"></span>निर्वाचन वर्षहरू
-                </a>
-                <a href="{{ route('federal.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success pr-4"></span>प्रदेश सभा सचिवालय
-                </a>
-                <a href="{{ route('settings.index') }}" aria-expanded="false" class="nav-link">
-                    <span class="text-success pr-4"></span>एप सेटिङहरू
-                </a>
+                <div class="sub-menus">
+                    <a href="{{ route('sms.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success pr-4"></span>SMS
+                    </a>
+                    <a href="{{ route('post-categories.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success pr-4"></span>पोस्ट प्रकार
+                    </a>
+                    <a href="{{ route('post-category-menu.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success pr-4"></span>पोस्ट प्रकार मेनु
+                    </a>
+                    <a href="{{ route('bill-types.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success pr-4"></span>विधयेक प्रकार
+                    </a>
+                    <a href="{{ route('bill-categories.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success pr-4"></span>विधयेक वर्ग
+                    </a>
+                    <a href="{{ route('ministries.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success pr-4"></span>मन्त्रालयहरु
+                    </a>
+                    <a href="{{ route('parliamentary-parties.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success pr-4"></span>राजनीतिक दलहरु
+                    </a>
+                    <a href="{{ route('elections.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success pr-4"></span>निर्वाचन वर्षहरू
+                    </a>
+                    <a href="{{ route('federal.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success pr-4"></span>प्रदेश सभा सचिवालय
+                    </a>
+                    <a href="{{ route('settings.index') }}" aria-expanded="false" class="nav-link">
+                        <span class="text-success pr-4"></span>एप सेटिङहरू
+                    </a>
+                </div>
             </div>
-        </div>
+        @endhasrole
     @endhasanyrole
 
     @hasanyrole('sachib')

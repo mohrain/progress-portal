@@ -7,8 +7,10 @@
         @endif
 
         <a class="navbar-brand" href="{{ route('dashboard') }}">
-            @if (Auth::user()->hasRole('hod') || Auth::user()->hasRole('sachib'))
+            @if (Auth::user()->hasRole('hod'))
                 <h4 class="text-center">{{ Auth::user()->employee->department->name }}</h4>
+            @elseif (Auth::user()->hasRole('sachib'))
+                <h4 class="text-center"> {{ Auth::user()->employee->committeeSecretary->committee->name }}</h4>
             @else
                 {{ __('app.name') }}
             @endif
