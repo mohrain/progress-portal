@@ -16,7 +16,7 @@
                             <th>प्रदेश सभामा प्रस्तुत</th>
                             <th>सामान्य छलफल</th>
                             <th>प्रदेश सभामा दफावार छलफल भएको</th>
-                            <th>समितिमा दफावार छलफल</th>
+                            <th>समितिमा दफावार छलफलका लागि पठाइएको</th>
                             <th>समितिको प्रतिवेदन पेश भएको</th>
                             <th>प्रदेश सभाबाट पारित</th>
                             <th>प्रदेश सभाले पारित/फिर्ता गरेको</th>
@@ -56,11 +56,15 @@
                             </tr>
                             <tr>
                                 <th>प्रस्तुतकर्ता</th>
-                                <td>@if($bill->member?->name)माननीय @endif {{ $bill->member?->name ?? "" }}</td>
+                                <td>
+                                    @if ($bill->member?->name)
+                                        माननीय
+                                    @endif {{ $bill->member?->name ?? '' }}
+                                </td>
                             </tr>
                             <tr>
                                 <th>मन्त्रालय</th>
-                                <td>{{ $bill->ministry->name ?? "" }}</td>
+                                <td>{{ $bill->ministry->name ?? '' }}</td>
                             </tr>
                         </tbody>
                     </table>

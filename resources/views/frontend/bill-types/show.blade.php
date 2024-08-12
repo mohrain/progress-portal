@@ -65,7 +65,9 @@
                             <th>प्रमाणीकरण मिति</th>
                         @endif
                         <th></th>
-                        <th>विधेयकमा सुझाव</th>
+                        @if ($billType->id == 1)
+                            <th>विधेयकमा सुझाव</th>
+                        @endif
                     </thead>
                     <tbody>
                         @forelse($bills as $bill)
@@ -87,14 +89,18 @@
                                         पढ्नुहोस् <i class="bi bi-chevron-double-right"></i>
                                     </a>
                                 </td>
-                                <td>
-                                    @if ($bill->suggestion_in_the_bill == true)
-                                        <a href="{{ route('bill-suggestions.create', $bill) }}"
-                                            class="btn btn-sm btn-success">
-                                            सुझाव दिनुहोस्
-                                        </a>
-                                    @endif
-                                </td>
+
+                                @if ($billType->id == 1)
+                                    <td>
+                                        @if ($bill->suggestion_in_the_bill == true)
+                                            <a href="{{ route('bill-suggestions.create', $bill) }}"
+                                                class="btn btn-sm btn-success">
+                                                सुझाव दिनुहोस्
+                                            </a>
+                                        @endif
+                                    </td>
+                                @endif
+
 
 
                             </tr>
