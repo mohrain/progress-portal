@@ -35,9 +35,9 @@ class CommitteeDownloadController extends Controller
         ]);
     }
 
-    public function destroy(Committee $committee, Download $download){
+    public function destroy(Committee $committee, Download $download)
+    {
         $download->delete();
         return redirect()->back();
-
     }
 }

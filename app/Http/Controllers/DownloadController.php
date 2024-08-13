@@ -12,7 +12,7 @@ class DownloadController extends Controller
 {
     public function store(Request $request)
     {
-        return $request;
+
         $request->validate([
             'title' => 'required',
             'file' => 'required',
@@ -20,12 +20,15 @@ class DownloadController extends Controller
             'downloadable_id' => ['nullable', 'integer']
         ]);
 
+
+
         $download = Download::create([
             'title' => $request->title,
             'file' => $request->file->store('downloads'),
             'downloadable_type' => $request->downloadable_type,
             'downloadable_id' => $request->downloadable_id
         ]);
+
 
         return request('redirect_to')
             ? redirect()->to(request('redirect_to'))
@@ -79,7 +82,7 @@ class DownloadController extends Controller
 
     public function footerDownload($file)
     {
-        $file = "./downloadable/".$file;
+        $file = "./downloadable/" . $file;
         return Response::download($file);
     }
 }

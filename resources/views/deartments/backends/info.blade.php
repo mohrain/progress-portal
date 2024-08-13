@@ -2,7 +2,7 @@
 
 @section('departmentContent')
     <div class="card mt-2">
-        @if ($information->id)
+        @isset($information->id)
             @push('scripts')
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
                 <script>
@@ -11,12 +11,13 @@
                     })
                 </script>
             @endpush
-        @endif
+        @endisset
+
 
         <div class="box__header">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="box__title">सूचनाहरु <i>({{$department->name}})</i></div>
-                <a href="{{route('department.notices.create',$department->slug)}}" class="btn btn-primary">सूचना
+                <div class="box__title">सूचनाहरु <i>({{ $department->name }})</i></div>
+                <a href="{{ route('department.notices.create', $department->slug) }}" class="btn btn-primary">सूचना
                     थप्नुहोस</a>
             </div>
         </div>

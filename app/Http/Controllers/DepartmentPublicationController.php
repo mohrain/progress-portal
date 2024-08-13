@@ -30,7 +30,9 @@ class DepartmentPublicationController extends Controller
 
         $department = Department::where('slug', $slug)->first();
         $publications = DepartmentPublication::where('department_id', $department->id)->latest()->get();
-        return view('deartments.backends.info', compact('department', 'publications', 'publication'));
+        return view('deartments.backends.publicationCreate', compact('department', 'publications', 'publication'));
+
+        // return view('deartments.backends.publicationCreate', compact('department', 'publication'));
     }
 
     public function update($slug, $id, Request $request)

@@ -1,10 +1,11 @@
-<form action="{{ $updateMode ?  route('downloads.update', $download) : route('downloads.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ $updateMode ? route('downloads.update', $download) : route('downloads.store') }}" method="POST"
+    enctype="multipart/form-data">
     @csrf
     @if ($updateMode)
         @method('PUT')
     @endif
-    {{-- <input type="text" name="downloadable_type" value="{{ $downloadableType }}">
-    <input type="text" name="downloadable_id" value="{{ $downloadableId }}"> --}}
+    {{-- <input type="text" name="downloadable_type" value="{{ $downloadableType }}"> --}}
+    <input type="hidden" name="downloadable_id" class="hidden" value="{{ $attachToModel->id }}">
 
     {{-- @if ($redirectTo)
     <input type="text" name="redirect_to" value="{{ $redirectTo }}">
@@ -12,7 +13,8 @@
 
     <div class="mb-3">
         <label for="title" class="form-label required">शीर्षक</label>
-        <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $download->title) }}">
+        <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
+            value="{{ old('title', $download->title) }}">
         <x-invalid-feedback field="title" />
     </div>
 
@@ -23,7 +25,7 @@
             <x-invalid-feedback field="file" />
         </div>
     </div>
-
+    
     <div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
