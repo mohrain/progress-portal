@@ -202,7 +202,7 @@ class CommitteeSecretaryController extends Controller
 
 
         if ($employee && $employee->user_id) {
-            User::query()->where($employee->user_id)->delete();
+            User::query()->where('id', $employee->user_id)->delete();
             $employee->update([
                 'user_id' => null
             ]);
