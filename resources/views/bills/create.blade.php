@@ -224,7 +224,7 @@
                                 </div>
                                 <div class="col-md-3 mb-2">
                                     <label for="weekly_in_committee_discussion_date" class="form-label">समितिमा दफावार
-                                        छलफल मिति
+                                        छलफलका लागि पठाइएको मिति
                                     </label>
                                     <input type="text" name="weekly_in_committee_discussion_date"
                                         class="form-control kalimati-font nepali-date-picker @error('weekly_in_committee_discussion_date') is-invalid @enderror"
@@ -392,7 +392,8 @@
                                 </div>
 
                                 <div class="col-md-12 mb-3 text-right">
-                                    <button type="submit" name="is_draft" value="true" class="btn btn-light mr-2">Save as draft</button>
+                                    <button type="submit" name="is_draft" value="true"
+                                        class="btn btn-light mr-2">Save as draft</button>
                                     <button type="submit" class="btn btn-primary">
                                         {{ $bill->id ? 'सम्पादन' : 'सुरक्षित' }}</button>
                                 </div>
