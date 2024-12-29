@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app', ['title' => __($page->title)])
 @section('content')
-    <div class="container">
+    <div class="container overflow-auto">
         <div class="row">
             <div class="col-md-9">
                 <div class="row">
@@ -28,10 +28,7 @@
                             <h5 class="text-theme-color">सम्बन्धित कागजातहरु:</h5>
                             <ul class="list-group list-group-flush">
                                 @php
-                                    $documents = $page
-                                        ->documents()
-                                        ->latest()
-                                        ->get();
+                                    $documents = $page->documents()->latest()->get();
                                 @endphp
                                 @foreach ($page->documents as $pageDocument)
                                     <li class="list-group-item d-flex justify-content-between align-items-center">

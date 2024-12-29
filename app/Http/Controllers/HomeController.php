@@ -45,7 +45,13 @@ class HomeController extends Controller
             'employeeCount' => $employeeCount,
             'memberCount' => $memberCount,
             'totalUsersCount' => $totalUsersCount,
-            'totalBooksCount'=>$totalBooksCount,
+            'totalBooksCount' => $totalBooksCount,
         ]);
+    }
+
+
+    public function pradeshShava()
+    {
+        return view('frontend.mobile.pradesh-shava');
     }
 }

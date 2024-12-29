@@ -13,7 +13,10 @@
                     @php
                         $youtubeUrl = $videos;
                         $videoId = preg_replace('/.*v=|&.*/', '', $youtubeUrl); // Extract the video ID
-                        $embeddedCode = '<iframe width="800" height="500" src="https://www.youtube.com/embed/' . $videoId . '" frameborder="0" allowfullscreen></iframe>';
+                        $embeddedCode =
+                            '<iframe width="100%" height="500" src="https://www.youtube.com/embed/' .
+                            $videoId .
+                            '" frameborder="0" allowfullscreen></iframe>';
                     @endphp
 
                     <div>

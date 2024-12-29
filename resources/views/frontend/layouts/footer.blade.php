@@ -238,7 +238,7 @@
                         <x-frontend-information-officer-employee-view />
                     </div>
                     <div class="col-lg-4 col-md-12 my-1 important-links">
-                        <div class="fw-bold text-center">महत्वपुर्ण लिंकहरु</div>
+                        <div class="fw-bold md:text-center">महत्वपुर्ण लिंकहरु</div>
                         <hr>
                         <div class="row">
                             <div class="col-lg-12 col-md-4 col-sm-6">
@@ -335,7 +335,8 @@
                                         href="{{ route('footerDownload', 'Kalimati.ttf') }}">Kalimati</a>
                                 </li>
                                 <li class="text-dark" style="font-size: 13px;">
-                                    <a class="text-dark" href="{{ route('footerDownload', 'PREETI.TTF') }}">Preeti</a>
+                                    <a class="text-dark"
+                                        href="{{ route('footerDownload', 'PREETI.TTF') }}">Preeti</a>
                                 </li>
                             </ul>
                         </div>
@@ -358,7 +359,8 @@
                                         Nepali</a>
                                 </li>
                                 <li class="text-dark" style="font-size: 13px;">
-                                    <a class="text-dark" href="{{ route('footerDownload', 'kokila.zip') }}">Kokila</a>
+                                    <a class="text-dark"
+                                        href="{{ route('footerDownload', 'kokila.zip') }}">Kokila</a>
                                 </li>
                             </ul>
                         </div>

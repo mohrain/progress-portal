@@ -1,14 +1,15 @@
-@extends('frontend.layouts.app', ['title' => __("सुझाव/प्रतिक्रिया")])
+@extends('frontend.layouts.app', ['title' => __('सुझाव/प्रतिक्रिया')])
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="frontend-title">
-                    प्रदेश सभा / प्रदेश सभा सचिवालयको सम्बन्धमा कुनै सल्लाह/ सुझाव/प्रतिक्रिया भएमा तलको फाराम भरि पठाउनुहोस्।
+                    प्रदेश सभा / प्रदेश सभा सचिवालयको सम्बन्धमा कुनै सल्लाह/ सुझाव/प्रतिक्रिया भएमा तलको फाराम भरि
+                    पठाउनुहोस्।
                     <hr>
                 </div>
             </div>
-            <div class="col-md-4 my-1">
+            {{-- <div class="col-md-4 my-1">
                 <div class="fw-bold">{{ settings('office_name') }}</div>
                 <div class="py-1">
                     <a class="text-dark" href="#">
@@ -43,7 +44,7 @@
                 <div>
                     {!! settings('maps') !!}
                 </div>
-            </div>
+            </div> --}}
             <div class="col-md-8">
                 <div>
                     @if (Session::has('success'))
@@ -54,8 +55,7 @@
                     @endif
                 </div>
                 <div class="bg-white p-4">
-                    <form action="{{ route('contact-us.store') }}" method="post"
-                        enctype="multipart/form-data">
+                    <form action="{{ route('contact-us.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-6 mb-2">
@@ -107,7 +107,8 @@
                             </div>
 
                             <div class="col-md-12 mb-2">
-                                <label for="subject" class="form-label text-md-end required">{{ __('सुझाव शीर्षक') }}</label>
+                                <label for="subject"
+                                    class="form-label text-md-end required">{{ __('सुझाव शीर्षक') }}</label>
                                 <input id="subject" type="text"
                                     class="form-control @error('subject') is-invalid @enderror" name="subject"
                                     value="{{ old('subject') }}" autocomplete="subject" placeholder="सुझाव शीर्षक">
@@ -146,6 +147,29 @@
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+            <div class="col-md-4 my-5">
+                <div class="">
+                    {!! settings('maps') !!}
+                </div>
+
+                <div class="mt-3 mb-5">
+                    <h4>Follow us on: </h4>
+                    <div class="social-media-icon">
+                        <a class="text-dark" href="{{ settings('facebook') }}" target="_blank"
+                            rel="noopener noreferrer">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a class="text-dark" href="{{ settings('twitter') }}" target="_blank"
+                            rel="noopener noreferrer">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a class="text-dark" href="{{ settings('youtube') }}" target="_blank"
+                            rel="noopener noreferrer">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

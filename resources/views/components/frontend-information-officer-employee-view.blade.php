@@ -1,4 +1,4 @@
-<div class="d-flex gap-3">
+<div class="d-md-flex    gap-3">
     @foreach ($informationOfficers as $informationOfficer)
         @if ($informationOfficer->employee_id == 1)
             @php
@@ -6,9 +6,9 @@
             @endphp
         @endif
         <div>
-            <div class="fw-bold text-center">{{ $informationOfficer->EmployeeDesignation->name }}</div>
+            <div class="fw-bold md:text-center ">{{ $informationOfficer->EmployeeDesignation->name }}</div>
             <hr>
-            <div class="card" style="width: 11rem;">
+            <div class="card " style="width: 11rem;">
                 <img src="{{ $informationOfficer->employee->profile ? asset('storage/' . $informationOfficer->employee->profile) : asset('assets/img/no-image.png') }}"
                     class="card-img-top" alt="{{ $informationOfficer->EmployeeDesignation->name }}" style="height: 160px;">
                 <div class="text-center">

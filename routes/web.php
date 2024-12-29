@@ -58,9 +58,10 @@ use App\Http\Controllers\EmployeeDesignationController;
 use App\Http\Controllers\DepartmentPublicationController;
 use App\Http\Controllers\FrequentlyAskedQuestionController;
 use App\Http\Controllers\CurrentParliamentaryPartyController;
+use App\Http\Controllers\PageDisplayController;
 use App\Http\Controllers\ProvincialAssemblyLibraryController;
 
-Route::get("notify",function(){
+Route::get("notify", function () {
     Route::get('/', function () {
         OneSignalFacade::sendNotificationToAll(
             "Test message is for the  notification",
@@ -116,6 +117,13 @@ Route::get('application-submitted/{suchi}', [FrontendController::class, 'applica
 Route::get('token-search', [FrontendController::class, 'tokenSearch']);
 
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+Route::get('/pradesh-shava', [PageDisplayController::class, 'pradeshShava'])->name('pradesh-shava');
+Route::get('/sadeshya', [PageDisplayController::class, 'Members'])->name('sadeshya');
+Route::get('/samiti', [PageDisplayController::class, 'Samiti'])->name('samiti');
+// Route::get('/pradesh-shava', function () {
+//     return view('frontend.mobile.pradesh-shava');
+// })->name('pradesh-shava');
 Route::get('language/{locale}', [LanguageController::class, 'setLocale'])->name('locale');
 // Route::get('set-active-fiscal-year/{fiscalYear}', 'MiscController@setActiveFiscalYear')->name('set-active-fiscal-year');
 
@@ -473,36 +481,35 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::delete('departments/{slug}/secretary/{id}', [DepartmentController::class, 'hodDestroy'])->name('department.hodDestroy');
 
 
-    Route::post('information/store',[InformationController::class,'store'])->name('information.store');
-    Route::get('departments/{slug}/notices/{id}/edit',[InformationController::class,'edit'])->name('information.edit');
-    Route::put('departments/{slug}/notices/{id}/update',[InformationController::class,'update'])->name('information.update');
-    Route::delete('departments/{id}/delete/information',[InformationController::class,'delete'])->name('information.delete');
+    Route::post('information/store', [InformationController::class, 'store'])->name('information.store');
+    Route::get('departments/{slug}/notices/{id}/edit', [InformationController::class, 'edit'])->name('information.edit');
+    Route::put('departments/{slug}/notices/{id}/update', [InformationController::class, 'update'])->name('information.update');
+    Route::delete('departments/{id}/delete/information', [InformationController::class, 'delete'])->name('information.delete');
 
-    Route::post('department/activity/store',[DepartmentActivityController::class,'store'])->name('department.activity.store');
-    Route::get('departments/activity/{slug}/{id}/edit',[DepartmentActivityController::class,'edit'])->name('department.activity.edit');
-    Route::put('departments/activity/{slug}/{id}/update',[DepartmentActivityController::class,'update'])->name('department.activity.update');
-    Route::delete('departments/activity/{id}/delete',[DepartmentActivityController::class,'delete'])->name('department.activity.delete');
+    Route::post('department/activity/store', [DepartmentActivityController::class, 'store'])->name('department.activity.store');
+    Route::get('departments/activity/{slug}/{id}/edit', [DepartmentActivityController::class, 'edit'])->name('department.activity.edit');
+    Route::put('departments/activity/{slug}/{id}/update', [DepartmentActivityController::class, 'update'])->name('department.activity.update');
+    Route::delete('departments/activity/{id}/delete', [DepartmentActivityController::class, 'delete'])->name('department.activity.delete');
 
-    Route::post('department/publicationstore',[DepartmentPublicationController::class,'store'])->name('department.publication.store');
-    Route::get('departments/publication{slug}{id}/edit',[DepartmentPublicationController::class,'edit'])->name('department.publication.edit');
-    Route::put('departments/publication{slug}/{id}/update',[DepartmentPublicationController::class,'update'])->name('department.publication.update');
-    Route::delete('departments/activity/{id}/delete/department',[DepartmentPublicationController::class,'delete'])->name('department.publication.delete');
+    Route::post('department/publicationstore', [DepartmentPublicationController::class, 'store'])->name('department.publication.store');
+    Route::get('departments/publication{slug}{id}/edit', [DepartmentPublicationController::class, 'edit'])->name('department.publication.edit');
+    Route::put('departments/publication{slug}/{id}/update', [DepartmentPublicationController::class, 'update'])->name('department.publication.update');
+    Route::delete('departments/activity/{id}/delete/department', [DepartmentPublicationController::class, 'delete'])->name('department.publication.delete');
 
-    Route::post('department/{slug}/media',[DepartmentAudioController::class,'store'])->name('media.store');
-    Route::delete('department/{slug}/media/{id}/delete',[DepartmentAudioController::class,'delete'])->name('media.delete');
-    Route::post('department/{slug}/video',[DepartmentVideoController::class,'store'])->name('video.store');
-    Route::delete('department/{slug}/video/{id}/delete',[DepartmentVideoController::class,'delete'])->name('video.delete');
+    Route::post('department/{slug}/media', [DepartmentAudioController::class, 'store'])->name('media.store');
+    Route::delete('department/{slug}/media/{id}/delete', [DepartmentAudioController::class, 'delete'])->name('media.delete');
+    Route::post('department/{slug}/video', [DepartmentVideoController::class, 'store'])->name('video.store');
+    Route::delete('department/{slug}/video/{id}/delete', [DepartmentVideoController::class, 'delete'])->name('video.delete');
 
     Route::get('employee/status/{id}', [EmployeeController::class, 'changeStatus'])->name('employee.status');
 
     Route::get('federal-parliament-secretariat', [FederalparlimentController::class, 'index'])->name('federal.index');
     Route::post('federal-parliament-secretariat', [FederalparlimentController::class, 'store'])->name('federal.store');
-
 });
 Route::get('departments', [DepartmentController::class, 'index'])->name('department.index');
 Route::post('departments', [DepartmentController::class, 'store'])->name('department.store');
-Route::get('all-employees',[DepartmentController::class,'allStaffs'])->name('allStaff');
-Route::get('employees/{slug}',[DepartmentController::class,'staffShow'])->name('staffShow');
+Route::get('all-employees', [DepartmentController::class, 'allStaffs'])->name('allStaff');
+Route::get('employees/{slug}', [DepartmentController::class, 'staffShow'])->name('staffShow');
 Route::get('departments/{slug}', [DepartmentController::class, 'introFront'])->name('department.introFront');
 Route::get('departments/{slug}/work-duty-authority', [DepartmentController::class, 'workFront'])->name('department.workFront');
 Route::get('departments/{slug}/notices', [DepartmentController::class, 'noticeFront'])->name('department.noticeFront');

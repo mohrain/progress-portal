@@ -20,7 +20,7 @@
                             @csrf
                             @if ($bill->id)
                                 @method('put')
-                            @endif
+                            @endif 
                             <div class="row">
                                 <div class="col-md-3 mb-2">
                                     <x-bill-type-select :bill="$bill" />
