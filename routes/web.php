@@ -118,9 +118,12 @@ Route::get('token-search', [FrontendController::class, 'tokenSearch']);
 
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
+Route::get('/prdesh-shava-news', [PageDisplayController::class, 'News'])->name('prdesh-shava-news');
+Route::get('/prdesh-shava-downloads', [PageDisplayController::class, 'Downloads'])->name('prdesh-shava-downloads');
 Route::get('/pradesh-shava', [PageDisplayController::class, 'pradeshShava'])->name('pradesh-shava');
 Route::get('/sadeshya', [PageDisplayController::class, 'Members'])->name('sadeshya');
 Route::get('/samiti', [PageDisplayController::class, 'Samiti'])->name('samiti');
+
 // Route::get('/pradesh-shava', function () {
 //     return view('frontend.mobile.pradesh-shava');
 // })->name('pradesh-shava');

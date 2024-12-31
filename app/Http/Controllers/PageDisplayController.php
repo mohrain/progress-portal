@@ -23,4 +23,13 @@ class PageDisplayController extends Controller
     {
         return view('frontend.mobile.samiti');
     }
+
+    public function News()
+    {
+        return view('frontend.mobile.news');
+    }
+    public function Downloads()
+    {
+        return view('frontend.mobile.downloads');
+    }
 }

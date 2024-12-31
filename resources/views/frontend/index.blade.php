@@ -2,6 +2,16 @@
 
 @section('content')
     <div class="d-md-none container ">
+
+        <div>
+            <x-frontend.news-scroll />
+            <x-carousel-image-view />
+
+        </div>
+
+        <div>
+            <x-office-breaer-mobile />
+        </div>
         <div>
             @include('frontend.mobile.mobile-home')
         </div>
@@ -9,6 +19,8 @@
         <div>
             @include('frontend.mobile.news-event')
         </div>
+
+
     </div>
 
     <div class="container d-md-block d-none">

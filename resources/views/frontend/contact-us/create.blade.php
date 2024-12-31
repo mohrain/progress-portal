@@ -149,12 +149,34 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-4 my-5">
+            <div class="col-md-4 mb-5  py-5">
                 <div class="">
                     {!! settings('maps') !!}
                 </div>
 
+
+
                 <div class="mt-3 mb-5">
+
+                    <div class="my-3">
+                        <div class="fw-bold text-theme-color">{{ settings('office_name') }}</div>
+                        <div class="py-1">
+                            <a class="text-dark" href="#">
+                                <i class="bi bi-geo-alt"></i> {{ settings('address_line_one') }}
+                            </a>
+                        </div>
+                        <div class="py-1">
+                            <a class="text-dark" href="tel:{{ settings('phone') }}">
+                                <i class="bi bi-telephone"></i>
+                                {{ settings('phone') }}
+                            </a>
+                        </div>
+                        <div class="py-1">
+                            <a class="text-dark" href="mailto:{{ settings('phone') }}">
+                                <i class="bi bi-envelope-at"></i> {{ settings('email') }}
+                            </a>
+                        </div>
+                    </div>
                     <h4>Follow us on: </h4>
                     <div class="social-media-icon">
                         <a class="text-dark" href="{{ settings('facebook') }}" target="_blank"

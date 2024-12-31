@@ -4,7 +4,7 @@
             if ($postCategory->name == 'स्व: प्रकाशन') {
                 continue;
             }
-            $newPosts=null;
+            $newPosts = null;
         @endphp
         @foreach ($postCategories as $item)
             @php
@@ -14,7 +14,7 @@
                 $newPosts = $item->posts()->latest()->take(5)->get();
             @endphp
         @endforeach
-        <div class="col-md-4">
+        <div class="col-md-4 ">
             <div class="bg-theme-color-blue py-3 text-center">
                 {{ $postCategory->name }}
             </div>
@@ -43,7 +43,7 @@
 
                 @empty
                     @if ($postCategory->id == 4)
-                        @if ($newPosts==null || $newPosts->count() == 0)
+                        @if ($newPosts == null || $newPosts->count() == 0)
                             <li class="list-group-item d-flex justify-content-between align-items-start">
                                 कुनैपनि सूचना छैन !!!
                             </li>
@@ -54,8 +54,7 @@
                         </li>
                     @endif
                 @endforelse
-                @if ($newPosts==null || $newPosts->count() == 0)
-
+                @if ($newPosts == null || $newPosts->count() == 0)
                 @elseif($postCategory->id == 4)
                     @foreach ($newPosts as $item)
                         <li class="list-group-item d-flex justify-content-between align-items-start">
