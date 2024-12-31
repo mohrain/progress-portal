@@ -209,6 +209,21 @@
             display: none;
         }
 
+        /* .content {
+            margin-left: 250px;
+        } */
+
+        .sidebar-opened .content {
+            transition: all 0.5s ease;
+            margin-left: 250px;
+
+        }
+
+        .sidebar-close .content {
+            transition: all 0.5s ease;
+            margin-left: 0;
+        }
+
 
 
         @media screen and (max-width: 768px) {
@@ -230,6 +245,10 @@
 
             .sidebar.close .bottom_content {
                 left: -100%;
+            }
+
+            .content {
+                margin-left: 0;
             }
         }
     </style>
@@ -255,7 +274,7 @@
                     <div class="container-fluid">
                         @include('alerts.all')
                     </div>
-                    <div style="margin-left: 250px">
+                    <div class="content">
 
                         @yield('content')
                     </div>
