@@ -209,6 +209,8 @@
             display: none;
         }
 
+
+
         @media screen and (max-width: 768px) {
             #sidebarOpen {
                 font-size: 25px;
@@ -241,18 +243,23 @@
         @endguest
 
         @auth
-            <div id="sidebar" class="bg-deep-blu p-2" data-collapsed="false">
-                <x-sidebar></x-sidebar>
-            </div>
-            <div id="content-area" class="flex-grow-1 px-md-3">
-                <x-navbar></x-navbar>
-                <div class="p-2">
-                    @yield('breadcrumb')
+            <div>
+                <div id="sidebar" class="bg-deep-blu p-2" data-collapsed="false">
+                    <x-sidebar></x-sidebar>
                 </div>
-                <div class="container-fluid">
-                    @include('alerts.all')
+                <div id="content-area" class=" px-md-3">
+                    <x-navbar></x-navbar>
+                    <div class="p-2">
+                        @yield('breadcrumb')
+                    </div>
+                    <div class="container-fluid">
+                        @include('alerts.all')
+                    </div>
+                    <div style="margin-left: 250px">
+
+                        @yield('content')
+                    </div>
                 </div>
-                @yield('content')
             </div>
         @endauth
 
