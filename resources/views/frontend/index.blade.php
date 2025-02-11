@@ -108,7 +108,7 @@
                     </blockquote>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 " style="overflow:hidden">
                 <div class="bg-theme-color-blue py-3 text-center">
                     Google Maps
                 </div>
