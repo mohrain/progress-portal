@@ -183,9 +183,17 @@
         @endhasrole
     @endhasanyrole
 
+   
+
+
     @hasanyrole('sachib')
+    @php
+    $committeeSecretary = session('current_committee_secretary') 
+ ? \App\Models\CommitteeSecretary::find(session('current_committee_secretary')) 
+ : Auth::user()->employee->committeeSecretary;
+ @endphp
         <div class="sidebar-menu {{ setActive('committee.general') }}">
-            <a href="{{ route('committee.general', Auth::user()->employee->committeeSecretary->committee) }}"
+            <a href="{{ route('committee.general', $committeeSecretary->committee->id) }}"
                 aria-expanded="false" class="nav-link">
                 <span class="text-success"><i class="fas fa-cog pr-2"></i></span>सामान्य जानकारी
             </a>
@@ -194,62 +202,62 @@
         {{-- <div class="p-2 text-center rounded">
             <div class="mun-title-card">
                 <div class="mt-2">
-                    <h3 class="text-center">{{ Auth::user()->employee->committeeSecretary->committee->name }}</h3>
+                    <h3 class="text-center">{{ $committeeSecretary->committee->id->name }}</h3>
 
                 </div>
             </div>
         </div> --}}
 
         <div class="sidebar-menu {{ setActive('committee.show-about-form') }}">
-            <a href="{{ route('committee.show-about-form', Auth::user()->employee->committeeSecretary->committee) }}"
+            <a href="{{ route('committee.show-about-form', $committeeSecretary->committee->id) }}"
                 aria-expanded="false" class="nav-link">
                 <span class="text-success"><i class="fa fa-info-circle pr-2"></i></span>परिचय
             </a>
         </div>
 
         <div class="sidebar-menu {{ setActive('committee.show-responsibility-form') }}">
-            <a href="{{ route('committee.show-responsibility-form', Auth::user()->employee->committeeSecretary->committee) }}"
+            <a href="{{ route('committee.show-responsibility-form', $committeeSecretary->committee->id) }}"
                 aria-expanded="false" class="nav-link">
                 <span class="text-success"><i class="fa fa-tasks pr-2"></i></span>काम, कर्तव्य र अधिकार
             </a>
         </div>
 
         <div class="sidebar-menu {{ setActive('committee.notices') }}">
-            <a href="{{ route('committee.notices', Auth::user()->employee->committeeSecretary->committee) }}"
+            <a href="{{ route('committee.notices', $committeeSecretary->committee->id) }}"
                 aria-expanded="false" class="nav-link">
                 <span class="text-success"><i class="fa fa-flag pr-2"></i></span>सूचनाहरु
             </a>
         </div>
 
         <div class="sidebar-menu {{ setActive('committee.activities') }}">
-            <a href="{{ route('committee.activities', Auth::user()->employee->committeeSecretary->committee) }}"
+            <a href="{{ route('committee.activities', $committeeSecretary->committee->id) }}"
                 aria-expanded="false" class="nav-link">
                 <span class="text-success"><i class="fa fa-rss pr-2"></i></span>गतिविधिहरु
             </a>
         </div>
 
         <div class="sidebar-menu {{ setActive('committee.downloads') }}">
-            <a href="{{ route('committee.downloads', Auth::user()->employee->committeeSecretary->committee) }}"
+            <a href="{{ route('committee.downloads', $committeeSecretary->committee->id) }}"
                 aria-expanded="false" class="nav-link">
                 <span class="text-success"><i class="fa fa-download pr-2"></i></span>प्रकाशनहरु/डाउनलोडस्
             </a>
         </div>
 
         <div class="sidebar-menu {{ setActive('committee.members') }}">
-            <a href="{{ route('committee.members', Auth::user()->employee->committeeSecretary->committee) }}"
+            <a href="{{ route('committee.members', $committeeSecretary->committee->id) }}"
                 aria-expanded="false" class="nav-link">
                 <span class="text-success"><i class="fa fa-users pr-2"></i></span>समिति सदस्यहरु
             </a>
         </div>
 
         <div class="sidebar-menu {{ setActive('committee.audio') }}">
-            <a href="{{ route('committee.audio', Auth::user()->employee->committeeSecretary->committee) }}"
+            <a href="{{ route('committee.audio', $committeeSecretary->committee->id) }}"
                 aria-expanded="false" class="nav-link">
                 <span class="text-success"><i class="fa fa-headphones pr-2"></i></span>अडियो
             </a>
         </div>
         <div class="sidebar-menu {{ setActive('committee.video.index') }}">
-            <a href="{{ route('committee.video.index', Auth::user()->employee->committeeSecretary->committee) }}"
+            <a href="{{ route('committee.video.index', $committeeSecretary->committee->id) }}"
                 aria-expanded="false" class="nav-link">
                 <span class="text-success"><i class="fa fa-film pr-2"></i></span>भिडियो
             </a>

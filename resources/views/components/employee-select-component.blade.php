@@ -5,7 +5,7 @@
         id="employee_id">
         <option value="">छान्नुहोस्</option>
         @foreach ($employees as $employee)
-        @if ($employee->committeeSecretary || $employee->department)
+        @if ( $employee->department)
             @php
                 continue;
             @endphp

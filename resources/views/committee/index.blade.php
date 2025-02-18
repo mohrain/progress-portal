@@ -32,7 +32,7 @@
                                     <td class="text-right">
                                         <a class="btn btn-primary " href="{{ route('committee.general', $committee) }}">View</a>
 
-                                        <form action="{{ route('posts.destroy', $committee) }}" method="post" class="d-inline-block">
+                                        <form action="{{ route('committee.destroy', $committee) }}" method="post" class="d-inline-block">
                                             @method('delete')
                                             @csrf
                                             <button class="btn btn-danger" type="submit" onclick="return confirm('Are You Sure ?')">

@@ -6,16 +6,53 @@
             </a>
         @endif
 
-        <a class="navbar-brand" href="{{ route('dashboard') }}">
-            @if (Auth::user()->hasRole('hod'))
-                <h4 class="text-center">{{ Auth::user()->employee->department->name }}</h4>
-            @elseif (Auth::user()->hasRole('sachib'))
-                <h4 class="text-center"> {{ Auth::user()->employee->committeeSecretary->committee->name }}</h4>
-            @else
-                {{ __('app.name') }}
-            @endif
+    
+    
+    
+    <a class="navbar-brand" href="{{ route('dashboard') }}">
+        @if (Auth::user()->hasRole('hod'))
+            <h4 class="text-center">{{ Auth::user()->employee->department->name }}</h4>
+        @elseif (Auth::user()->hasRole('sachib'))
 
-        </a>
+        @php
+        $availableSecretaries = Auth::user()->employee->committeeSecretaries ;
+      
+       $committeeSecretary = session('current_committee_secretary') 
+    ? \App\Models\CommitteeSecretary::find(session('current_committee_secretary')) 
+    : Auth::user()->employee->committeeSecretary;
+
+    @endphp
+            <div class="dropdown relative">
+                @if ($availableSecretaries->count() > 1)
+                    <a href="#" class="dropdown-toggle bg-gray-200 px-2 py-2 rounded-md hover:bg-gray-300 cursor-pointer block text-decoration-none fs-5"  id="dropdownToggle">
+                        {{ $committeeSecretary->committee->name }}
+                    </a>
+                    <!-- Dropdown menu -->
+                    <ul style="width: 250px" class="dropdown-menu absolute left-0 mt-1 bg-white  shadow-md rounded-md hidden" id="dropdownMenu">
+                        @foreach ($availableSecretaries as $secretary)
+                            <li class="py-1">
+                                <a href="{{ route('committee.switch', $secretary) }}" class="block px-4 py-2 text-secondary ">
+                                    {{ $secretary->committee->name }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <a href="{{ route('committee.switch', $availableSecretaries->first()) }}" class="text-gray-700 hover:text-gray-900">
+                        {{ $availableSecretaries->first()->committee->name }}
+                    </a>
+                @endif
+            </div>
+        @else
+            {{ __('app.name') }}
+        @endif
+    </a>
+    
+    <!-- Custom JavaScript -->
+   
+    
+
+    
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
             aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -65,3 +102,28 @@
 </div>
 </nav>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const dropdownToggle = document.getElementById("dropdownToggle");
+        const dropdownMenu = document.getElementById("dropdownMenu");
+
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                // Toggle Bootstrap & Tailwind classes
+                dropdownMenu.classList.toggle("show"); // Bootstrap class
+                dropdownMenu.classList.toggle("hidden"); // Tailwind class
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.remove("show");
+                    dropdownMenu.classList.add("hidden");
+                }
+            });
+        }
+    });
+</script>
+

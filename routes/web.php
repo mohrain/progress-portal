@@ -228,6 +228,8 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::delete('meetings/{meeting}', [MeetingController::class, 'destroy'])->name('meetings.destroy');
 
     // Committee Routes
+    Route::get('/switch-committee-secretary/{committeeSecretary}', [CommitteeController::class, 'switchCommitteeSecretary'])->name('committee.switch');
+
     Route::get('committees', [CommitteeController::class, 'index'])->name('committee.index');
     Route::get('committees/create', [CommitteeController::class, 'create'])->name('committee.create');
     Route::post('committees', [CommitteeController::class, 'store'])->name('committee.store');
@@ -237,6 +239,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::post('committees/{committee}/about', [CommitteeController::class, 'saveAbout'])->name('committee.save-about');
     Route::get('committees/{committee}/responsibility', [CommitteeController::class, 'showResponsibilityForm'])->name('committee.show-responsibility-form');
     Route::post('committees/{committee}/responsibility', [CommitteeController::class, 'saveResponsibility'])->name('committee.save-responsibility');
+    Route::delete('committees/{committee}', [CommitteeController::class, 'delete'])->name('committee.destroy');
 
     // Committee Notices
     Route::get('committees/{committee}/notices', [CommitteeNoticecontroller::class, 'notices'])->name('committee.notices');

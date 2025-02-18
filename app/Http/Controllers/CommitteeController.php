@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Committee;
+use App\Models\CommitteeSecretary;
 use App\Models\Notice;
 use Illuminate\Http\Request;
 
@@ -76,5 +77,22 @@ class CommitteeController extends Controller
         $committee->update(['responsibilities' => $request->responsibilities]);
 
         return redirect()->back();
+    }
+
+    public function switchCommitteeSecretary(CommitteeSecretary $committeeSecretary)
+    {
+        // Store the selected committee secretary in the session
+        $committee=Committee::find($committeeSecretary->committee_id);
+        session(['current_committee_secretary' => $committeeSecretary->id]);
+
+        // Redirect to the desired route (you can customize the redirect)
+        return redirect()->route('committee.general', ['committee' => $committee]);
+    }
+
+    public function delete(Committee $committee)
+    {
+        $committee->delete();
+
+        return redirect()->route('committee.index');
     }
 }
