@@ -288,6 +288,7 @@ class EmployeeController extends Controller
 
     public function getData($id){
         $employee=Employee::find($id);
+        $employee->load('user');
 
         return response()->json($employee);
     }
