@@ -191,6 +191,9 @@
     $committeeSecretary = session('current_committee_secretary') 
  ? \App\Models\CommitteeSecretary::find(session('current_committee_secretary')) 
  : Auth::user()->employee->committeeSecretary;
+ if (!$committeeSecretary) {
+        $committeeSecretary = Auth::user()->employee->committeeSecretary; // Fallback again
+    }
  @endphp
         <div class="sidebar-menu {{ setActive('committee.general') }}">
             <a href="{{ route('committee.general', $committeeSecretary->committee->id) }}"

@@ -12,6 +12,7 @@ use App\Models\ProvincialAssemblyLibrary;
 use App\Suchi;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -37,6 +38,9 @@ class HomeController extends Controller
 
         $totalUsersCount = User::count();
         $totalBooksCount = ProvincialAssemblyLibrary::count();
+
+      
+
 
         return view('home', [
             'title' => $title,

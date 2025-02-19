@@ -21,6 +21,10 @@
     ? \App\Models\CommitteeSecretary::find(session('current_committee_secretary')) 
     : Auth::user()->employee->committeeSecretary;
 
+    if (!$committeeSecretary) {
+        $committeeSecretary = Auth::user()->employee->committeeSecretary; // Fallback again
+    }
+
     @endphp
             <div class="dropdown relative">
                 @if ($availableSecretaries->count() > 1)

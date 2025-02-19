@@ -200,13 +200,23 @@ class CommitteeSecretaryController extends Controller
     {
         $employee = Employee::find($committeeSecretary->employee_id);
 
+     
+       $count= $employee->committeeSecretaries->count();
 
         if ($employee && $employee->user_id) {
-            User::query()->where('id', $employee->user_id)->delete();
-            $employee->update([
-                'user_id' => null
-            ]);
+            $user=User::query()->where('id', $employee->user_id);
+
+
+            if($count==1){
+                if ($user->hasRole('sachib')) {
+                    $user->removeRole('sachib');
+                }
+                $employee->update([
+                    'user_id' => null
+                ]);
+            }
         }
+        session()->forget('current_committee_secretary');
 
         $data = $committeeSecretary->delete();
 
