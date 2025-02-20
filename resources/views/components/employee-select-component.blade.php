@@ -5,11 +5,11 @@
         id="employee_id">
         <option value="">छान्नुहोस्</option>
         @foreach ($employees as $employee)
-        @if ( $employee->department)
+        {{-- @if ( $employee->department)
             @php
                 continue;
             @endphp
-        @endif
+        @endif --}}
             <option value="{{ $employee->id }}" {{ old('employee_id') == $employee->id ? 'selected' : '' }}>
                 <div>
                     {{-- {{ $employee->committeeSecretary }} --}}

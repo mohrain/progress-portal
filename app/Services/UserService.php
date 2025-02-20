@@ -16,7 +16,7 @@ class UserService
 
     public function all()
     {
-        return User::latest()->get();
+        return User::with('roles')->where('id','!=', 1)->latest()->get();
     }
 
     public function find($id)

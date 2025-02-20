@@ -236,6 +236,8 @@ class DepartmentController extends Controller
         $departmentData = $request->validate([
             'employee_id' => 'required'
         ]);
+
+        $emp= Employee::find($request->employee_id);
         if ($request->email) {
             $userData = $request->validate([
                 'username' => 'required|unique:users,username',
@@ -243,19 +245,23 @@ class DepartmentController extends Controller
                 'password' => 'required|confirmed'
             ]);
         }
-        Department::find($id)->update($departmentData);
         $department = Department::find($id);
+        $department->update($departmentData);
+        $role = Role::firstOrCreate(['name' => 'hod']);
         if ($request->email) {
             $userData['name'] = Employee::find($department->employee_id)->name;
             $userData['password'] = Hash::make($request->password);
 
             $user = User::create($userData);
-            $role = Role::firstOrCreate(['name' => 'hod']);
+           
             $user->assignRole($role);
-            Employee::find($request->employee_id)->update([
+            $emp->update([
                 'user_id' => $user->id,
                 'email' => $user->email
             ]);
+        }else{
+            $user= User::find($emp->user_id);
+            $user->assignRole($role);
         }
 
         return response()->json([
@@ -266,15 +272,32 @@ class DepartmentController extends Controller
     public function hodDestroy($slug, $id)
     {
         $hod = Employee::find($id);
-        if ($hod && $hod->user_id) {
-            User::find($hod->user_id)->delete();
-            $hod->update([
-                'user_id' => ''
-            ]);
+        $department = Department::where('slug', $slug)->first();
+       $count = $hod->departments->count();
+       $user= User::find($hod->user_id);
+
+       
+       if ($hod && $hod->user_id) {
+           if($count==1){
+                if ($user->hasRole('hod')) {
+                          
+                    $user->removeRole('hod');
+                }
+
+               if(!$hod->committeeSecretary){
+                    $user->delete();
+                     $hod->update([
+                   'user_id' => ''
+                     ]);
+             }
+           }
         }
-        Department::where('slug', $slug)->first()->update([
+        $department->update([
             'employee_id' => null
         ]);
+
+        session()->forget('current_department');
+
         return redirect()->back();
     }
 
@@ -315,5 +338,12 @@ class DepartmentController extends Controller
         $districts = District::latest()->get();
 
         return view('deartments.fronts.staff', compact('employees', 'districts'));
+    }
+
+    public function switchDepartment(Department $department){
+        session(['current_department' => $department->id]);
+
+        // Redirect to the desired route (you can customize the redirect)
+        return redirect()->back();
     }
 }

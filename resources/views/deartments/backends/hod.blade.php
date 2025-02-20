@@ -47,7 +47,8 @@
                     </div>
                     <div class="form-group">
                         <input type="checkbox" class="cursor-pointer" name="can_login" id="can_login">
-                        <label for="can_login" class="cursor-pointer">लगइन गर्न अनुमति दिनुहोस्</label>
+                        <label for="can_login" class="cursor-pointer"></label>
+                        <span id="label">लगइन गर्न अनुमति दिनुहोस्</span>
                     </div>
                     <div class="form-group" id="loin_details"></div>
                     <div class="form-group float-right">
@@ -127,6 +128,11 @@
                         employeeName = response.name;
                         designation = response.designation;
                         email = response.email;
+                        if(response.user.id){
+                            checkbox.style.display = 'none';
+                            label.innerHTML="लोगिन पहिले नै छ";
+                            label.style.color = 'red';
+                        }
                         generateDiv();
                         // console.log(response)
                     }

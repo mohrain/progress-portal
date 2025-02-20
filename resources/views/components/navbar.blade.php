@@ -11,21 +11,58 @@
     
     <a class="navbar-brand" href="{{ route('dashboard') }}">
         @if (Auth::user()->hasRole('hod'))
-            <h4 class="text-center">{{ Auth::user()->employee->department->name }}</h4>
-        @elseif (Auth::user()->hasRole('sachib'))
+        @php
+        $availableDepartments = Auth::user()->employee->departments ;
+      
+       $department = session('current_department') 
+        ? \App\Models\Department::find(session('current_department')) 
+        : Auth::user()->employee->department;
+
+        if (!$department) {
+        $department = Auth::user()->employee->department; // Fallback again
+        }
+
+    @endphp
+            <div class="dropdown relative">
+                @if ($availableDepartments->count() > 1)
+                    <a href="#" class="dropdown-toggle bg-gray-200 px-2 py-2 rounded-md hover:bg-gray-300 cursor-pointer block text-decoration-none fs-5"  id="dropdownToggle-department">
+                        {{ $department->name }}
+                    </a>
+                    <!-- Dropdown menu -->
+                    <ul style="width: 250px" class="dropdown-menu absolute left-0 mt-1 bg-white  shadow-md rounded-md hidden" id="dropdownMenu-department">
+                        @foreach ($availableDepartments as $department)
+                            <li class="py-1">
+                                <a href="{{ route('department.switch', $department) }}" class="block px-4 py-2 text-secondary ">
+                                    {{ $department->name }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <a href="#" class="text-gray-700 hover:text-gray-900">
+                        {{ $availableDepartments->first()->name }}
+                    </a>
+                @endif
+            </div>
+         
+        @endif
+
+
+        <span style="height:16px; margin:0 10px; background-color:brown; border:2px solid red">  </span>
+        @if (Auth::user()->hasRole('sachib'))
 
         @php
         $availableSecretaries = Auth::user()->employee->committeeSecretaries ;
       
        $committeeSecretary = session('current_committee_secretary') 
-    ? \App\Models\CommitteeSecretary::find(session('current_committee_secretary')) 
-    : Auth::user()->employee->committeeSecretary;
+        ? \App\Models\CommitteeSecretary::find(session('current_committee_secretary')) 
+        : Auth::user()->employee->committeeSecretary;
 
-    if (!$committeeSecretary) {
+        if (!$committeeSecretary) {
         $committeeSecretary = Auth::user()->employee->committeeSecretary; // Fallback again
-    }
+        }
 
-    @endphp
+         @endphp
             <div class="dropdown relative">
                 @if ($availableSecretaries->count() > 1)
                     <a href="#" class="dropdown-toggle bg-gray-200 px-2 py-2 rounded-md hover:bg-gray-300 cursor-pointer block text-decoration-none fs-5"  id="dropdownToggle">
@@ -47,8 +84,7 @@
                     </a>
                 @endif
             </div>
-        @else
-            {{ __('app.name') }}
+       
         @endif
     </a>
     
@@ -111,6 +147,28 @@
     document.addEventListener("DOMContentLoaded", function () {
         const dropdownToggle = document.getElementById("dropdownToggle");
         const dropdownMenu = document.getElementById("dropdownMenu");
+
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                // Toggle Bootstrap & Tailwind classes
+                dropdownMenu.classList.toggle("show"); // Bootstrap class
+                dropdownMenu.classList.toggle("hidden"); // Tailwind class
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.remove("show");
+                    dropdownMenu.classList.add("hidden");
+                }
+            });
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const dropdownToggle = document.getElementById("dropdownToggle-department");
+        const dropdownMenu = document.getElementById("dropdownMenu-department");
 
         if (dropdownToggle) {
             dropdownToggle.addEventListener("click", function (e) {

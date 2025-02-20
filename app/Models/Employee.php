@@ -80,4 +80,8 @@ class Employee extends Model
     {
         return $this->hasOne(Department::class);
     }
+    public function departments()
+    {
+        return $this->hasMany(Department::class);
+    }
 }

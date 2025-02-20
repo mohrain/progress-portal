@@ -229,6 +229,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
 
     // Committee Routes
     Route::get('/switch-committee-secretary/{committeeSecretary}', [CommitteeController::class, 'switchCommitteeSecretary'])->name('committee.switch');
+    Route::get('/switch-department/{department}', [DepartmentController::class, 'switchDepartment'])->name('department.switch');
 
     Route::get('committees', [CommitteeController::class, 'index'])->name('committee.index');
     Route::get('committees/create', [CommitteeController::class, 'create'])->name('committee.create');
