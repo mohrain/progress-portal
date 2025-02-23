@@ -49,7 +49,10 @@
                     @php
                         $serialNumber = 1; // Initialize serial number
                     @endphp
-                    @foreach ($departments[null] as $parentDepartment)
+                        
+                   
+                    @if (isset($departments['']))
+                        @foreach ($departments[''] as $parentDepartment)
                         <tr>
                             <td>{{ $serialNumber++ }}</td>
                             <td>{{ $parentDepartment->name }}</td>
@@ -95,7 +98,8 @@
                                 </tr>
                             @endforeach
                         @endif
-                    @endforeach
+                     @endforeach
+                    @endif
                 </tbody>
 
 
