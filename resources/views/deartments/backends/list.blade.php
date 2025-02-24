@@ -51,8 +51,8 @@
                     @endphp
                         
                    
-                    @if (isset($departments['']))
-                        @foreach ($departments[''] as $parentDepartment)
+                    @if (isset($departments['parent']))
+                        @foreach ($departments['parent'] as $parentDepartment)
                         <tr>
                             <td>{{ $serialNumber++ }}</td>
                             <td>{{ $parentDepartment->name }}</td>

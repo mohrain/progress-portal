@@ -29,7 +29,16 @@ class DepartmentController extends Controller
 
     public function list()
     {
-        $departments = Department::with('employee', 'department')->latest()->where('status', 1)->get()->groupBy('department_id');
+        $departments = Department::with('employee', 'department')
+        ->latest()
+        ->where('status', 1)
+        ->get()
+        ->map(function ($department) {
+            $department->department_id = $department->department_id ?? 'parent'; // Replace null with "Unknown"
+            return $department;
+        })
+        ->groupBy('department_id');
+
         return view('deartments.backends.list', compact('departments'));
     }
 
