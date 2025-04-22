@@ -31,8 +31,8 @@ class PostCategorySeeder extends Seeder
                 'name' => 'सचिवालय सूचना',
                 'parent_id' => 1,
             ],
-        
-         
+
+
             [
                 'name' => 'ऐन, नियम',
             ],
@@ -48,6 +48,9 @@ class PostCategorySeeder extends Seeder
             [
                 'name' => 'प्रदेश संसद पुस्तकालय',
             ],
+            [
+                'name' => 'स्व: प्रकाशन'
+            ]
         ];
         foreach ($postCategories as $postCategory) {
             PostCategory::create($postCategory);

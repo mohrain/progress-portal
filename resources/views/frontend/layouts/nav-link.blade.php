@@ -3,21 +3,21 @@
 </li>
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        प्रदेश सभा
+        परिचय
     </a>
 
     @php
     $pages=[];
-    $pages = \App\Page::where('status',1)->where('id','!=',1)->get();
+    $pages = \App\Page::where('status',1)->get();
     @endphp
 
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li>
-            <a class="dropdown-item" href="{{ route('pages.show', 1) }}">प्रदेश सभा परिचय</a>
+        {{-- <li>
+            <a class="dropdown-item" href="{{ route('pages.show', 1) }}"> संक्षिप्त परिचय</a>
         </li>
         <li>
             <a class="dropdown-item" href="{{ route('office-bearers.frontendIndex') }}">पदाधिकारीहरु</a>
-        </li>
+        </li> --}}
 
         @foreach ($pages as $page)
         <li>
@@ -26,17 +26,21 @@
         @endforeach
 
         <li>
+            <a class="dropdown-item" href="{{ route('office-bearers.frontendIndex') }}">पदाधिकारीहरु</a>
+        </li>
+
+        {{-- <li>
             <a class="dropdown-item" href="{{ route('current-parliamentary-parties.frontendIndex') }}">संसदीय दल</a>
         </li>
         <li>
             <a class="dropdown-item" href="{{ route('office-bearers.frontendIndexOld') }}">पूर्व पदाधिकारीहरु</a>
-        </li>
+        </li> --}}
     </ul>
 
 </li>
 <li class="nav-item">
     <a class="nav-link" href="{{{route('department.index')}}}">
-        प्रदेश सभा सचिवालय
+        कार्यक्रम तथा परियोजना
     </a>
     {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li>

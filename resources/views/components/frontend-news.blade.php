@@ -1,13 +1,16 @@
 @php
-    // Fetch posts for category ID 10 ("स्व: प्रकाशन")
-    $category10Posts = optional($postCategories->firstWhere('id', 10))->posts()->latest()->take(5)->get();
+    // Get the category objects first
+    $category10 = $postCategories->firstWhere('id', 10);
+    $category4 = $postCategories->firstWhere('id', 4);
 
-    // Fetch posts for category ID 4
-    $category4Posts = optional($postCategories->firstWhere('id', 4))->posts()->latest()->take(5)->get();
+    // Only call methods if the category exists
+    $category10Posts = $category10 ? $category10->posts()->latest()->take(5)->get() : collect();
+    $category4Posts = $category4 ? $category4->posts()->latest()->take(5)->get() : collect();
 
-    // Merge and sort posts by created_at (descending order)
+    // Merge and sort as before
     $mergedPosts = $category4Posts->merge($category10Posts)->sortByDesc('created_at')->take(5)->values();
 @endphp
+
 
 <div class="row my-4">
     @foreach ($postCategories as $postCategory)
