@@ -4,6 +4,7 @@ use App\Http\Controllers\Frontend\CommitteeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LiveController;
 use App\Http\Controllers\VideoGalleryController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('committees/{committee:slug}', [CommitteeController::class, 'show'])->name('frontend.committees.show');
 Route::get('committees/{committee:slug}/responsibilities', [CommitteeController::class, 'responsibilities'])->name('frontend.committees.responsibilities');

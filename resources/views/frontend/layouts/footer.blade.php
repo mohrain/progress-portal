@@ -185,7 +185,7 @@
 
 <div
     style="background: linear-gradient(hsl(0deg 0% 100% / 95%),hsl(0deg 0% 100% / 95%)),url(/images/bg_nepal.png) 50% no-repeat;">
-    <div class="bg-">
+    <div class="border-top">
         <div class="footer">
             <div class="container">
                 <div class="row">
@@ -308,11 +308,12 @@
 
             </div>
         </div>
-        <div class="py-2" style="background-color:#F2F2F2">
+        <div class="py-2" style="background-color:#F2F2F2 " >
             <hr>
+           <div class="container   ">
             <div class="row downloadadble-footer">
-                <div class="col-lg-3 col-md-4 px-5">
-                    <label class="text-primary">डाउनलोड नेपाली युनिकोड</label>
+                <div class="col-lg-3 col-md-4 ">
+                    <label class="text-danger ">डाउनलोड नेपाली युनिकोड</label>
 
                     <ul class="mt-3 p-0" style="list-style: none">
                         <li>
@@ -325,8 +326,8 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-lg-6 col-md-8 px-5">
-                    <label class="text-primary">डाउनलोड नेपाली फन्ट</label>
+                <div class="col-lg-6 col-md-8 ">
+                    <label class="text-danger ">डाउनलोड नेपाली फन्ट</label>
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4">
                             <ul class="mt-3 p-0" style="list-style: none">
@@ -366,8 +367,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 px-5">
-                    <label class="text-primary">नमुना फाराम डाउनलोड</label>
+                <div class="col-lg-3 ">
+                    <label class="text-danger ">नमुना फाराम डाउनलोड</label>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <ul class="mt-3 p-0" style="list-style: none">
@@ -384,6 +385,7 @@
                     </div>
                 </div>
             </div>
+           </div>
             <hr class="m-0 p-0">
             <div class="container">
 
@@ -403,7 +405,8 @@
                     </div>
                 </div> --}}
 
-                <div class="row px-4">
+
+                <div class="row ">
                     <div class="col-lg-3 col-md-2 col-sm-6">
 
                         <a href="/">गृह पृष्ठ </a>
@@ -427,8 +430,8 @@
 
 </div>
 
-<div class="py-2">
-    <div class="container">
+<div class="py-2" style="background-color:#000">
+    <div class="container text-secondary" style="font-size: 13px">
         <div class="d-md-flex justify-content-between">
             <div>
                 <strong class="kalimati-font">&copy; {{ date('Y') }}</strong>. {{ settings('app_name') }},

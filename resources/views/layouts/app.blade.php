@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
         @isset($title)
-            {{ $title }} |
+        {{ $title }} |
         @endisset {{ config('app.name', __('appname')) }}
     </title>
 
@@ -258,28 +258,28 @@
 {{ Auth::user()->roles[0]->name == 'librarian' ? '' : 'sidebar-opened' }} @endauth ">
     <div id="app">
         @guest
-            @yield('content')
+        @yield('content')
         @endguest
 
         @auth
-            <div>
-                <div id="sidebar" class="bg-deep-blu p-2" data-collapsed="false">
-                    <x-sidebar></x-sidebar>
+        <div>
+            <div id="sidebar" class="bg-deep-blu p-2" data-collapsed="false">
+                <x-sidebar></x-sidebar>
+            </div>
+            <div id="content-area" class=" px-md-3">
+                <x-navbar></x-navbar>
+                <div class="p-2">
+                    @yield('breadcrumb')
                 </div>
-                <div id="content-area" class=" px-md-3">
-                    <x-navbar></x-navbar>
-                    <div class="p-2">
-                        @yield('breadcrumb')
-                    </div>
+                <div class="content">
                     <div class="container-fluid">
                         @include('alerts.all')
                     </div>
-                    <div class="content">
 
-                        @yield('content')
-                    </div>
+                    @yield('content')
                 </div>
             </div>
+        </div>
         @endauth
 
     </div>

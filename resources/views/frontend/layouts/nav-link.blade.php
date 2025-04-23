@@ -24,10 +24,13 @@
             <a class="dropdown-item" href="{{ route('pages.show', $page->id) }}">{{ $page->title }}</a>
         </li>
         @endforeach
+        <li><a class="dropdown-item" href="{{ route('employees.frontendIndex') }}">कर्मचारी विवरण</a></li>
+        <li><a class="dropdown-item" href="{{ route('members.frontendIndex') }}">कार्यपालिका सदस्य </a></li>
 
-        <li>
+        {{-- <li>
             <a class="dropdown-item" href="{{ route('office-bearers.frontendIndex') }}">पदाधिकारीहरु</a>
-        </li>
+        </li> --}}
+
 
         {{-- <li>
             <a class="dropdown-item" href="{{ route('current-parliamentary-parties.frontendIndex') }}">संसदीय दल</a>
@@ -52,7 +55,9 @@
 </ul> --}}
 </li>
 
-<li class="nav-item dropdown">
+
+
+{{-- <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         सदस्यहरु
     </a>
@@ -60,8 +65,8 @@
         <li><a class="dropdown-item" href="{{ route('members.frontendIndex') }}">सदस्यहरुका विवरण</a></li>
         <li><a class="dropdown-item" href="{{ route('members.frontendIndexOld') }}">पूर्व सदस्यहरुका विवरण </a></li>
     </ul>
-</li>
-<li class="nav-item dropdown">
+</li> --}}
+{{-- <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         समिति
     </a>
@@ -71,14 +76,33 @@
         @endforeach
 
     </ul>
-</li>
-<li class="nav-item dropdown">
+</li> --}}
+{{-- <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         विधेयक
     </a>
     <x-bill-type-view />
-</li>
+</li> --}}
 <x-post-category-menu-view />
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+     विद्धुततिया शुसासन सेवा
+
+     </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="https://donidcr.gov.np/">घटना दर्ता </a></li>
+        <li><a class="dropdown-item" href="https://donidcr.gov.np/">सामाजिक सुरक्षा </a></li>
+        <li><a class="dropdown-item" href="https://charter.mohrain.com">वडापत्र </a></li>
+        <li><a class="dropdown-item" href="#"> निवेदनको ढाँचा </a></li>
+        <li><a class="dropdown-item" href="https://business.ghodaghodi.com"> अनलाईन व्यवसाय दर्ता </a></li>
+        <li><a class="dropdown-item" href="https://sifarish.ghodaghodimun.gov.np/">अनलाईन  सिफारिस </a></li>
+        <li><a class="dropdown-item" href="https://suchidarta.ghodaghodi.com/">सुची दर्ता </a></li>
+    </ul>
+</li>
 <li class="nav-item">
     <a class="nav-link" href="/gallery">फोटो संग्रह</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{{ route('contact-us.create') }}">सम्पर्क  </a>
+
 </li>

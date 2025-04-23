@@ -30,14 +30,14 @@ class DepartmentController extends Controller
     public function list()
     {
         $departments = Department::with('employee', 'department')
-        ->latest()
-        ->where('status', 1)
-        ->get()
-        ->map(function ($department) {
-            $department->department_id = $department->department_id ?? 'parent'; // Replace null with "Unknown"
-            return $department;
-        })
-        ->groupBy('department_id');
+            ->latest()
+            ->where('status', 1)
+            ->get()
+            ->map(function ($department) {
+                $department->department_id = $department->department_id ?? 'parent'; // Replace null with "Unknown"
+                return $department;
+            })
+            ->groupBy('department_id');
 
         return view('deartments.backends.list', compact('departments'));
     }
@@ -246,7 +246,7 @@ class DepartmentController extends Controller
             'employee_id' => 'required'
         ]);
 
-        $emp= Employee::find($request->employee_id);
+        $emp = Employee::find($request->employee_id);
         if ($request->email) {
             $userData = $request->validate([
                 'username' => 'required|unique:users,username',
@@ -262,14 +262,14 @@ class DepartmentController extends Controller
             $userData['password'] = Hash::make($request->password);
 
             $user = User::create($userData);
-           
+
             $user->assignRole($role);
             $emp->update([
                 'user_id' => $user->id,
                 'email' => $user->email
             ]);
-        }else{
-            $user= User::find($emp->user_id);
+        } else {
+            $user = User::find($emp->user_id);
             $user->assignRole($role);
         }
 
@@ -282,24 +282,24 @@ class DepartmentController extends Controller
     {
         $hod = Employee::find($id);
         $department = Department::where('slug', $slug)->first();
-       $count = $hod->departments->count();
-       $user= User::find($hod->user_id);
+        $count = $hod->departments->count();
+        $user = User::find($hod->user_id);
 
-       
-       if ($hod && $hod->user_id) {
-           if($count==1){
+
+        if ($hod && $hod->user_id) {
+            if ($count == 1) {
                 if ($user->hasRole('hod')) {
-                          
+
                     $user->removeRole('hod');
                 }
 
-               if(!$hod->committeeSecretary){
+                if (!$hod->committeeSecretary) {
                     $user->delete();
-                     $hod->update([
-                   'user_id' => ''
-                     ]);
-             }
-           }
+                    $hod->update([
+                        'user_id' => ''
+                    ]);
+                }
+            }
         }
         $department->update([
             'employee_id' => null
@@ -349,7 +349,8 @@ class DepartmentController extends Controller
         return view('deartments.fronts.staff', compact('employees', 'districts'));
     }
 
-    public function switchDepartment(Department $department){
+    public function switchDepartment(Department $department)
+    {
         session(['current_department' => $department->id]);
 
         // Redirect to the desired route (you can customize the redirect)

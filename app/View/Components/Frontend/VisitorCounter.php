@@ -32,7 +32,7 @@ class VisitorCounter extends Component
     public function render()
     {
         return <<<'blade'
-            <span class="kalimati-font btn btn-sm btn-primary px-3">
+            <span class="kalimati-font text-primary font-bold px-3">
                 {{ $count }}
             </span>
         blade;

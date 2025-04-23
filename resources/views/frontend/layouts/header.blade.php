@@ -2,8 +2,8 @@
     <header class="container header">
         <div id="header" class="d-flex justify-content-between">
             <div class="d-flex align-items-center gap-3 gap-md-4">
-                <div>
-                    <img class="logo" src="{{ asset('images/sudurpashchim-province-assembly-logo-400x400.png') }}" alt="pradeshsava-logo-sudurpaschim" srcset="">
+                <div style="flex-shrink: 0;">
+                    <img class="logo" src="{{ asset('images/nep-gov-logo.png') }}" alt="logo">
                 </div>
                 <div>
                     <h5 class="fw-bolder">{{ settings('app_name') }}</h5>
@@ -42,7 +42,11 @@
     let bsMonth = NepaliFunctions.GetBsMonthInUnicode(NepaliFunctions.GetCurrentBsMonth() - 1);
     // let bsDay = NepaliFunctions.GetCurrentBsDay();
 
-    let bsDay = {{current_day()}};
+    let bsDay = {
+        {
+            current_day()
+        }
+    };
 
     let bsDate = NepaliFunctions.GetBsFullDate(currentDate, true, "YYYY-MM-DD", );
     let bsWeek = NepaliFunctions.GetBsFullDayInUnicode(currentDate, 'YYYY-MM-DD')
@@ -51,6 +55,5 @@
     document.getElementById("bsDay").textContent = bsDay;
 
     document.getElementById("BsWeek").textContent = bsWeek;
-
 </script>
 @endpush
