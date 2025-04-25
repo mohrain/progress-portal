@@ -42,9 +42,9 @@
 
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="{{{route('department.index')}}}">
+    {{-- <a class="nav-link" href="{{{route('department.index')}}}">
         कार्यक्रम तथा परियोजना
-    </a>
+    </a> --}}
     {{-- <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li>
             <a class="dropdown-item" href="{{ route('pages.show', 2) }}">संगठनिक संरचना</a>
@@ -66,7 +66,7 @@
         <li><a class="dropdown-item" href="{{ route('members.frontendIndexOld') }}">पूर्व सदस्यहरुका विवरण </a></li>
     </ul>
 </li> --}}
-{{-- <li class="nav-item dropdown">
+<li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         समिति
     </a>
@@ -76,13 +76,13 @@
         @endforeach
 
     </ul>
-</li> --}}
-{{-- <li class="nav-item dropdown">
+</li>
+<li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         विधेयक
     </a>
     <x-bill-type-view />
-</li> --}}
+</li>
 <x-post-category-menu-view />
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
