@@ -32,11 +32,11 @@
             </div>
             <div class="col-md-3">
                 <div class="bg-theme-color-blue py-2 text-center mb-3 rounded-1">
-                    सभामुख /उपसभामुख
-                </div>
+                    प्रमुख/उप-प्रमुख 
+                 </div>
                 <x-frontend-office-brearer-view />
                 <div class="bg-theme-color-blue py-2 text-center mb-3 rounded-1">
-                    प्रदेश सभा सचिव
+                    प्रमुख प्रशासकीय अधिकृत
                 </div>
                 <x-frontend-provincial-assembly-secretary-view />
             </div>
@@ -57,7 +57,7 @@
                     <div class="card-header bg-transparent border-0">
                     </div>
                     <div class="card-body ">
-                        <h5 class="fw-bolder text-primary text-center mb-3">सुदूरपश्‍चिम प्रदेश सभाको परिचय</h5>
+                        <h5 class="fw-bolder text-primary text-center mb-3">कार्यपालिकाको परिचय</h5>
                         <x-frontend-about-us-view />
                     </div>
                 </div>
