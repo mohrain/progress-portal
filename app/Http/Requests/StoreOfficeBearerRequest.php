@@ -25,8 +25,10 @@ class StoreOfficeBearerRequest extends FormRequest
     {
         return [
             'election_id' => 'required',
-            'designation' => 'required',
+            'designation' => 'nullable',
             'member_id' => 'required',
+            'office_bearer_designation_id' => 'required',
+            'ward_number' => 'nullable|integer',
             'start' => 'required',
             'end' => 'nullable',
         ];

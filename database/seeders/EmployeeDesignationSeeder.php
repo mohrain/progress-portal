@@ -17,14 +17,14 @@ class EmployeeDesignationSeeder extends Seeder
     {
         $employeeDesignations = [
             [
-                'name' => 'प्रदेश सभा सचिव',
+                'name' => 'प्रमुख प्रशासकीय अधिकृत',
             ],
             [
-                'name' => 'प्रवक्ता',
+                'name' => 'शाखा अधिकृत / सूचना अधिकारी',
             ],
-            [
-                'name' => 'सूचना अधिकारी',
-            ],
+            // [
+            //     'name' => 'सूचना अधिकारी',
+            // ],
         ];
         foreach ($employeeDesignations as $employeeDesignation) {
             EmployeeDesignation::create($employeeDesignation);

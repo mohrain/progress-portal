@@ -1,4 +1,4 @@
-<div class="bg-theme-color-re top-nav" style="color: #333237;">
+<div class="bg-theme-color-re top-nav" style="color: #333237;font-size: 14px;">
     <div class="container">
         <div class="d-flex justify-content-between">
             <div class="d-flex align-items-center topbar-menu">

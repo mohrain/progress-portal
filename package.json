@@ -28,7 +28,7 @@
         "form-backend-validation": "^2.4.0",
         "qrcode.vue": "1",
         "sweetalert2": "^11.4.19",
-        "v-nepalidatepicker": "^1.2.4",
+        "v-nepalidatepicker": "^1.2.7",
         "vue-chartjs": "^4.1.1",
         "vue-cool-lightbox": "^2.7.5",
         "vue-router": "^3.0.0",

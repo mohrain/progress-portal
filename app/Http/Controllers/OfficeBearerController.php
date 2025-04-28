@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\OfficeBearer;
 use App\Http\Requests\StoreOfficeBearerRequest;
 use App\Http\Requests\UpdateOfficeBearerRequest;
+use App\Models\OfficeBearerDesignation;
 use Illuminate\Http\Request;
 
 class OfficeBearerController extends Controller
@@ -22,7 +23,11 @@ class OfficeBearerController extends Controller
         $officeBearers = OfficeBearer::with('election', 'member')
             ->positioned()
             ->paginate(50);
-        return view('office-bearers.index', compact('officeBearer', 'officeBearers'));
+        $officeBearersDesignations = OfficeBearerDesignation::get();
+        $wards = settings('wards');
+        $wardNumbers = range(1, $wards);
+
+        return view('office-bearers.index', compact('officeBearer', 'officeBearers', 'officeBearersDesignations', 'wardNumbers'));
     }
 
     /**
@@ -43,6 +48,7 @@ class OfficeBearerController extends Controller
      */
     public function store(StoreOfficeBearerRequest $request)
     {
+
         OfficeBearer::create($request->validated());
         return redirect()
             ->back()

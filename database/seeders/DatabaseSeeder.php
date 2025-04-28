@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BillCategorySeeder::class);
         $this->call(CommitteeSeeder::class);
 
+        $this->call(OfficeBearerDesignationSeeder::class);
         // if (app()->environment() == 'production') {
         // } else {
         // }
