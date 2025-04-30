@@ -36,4 +36,8 @@ class OfficeBearerDesignation extends Model
     {
         return $query->where('status', false);
     }
+    public function members()
+    {
+        return $this->hasMany(Member::class);
+    }
 }

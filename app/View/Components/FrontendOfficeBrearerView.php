@@ -15,7 +15,7 @@ class FrontendOfficeBrearerView extends Component
     public $officeBearers;
     public function __construct()
     {
-        $this->officeBearers = OfficeBearer::with('election', 'member')
+        $this->officeBearers = OfficeBearer::with('election', 'member.officeDesignation')
             ->currentElection()
             ->current()
             ->positioned()
@@ -29,6 +29,11 @@ class FrontendOfficeBrearerView extends Component
      */
     public function render()
     {
-        return view('components.frontend-office-brearer-view');
+
+        // dd($this->officeBearers);
+
+        return view('components.frontend-office-brearer-view', [
+            'officeBearers' => $this->officeBearers,
+        ]);
     }
 }

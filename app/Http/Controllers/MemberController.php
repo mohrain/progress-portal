@@ -6,6 +6,7 @@ use App\District;
 use App\Models\Member;
 use App\Http\Requests\StoreMemberRequest;
 use App\Http\Requests\UpdateMemberRequest;
+use App\Models\OfficeBearerDesignation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -37,7 +38,10 @@ class MemberController extends Controller
             $member = new Member();
         }
         $districts = District::orderBy('name')->get();
-        return view('members.create', compact('member', 'districts'));
+        $wards = settings('wards');
+        $wardNumbers = range(1, $wards);
+        $officeBearersDesignations = OfficeBearerDesignation::get();
+        return view('members.create', compact('member', 'districts', 'wardNumbers', 'officeBearersDesignations'));
     }
 
     /**
@@ -48,11 +52,13 @@ class MemberController extends Controller
      */
     public function store(StoreMemberRequest $request)
     {
+
         $data = $request->validated();
         if ($request->file('profile')) {
             $data['profile'] = Storage::putFile('profile', $request->file('profile'));
         }
-        Member::create($data);
+
+        $member = Member::create($data);
         return redirect()
             ->route('members.index')
             ->with('success', 'सदस्य दर्ता समपन्न भयो');
@@ -137,8 +143,10 @@ class MemberController extends Controller
             ->positioned()
             ->paginate(60);
         $districts = District::orderBy('name')->get();
+        $wards = settings('wards');
+        $wardNumbers = range(1, $wards);
 
-        return view('frontend.members.index', compact('members', 'districts'));
+        return view('frontend.members.index', compact('members', 'districts', 'wardNumbers'));
     }
 
     public function frontendIndexOld()
@@ -264,6 +272,9 @@ class MemberController extends Controller
         $members->appends(request()->except('page'));
 
         $districts = District::orderBy('name')->get();
+
+
+
         return view('members.index', compact('members', 'districts'));
     }
 
@@ -296,7 +307,7 @@ class MemberController extends Controller
                 $members = $members->where('election_district', $request->election_district);
             }
         }
-      
+
         if ($request->name_english != null) {
             $members = $members->where('name_english', 'like', '%' . $request->name_english . '%');
         }
@@ -305,6 +316,12 @@ class MemberController extends Controller
                 $members = $members->where('gender', $request->gender);
             }
         }
+        if ($request->has('ward_number')) {
+            if ($request->ward_number != null) {
+                $members = $members->where('ward_number', $request->ward_number);
+            }
+        }
+
         $members = $members
             ->currentElection()
             ->positioned()
@@ -312,8 +329,12 @@ class MemberController extends Controller
         $members->appends(request()->except('page'));
 
         $districts = District::orderBy('name')->get();
+        $wards = settings('wards');
+        $wardNumbers = range(1, $wards);
 
-        return view('frontend.members.index', compact('members', 'districts'));
+
+
+        return view('frontend.members.index', compact('members', 'districts', 'wardNumbers'));
     }
 
     public function frontendOldSearch(Request $request)
@@ -345,7 +366,7 @@ class MemberController extends Controller
                 $members = $members->where('election_district', $request->election_district);
             }
         }
-      
+
         if ($request->name_english != null) {
             $members = $members->where('name_english', 'like', '%' . $request->name_english . '%');
         }
@@ -354,6 +375,15 @@ class MemberController extends Controller
                 $members = $members->where('gender', $request->gender);
             }
         }
+
+
+        // if ($request->has('ward_number')) {
+        //     if ($request->ward_number != null) {
+        //         $members = $members->whereHas('officeBearers', function ($query) use ($request) {
+        //             $query->where('ward_number', $request->ward_number);
+        //         });
+        //     }
+        // }
         $members = $members
             ->oldElection()
             ->orderBy('name_english')

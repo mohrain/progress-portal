@@ -37,6 +37,8 @@ class UpdateMemberRequest extends FormRequest
             'birth_place' => 'nullable',
             'email' => 'nullable',
             'mobile' => 'nullable',
+            "office_bearer_designation_id" => 'required',
+            'ward_number' => 'nullable| integer',
             'resident_contact_numbe' => 'nullable',
             'permanent_address_district' => 'nullable',
             'permanent_address' => 'nullable',

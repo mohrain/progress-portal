@@ -30,7 +30,7 @@
                 @if ($officeBearer->id)
                 @method('put')
                 @endif
-                <div class="row">
+                <div class="row ">
                     <div class="col-md-2 form-group">
                         <x-office-bearer-election-select :officeBearer="$officeBearer" />
                     </div>
@@ -52,7 +52,7 @@
                         </span>
                         @enderror
                     </div> -->
-                    <div class="col-md-2 form-group">
+                    <!-- <div class="col-md-2 form-group">
                         <label for="office_bearer_designation_id" class="form-label required">{{ __('पद') }}</label>
 
                         <select class="form-control" name="office_bearer_designation_id" id="office_bearer_designation_id"
@@ -89,13 +89,13 @@
                         </select>
 
 
-                        @error('office_bearer_designation_id')
+                        @error('ward_number')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
-                    </div>
-                    <div class="col-md-2 form-group">
+                    </div> -->
+                    <div class="col-md-4 form-group">
                         <x-office-bearer-member-select :officeBearer="$officeBearer" />
                     </div>
                     <div class="col-md-2 form-group">
@@ -110,7 +110,7 @@
                             class="form-control kalimati-font nepali-date-picker"
                             value="{{ old('end', $officeBearer->end) }}" placeholder="YYYY-MM-DD">
                     </div>
-                    <div class="col-md-12 text-right">
+                    <div class="col-md-2 text-right mt-4">
                         <button type="submit"
                             class="btn btn-primary z-depth-0 ml-0">{{ $officeBearer->id ? 'अपडेट गर्नुहोस्' : 'सेभ गर्नुहोस्' }}</button>
                     </div>
@@ -221,6 +221,7 @@
                     }
                 });
             }
+
         });
 
         function persistUpdatedOrder() {

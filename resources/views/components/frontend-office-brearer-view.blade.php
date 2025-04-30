@@ -16,6 +16,7 @@
 </div>
 </div> --}}
 
+
 <div class="officer-card mb-3">
     <div class="bg-pattern"></div>
     <div class="officer-card-content">
@@ -26,12 +27,12 @@
         </div>
         <a class="officer-info" href="{{ route('members.show', $officeBearer->member) }}">
             <h4>{{ $officeBearer->member->name }}</h4>
-            <div>{{ $officeBearer->designation == true ? 'माननीय सभामुख' : 'माननीय उपसभामुख' }}</div>
-        </a>
+            <div>{{ $officeBearer->member->office_designation }}</div>
+        </div>
+        
     </div>
-</div>
-
-@endforeach
+    
+    @endforeach
 
 @push('styles')
 <style>

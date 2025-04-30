@@ -52,7 +52,7 @@ class Member extends Model
     {
         return $query->whereNotIn('election_id', [settings('election_id')]);
     }
-    
+
     public function election()
     {
         return $this->belongsTo(Election::class);
@@ -71,7 +71,12 @@ class Member extends Model
     {
         return $this->hasMany(OfficeBearer::class);
     }
-    
+
+    public function officeDesignation()
+    {
+        return $this->belongsTo(OfficeBearerDesignation::class, 'office_bearer_designation_id');
+    }
+
     public function committeeMembers()
     {
         return $this->hasMany(CommitteeMember::class);
