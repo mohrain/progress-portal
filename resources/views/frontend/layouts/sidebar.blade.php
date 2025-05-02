@@ -103,7 +103,7 @@
         <i class="bi bi-book"></i>
     </div>
     <div class="cta-title">
-        प्रदेश सभा पुस्तकालय
+        कार्यपालिका पुस्तकालय
     </div>
 </a>
 

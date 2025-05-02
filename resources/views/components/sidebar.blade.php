@@ -109,7 +109,7 @@
 </div>
 <div class="sidebar-menu {{ setActive('provincial-assembly-library.*') }}">
     <a href="{{ route('provincial-assembly-library.index') }}" aria-expanded="false" class="nav-link">
-        <span class="text-success"><i class="bi bi-book pr-2"></i></span>प्रदेश सभा पुस्तकालय
+        <span class="text-success"><i class="bi bi-book pr-2"></i></span>कार्यालय पुस्तकालय
     </a>
 </div>
 <div class="sidebar-menu {{ setActive('contact-us.*') }}">
@@ -129,7 +129,7 @@
 </div>
 <div class="sidebar-menu {{ setActive('department.list') }}">
     <a href="{{ route('department.list') }}" aria-expanded="false" class="nav-link">
-        <span class="text-success"><i class="fas fa-cog pr-2"></i></span>सचिवालयका शाखाहरु
+        <span class="text-success"><i class="fas fa-cog pr-2"></i></span>कार्यालय शाखाहरु
     </a>
 </div>
 
@@ -173,7 +173,7 @@
             <span class="text-success pr-4"></span>निर्वाचन वर्षहरू
         </a>
         <a href="{{ route('federal.index') }}" aria-expanded="false" class="nav-link">
-            <span class="text-success pr-4"></span>प्रदेश सभा सचिवालय
+            <span class="text-success pr-4"></span>कार्यपालिका
         </a>
         <a href="{{ route('settings.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span>एप सेटिङहरू
