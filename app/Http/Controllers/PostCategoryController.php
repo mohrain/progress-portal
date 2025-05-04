@@ -62,7 +62,7 @@ class PostCategoryController extends Controller
     public function show(PostCategory $postCategory)
     {
         $posts = $postCategory->posts()->published()->latest()->paginate(10);
-        return view('frontend.post-category.show', compact('postCategory','posts'));
+        return view('frontend.post-category.show', compact('postCategory', 'posts'));
     }
 
     /**
@@ -103,5 +103,16 @@ class PostCategoryController extends Controller
         return redirect()
             ->route('post-categories.index')
             ->with('success', 'पोस्ट किसिम हटाइयो');
+    }
+
+    public function getChildCategories($id)
+    {
+        $childCategories = PostCategory::where('parent_id', $id)->get(['id', 'name']);
+        return response()->json($childCategories);
+    }
+    public function postCategories()
+    {
+        $parentCategories = PostCategory::where('parent_id', 1)->get();
+        return response()->json($parentCategories);
     }
 }

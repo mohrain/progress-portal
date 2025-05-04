@@ -1,9 +1,8 @@
+@use "auth-layout";
 :root {
     // --main-theme-color: #1c4267;
     --main-theme-color: #1c4267;
 }
-
-@import "auth-layout";
 
 body {
     box-sizing: border-box;
@@ -24,7 +23,7 @@ label.required::after {
     content: " *";
     color: red;
     // vertical-align: super;
-  }
+}
 
 /* Resize MDB button */
 .btn {

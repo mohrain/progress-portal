@@ -145,7 +145,7 @@
         @endif
 
         <!-- Content here -->
-        <div class="my-4">
+        <div class="my-4" id="app">
             @yield('content')
         </div>
 
@@ -170,6 +170,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="{{ asset('assets/nepali-datepicker-v4/js/nepali.datepicker.v4.0.1.min.js') }}" type="text/javascript">
     </script>
+   
 
     <script>
         // Function to toggle color inversion

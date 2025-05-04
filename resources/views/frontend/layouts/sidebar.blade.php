@@ -1,3 +1,54 @@
+
+
+{{-- <a href="#" class="cta-button v-blue mb-3">
+    <div class="icon">
+        <i class="bi bi-calendar3"></i>
+    </div>
+    <div class="cta-title">आजको संसद</div>
+</a> --}}
+<a class="cta-button v-red mb-3" href="{{route('frontend.live')}}">
+    <div class="icon">
+        <i class="bi bi-youtube"></i>
+    </div>
+    <div class="cta-title">
+        प्रत्यक्ष प्रसारण
+    </div>
+</a>
+<a class="cta-button v-orange mb-3" href="/videos">
+    <div class="icon">
+        <i class="bi bi-camera-video"></i>
+    </div>
+    <div class="cta-title">
+        भिडियो संग्रहहरु
+    </div>
+</a>
+<a class="cta-button v-yellow mb-3" href="#">
+    <div class="icon">
+        <i class="bi bi-headphones"></i>
+    </div>
+    <div class="cta-title">
+        अडियो संग्रहहरु
+    </div>
+</a>
+<a class="cta-button v-purple mb-3" href="{{ route('post-categories.show', 8) }}">
+    <div class="icon">
+        <i class="bi bi-list-task"></i>
+    </div>
+    <div class="cta-title">
+        सम्पूर्ण विवरण (Varbatim)
+    </div>
+</a>
+<a class="cta-button v-pink mb-3" href="{{ route('provincial-assembly-library.frontendIndex') }}">
+    <div class="icon">
+        <i class="bi bi-book"></i>
+    </div>
+    <div class="cta-title">
+        कार्यपालिका पुस्तकालय
+    </div>
+</a>
+
+
+@push('styles')
 <style>
     .cta-button {
         background-color: #fff;
@@ -59,53 +110,7 @@
     }
 
 </style>
-
-{{-- <a href="#" class="cta-button v-blue mb-3">
-    <div class="icon">
-        <i class="bi bi-calendar3"></i>
-    </div>
-    <div class="cta-title">आजको संसद</div>
-</a> --}}
-<a class="cta-button v-red mb-3" href="{{route('frontend.live')}}">
-    <div class="icon">
-        <i class="bi bi-youtube"></i>
-    </div>
-    <div class="cta-title">
-        प्रत्यक्ष प्रसारण
-    </div>
-</a>
-<a class="cta-button v-orange mb-3" href="/videos">
-    <div class="icon">
-        <i class="bi bi-camera-video"></i>
-    </div>
-    <div class="cta-title">
-        भिडियो संग्रहहरु
-    </div>
-</a>
-<a class="cta-button v-yellow mb-3" href="#">
-    <div class="icon">
-        <i class="bi bi-headphones"></i>
-    </div>
-    <div class="cta-title">
-        अडियो संग्रहहरु
-    </div>
-</a>
-<a class="cta-button v-purple mb-3" href="{{ route('post-categories.show', 8) }}">
-    <div class="icon">
-        <i class="bi bi-list-task"></i>
-    </div>
-    <div class="cta-title">
-        सम्पूर्ण विवरण (Varbatim)
-    </div>
-</a>
-<a class="cta-button v-pink mb-3" href="{{ route('provincial-assembly-library.frontendIndex') }}">
-    <div class="icon">
-        <i class="bi bi-book"></i>
-    </div>
-    <div class="cta-title">
-        कार्यपालिका पुस्तकालय
-    </div>
-</a>
+@endpush
 
 {{-- <div class="bg-theme-color-blue py-3 mb-2 px-2">
     <i class="bi bi-cloud-arrow-down"></i> डाउनलोडस्

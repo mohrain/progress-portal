@@ -27,7 +27,7 @@
         </div>
         <a class="officer-info" href="{{ route('members.show', $officeBearer->member) }}">
             <h4>{{ $officeBearer->member->name }}</h4>
-            <div>{{ $officeBearer->member->office_designation }}</div>
+            <div>{{ $officeBearer->member->officeDesignation->name }}</div>
         </div>
         
     </div>

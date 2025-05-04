@@ -3,7 +3,7 @@ require("./bootstrap");
 import Vue from "vue";
 import VueRouter from "vue-router";
 import routes from "./routes";
-import VNepaliDatePicker from "v-nepalidatepicker";
+// import VNepaliDatePicker from "v-nepalidatepicker";
 import VueSweetalert2 from "vue-sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 
@@ -24,12 +24,21 @@ Vue.component(
 
 Vue.component("gallery-albums", require("./gallery/Albums.vue").default);
 Vue.component("gallery-uploader", require("./gallery/Uploader.vue").default);
-Vue.component("frontend-albums", require("./gallery/FrontendAlbums.vue").default);
-Vue.component("frontend-view-album", require("./gallery/ViewAlbum.vue").default);
-Vue.component("frontend-video-gallery", require("./video/VideoGallery.vue").default);
+Vue.component(
+    "frontend-albums",
+    require("./gallery/FrontendAlbums.vue").default
+);
+Vue.component(
+    "frontend-view-album",
+    require("./gallery/ViewAlbum.vue").default
+);
+Vue.component(
+    "frontend-video-gallery",
+    require("./video/VideoGallery.vue").default
+);
+Vue.component("news-list", require("./components/NewsList.vue").default);
 
 Vue.use(VueRouter);
-Vue.use(VNepaliDatePicker);
 Vue.use(VueSweetalert2);
 
 // Initialize Vue

@@ -77,6 +77,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+
+
         return view('frontend.posts.show', compact('post'));
     }
 
@@ -121,7 +123,7 @@ class PostController extends Controller
             }
         }
         return redirect()
-            ->route('posts.edit',$post)
+            ->route('posts.edit', $post)
             ->with('success', 'पोस्ट सम्पादन');
     }
 
@@ -209,5 +211,16 @@ class PostController extends Controller
             ->paginate(50);
         $posts->appends(request()->except('page'));
         return view('frontend.post-category.show', compact('postCategory', 'posts'));
+    }
+
+    public function getPostByCategory(Request $request)
+    {
+
+        $posts = Post::whereHas('postCategories', function ($query) use ($request) {
+            $query->where('post_category_id', '=', $request->post_category_id);
+        })->latest()->take(5)->get();
+
+
+        return response()->json($posts);
     }
 }

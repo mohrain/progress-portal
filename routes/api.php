@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\SuchiApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;

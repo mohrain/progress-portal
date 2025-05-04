@@ -148,7 +148,7 @@
                                     </td>
                                     <td>{{ $officeBearer->member->name }}</td>
                                     <td>
-                                        {{ $officeBearer->designation == true ? 'सभामुख' : 'उपसभामुख' }}
+                                        {{ $officeBearer->member->officeDesignation->name}}
                                     </td>
                                     <td>
                                         {{ $officeBearer->election->name }}

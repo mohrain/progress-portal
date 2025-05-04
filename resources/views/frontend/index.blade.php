@@ -72,7 +72,7 @@
             <div class="row my-2 ">
                 <div class="col-md-6">
                     <div class="bg-theme-color-blue py-3 text-center">
-                        प्रदेश सभा बैठक सम्बन्धी सूचना
+                        कार्यपालिका बैठक सम्बन्धी सूचना
                     </div>
                     <x-procincial-assembly-meeting-view />
                 </div>
@@ -84,22 +84,33 @@
                 </div>
             </div>
         </div>
-        <x-frontend-news />
+        {{-- <x-frontend-news /> --}}
+
+        <div class="row my-2 py-5"> 
+            <div class="col-md-6 bg-white">
+
+                <div>
+                    <x-service-view/>
+                </div>
+
+                
+
+            </div>
+
+            <div class="col-md-6 ">
+
+                <news-list/>
+
+            </div>
+        </div>
 
         {{-- <div id="app">
         <x-frontend.gallery />
     </div> --}}
 
         <div class="row">
-            <div class="col-md-4">
-                <div>
-                    <a class="twitter-timeline" data-height="410"
-                        href="{{ settings('twitter') }}?ref_src=twsrc%5Etfw">Tweets by
-                        pradeshsabha7</a>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-            </div>
-            <div class="col-md-4">
+          
+            <div class="col-md-6 ">
                 <div class="fb-page" data-href="{{ settings('facebook') }}" data-tabs="timeline" data-width="340"
                     data-height="410" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
                     data-show-facepile="true">

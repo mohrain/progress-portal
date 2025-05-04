@@ -20,12 +20,13 @@ class OfficeBearerController extends Controller
         if (!$officeBearer) {
             $officeBearer = new OfficeBearer();
         }
-        $officeBearers = OfficeBearer::with('election', 'member')
+        $officeBearers = OfficeBearer::with('election', 'member.officeDesignation')
             ->positioned()
             ->paginate(50);
         $officeBearersDesignations = OfficeBearerDesignation::get();
         $wards = settings('wards');
         $wardNumbers = range(1, $wards);
+
 
         return view('office-bearers.index', compact('officeBearer', 'officeBearers', 'officeBearersDesignations', 'wardNumbers'));
     }

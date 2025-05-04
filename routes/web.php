@@ -60,6 +60,7 @@ use App\Http\Controllers\FrequentlyAskedQuestionController;
 use App\Http\Controllers\CurrentParliamentaryPartyController;
 use App\Http\Controllers\PageDisplayController;
 use App\Http\Controllers\ProvincialAssemblyLibraryController;
+use App\Post;
 
 Route::get("notify", function () {
     Route::get('/', function () {
@@ -530,6 +531,9 @@ Route::get('departments/{slug}/audio', [DepartmentAudioController::class, 'audio
 Route::get('departments/{slug}/video', [DepartmentVideoController::class, 'videoFront'])->name('department.videoFront');
 Route::get('download/{file}', [DownloadController::class, 'footerDownload'])->name('footerDownload');
 
+
+Route::get('/api/post-categories', [PostCategoryController::class, 'postCategories']);
+Route::get('/api/posts', [PostController::class, 'getPostByCategory']);
 // Suchi Print
 //   Route::get('suchi-print-application/{suchi}', [SuchiPrintController::class, 'index'])->name('suchi-print-application');
 //   Route::get('suchi-print-certificate/{suchi}', [SuchiPrintController::class, 'certificate'])->name('suchi-print-certificate')->middleware('auth');

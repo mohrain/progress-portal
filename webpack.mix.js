@@ -1,5 +1,4 @@
 const mix = require("laravel-mix");
-
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -20,3 +19,16 @@ mix.js("resources/js/app.js", "public/js")
         proxy: "http://localhost:8000",
     })
     .disableSuccessNotifications();
+
+// const path = require("path");
+
+// mix.webpackConfig({
+//     resolve: {
+//         alias: {
+//             "v-nepalidatepicker": path.resolve(
+//                 __dirname,
+//                 "node_modules/v-nepalidatepicker"
+//             ),
+//         },
+//     },
+// });

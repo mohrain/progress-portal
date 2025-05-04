@@ -2,29 +2,19 @@
 
 namespace App\View\Components;
 
-use App\Post;
-use App\PostCategory;
 use Illuminate\View\Component;
 
-class FrontendNews extends Component
+class ServiceView extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public $postCategories = [];
-    public $selectedCategoryId;
-    public $posts = [];
-
     public function __construct()
     {
-        $this->postCategories = PostCategory::with('childcategories.childcategories')
-            ->where('parent_id', 1)
-            ->actived()
-            ->get();
+        //
     }
-
 
     /**
      * Get the view / contents that represent the component.
@@ -33,6 +23,6 @@ class FrontendNews extends Component
      */
     public function render()
     {
-        return view('components.frontend-news');
+        return view('components.service-view');
     }
 }
