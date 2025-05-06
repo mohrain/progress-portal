@@ -243,8 +243,8 @@
                         <div class="row">
                             <div class="col-lg-12 col-md-4 col-sm-6">
                                 <small class="p-1">
-                                    <i class="bi bi-link-45deg text-danger"></i> <a href="https://nepal.gov.np/"
-                                        target="_blank" rel="noopener noreferrer">नेपाल सरकारको पोर्टल</a>
+                                    <i class="bi bi-link-45deg text-danger"></i> <a href="https://mofaga.gov.np/"
+                                        target="_blank" rel="noopener noreferrer">सङ्‍घीय मामिला तथा सामान्य प्रशासन मन्त्रालय</a>
                                 </small>
                             </div>
                             <div class="col-lg-12 col-md-4 col-sm-6">
@@ -256,50 +256,50 @@
                             <div class="col-lg-12 col-md-4 col-sm-6">
                                 <small class="p-1">
                                     <i class="bi bi-link-45deg text-danger"></i> <a
-                                        href="https://hr.parliament.gov.np/np" target="_blank"
-                                        rel="noopener noreferrer">प्रतिनिधि सभा,नेपाल</a>
+                                        href="https://donidcr.gov.np/np" target="_blank"
+                                        rel="noopener noreferrer">राष्ट्रिय परिचयपत्र तथा पञ्जिकरण विभाग</a>
                                 </small>
                             </div>
                             <div class="col-lg-12 col-md-4 col-sm-6">
                                 <small class="p-1">
                                     <i class="bi bi-link-45deg text-danger"></i> <a
-                                        href="https://pradeshsabha.koshi.gov.np/" target="_blank"
-                                        rel="noopener noreferrer">प्रदेश सभा, कोशी प्रदेश</a>
+                                        href="https://sutra.fcgo.gov.np/" target="_blank"
+                                        rel="noopener noreferrer">स्थानीय सञ्चित कोष ब्यवस्थापन प्रणाली</a>
                                 </small>
                             </div>
                             <div class="col-lg-12 col-md-4 col-sm-6">
                                 <small class="p-1">
                                     <i class="bi bi-link-45deg text-danger"></i> <a
-                                        href="https://provincialassembly.p2.gov.np/" target="_blank"
-                                        rel="noopener noreferrer">प्रदेश सभा, मधेश प्रदेश</a>
+                                        href="https://plgsp.gov.np/" target="_blank"
+                                        rel="noopener noreferrer">प्रादेशिक तथा स्थानीय शासन सहयोग कार्यक्रम</a>
                                 </small>
                             </div>
                             <div class="col-lg-12 col-md-4 col-sm-6">
                                 <small class="p-1">
                                     <i class="bi bi-link-45deg text-danger"></i> <a
-                                        href="https://provincialassembly.bagamati.gov.np/" target="_blank"
-                                        rel="noopener noreferrer">प्रदेश सभा, बागमती प्रदेश</a>
+                                        href="https://npc.gov.np/" target="_blank"
+                                        rel="noopener noreferrer">राष्ट्रिय योजना आयोग</a>
                                 </small>
                             </div>
                             <div class="col-lg-12 col-md-4 col-sm-6">
                                 <small class="p-1">
                                     <i class="bi bi-link-45deg text-danger"></i> <a
-                                        href="https://pradeshsabha.gandaki.gov.np/" target="_blank"
-                                        rel="noopener noreferrer">प्रदेश सभा, गण्डकी प्रदेश</a>
+                                        href="https://pis.gov.np/" target="_blank"
+                                        rel="noopener noreferrer">राष्ट्रिय किताबखाना (निजामती)</a>
                                 </small>
                             </div>
                             <div class="col-lg-12 col-md-4 col-sm-6">
                                 <small class="p-1">
                                     <i class="bi bi-link-45deg text-danger"></i> <a
-                                        href="https://assembly.lumbini.gov.np/" target="_blank"
-                                        rel="noopener noreferrer">प्रदेश सभा, लुम्बिनी प्रदेश</a>
+                                        href="https://stro.gov.np/" target="_blank"
+                                        rel="noopener noreferrer">राष्ट्रिय किताबखाना (शिक्षक)</a>
                                 </small>
                             </div>
                             <div class="col-lg-12 col-md-4 col-sm-6">
                                 <small class="p-1">
                                     <i class="bi bi-link-45deg text-danger"></i> <a
-                                        href="https://assembly.karnali.gov.np/np" target="_blank"
-                                        rel="noopener noreferrer">प्रदेश सभा, कर्णाली प्रदेश</a>
+                                        href="https://epf.org.np" target="_blank"
+                                        rel="noopener noreferrer">कर्मचारी सञ्चय कोष</a>
                                 </small>
                             </div>
                         </div>

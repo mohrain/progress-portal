@@ -11,6 +11,7 @@
             color: white;
         }
     </style>
+    
 @endpush
 
 @section('content')

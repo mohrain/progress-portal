@@ -53,11 +53,13 @@
                 </div>
             </div> --}}
 
-                <div class="card  border-0 rounded-2 shadow-sm  h-100 " style="height: 100px">
+                <div class="card  border-0 rounded-2 shadow-sm  h-100 p-3 " style="height: 100px">
                     <div class="card-header bg-transparent border-0">
+                        <h5 class="fw-bolder">परिचय</h5>
+                        <h3 class="font-nato color-secondary fw-bold"> {{ settings('app_name') }} </h3>
                     </div>
-                    <div class="card-body ">
-                        <h5 class="fw-bolder text-primary text-center mb-3">कार्यपालिकाको परिचय</h5>
+                    <div class="card-body card-body-with-bg">
+                        {{-- <h5 class="fw-bolder text-primary text-center mb-3">कार्यपालिकाको परिचय</h5> --}}
                         <x-frontend-about-us-view />
                     </div>
                 </div>
@@ -67,34 +69,39 @@
             </div>
         </div>
 
-        <div class="container">
+  
 
-            <div class="row my-2 ">
-                <div class="col-md-6">
-                    <div class="bg-theme-color-blue py-3 text-center">
-                        कार्यपालिका बैठक सम्बन्धी सूचना
+            <div class="row bg-white p-3  mt-5">
+                <h5 class="fw-bolder"> सूचना</h5>
+                <h3 class="font-nato color-secondary fw-bold mb-3">सूचना र समाचार</h3>
+    
+                <div class="row my-2 ">
+                    <div class="col-md-6">
+                        <div class="bg-theme-color-blue py-3 text-center">
+                            कार्यपालिका बैठक सम्बन्धी सूचना
+                        </div>
+                        <x-procincial-assembly-meeting-view />
                     </div>
-                    <x-procincial-assembly-meeting-view />
-                </div>
-                <div class="col-md-6">
-                    <div class="bg-theme-color-blue py-3 text-center">
-                        समितिका बैठक सम्बन्धी सूचना
+                    <div class="col-md-6">
+                        <div class="bg-theme-color-blue py-3 text-center">
+                            समितिका बैठक सम्बन्धी सूचना
+                        </div>
+                        <x-procincial-committee-meeting-view />
                     </div>
-                    <x-procincial-committee-meeting-view />
                 </div>
             </div>
-        </div>
+      
+
         {{-- <x-frontend-news /> --}}
 
         <div class="row my-2 py-5"> 
             <div class="col-md-6 bg-white">
+                {{-- <h5 class="fw-bolder">सेवाहरु</h5>
+                <h3 class="font-nato color-secondary fw-bold mb-3">अनलाईन सेवाहरु</h3> --}}
 
                 <div>
                     <x-service-view/>
                 </div>
-
-                
-
             </div>
 
             <div class="col-md-6 ">
@@ -104,18 +111,18 @@
             </div>
         </div>
 
-        {{-- <div id="app">
+        {{-- <div >
         <x-frontend.gallery />
-    </div> --}}
+        </div> --}}
 
         <div class="row">
           
-            <div class="col-md-6 ">
+            <div class="col-md-4 ">
                 <div class="fb-page" data-href="{{ settings('facebook') }}" data-tabs="timeline" data-width="340"
                     data-height="410" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
                     data-show-facepile="true">
                     <blockquote cite="{{ settings('facebook') }}" class="fb-xfbml-parse-ignore">
-                        <a href="{{ settings('facebook') }}">Mohrain Websoft</a>
+                        <a href="{{ settings('facebook') }}">Ghodaghodi mun</a>
                     </blockquote>
                 </div>
             </div>
@@ -129,9 +136,39 @@
             </div>
         </div>
     </div>
+
     {{-- <x-modal-image-view /> --}}
 @endsection
 
 @push('scripts')
     <script src="{{ mix('js/app.js') }}"></script>
+@endpush
+
+@push('styles')
+<style>
+    .card-body-with-bg {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-body-with-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-image: url('assets/img/no-image.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.1; /* Adjust only background image opacity */
+        z-index: 0;
+    }
+
+    .card-body-with-bg > * {
+        position: relative;
+        z-index: 1; /* Ensure content stays above the background image */
+    }
+</style>
 @endpush

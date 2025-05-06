@@ -42,6 +42,12 @@
             src: url("{{ asset('assets/fonts/Kalimati.ttf') }}") format('truetype');
 
         }
+        .color-primary{
+            color: #1c4267
+        }
+        .color-secondary{
+            color: #982121
+        }
 
         .kalimati-font {
             font-family: 'Kalimati';

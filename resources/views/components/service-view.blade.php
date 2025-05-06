@@ -3,9 +3,9 @@
     <!-- Bootstrap Icons CDN (if not already included) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
-    <section class="container my-4">
-        <h3 class="mb-4">अनलाईन सेवा</h3>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+    <section class="container my-3">
+        <h3 class="font-nato color-primary fw-bold mb-4 ">अनलाईन सेवाहरु </h3>
+        <div class="row row-cols-1 row-col-sm-2 row-cols-md-3 g-4">
 
             <div class="col">
                 <a href="https://donidcr.gov.np/" class="d-flex align-items-center gap-3 p-3 border rounded shadow-sm text-decoration-none text-dark">
