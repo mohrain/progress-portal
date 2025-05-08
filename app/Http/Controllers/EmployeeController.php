@@ -6,6 +6,8 @@ use App\District;
 use App\Models\Employee;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
+use App\Models\EmployeeType;
+use App\Models\Rank;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,6 +22,7 @@ class EmployeeController extends Controller
     {
         $employees = Employee::positioned()->paginate(60);
 
+
         return view('employees.index', compact('employees'));
     }
 
@@ -33,8 +36,10 @@ class EmployeeController extends Controller
         if (!$employee) {
             $employee = new Employee();
         }
+        $ranks = Rank::get();
+        $employeeTypes = EmployeeType::get();
         $districts = District::orderBy('name')->get();
-        return view('employees.create', compact('employee', 'districts'));
+        return view('employees.create', compact('employee', 'districts', 'ranks', 'employeeTypes'));
     }
 
     /**
@@ -49,6 +54,8 @@ class EmployeeController extends Controller
         if ($request->file('profile')) {
             $data['profile'] = Storage::putFile('profile', $request->file('profile'));
         }
+        $position = Employee::max('position') ?? 0;
+        $data['position'] = $position  + 1;
         Employee::create($data);
         return redirect()
             ->route('employees.index')
@@ -268,29 +275,30 @@ class EmployeeController extends Controller
         $employees->appends(request()->except('page'));
         return view('frontend.employees.index', compact('employees'));
     }
-    public function changeStatus($id){
-        $employee=Employee::find($id);
-        $employeeStatus=null;
-        if($employee->status){
-            $employeeStatus=false;
-        }else{
-            $employeeStatus=true;
+    public function changeStatus($id)
+    {
+        $employee = Employee::find($id);
+        $employeeStatus = null;
+        if ($employee->status) {
+            $employeeStatus = false;
+        } else {
+            $employeeStatus = true;
         }
         $employee->update([
-            'status'=>$employeeStatus
+            'status' => $employeeStatus
         ]);
 
         return $employee->status;
         return response()->json([
-            'success'=>true,
+            'success' => true,
         ]);
     }
 
-    public function getData($id){
-        $employee=Employee::find($id);
+    public function getData($id)
+    {
+        $employee = Employee::find($id);
         $employee->load('user');
 
         return response()->json($employee);
     }
-
 }

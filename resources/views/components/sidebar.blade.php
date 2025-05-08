@@ -166,6 +166,15 @@
         <a href="{{ route('ministries.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span>मन्त्रालयहरु
         </a>
+        <a href="{{ route('ranks.index') }}" aria-expanded="false" class="nav-link">
+            <span class="text-success pr-4"></span> कर्मचारी श्रेणी
+        </a>
+        <a href="{{ route('employee-types.index') }}" aria-expanded="false" class="nav-link">
+            <span class="text-success pr-4"></span> जागिरको स्तिथि
+        </a>
+        <a href="{{ route('bearer-designations.index') }}" aria-expanded="false" class="nav-link">
+            <span class="text-success pr-4"></span> प्रतिनिधि पदहरु
+        </a>
         <a href="{{ route('parliamentary-parties.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span>राजनीतिक दलहरु
         </a>

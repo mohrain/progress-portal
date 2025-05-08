@@ -36,7 +36,5 @@ class PermissionsSeeder extends Seeder
         Permission::firstOrCreate(['name' => 'organization.verify']);
         Permission::firstOrCreate(['name' => 'organization.register']);
         Permission::firstOrCreate(['name' => 'organization.close']);
-
-
     }
 }

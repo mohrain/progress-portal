@@ -28,7 +28,8 @@ class Employee extends Model
         return 'slug';
     }
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
@@ -43,7 +44,7 @@ class Employee extends Model
     }
     public function scopeCurrentEmployee($query)
     {
-        return $query->where('end_date',null);
+        return $query->where('end_date', null);
     }
     public function scopeOldEmployee($query)
     {
@@ -73,7 +74,6 @@ class Employee extends Model
     public function committeeSecretaries()
     {
         return $this->hasMany(CommitteeSecretary::class);
-        
     }
 
     public function department()
@@ -83,5 +83,10 @@ class Employee extends Model
     public function departments()
     {
         return $this->hasMany(Department::class);
+    }
+
+    public function rank()
+    {
+        return $this->belongsTo(Rank::class);
     }
 }

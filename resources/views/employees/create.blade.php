@@ -1,3 +1,4 @@
+
 @extends('layouts.app', ['title' => __('कर्मचारीको विवरण')])
 
 @section('content')
@@ -41,6 +42,7 @@
 
                                             </div>
                                         </div>
+                                 
 
                                         <div class="col-md-4 mb-2">
                                             <label for="name_english" class="form-label required">English Name</label>
@@ -69,6 +71,35 @@
                                                 </span>
                                             @enderror
                                         </div>
+                                        <div class="col-md-4 mb-2">
+                                            <label for="rank_id" class="form-label">श्रेणी/तह</label>
+                                            <select name="rank_id" id="rank_id" class="form-control @error('rank_id') is-invalid @enderror">
+                                                <option value="">श्रेणी/तह छान्नुहोस्</option>
+                                                @foreach($ranks as $rank)
+                                                    <option value="{{ $rank->id }}" {{ old('rank_id', $employee->rank_id) == $rank->id ? 'selected' : '' }}>
+                                                        {{ $rank->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                @error('rank_id') {{ $message }} @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-2">
+                                            <label for="employee_type_id" class="form-label">जागिरको प्रकार</label>
+                                            <select name="employee_type_id" id="employee_type_id" class="form-control @error('employee_type_id') is-invalid @enderror">
+                                                <option value="">जागिरको प्रकार छान्नुहोस्</option>
+                                                @foreach($employeeTypes as $type)
+                                                    <option value="{{ $type->id }}" {{ old('employee_type_id', $employee->employee_type_id) == $type->id ? 'selected' : '' }}>
+                                                        {{ $type->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                @error('employee_type_id') {{ $message }} @enderror
+                                            </div>
+                                        </div>
+                                        
                                         <div class="col-md-4 mb-2">
                                             <label for="branch"
                                                 class="form-label text-md-end">{{ __('शाखा / महाशाखा') }}</label>
@@ -137,6 +168,20 @@
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
+                                        </div>
+                               
+                                        <div class="col-md-4 mb-2">
+                                            <label for="symbol_no" class="form-label">संकेत नं. </label>
+                                            <input type="text" name="symbol_no"
+                                                class="form-control @error('symbol_no') is-invalid @enderror"
+                                                value="{{ old('symbol_no', $employee->symbol_no) }}" id="symbol_no"
+                                                aria-describedby="symbol_no">
+                                            <div class="invalid-feedback">
+                                                @error('symbol_no')
+                                                    {{ $message }}
+                                                @enderror
+
+                                            </div>
                                         </div>
                                         <div class="col-md-4 mb-2">
                                             <label for="dob" class="form-label ">जन्म मिति</label>

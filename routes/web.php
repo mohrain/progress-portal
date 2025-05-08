@@ -58,8 +58,12 @@ use App\Http\Controllers\EmployeeDesignationController;
 use App\Http\Controllers\DepartmentPublicationController;
 use App\Http\Controllers\FrequentlyAskedQuestionController;
 use App\Http\Controllers\CurrentParliamentaryPartyController;
+use App\Http\Controllers\EmployeeTypeController;
+use App\Http\Controllers\OfficeBearerDesignationController;
 use App\Http\Controllers\PageDisplayController;
 use App\Http\Controllers\ProvincialAssemblyLibraryController;
+use App\Http\Controllers\RankController;
+use App\Models\Rank;
 use App\Post;
 
 Route::get("notify", function () {
@@ -439,6 +443,9 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
 
     // Suchi types route
     Route::resource('suchi-types', SuchiTypeController::class);
+    Route::resource('bearer-designations', OfficeBearerDesignationController::class);
+    Route::resource('ranks', RankController::class);
+    Route::resource('employee-types', EmployeeTypeController::class);
 
     // //Fiscal year
     // Route::get('fiscal-year/{fiscalYear?}', [FiscalYearController::class, 'index'])->name('fiscal-year.index');
