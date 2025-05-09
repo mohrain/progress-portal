@@ -59,6 +59,7 @@ use App\Http\Controllers\DepartmentPublicationController;
 use App\Http\Controllers\FrequentlyAskedQuestionController;
 use App\Http\Controllers\CurrentParliamentaryPartyController;
 use App\Http\Controllers\EmployeeTypeController;
+use App\Http\Controllers\MeetingTypeController;
 use App\Http\Controllers\OfficeBearerDesignationController;
 use App\Http\Controllers\PageDisplayController;
 use App\Http\Controllers\ProvincialAssemblyLibraryController;
@@ -446,6 +447,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::resource('bearer-designations', OfficeBearerDesignationController::class);
     Route::resource('ranks', RankController::class);
     Route::resource('employee-types', EmployeeTypeController::class);
+    Route::resource('meeting-types', MeetingTypeController::class);
 
     // //Fiscal year
     // Route::get('fiscal-year/{fiscalYear?}', [FiscalYearController::class, 'index'])->name('fiscal-year.index');

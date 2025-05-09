@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreMeetingRequest extends FormRequest
+class StoreMeetingTypeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class StoreMeetingRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,12 +24,7 @@ class StoreMeetingRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'type' => 'required',
-            'meeting_type_id' => 'required',
-            'name' => 'required',
-            'date' => 'required',
-            'time' => 'required',
-            'status' => 'required',
+            //
         ];
     }
 }

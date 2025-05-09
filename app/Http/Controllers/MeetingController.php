@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Meeting;
 use App\Http\Requests\StoreMeetingRequest;
 use App\Http\Requests\UpdateMeetingRequest;
+use App\Models\MeetingType;
 
 class MeetingController extends Controller
 {
@@ -18,8 +19,9 @@ class MeetingController extends Controller
         if (!$meeting) {
             $meeting = new Meeting();
         }
-        $meetings = Meeting::get();
-        return view('meetings.index', compact('meeting', 'meetings'));
+        $meetings = Meeting::with('meetingType')->get();
+        $meetingTypes = MeetingType::get();
+        return view('meetings.index', compact('meeting', 'meetings', 'meetingTypes'));
     }
 
     /**

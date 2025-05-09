@@ -16,6 +16,25 @@
                         <div class="mb-3">
                             <label for="type" class="form-label">{{ __('बैठक किसिम') }}</label>
 
+                            <select class="form-control @error('meeting_type_id') is-invalid @enderror" name="meeting_type_id" id="type">
+                                <option value="">{{ __('बैच्नुहोस्') }}</option>
+                                @foreach ($meetingTypes as $type)
+                                <option value="{{ $type->id }}" {{ old('meeting_type_id', $meeting->meeting_type_id) == $type->id ? 'selected' : '' }}>
+                                    {{ $type->name }}
+                                </option>
+                                @endforeach
+                            </select>
+
+                            @error('type')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
+                        <!-- <div class="mb-3">
+                            <label for="type" class="form-label">{{ __('बैठक किसिम') }}</label>
+
                             <select class="form-control" name="type" id="type"
                                 aria-label="Default select example">
                                 <option value="1" {{ old('type', $meeting->type) == '1' ? 'selected' : '' }}>
@@ -29,7 +48,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
+                        </div> -->
                         <div class="mb-3">
                             <label for="name" class="form-label required">बैठक</label>
                             <input type="text" name="name"
@@ -130,7 +149,10 @@
                             <tbody>
                                 @forelse($meetings as $meeting)
                                 <tr>
-                                    <td>{{ $meeting->type == true ? 'प्रदेश सभा बैठक' : 'समिति बैठक' }}</td>
+                                    {{-- <td>{{ $meeting->type == true ? 'प्रदेश सभा बैठक' : 'समिति बैठक' }}</td> --}}
+                                    <td>
+                                        {{$meeting->meetingType->name}}
+                                    </td>
                                     <td>{{ $meeting->name }}</td>
                                     <td id="date_bs_table-{{ $meeting->id }}">
 

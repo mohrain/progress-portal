@@ -162,6 +162,9 @@
         <a href="{{ route('bill-types.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span>विधयेक प्रकार
         </a>
+        <a href="{{ route('meeting-types.index') }}" aria-expanded="false" class="nav-link">
+            <span class="text-success pr-4"></span>बैठकको प्रकार
+        </a>
         <a href="{{ route('bill-categories.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span>विधयेक वर्ग
         </a>

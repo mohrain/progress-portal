@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\MeetingType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
@@ -50,5 +51,10 @@ class Meeting extends Model
     public function scopeCommittee($query)
     {
         return $query->where('type', false);
+    }
+
+    public function meetingType()
+    {
+        return $this->belongsTo(MeetingType::class);
     }
 }
