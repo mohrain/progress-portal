@@ -16,10 +16,6 @@
     <div class="box my-3">
         <div class="box__body">
 
-            @php
-            $officeBearersDesignations = \App\Models\OfficeBearerDesignation::all();
-            $wardNumbers = range(1, 14);
-            @endphp
 
 
 
@@ -52,7 +48,8 @@
                         </span>
                         @enderror
                     </div> -->
-                    <!-- <div class="col-md-2 form-group">
+
+                    <div class="col-md-2 form-group">
                         <label for="office_bearer_designation_id" class="form-label required">{{ __('पद') }}</label>
 
                         <select class="form-control" name="office_bearer_designation_id" id="office_bearer_designation_id"
@@ -73,7 +70,7 @@
                         </span>
                         @enderror
                     </div>
-                    <div class="col-md-2 form-group">
+                    <!-- <div class="col-md-2 form-group">
                         <label for="ward_number" class="form-label ">{{ __('वडा') }}</label>
 
                         <select class="form-control" name="ward_number" id="ward_number"
@@ -110,11 +107,12 @@
                             class="form-control kalimati-font nepali-date-picker"
                             value="{{ old('end', $officeBearer->end) }}" placeholder="YYYY-MM-DD">
                     </div>
-                    <div class="col-md-2 text-right mt-4">
-                        <button type="submit"
-                            class="btn btn-primary z-depth-0 ml-0">{{ $officeBearer->id ? 'अपडेट गर्नुहोस्' : 'सेभ गर्नुहोस्' }}</button>
-                    </div>
                 </div>
+                <div class=" text-right ">
+                    <button type="submit"
+                        class="btn btn-primary z-depth-0 ml-0">{{ $officeBearer->id ? 'अपडेट गर्नुहोस्' : 'सेभ गर्नुहोस्' }}</button>
+                </div>
+
             </form>
         </div>
     </div>
@@ -148,7 +146,7 @@
                                     </td>
                                     <td>{{ $officeBearer->member->name }}</td>
                                     <td>
-                                        {{ $officeBearer->member->officeDesignation->name}}
+                                        {{ $officeBearer->officeDesignation ? $officeBearer->officeDesignation->name : "" }}
                                     </td>
                                     <td>
                                         {{ $officeBearer->election->name }}

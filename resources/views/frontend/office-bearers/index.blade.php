@@ -1,4 +1,4 @@
-@extends('frontend.layouts.app', ['title' => __('प्रदेश सभाका पदाधिकारीहरु')])
+@extends('frontend.layouts.app', ['title' => __('पदाधिकारीहरु')])
 @section('content')
 <div class="container">
     <div class="row">

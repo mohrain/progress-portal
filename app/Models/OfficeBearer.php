@@ -28,7 +28,7 @@ class OfficeBearer extends Model
 
     public function scopeOld($query)
     {
-        return $query->whereNotIn('end', [''] );
+        return $query->whereNotIn('end', ['']);
     }
 
     public function election()
@@ -38,5 +38,11 @@ class OfficeBearer extends Model
     public function member()
     {
         return $this->belongsTo(Member::class);
+    }
+
+    public function officeDesignation()
+    {
+
+        return $this->belongsTo(OfficeBearerDesignation::class, 'office_bearer_designation_id');
     }
 }

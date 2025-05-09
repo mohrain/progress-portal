@@ -1,6 +1,6 @@
 <div class="d-md-flex    gap-3">
     @foreach ($informationOfficers as $informationOfficer)
-        @if ($informationOfficer->employee_id == 1)
+        @if ($informationOfficer->employee_designation_id == 1)
             @php
                 continue;
             @endphp

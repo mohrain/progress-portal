@@ -175,6 +175,9 @@
         <a href="{{ route('bearer-designations.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span> प्रतिनिधि पदहरु
         </a>
+        <a href="{{ route('employee-designations.index') }}" aria-expanded="false" class="nav-link">
+            <span class="text-success pr-4"></span> कर्मचारी पदहरु
+        </a>
         <a href="{{ route('parliamentary-parties.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span>राजनीतिक दलहरु
         </a>

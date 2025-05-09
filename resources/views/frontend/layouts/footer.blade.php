@@ -235,6 +235,9 @@
                     </div> --}}
 
                     <div class="col-lg-4 col-md-6 my-1">
+                        {{-- <div class="border-bottom mb-3">
+                            <h5 class="fw-bold text-center">स. प्रवक्ता/सूचना अधिकारी</h5>
+                        </div> --}}
                         <x-frontend-information-officer-employee-view />
                     </div>
                     <div class="col-lg-4 col-md-12 my-1 important-links">
