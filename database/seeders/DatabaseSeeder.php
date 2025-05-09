@@ -44,5 +44,10 @@ class DatabaseSeeder extends Seeder
         // if (app()->environment() == 'production') {
         // } else {
         // }
+
+        $this->call([
+            EmployeeTypeSeeder::class,
+            RankSeeder::class
+        ]);
     }
 }
