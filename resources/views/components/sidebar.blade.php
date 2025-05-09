@@ -1,13 +1,15 @@
 <div class="bg-white light-shadow rounded font-noto main-sidebar" style="overflow-y: scroll;min-height:100vh">
     <div class=" text-center rounded">
         <div class="mun-title-card">
+          <a href="/">
             <img class="img-reponsive" src="{{ asset(config('constants.nep_gov.logo_sm')) }}" alt="Nepal Government Logo"
-                height="50px">
-            <div class="mt-2">
-                <div>{{ settings('app_name') }}</div>
-                <div>{{ settings('office_name') }}</div>
-                <div>{{ settings('province_name') }}</div>
-            </div>
+            height="50px">
+        <div class="mt-2">
+            <div>{{ settings('app_name') }}</div>
+            <div>{{ settings('office_name') }}</div>
+            <div>{{ settings('province_name') }}</div>
+        </div>
+          </a>
         </div>
     </div>
     <div class="sidebar-menu parent-menu {{ setActive('dashboard') }}">

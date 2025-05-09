@@ -43,7 +43,7 @@
         </div>
         <div class="row" style="position: relative">
             <div class="col-md-9"></div>
-            <div class="col-md-9 pb-3" style="">
+            <div class="col-md-9 pb-3" >
                 {{-- <div class="bg-theme-color-blue py-3 text-center">
                 सुदूरपश्चिम प्रदेश सभाको परिचय
             </div>
@@ -89,6 +89,14 @@
                         <x-procincial-committee-meeting-view />
                     </div>
                 </div>
+            </div>
+
+            
+            <div class="row bg-white p-3  mt-5">
+                <h5 class="fw-bolder"> सेवा</h5>
+                <h3 class="font-nato color-secondary fw-bold mb-3">पालिकाको सेवाहरु </h3>
+    
+                <x-department-front-view/>
             </div>
       
 

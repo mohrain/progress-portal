@@ -16,6 +16,7 @@ use App\Models\Federalparliment;
 use App\Models\DepartmentActivity;
 use Illuminate\Support\Facades\Hash;
 use App\Models\DepartmentPublication;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 
 class DepartmentController extends Controller
@@ -60,10 +61,18 @@ class DepartmentController extends Controller
             'name' => 'required',
             'description' => 'required',
             'department_id' => 'nullable',
+            'image' => 'nullable',
             'status' => 'required',
         ]);
         $data['order'] = $order;
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('feature_images', 'public');
+            $data['image'] = $path;
+        }
         Department::create($data);
+
+
 
         return redirect()->route('department.list')->with('success', "New department have been stored");
     }
@@ -76,11 +85,26 @@ class DepartmentController extends Controller
 
     public function update($id, Request $request)
     {
-        $department = Department::find($id);
-        $department->update($request->validate([
+        $data = $request->validate([
             'name' => 'required',
             'description' => 'required',
-        ]));
+            'image' => 'nullable'
+        ]);
+        $department = Department::find($id);
+
+        if ($request->hasFile('image')) {
+            // Delete the old image if it exists
+            if ($department->image && Storage::disk('public')->exists($department->image)) {
+                Storage::disk('public')->delete($department->image);
+            }
+
+            // Store the new image
+            $path = $request->file('image')->store('feature_images', 'public');
+            $data['image'] = $path;
+        }
+        $department->update($data);
+
+
 
         return redirect()->route('department.edit', $department->slug)->with('success', "Selected department have been updated");
     }
@@ -206,7 +230,6 @@ class DepartmentController extends Controller
 
 
         $department = Department::with('information')->where('slug', $slug)->first();
-
         $departments = Department::where('department_id', $department->id)->get();
 
         $information = Information::where('department_id', $department->id)
