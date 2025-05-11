@@ -451,7 +451,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::resource('meeting-types', MeetingTypeController::class);
     // Route::resource('primary-menus', PrimaryCategoryMenuController::class);
     Route::get('primary-menus', [PrimaryCategoryMenuController::class, 'index'])->name('primary-menus.index');
-    Route::get('primary-menus/store', [PrimaryCategoryMenuController::class, 'store'])->name('primary-menus.store');
+    Route::post('primary-menus/store', [PrimaryCategoryMenuController::class, 'store'])->name('primary-menus.store');
     Route::put('primary-menus/sort', [PrimaryCategoryMenuController::class, 'sort'])->name('primary-menus.sort');
     Route::delete('primary-menus/remove-item', [PrimaryCategoryMenuController::class, 'removeItem'])->name('primary-menus.remove-item');
 
