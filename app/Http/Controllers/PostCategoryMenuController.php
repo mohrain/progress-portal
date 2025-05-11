@@ -22,7 +22,7 @@ class PostCategoryMenuController extends Controller
         $postCategories = PostCategory::with(['childCategories.childCategories'])
             ->where('parent_id', null)
             ->whereNotIn('id', function ($query) {
-                $query->select('post_category_id')->from('post_category_menus');
+                $query->select('post_category_id')->from('primary_category_menus');
             })
             ->latest()
             ->get();

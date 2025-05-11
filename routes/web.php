@@ -62,6 +62,7 @@ use App\Http\Controllers\EmployeeTypeController;
 use App\Http\Controllers\MeetingTypeController;
 use App\Http\Controllers\OfficeBearerDesignationController;
 use App\Http\Controllers\PageDisplayController;
+use App\Http\Controllers\PrimaryCategoryMenuController;
 use App\Http\Controllers\ProvincialAssemblyLibraryController;
 use App\Http\Controllers\RankController;
 use App\Models\Rank;
@@ -448,6 +449,11 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::resource('ranks', RankController::class);
     Route::resource('employee-types', EmployeeTypeController::class);
     Route::resource('meeting-types', MeetingTypeController::class);
+    // Route::resource('primary-menus', PrimaryCategoryMenuController::class);
+    Route::get('primary-menus', [PrimaryCategoryMenuController::class, 'index'])->name('primary-menus.index');
+    Route::get('primary-menus/store', [PrimaryCategoryMenuController::class, 'store'])->name('primary-menus.store');
+    Route::put('primary-menus/sort', [PrimaryCategoryMenuController::class, 'sort'])->name('primary-menus.sort');
+    Route::delete('primary-menus/remove-item', [PrimaryCategoryMenuController::class, 'removeItem'])->name('primary-menus.remove-item');
 
     // //Fiscal year
     // Route::get('fiscal-year/{fiscalYear?}', [FiscalYearController::class, 'index'])->name('fiscal-year.index');
@@ -542,6 +548,7 @@ Route::get('download/{file}', [DownloadController::class, 'footerDownload'])->na
 
 
 Route::get('/api/post-categories', [PostCategoryController::class, 'postCategories']);
+Route::get('/api/primary-menus', [PrimaryCategoryMenuController::class, 'primaryMenus']);
 Route::get('/api/posts', [PostController::class, 'getPostByCategory']);
 // Suchi Print
 //   Route::get('suchi-print-application/{suchi}', [SuchiPrintController::class, 'index'])->name('suchi-print-application');

@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Meeting;
+use App\Models\MeetingType;
 use Illuminate\View\Component;
 
 class ProcincialAssemblyMeetingView extends Component
@@ -12,10 +13,10 @@ class ProcincialAssemblyMeetingView extends Component
      *
      * @return void
      */
-    public $meetings;
+    public $meetingTypes;
     public function __construct()
     {
-        $this->meetings=Meeting::active()->assembly()->latest()->get();
+        $this->meetingTypes = MeetingType::get();
     }
 
     /**

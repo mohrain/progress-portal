@@ -30,6 +30,12 @@
 
 <script>
 export default {
+    props: {
+        baseUrl: {
+            type: String,
+            required: true,
+        },
+    },
     data() {
         return {
             postCategories: [],
@@ -42,7 +48,7 @@ export default {
     },
     methods: {
         async fetchCategories() {
-            const res = await fetch("/api/post-categories");
+            const res = await fetch(`${this.baseUrl}`);
             this.postCategories = await res.json();
             if (this.postCategories.length > 0) {
                 this.selectedCategoryId = this.postCategories[0].id;
@@ -50,9 +56,8 @@ export default {
             }
         },
         async fetchPosts() {
-            const res = await fetch(`/api/posts?post_category_id=${this.selectedCategoryId}`);
+            const res = await fetch(`api/posts?post_category_id=${this.selectedCategoryId}`);
             this.posts = await res.json();
-            console.log(this.posts);
         },
         selectCategory(id) {
             this.selectedCategoryId = id;
@@ -68,6 +73,7 @@ export default {
     },
 };
 </script>
+
 
 <style scoped lang="scss">
 .categories {

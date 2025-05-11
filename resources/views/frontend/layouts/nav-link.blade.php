@@ -14,8 +14,8 @@
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         {{-- <li>
             <a class="dropdown-item" href="{{ route('pages.show', 1) }}"> संक्षिप्त परिचय</a>
-        </li>
-        <li>
+        </li> --}}
+        {{-- <li>
             <a class="dropdown-item" href="{{ route('office-bearers.frontendIndex') }}">पदाधिकारीहरु</a>
         </li> --}}
 
@@ -24,8 +24,8 @@
             <a class="dropdown-item" href="{{ route('pages.show', $page->id) }}">{{ $page->title }}</a>
         </li>
         @endforeach
+        <li><a class="dropdown-item" href="{{ route('members.frontendIndex') }}"> निर्बाचित जनप्रतिनिधि </a></li>
         <li><a class="dropdown-item" href="{{ route('employees.frontendIndex') }}">कर्मचारी विवरण</a></li>
-        <li><a class="dropdown-item" href="{{ route('members.frontendIndex') }}">कार्यपालिका सदस्य </a></li>
 
         {{-- <li>
             <a class="dropdown-item" href="{{ route('office-bearers.frontendIndex') }}">पदाधिकारीहरु</a>

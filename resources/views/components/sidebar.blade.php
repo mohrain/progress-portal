@@ -174,6 +174,9 @@
         <a href="{{ route('ranks.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span> कर्मचारी श्रेणी
         </a>
+        <a href="{{ route('primary-menus.index') }}" aria-expanded="false" class="nav-link">
+            <span class="text-success pr-4"></span> मेनु 
+        </a>
         <a href="{{ route('employee-types.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span> जागिरको स्तिथि
         </a>

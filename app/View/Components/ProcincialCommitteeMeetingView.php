@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Meeting;
+use App\Models\MeetingType;
 use Illuminate\View\Component;
 
 class ProcincialCommitteeMeetingView extends Component
@@ -13,9 +14,9 @@ class ProcincialCommitteeMeetingView extends Component
      * @return void
      */
     public $meetings;
-    public function __construct()
+    public function __construct(MeetingType $meetingType)
     {
-        $this->meetings=Meeting::active()->committee()->latest()->get();
+        $this->meetings = Meeting::active()->where('meeting_type_id', $meetingType->id)->latest()->get();
     }
 
     /**
