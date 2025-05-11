@@ -150,9 +150,7 @@
     </a>
 
     <div class="sub-menus">
-        <a href="{{ route('sms.index') }}" aria-expanded="false" class="nav-link">
-            <span class="text-success pr-4"></span>SMS
-        </a>
+       
         <a href="{{ route('post-categories.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span>पोस्ट प्रकार
         </a>
@@ -168,38 +166,57 @@
         <a href="{{ route('bill-categories.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span>विधयेक वर्ग
         </a>
-        <a href="{{ route('ministries.index') }}" aria-expanded="false" class="nav-link">
-            <span class="text-success pr-4"></span>मन्त्रालयहरु
-        </a>
+      
         <a href="{{ route('ranks.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span> कर्मचारी श्रेणी
         </a>
         <a href="{{ route('primary-menus.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span> मेनु 
         </a>
-        <a href="{{ route('employee-types.index') }}" aria-expanded="false" class="nav-link">
-            <span class="text-success pr-4"></span> जागिरको स्तिथि
+    
+        <a href="{{ route('employee-designations.index') }}" aria-expanded="false" class="nav-link">
+            <span class="text-success pr-4"></span> कर्मचारी पदहरु
         </a>
         <a href="{{ route('bearer-designations.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span> प्रतिनिधि पदहरु
         </a>
-        <a href="{{ route('employee-designations.index') }}" aria-expanded="false" class="nav-link">
-            <span class="text-success pr-4"></span> कर्मचारी पदहरु
+     
+        <a href="{{ route('federal.index') }}" aria-expanded="false" class="nav-link">
+            <span class="text-success pr-4"></span>कार्यपालिका
+        </a>
+
+    </div>
+</div>
+<div class="sidebar-menu multi-level">
+    <a href="#" aria-expanded="false" class="nav-link parent-menu">
+        <span><span class="text-success"><i class="fas fa-cog pr-2"></i></span>कनफयूग्रेशन</span>
+        <i class="fas fa-angle-right arrow-icon"></i>
+    </a>
+
+    <div class="sub-menus">
+        <a href="{{ route('sms.index') }}" aria-expanded="false" class="nav-link">
+            <span class="text-success pr-4"></span>SMS
+        </a>
+        <a href="{{ route('ministries.index') }}" aria-expanded="false" class="nav-link">
+            <span class="text-success pr-4"></span>मन्त्रालयहरु
         </a>
         <a href="{{ route('parliamentary-parties.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span>राजनीतिक दलहरु
         </a>
+        <a href="{{ route('employee-types.index') }}" aria-expanded="false" class="nav-link">
+            <span class="text-success pr-4"></span> जागिरको स्तिथि
+        </a>
+      
         <a href="{{ route('elections.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span>निर्वाचन वर्षहरू
-        </a>
-        <a href="{{ route('federal.index') }}" aria-expanded="false" class="nav-link">
-            <span class="text-success pr-4"></span>कार्यपालिका
         </a>
         <a href="{{ route('settings.index') }}" aria-expanded="false" class="nav-link">
             <span class="text-success pr-4"></span>एप सेटिङहरू
         </a>
     </div>
 </div>
+
+
 @endhasrole
 @endhasanyrole
 
