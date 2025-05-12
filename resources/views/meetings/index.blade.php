@@ -8,16 +8,16 @@
                 <div class="card-header">{{ $title = 'बैठक' }}</div>
                 <div class="card-body">
                     <form action="{{ $meeting->id ? route('meetings.update', $meeting) : route('meetings.store') }}"
-                        method="post">
+                        method="post" enctype="multipart/form-data">
                         @csrf
                         @if ($meeting->id)
                         @method('put')
                         @endif
                         <div class="mb-3">
-                            <label for="type" class="form-label">{{ __('बैठक किसिम') }}</label>
+                            <label for="type" class="form-label required">{{ __('बैठक किसिम') }}</label>
 
                             <select class="form-control @error('meeting_type_id') is-invalid @enderror" name="meeting_type_id" id="type">
-                                <option value="">{{ __('बैच्नुहोस्') }}</option>
+                                <option value="">{{ __('छान्नुहोस्') }}</option>
                                 @foreach ($meetingTypes as $type)
                                 <option value="{{ $type->id }}" {{ old('meeting_type_id', $meeting->meeting_type_id) == $type->id ? 'selected' : '' }}>
                                     {{ $type->name }}
@@ -32,7 +32,7 @@
                             @enderror
                         </div>
 
-                        <!-- <div class="mb-3">
+                        {{-- <!-- <div class="mb-3">
                             <label for="type" class="form-label">{{ __('बैठक किसिम') }}</label>
 
                             <select class="form-control" name="type" id="type"
@@ -48,7 +48,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div> -->
+                        </div> --> --}}
                         <div class="mb-3">
                             <label for="name" class="form-label required">बैठक</label>
                             <input type="text" name="name"
@@ -98,6 +98,19 @@
 
                             </div>
                         </div>
+                        
+                        <div class="mb-3">
+                            <label for="document" class="form-label required">कागजात</label>
+                            <input type="file" name="document"
+                                class="form-control kalimati-font @error('document') is-invalid @enderror"
+                                value="{{ old('document', $meeting->document) }}" id="document">
+                            <div class="invalid-feedback">
+                                @error('document')
+                                {{ $message }}
+                                @enderror
+
+                            </div>
+                        </div>
 
 
                         <div class="mb-3">
@@ -139,7 +152,7 @@
                     <div class="table-responsive">
                         <table class="table table-md table-bordered">
                             <thead>
-                                <th>बैठकको किसिम</th>
+                                <th> किसिम</th>
                                 <th>शीर्षक</th>
                                 <th>मिति</th>
                                 <th>समय</th>

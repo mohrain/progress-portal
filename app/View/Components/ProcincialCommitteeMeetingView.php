@@ -14,9 +14,9 @@ class ProcincialCommitteeMeetingView extends Component
      * @return void
      */
     public $meetings;
-    public function __construct(MeetingType $meetingType)
+    public function __construct()
     {
-        $this->meetings = Meeting::active()->where('meeting_type_id', $meetingType->id)->latest()->get();
+        $this->meetings = Meeting::with('meetingType')->active()->latest()->take(5)->get();
     }
 
     /**

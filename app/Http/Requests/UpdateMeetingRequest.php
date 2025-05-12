@@ -24,11 +24,12 @@ class UpdateMeetingRequest extends FormRequest
     public function rules()
     {
         return [
-            'type' => 'nullable',
+            // 'type' => 'nullable',
             'meeting_type_id' => 'required',
             'name' => 'required',
             'date' => 'required',
             'time' => 'required',
+            // 'document' => 'nullable',
             'status' => 'required',
         ];
     }

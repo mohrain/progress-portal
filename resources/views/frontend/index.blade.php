@@ -71,10 +71,74 @@
 
 </div>
 
+<div class="bg-white">
+    <div class="container ">
+    
+        <div class="row  p-3 py-5  mt-5">
+
+            <h5 class="sub-heading">सूचना</h5>
+            <h3 class="main-heading">सूचना र समाचार</h3>
+
+    
+            <div class="row my-2 mt-3">
+                <div class="col-md-6">
+
+                    <div class="sub-heading-arrow">
+                        बैठक सम्बन्धि सूचना
+                    </div>
+                  <div class="border rounded">
+                    <x-procincial-committee-meeting-view />
+                  </div>
+                </div>
+                <div class="col-md-6 ">
+                    
+                    <div class="sub-heading-arrow">
+                    कार्यपालिका सूचना
+                    </div>
+    
+                    <news-list base-url="/api/post-categories" />
+        
+                </div>
+
+                    {{-- <x-procincial-assembly-meeting-view /> --}}
+                {{-- <div class="col-md-6">
+                    <div class="bg-theme-color-blue py-3 text-center">
+                        समितिका बैठक सम्बन्धी सूचना
+                    </div>
+                    <x-procincial-committee-meeting-view />
+                </div> --}}
+            </div>
+        </div>
+    
+    
+       
+    
+    
+        {{-- <x-frontend-news /> --}}
+    
+       
+{{--     
+        <div class="row my-2 py-5">
+    
+            <div class="col-md-6 ">
+    
+                <news-list base-url="/api/primary-menus" />
+    
+            </div>
+        </div> --}}
+        {{-- <div >
+            <x-frontend.gallery />
+            </div> --}}
+  
+    </div>
+
+
+</div>
+
 
 <div class="bg-white ">
     <div class="container">
-        <div class="row p-3 py-5  mt-5">
+        <div class="row p-3 py-5  ">
             <h5 class="sub-heading">सेवा</h5>
             <h3 class="main-heading">पालिकाको सेवाहरु</h3>
         
@@ -101,62 +165,17 @@
                     </div>
                 </div>
         
-            <div class="col-md-6 ">
-                {{-- <h5 class="sub-heading">सूचना </h5> --}}
-                {{-- <h3 class=" main-heading">पालिकाको सेवाहरु</h3> --}}
+                <div class="col-md-6 ">
+    
+                    <news-list base-url="/api/primary-menus" />
         
-                <news-list base-url="/api/post-categories" />
-        
-            </div>
+                </div>
         </div>
     </div>
 </div>
 
 
-<div class="bg-white">
-    <div class="container ">
-    
-        <div class="row  p-3 py-5  mt-5">
 
-            <h5 class="sub-heading">सूचना</h5>
-            <h3 class="main-heading">सूचना र समाचार</h3>
-
-    
-            <div class="row my-2 mt-3">
-                    <x-procincial-assembly-meeting-view />
-                {{-- <div class="col-md-6">
-                    <div class="bg-theme-color-blue py-3 text-center">
-                        समितिका बैठक सम्बन्धी सूचना
-                    </div>
-                    <x-procincial-committee-meeting-view />
-                </div> --}}
-            </div>
-        </div>
-    
-    
-       
-    
-    
-        {{-- <x-frontend-news /> --}}
-    
-       
-    
-        <div class="row my-2 py-5">
-    
-            <div class="col-md-6 ">
-    
-                <news-list base-url="/api/primary-menus" />
-    
-            </div>
-        </div>
-        {{-- <div >
-            <x-frontend.gallery />
-            </div> --}}
-  
-    </div>
-
-
-</div>
 
 <div class="">
     <div class="container py-5  ">
@@ -237,6 +256,36 @@
   margin-bottom: 0.75rem;
   padding-left: 10px;
   border-left: 4px solid #982121;
+}
+
+.sub-heading-alt {
+  font-size: 1.3rem;        /* Slightly larger font size */
+  color: #982121;           /* Same color */
+  font-weight: 500;         /* Slightly lighter weight */
+  margin-bottom: 1rem;      /* More spacing at the bottom */
+  padding-left: 12px;       /* A bit more padding on the left */
+  border-left: 6px solid #982121; /* Thicker border for more emphasis */
+  font-style: italic;       /* Add italic style for differentiation */
+}
+
+.sub-heading-arrow {
+  font-size: 1.2rem;
+  color: #982121; /* Lighter grey */
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-left: 20px;
+  position: relative;
+}
+
+.sub-heading-arrow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-left: 15px solid #982121;  /* Arrow shaft */
+  border-top: 10px solid transparent; /* Arrow head */
+  border-bottom: 10px solid transparent; /* Arrow head */
 }
 
 </style>

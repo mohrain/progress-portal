@@ -29,6 +29,7 @@ class StoreMeetingRequest extends FormRequest
             'name' => 'required',
             'date' => 'required',
             'time' => 'required',
+            'document' => 'nullable',
             'status' => 'required',
         ];
     }

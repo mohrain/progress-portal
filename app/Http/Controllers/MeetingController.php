@@ -6,6 +6,7 @@ use App\Meeting;
 use App\Http\Requests\StoreMeetingRequest;
 use App\Http\Requests\UpdateMeetingRequest;
 use App\Models\MeetingType;
+use Illuminate\Support\Facades\Storage;
 
 class MeetingController extends Controller
 {
@@ -42,7 +43,14 @@ class MeetingController extends Controller
      */
     public function store(StoreMeetingRequest $request)
     {
-        Meeting::create($request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('document')) {
+            $data['document'] = $request->file('document')->store('meeting_documents', 'public');
+        }
+
+        Meeting::create($data);
+
         return redirect()
             ->back()
             ->with('success', 'बैठक सुरक्षित भयो');
@@ -79,7 +87,20 @@ class MeetingController extends Controller
      */
     public function update(UpdateMeetingRequest $request, Meeting $meeting)
     {
-        $meeting->update($request->validated());
+        $data = $request->validated();
+
+
+        if ($request->hasFile('document')) {
+            // Optionally delete the old document
+            if ($meeting->document && Storage::disk('public')->exists($meeting->document)) {
+                Storage::disk('public')->delete($meeting->document);
+            }
+
+            // Store new document
+            $data['document'] = $request->file('document')->store('documents', 'public');
+        }
+
+        $meeting->update($data);
         return redirect()
             ->route('meetings.index')
             ->with('success', 'बैठक सम्पादन भयो');
