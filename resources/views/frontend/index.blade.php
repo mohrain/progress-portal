@@ -174,6 +174,20 @@
     </div>
 </div>
 
+<div class="bg-white ">
+    <div class="container">
+        <div class="row p-3 py-5  ">
+            <h5 class="sub-heading">वडा</h5>
+            <h3 class="main-heading">पालिकाको वडाहरु</h3>
+        
+         <div class="py-5">
+            <x-ward-front-view />
+         </div>
+        </div>
+
+    </div>
+</div>
+
 
 
 

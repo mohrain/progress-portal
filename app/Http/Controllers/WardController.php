@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\WardRequest;
 use App\Ward;
+use Illuminate\Http\Request;
 
 class WardController extends Controller
 {
@@ -57,6 +58,7 @@ class WardController extends Controller
     public function show(Ward $ward)
     {
         //
+        return view('ward.intro', compact('ward'));
     }
 
     /**
@@ -80,9 +82,11 @@ class WardController extends Controller
      */
     public function update(WardRequest $request, Ward $ward)
     {
-        $ward->update($request->all());
 
-        return redirect()->route('ward.index')->with('success', 'वडा सफलतापूर्वक अपडेट गरिएको छ');
+
+        $ward->update($request->validated());
+
+        return redirect()->back()->with('success', 'वडा सफलतापूर्वक अपडेट गरिएको छ');
     }
 
     /**
@@ -99,5 +103,30 @@ class WardController extends Controller
 
         $ward->delete();
         return redirect()->route('ward.index')->with('success', 'वडा हटाइएको छ');
+    }
+
+
+    public function duty(Ward $ward)
+    {
+        return view('ward.work_duty', compact('ward'));
+    }
+
+    public function workUpdate(Request $request, Ward $ward)
+    {
+
+        $request->validate([
+            'work_duty' => 'required'
+        ]);
+
+        $ward->update([
+            'work_duty' => $request->work_duty
+        ]);
+
+        return redirect()->back()->with('success', 'वडा सफलतापूर्वक अपडेट गरिएको छ');
+    }
+
+    public function wardFront(Ward $ward)
+    {
+        return view('ward.ward-view-front', compact('ward'));
     }
 }

@@ -65,6 +65,7 @@ use App\Http\Controllers\PageDisplayController;
 use App\Http\Controllers\PrimaryCategoryMenuController;
 use App\Http\Controllers\ProvincialAssemblyLibraryController;
 use App\Http\Controllers\RankController;
+use App\Http\Controllers\WardController;
 use App\Models\Rank;
 use App\Post;
 
@@ -451,7 +452,7 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::resource('meeting-types', MeetingTypeController::class);
     // Route::resource('primary-menus', PrimaryCategoryMenuController::class);
     Route::get('primary-menus', [PrimaryCategoryMenuController::class, 'index'])->name('primary-menus.index');
-    Route::post('primary-menus/store', [PrimaryCategoryMenuController::class, 'store'])->name('primary-menus.store');
+    Route::get('primary-menus/store', [PrimaryCategoryMenuController::class, 'store'])->name('primary-menus.store');
     Route::put('primary-menus/sort', [PrimaryCategoryMenuController::class, 'sort'])->name('primary-menus.sort');
     Route::delete('primary-menus/remove-item', [PrimaryCategoryMenuController::class, 'removeItem'])->name('primary-menus.remove-item');
 
@@ -528,6 +529,35 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
 
     Route::get('federal-parliament-secretariat', [FederalparlimentController::class, 'index'])->name('federal.index');
     Route::post('federal-parliament-secretariat', [FederalparlimentController::class, 'store'])->name('federal.store');
+
+
+    // ward
+
+    Route::get('wards/list', [WardController::class, 'list'])->name('ward.list');
+    Route::get('wards/create', [WardController::class, 'create'])->name('ward.create');
+    Route::delete('wards/{slug}/delete', [WardController::class, 'deleteWard'])->name('ward.delete');
+    Route::get('wards/{slug}/view', [WardController::class, 'edit'])->name('ward.edit');
+    Route::put('wards/{ward}/update', [WardController::class, 'update'])->name('ward.update');
+
+    Route::get('wards/{ward}/work-duty-authority', [WardController::class, 'duty'])->name('ward.duty');
+    Route::put('wards/{ward}/work-duty-authority/update', [WardController::class, 'workUpdate'])->name('ward.work.update');
+
+    Route::get('wards/{slug}/notices', [WardController::class, 'notices'])->name('ward.notices');
+    Route::get('wards/{slug}/notices/create', [WardController::class, 'noticesCreate'])->name('ward.notices.create');
+
+    Route::get('wards/{slug}/activities', [WardController::class, 'activity'])->name('ward.activity');
+    Route::get('wards/{slug}/activities/create', [WardController::class, 'activityCreate'])->name('ward.activity.create');
+
+    Route::get('wards/{slug}/publications', [WardController::class, 'publications'])->name('ward.publications');
+    Route::get('wards/{slug}/publications/create', [WardController::class, 'publicationsCreate'])->name('ward.publications.create');
+    Route::get('wards/{slug}/{id}/publications/edit', [WardController::class, 'publicationsedit'])->name('ward.publications.edit');
+    Route::put('wards/{slug}/{id}/publications/update', [WardController::class, 'publicationsupdate'])->name('ward.publications.update');
+
+    Route::get('wards/{slug}/audio', [WardController::class, 'media'])->name('ward.media');
+    Route::get('wards/{slug}/video', [WardController::class, 'video'])->name('ward.video');
+
+    Route::get('wards/branch', [WardController::class, 'branch'])->name('ward.branch');
+    Route::get('sub-wards/{wardSlug}', [WardController::class, 'subward'])->name('ward.subward');
 });
 Route::get('departments', [DepartmentController::class, 'index'])->name('department.index');
 Route::post('departments', [DepartmentController::class, 'store'])->name('department.store');

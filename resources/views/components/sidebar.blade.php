@@ -111,7 +111,7 @@
 </div>
 <div class="sidebar-menu {{ setActive('provincial-assembly-library.*') }}">
     <a href="{{ route('provincial-assembly-library.index') }}" aria-expanded="false" class="nav-link">
-        <span class="text-success"><i class="bi bi-book pr-2"></i></span>कार्यालय पुस्तकालय
+        <span class="text-success"><i class="bi bi-book pr-2"></i></span> पुस्तकालय
     </a>
 </div>
 <div class="sidebar-menu {{ setActive('contact-us.*') }}">
@@ -132,6 +132,11 @@
 <div class="sidebar-menu {{ setActive('department.list') }}">
     <a href="{{ route('department.list') }}" aria-expanded="false" class="nav-link">
         <span class="text-success"><i class="fas fa-cog pr-2"></i></span>कार्यालय शाखाहरु
+    </a>
+</div>
+<div class="sidebar-menu {{ setActive('ward.index') }}">
+    <a href="{{ route('ward.index') }}" aria-expanded="false" class="nav-link">
+        <span class="text-success"><i class="fas fa-cog pr-2"></i></span>वडा
     </a>
 </div>
 

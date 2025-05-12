@@ -4,6 +4,7 @@ use App\Http\Controllers\Frontend\CommitteeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\LiveController;
 use App\Http\Controllers\VideoGalleryController;
+use App\Http\Controllers\WardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('committees/{committee:slug}', [CommitteeController::class, 'show'])->name('frontend.committees.show');
@@ -22,3 +23,5 @@ Route::get('gallery/{album}/getPhotos', [GalleryController::class, 'getPhotos'])
 Route::get('videos', [VideoGalleryController::class, 'index']);
 
 Route::get('live', [LiveController::class, 'frontend'])->name('frontend.live');
+
+Route::get('ward/{ward}/front', [WardController::class, 'wardFront'])->name('ward.front');

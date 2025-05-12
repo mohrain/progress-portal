@@ -26,10 +26,12 @@ class WardRequest extends FormRequest
         return [
             'name' => 'required',
             'name_en' => 'required',
+            'description' => 'nullable',
+            'logo' => 'nullable',
         ];
     }
 
-     /**
+    /**
      *  Custom messages for validation
      * 
      * @return array
