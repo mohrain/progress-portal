@@ -131,7 +131,7 @@ class WardController extends Controller
 
     public function wardFront(Ward $ward)
     {
-        $members = Member::with('officeDesignation')->where('ward_number', $ward->name_en)->positioned()->get();
+        $members = Member::with('officeDesignation')->currentElection()->where('ward_number', $ward->name_en)->positioned()->get();
 
         $news = $ward->posts()->with('postCategories')
             ->latest()
@@ -183,7 +183,7 @@ class WardController extends Controller
     }
     public function members(Ward $ward)
     {
-        $members = Member::with('officeDesignation')->where('ward_number', $ward->name_en)->positioned()->get();
+        $members = Member::with('officeDesignation')->currentElection()->where('ward_number', $ward->name_en)->positioned()->get();
         return view('ward.members', compact('members', 'ward'));
     }
 }

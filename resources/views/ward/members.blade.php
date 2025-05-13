@@ -26,7 +26,7 @@
                 {{-- <th>जन्म मिति</th>
                                     <th>ठेगाना</th>
                                     <th>बाबु/आमाको नाम</th> --}}
-                <th></th>
+                {{-- <th></th>  --}}
             </thead>
             <tbody id="sortable-member">
                 @forelse($members as $member)
@@ -87,7 +87,7 @@
                         </div>
                     </td> --}}
 
-                    <td class="text-right">
+                    {{-- <td class="text-right">
                         <div class="dropdown">
                             <a class=" btn-icon-only text-light" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true"
@@ -114,7 +114,7 @@
 
                             </div>
                         </div>
-                    </td>
+                    </td> --}}
 
                 </tr>
 
