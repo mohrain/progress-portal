@@ -1,23 +1,21 @@
-@extends('layouts.app', ['title' => __('पोस्टहरु')])
+@extends('ward.ward-view')
 
-@section('content')
-<div class="container-fluid mt--7">
-    <div class="row justify-content-center">
+@section('wardContent')
+<div class=" ">
+    <div class="row ">
 
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <div class="d-flex justify-content-between">
+            <div class="bg-white">
+                <div class="">
+                    <div class="d-flex justify-content-between pt-2 mx-3">
+                      <div></div>
                         <div>
-                            {{ $title = 'पोस्टहरु' }}
-                        </div>
-                        <div>
-                            <a href="{{ route('posts.create') }}" class="btn btn-sm btn-primary bi bi-plus">नयाँ पोस्ट</a>
+                            <a href="{{ route('ward.notices.create',$ward) }}" class="btn btn-sm btn-primary bi bi-plus">नयाँ सूचना</a>
 
-                            <a class="btn btn-secondary bi bi-funnel " data-toggle="collapse" href="#collapseExample"
+                            {{-- <a class="btn btn-secondary bi bi-funnel " data-toggle="collapse" href="#collapseExample"
                                 role="button" aria-expanded="false" aria-controls="collapseExample">
                                 फिल्टर
-                            </a>
+                            </a> --}}
 
 
                         </div>
@@ -32,7 +30,7 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="mb-3">
-                                            <label for="title" class="form-label">पोस्ट नाम</label>
+                                            <label for="title" class="form-label">सूचना नाम</label>
                                             <input type="text" name="title"
                                                 class="form-control @error('title') is-invalid @enderror" id="title"
                                                 aria-describedby="title">
@@ -70,9 +68,9 @@
                     <div class="table-responsive">
                         <table class="table table-md table-bordered kalimati-font">
                             <thead>
-                                <th>पोस्ट नाम</th>
+                                <th>सूचना नाम</th>
                                 <th>फिचर फोटो</th>
-                                <th>पोस्ट किसिम</th>
+                                <th>सूचना किसिम</th>
                                 <th>प्रकासित मिति</th>
                                 <th>स्थिति</th>
                                 <th></th>
@@ -84,7 +82,7 @@
                                     <td>
                                         <img id="newProfilePhotoPreview"
                                             src="{{ $post->feature_image ? asset('storage/' . $post->feature_image) : asset('assets/img/no-image.png') }}"
-                                            class="feature-image-thum">
+                                            class="object-fit-cover " style="width:50px; height:50px ">
                                     </td>
                                     <td>
                                         @foreach ($post->postCategories as $category)

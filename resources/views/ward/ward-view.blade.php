@@ -17,10 +17,14 @@
                 class="{{ Route::getCurrentRoute()->getName() == 'ward.notices' ? 'active' : '' }}">
                 <div class="work-description"><i class="fa fa-flag"></i> सूचनाहरु</div>
             </a>
-            <a href="{{ route('ward.activity', $ward) }}"
+            <a href="{{ route('ward.members', $ward) }}"
+            class="{{ Route::getCurrentRoute()->getName() == 'ward.members' ? 'active' : '' }}">
+            <div class="work-description"><i class="fa fa-users"></i> जनप्रतिनिधि</div>
+        </a>
+            {{-- <a href="{{ route('ward.activity', $ward) }}"
                 class="{{ Route::getCurrentRoute()->getName() == 'ward.activity' ? 'active' : '' }}">
                 <div class="work-description"><i class="fa fa-rss"></i> गतिविधिहरु</div>
-            </a>
+            </a> --}}
             <a href="{{ route('ward.publications', $ward) }}"
                 class="{{ Route::getCurrentRoute()->getName() == 'ward.publications' ? 'active' : '' }}">
                 <div class="work-description tab-active"><i class="fa fa-download"></i> प्रकाशनहरु/डाउनलोडस्</div>

@@ -542,8 +542,10 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('wards/{ward}/work-duty-authority', [WardController::class, 'duty'])->name('ward.duty');
     Route::put('wards/{ward}/work-duty-authority/update', [WardController::class, 'workUpdate'])->name('ward.work.update');
 
-    Route::get('wards/{slug}/notices', [WardController::class, 'notices'])->name('ward.notices');
-    Route::get('wards/{slug}/notices/create', [WardController::class, 'noticesCreate'])->name('ward.notices.create');
+    Route::get('wards/{ward}/notices', [WardController::class, 'notices'])->name('ward.notices');
+    Route::get('wards/{ward}/notices/create', [WardController::class, 'noticesCreate'])->name('ward.notices.create');
+    Route::post('wards/{ward}/notices/store', [WardController::class, 'storeNotices'])->name('ward.notices.store');
+    Route::get('wards/{ward}/members', [WardController::class, 'members'])->name('ward.members');
 
     Route::get('wards/{slug}/activities', [WardController::class, 'activity'])->name('ward.activity');
     Route::get('wards/{slug}/activities/create', [WardController::class, 'activityCreate'])->name('ward.activity.create');

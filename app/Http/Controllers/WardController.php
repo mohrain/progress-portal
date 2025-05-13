@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\WardRequest;
+use App\Models\Member;
+use App\Post;
 use App\Ward;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class WardController extends Controller
 {
@@ -127,6 +131,59 @@ class WardController extends Controller
 
     public function wardFront(Ward $ward)
     {
-        return view('ward.ward-view-front', compact('ward'));
+        $members = Member::with('officeDesignation')->where('ward_number', $ward->name_en)->positioned()->get();
+
+        $news = $ward->posts()->with('postCategories')
+            ->latest()
+            ->take(5)->get();
+
+        return view('ward.ward-view-front', compact('ward', 'members', 'news'));
+    }
+
+    public function notices(Ward $ward)
+    {
+        $posts = $ward->posts()->with('postCategories')
+            ->latest()
+            ->paginate(50);
+        // $posts = Post::with('postCategories')
+        //     ->latest()
+        //     ->paginate(50);
+        return view('ward.notice', compact('posts', 'ward'));
+    }
+
+    public function noticesCreate(Ward $ward)
+    {
+
+        $post = new Post();
+        return view('ward.notice-create', compact('post', 'ward'));
+    }
+
+    public function storeNotices(StorePostRequest $request, Ward $ward)
+    {
+        $data = $request->validated();
+        // return $data;
+        if ($request->file('feature_image')) {
+            $data['feature_image'] = Storage::putFile('feature-image', $request->file('feature_image'));
+        }
+
+        $post = Post::create($data);
+        $post->postCategories()->attach($data['post_category_id']);
+        if ($request->name != '' && $request->file != '') {
+            foreach ($request->name as $key => $name) {
+                $post->documents()->create([
+                    'name' => $name,
+                    'file' => Storage::putFile('post-documents', $request->file('file')[$key]),
+                ]);
+            }
+        }
+
+        $post->wards()->attach([$ward->id]);
+
+        return redirect()->back()->with('success', 'वडा सफलतापूर्वक अपडेट गरिएको छ');
+    }
+    public function members(Ward $ward)
+    {
+        $members = Member::with('officeDesignation')->where('ward_number', $ward->name_en)->positioned()->get();
+        return view('ward.members', compact('members', 'ward'));
     }
 }

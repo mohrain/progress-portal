@@ -1,20 +1,34 @@
 @extends('frontend.layouts.app', ['title' => __('वडा नं')])
 @section('content')
 <div>
-    <div class="container">
-        <div class="col-md-8 bg-white p-3">
-            <h5 class="sub-heading">वडा नं {{$ward->name}} को विवरण</h5>
+    <div class="container pb-5">
+     <div class="row">   
+        <div class="col-md-9 bg-white p-3">
 
-            <div>
-                <h5 class="sub-heading-arrow">परिचय</h5>
-            </div>
-
-            <p>
-                {{$ward->description}}
-            </p>
-
-
+        <div class="title">
+            <h3 class="text-theme-color fw-bold">वडा नं {{$ward->name}} को विवरण</h3>
         </div>
+
+        <div class="mt-3">
+            <h5 class="sub-heading-arrow">परिचय</h5>
+
+            {{$ward->description}}
+        </div>
+
+        <div class="mt-3">
+            <h5 class="sub-heading-arrow">काम ,कर्तव्य र अधिकार </h5>
+
+           <div class="px-3">
+            {!!$ward->work_duty!!}
+           </div>
+        </div>
+
+    </div>
+    <div class="col-md-3">
+        <x-members-view :members="$members"/>
+        <x-news-front-view :news="$news"/>
+    </div>
+
 
 
     </div>
@@ -58,6 +72,16 @@
         padding-left: 20px;
         position: relative;
     }
+    .sub-heading-arrow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  border-left: 15px solid #982121;  /* Arrow shaft */
+  border-top: 10px solid transparent; /* Arrow head */
+  border-bottom: 10px solid transparent; /* Arrow head */
+}
 </style>
 @endpush
 @endsection

@@ -15,11 +15,15 @@ class PostCategorySelect extends Component
      */
     public $post;
     public $postCategories;
-    public function __construct(Post $post=null)
+    public function __construct(Post $post = null, $news = false)
     {
         $this->post = $post;
-        $this->postCategories = PostCategory::with(['childCategories.childCategories'])->where('parent_id', null)->orderBy('name')->get();
+        if ($news) {
+            $this->postCategories = PostCategory::with(['childCategories.childCategories'])->where('parent_id', 1)->orderBy('name')->get();
+        } else {
 
+            $this->postCategories = PostCategory::with(['childCategories.childCategories'])->where('parent_id', null)->orderBy('name')->get();
+        }
     }
 
     /**

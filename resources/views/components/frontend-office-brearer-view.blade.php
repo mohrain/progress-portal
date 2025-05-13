@@ -1,36 +1,43 @@
 <div class="bearer-container">
-
-
     @foreach ($officeBearers as $officeBearer)
-
-
-
-<div class="officer-card mb-3">
-    <div class="bg-pattern"></div>
-    <div class="officer-card-content">
-        <div class="officer-image">
-            <a class="officer-image-wrap" href="{{ route('members.show', $officeBearer->member) }}">
-                <img src="{{ $officeBearer->member->profile ? asset('storage/' . $officeBearer->member->profile) : asset('assets/img/no-image.png') }}" alt="{{ $officeBearer->member->name }}">
-            </a>
+    <div class="officer-card mb-3">
+        <div class="bg-pattern"></div>
+        <div class="officer-card-content">
+            <div class="officer-image">
+                <a class="officer-image-wrap" href="{{ route('members.show', $officeBearer->member) }}">
+                    <img src="{{ $officeBearer->member->profile ? asset('storage/' . $officeBearer->member->profile) : asset('assets/img/no-image.png') }}"
+                        alt="{{ $officeBearer->member->name }}">
+                </a>
+            </div>
+            <div class="officer-info">
+                <a style="text-decoration: none; color:black; font-weight:600; " href="{{ route('members.show', $officeBearer->member) }}">
+                    <h4 class="fw-bold">{{ $officeBearer->member->name }}</h4>
+                    <div>{{ $officeBearer->officeDesignation->name }}</div>
+                </a>
+            </div>
         </div>
-        <a class="officer-info" href="{{ route('members.show', $officeBearer->member) }}">
-            <h4>{{ $officeBearer->member->name }}</h4>
-            <div>{{ $officeBearer->officeDesignation->name }}</div>
-        </div>
-        
     </div>
-
-    
-  @endforeach
+    @endforeach
 </div>
+
 
 @push('styles')
 <style>
-    .bearer-container{
-        width:100%;
-        height:250px;
+    .bearer-container {
+        width: 100%;
+        height: 280px;
+        margin-bottom: 5px;
         overflow: hidden;
         overflow-y: scroll;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+    }
+
+    .bearer-container::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Opera */
     }
 
     .officer-card {
@@ -61,8 +68,8 @@
 
     .officer-card .officer-image {
         width: 40%;
-        flex-shrink:0;
-    
+        flex-shrink: 0;
+
     }
 
     .officer-card .officer-image .officer-image-wrap {
@@ -91,6 +98,5 @@
     .officer-card .officer-info div {
         color: gray;
     }
-
 </style>
 @endpush

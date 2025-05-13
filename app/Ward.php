@@ -12,7 +12,7 @@ class Ward extends Model
     {
         return $this->hasMany('App\Organization', 'org_ward_id');
     }
-    
+
     /**
      * Get the users of this ward
      *
@@ -21,5 +21,10 @@ class Ward extends Model
     public function users()
     {
         return $this->hasMany('App\User');
+    }
+
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class);
     }
 }

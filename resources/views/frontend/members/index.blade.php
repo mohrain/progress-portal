@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-12 mb-5">
                     <div class="frontend-title">
-                        कार्यपालिका सदस्यहरु
+                        पालिका सदस्यहरु
                         <hr>
                     </div>
                     <div class="box p-3">
@@ -109,107 +109,107 @@
                                     {{-- <div class="col-md-3 mb-2">
                                         <label for="gender" class="form-label text-md-end ">{{ __('लिङ्ग') }}</label>
 
-                                        <select class="form-control @error('gender') is-invalid @enderror" name="gender"
-                                            id="gender">
-                                            <option value="">सबै</option>
+                                    <select class="form-control @error('gender') is-invalid @enderror" name="gender"
+                                        id="gender">
+                                        <option value="">सबै</option>
 
-                                            <option value="पुरुष">
-                                                पुरुष
-                                            </option>
-                                            <option value="महिला">
-                                                महिला
-                                            </option>
-                                            <option value="अन्य">
-                                                अन्य
-                                            </option>
-                                        </select>
-                                        @error('gender')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div> --}}
+                                        <option value="पुरुष">
+                                            पुरुष
+                                        </option>
+                                        <option value="महिला">
+                                            महिला
+                                        </option>
+                                        <option value="अन्य">
+                                            अन्य
+                                        </option>
+                                    </select>
+                                    @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div> --}}
 
-                                    <div class="col-md-3 form-group">
-                                        <label for="ward_number" class="form-label ">{{ __('वडा') }}</label>
-                
-                                        <select class="form-control" name="ward_number" id="ward_number"
-                                            aria-label="Default select example">
-                                            <option value="">वडा</option>
-                                            @foreach ($wardNumbers as $ward)
-                                            <option value="{{ $ward }}">
-                                                {{ $ward}}
-                                            </option>
-                
-                                            @endforeach
-                
-                                        </select>
-                
-                
-                                    </div>
+                                <div class="col-md-3 form-group">
+                                    <label for="ward_number" class="form-label ">{{ __('वडा') }}</label>
 
-                                    <div class="col-md-12 mt-md-auto mb-3 text-end">
-                                        <button type="submit" class="btn btn-primary bi bi-search">
-                                            खोजी गर्नुहोस्
-                                        </button>
-                                    </div>
+                                    <select class="form-control" name="ward_number" id="ward_number"
+                                        aria-label="Default select example">
+                                        <option value="">वडा</option>
+                                        @foreach ($wardNumbers as $ward)
+                                        <option value="{{ $ward }}">
+                                            {{ $ward}}
+                                        </option>
+
+                                        @endforeach
+
+                                    </select>
+
+
                                 </div>
 
-                            </form>
+                                <div class="col-md-12 mt-md-auto mb-3 text-end">
+                                    <button type="submit" class="btn btn-primary bi bi-search">
+                                        खोजी गर्नुहोस्
+                                    </button>
+                                </div>
                     </div>
+
+                    </form>
                 </div>
-
-                <div class="table-responsive box p-2">
-                    <table class="table table-bordered" style="white-space: nowrap;">
-                        <thead>
-                            <th>फोटो</th>
-                            <th>परिचय</th>
-                        </thead>
-                        <tbody id="sortable-member">
-                            @forelse($members as $member)
-                            <tr data-id="{{ $member->id }}" data-order="{{ $member->position ?? 0 }}">
-                                <td class="sort-handle">
-                                    <img id="newProfilePhotoPreview"
-                                        src="{{ $member->profile ? asset('storage/' . $member->profile) : asset('images/user.png') }}"
-                                        class="profile-nav">
-                                </td>
-                                <td>
-                                    <a href="{{ route('members.show', $member) }}" class="link-dark">
-                                     
-                                        <div class="fw-bold">
-                                            {{$member->office_bearer_designation_id==1 ? "मा." : '' }} {{ $member->name }}
-                                        </div>
-                                        <div class="text-secondary">
-                                            @if ($member->office_bearer_designation_id == 1)
-                                                माननीय सभामुख
-                                            @elseif ($member->office_bearer_designation_id == 2)
-                                                माननीय उपसभामुख
-                                            @else
-                                                {{ $member->parliamentaryParty->name ?? '' }}
-                                            @endif
-                                        </div>
-                                    </a>
-                                </td>
-                            </tr>
-                            @empty
-                            <tr>
-                                <td colspan="42" class="font-italic text-center">कुनैपनि डाटा उपलब्ध छैन
-                                    !!!
-                                </td>
-                            </tr>
-                            @endforelse
-                        </tbody>
-
-
-                    </table>
-                </div>
-
-                {{ $members->links() }}
             </div>
-        </div>
-        <div class="col-md-3">
-            @include('frontend.layouts.sidebar')
+
+            <div class="table-responsive box p-2">
+                <table class="table table-bordered" style="white-space: nowrap;">
+                    <thead>
+                        <th>फोटो</th>
+                        <th>परिचय</th>
+                    </thead>
+                    <tbody id="sortable-member">
+                        @forelse($members as $member)
+                        <tr data-id="{{ $member->id }}" data-order="{{ $member->position ?? 0 }}">
+                            <td class="sort-handle">
+                                <img id="newProfilePhotoPreview"
+                                    src="{{ $member->profile ? asset('storage/' . $member->profile) : asset('images/user.png') }}"
+                                    class="profile-nav">
+                            </td>
+                            <td>
+                                <a href="{{ route('members.show', $member) }}" class="link-dark">
+
+                                    <div class="fw-bold">
+                                        {{$member->office_bearer_designation_id==1 ? "मा." : '' }} {{ $member->name }}
+                                    </div>
+                                    <div class="text-secondary">
+                                        @if ($member->office_bearer_designation_id == 1)
+                                        माननीय प्रमुख
+                                        @elseif ($member->office_bearer_designation_id == 2)
+                                        माननीय उप-प्रमुख
+                                        @else
+                                        {{ $member->parliamentaryParty->name ?? '' }}
+                                        @endif
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="42" class="font-italic text-center">कुनैपनि डाटा उपलब्ध छैन
+                                !!!
+                            </td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+
+
+                </table>
+            </div>
+
+            {{ $members->links() }}
         </div>
     </div>
+    <div class="col-md-3">
+        @include('frontend.layouts.sidebar')
+    </div>
+</div>
 </div>
 @endsection

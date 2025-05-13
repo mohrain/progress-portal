@@ -46,4 +46,9 @@ class Post extends Model
     {
         return $this->morphMany(Document::class, 'documentable');
     }
+
+    public function wards()
+    {
+        return $this->belongsToMany(Ward::class);
+    }
 }
