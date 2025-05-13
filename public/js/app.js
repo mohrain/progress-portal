@@ -2555,7 +2555,16 @@ var render = function render() {
     }, [_vm._v(_vm._s(_vm.formatDate(post.created_at)))])]), _vm._v(" "), _vm._m(0, true)])]);
   }), _vm._v(" "), _vm.posts.length === 0 ? _c("li", {
     staticClass: "no-posts"
-  }, [_vm._v("\n            कुनैपनि सूचना छैन !!!\n        ")]) : _vm._e()], 2)]);
+  }, [_vm._v("\n            कुनैपनि सूचना छैन !!!\n        ")]) : _vm._e()], 2), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-end"
+  }, [_c("a", {
+    staticClass: "read-more",
+    attrs: {
+      href: "post-categories/".concat(_vm.selectedCategoryId)
+    }
+  }, [_vm._v("\n            सबै "), _c("i", {
+    staticClass: "bi bi-chevron-double-right"
+  })])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -4873,7 +4882,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".categories[data-v-b8a09a08] {\n  display: flex;\n  gap: 0.5rem;\n  margin-bottom: 1rem;\n  justify-content: start;\n  flex-wrap: wrap;\n  background-color: #1c4267;\n  padding: 10px;\n}\n.category-button[data-v-b8a09a08] {\n  padding: 0.5rem 1rem;\n  border-radius: 0.25rem;\n  background-color: transparent;\n  /* Default gray */\n  color: #e5e7eb;\n  cursor: pointer;\n  border: none;\n  transition: background-color 0.3s ease, color 0.3s ease;\n}\n.category-button.selected[data-v-b8a09a08] {\n  background-color: #fff;\n  /* Blue */\n  color: #982121;\n}\n.category-button[data-v-b8a09a08]:focus {\n  outline: none;\n}\n.posts-list[data-v-b8a09a08] {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n  border-radius: 0.375rem;\n  background-color: white;\n  border: 1px solid #e5e7eb;\n  divide-y: 1px solid #e5e7eb;\n}\n.posts-list .post-item[data-v-b8a09a08] {\n  padding: 0.5rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  border-bottom: 1px solid rgba(210, 213, 219, 0.7882352941);\n}\n.posts-list .post-item .post-header[data-v-b8a09a08] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 100%;\n}\n.posts-list .post-item .post-header .post-details .post-title[data-v-b8a09a08] {\n  font-weight: 600;\n}\n.posts-list .post-item .post-header .post-details .post-date[data-v-b8a09a08] {\n  font-size: 0.875rem;\n  color: #6b7280;\n}\n.posts-list .post-item .post-header .read-more[data-v-b8a09a08] {\n  display: flex;\n  align-items: center;\n  gap: 0.25rem;\n  color: #2563eb;\n  text-decoration: none;\n}\n.posts-list .post-item .post-header .read-more[data-v-b8a09a08]:hover {\n  text-decoration: underline;\n}\n.posts-list .no-posts[data-v-b8a09a08] {\n  padding: 1rem;\n  text-align: center;\n  color: #6b7280;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".categories[data-v-b8a09a08] {\n  display: flex;\n  gap: 0.5rem;\n  margin-bottom: 1rem;\n  justify-content: start;\n  flex-wrap: wrap;\n  background-color: #1c4267;\n  padding: 10px;\n}\n.category-button[data-v-b8a09a08] {\n  padding: 0.5rem 1rem;\n  border-radius: 0.25rem;\n  background-color: transparent;\n  /* Default gray */\n  color: #e5e7eb;\n  cursor: pointer;\n  border: none;\n  transition: background-color 0.3s ease, color 0.3s ease;\n}\n.category-button.selected[data-v-b8a09a08] {\n  background-color: #fff;\n  /* Blue */\n  color: #982121;\n}\n.category-button[data-v-b8a09a08]:focus {\n  outline: none;\n}\n.posts-list[data-v-b8a09a08] {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n  border-radius: 0.375rem;\n  background-color: white;\n  border: 1px solid #e5e7eb;\n}\n.posts-list .post-item[data-v-b8a09a08] {\n  padding: 0.5rem;\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-start;\n  border-bottom: 1px solid rgba(210, 213, 219, 0.7882352941);\n}\n.posts-list .post-item .post-header[data-v-b8a09a08] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 100%;\n}\n.posts-list .post-item .post-header .post-details .post-title[data-v-b8a09a08] {\n  font-weight: 600;\n}\n.posts-list .post-item .post-header .post-details .post-date[data-v-b8a09a08] {\n  font-size: 0.875rem;\n  color: #6b7280;\n}\n.posts-list .post-item .post-header .read-more[data-v-b8a09a08] {\n  display: flex;\n  align-items: center;\n  gap: 0.25rem;\n  color: #2563eb;\n  text-decoration: none;\n}\n.posts-list .post-item .post-header .read-more[data-v-b8a09a08]:hover {\n  text-decoration: underline;\n}\n.posts-list .no-posts[data-v-b8a09a08] {\n  padding: 1rem;\n  text-align: center;\n  color: #6b7280;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

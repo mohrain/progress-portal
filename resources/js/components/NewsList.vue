@@ -25,6 +25,16 @@
                 कुनैपनि सूचना छैन !!!
             </li>
         </ul>
+
+
+        <div class="d-flex justify-content-end">
+
+            <a :href="`post-categories/${selectedCategoryId}`" class="read-more">
+                सबै <i class="bi bi-chevron-double-right"></i>
+            </a>
+
+        </div>
+
     </div>
 </template>
 
@@ -115,7 +125,7 @@ export default {
     border-radius: 0.375rem;
     background-color: white;
     border: 1px solid #e5e7eb;
-    divide-y: 1px solid #e5e7eb;
+    // divide-y: 1px solid #e5e7eb;
 
     .post-item {
         padding: 0.5rem;
