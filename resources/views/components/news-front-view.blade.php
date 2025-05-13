@@ -32,7 +32,7 @@ $badgeColors = [
             </div>
 
             <h6 class=" mt-3">
-                <a href="{{ route('posts.show', $n->id) }}" class="text-dark text-decoration-none">
+                <a href="{{ route('posts.show', $n) }}" class="text-dark text-decoration-none">
                     {{ $n->title }}
                 </a>
             </h6>

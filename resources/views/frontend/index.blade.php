@@ -92,9 +92,9 @@
                 </div>
                 <div class="col-md-6 ">
                     
-                    <div class="sub-heading-arrow">
+                    {{-- <div class="sub-heading-arrow">
                     कार्यपालिका सूचना
-                    </div>
+                    </div> --}}
     
                     <news-list base-url="/api/post-categories" />
         
@@ -153,7 +153,7 @@
 <div style="">
     <div class="container py-4">
         <div class="row  py-5 ">
-            <div class="col-md-6 ">
+            <div class="col-md-7 ">
                 {{-- <h5 class="fw-bolder">सेवाहरु</h5>
                     <h3 class="font-nato color-secondary fw-bold mb-3">अनलाईन सेवाहरु</h3> --}}
                     
@@ -165,7 +165,7 @@
                     </div>
                 </div>
         
-                <div class="col-md-6 ">
+                <div class="col-md-5 ">
     
                     <news-list base-url="/api/primary-menus" />
         

@@ -28,7 +28,7 @@
                             <h5 class="text-theme-color">सम्बन्धित कागजातहरु:</h5>
                             <ul class="list-group list-group-flush">
                                 @php
-                                    $documents = $post->documents()->latest()->get();
+                                    $documents = $post->documents()->get();
                                 @endphp
                                 @foreach ($documents as $postDocument)
                                     <li class="list-group-item d-flex justify-content-between align-items-center">

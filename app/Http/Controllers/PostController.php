@@ -218,7 +218,7 @@ class PostController extends Controller
 
         $posts = Post::whereHas('postCategories', function ($query) use ($request) {
             $query->where('post_category_id', '=', $request->post_category_id);
-        })->latest()->take(5)->get();
+        })->latest()->published()->take(5)->get();
 
 
         return response()->json($posts);

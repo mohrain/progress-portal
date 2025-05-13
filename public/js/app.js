@@ -2538,27 +2538,34 @@ var render = function render() {
     return _c("li", {
       key: post.id,
       staticClass: "post-item"
-    }, [_c("div", {
-      staticClass: "post-header"
-    }, [_c("div", {
-      staticClass: "post-details"
-    }, [_c("div", {
-      staticClass: "post-title"
-    }, [_vm._v(_vm._s(post.title))]), _vm._v(" "), _c("div", {
-      staticClass: "post-date"
-    }, [_vm._v(_vm._s(_vm.formatDate(post.created_at)))])]), _vm._v(" "), _c("div", [_c("a", {
-      staticClass: "read-more",
+    }, [_c("a", {
+      staticClass: "post-header",
       attrs: {
         href: "/posts/".concat(post.slug)
       }
-    }, [_vm._v("\n                        पढ्नुहोस् "), _c("i", {
-      staticClass: "bi bi-chevron-double-right"
-    })])])])]);
+    }, [_c("div", {
+      staticClass: "post-details"
+    }, [_c("div", {
+      staticClass: "post-title",
+      staticStyle: {
+        color: "black"
+      }
+    }, [_vm._v(_vm._s(post.title))]), _vm._v(" "), _c("div", {
+      staticClass: "post-date"
+    }, [_vm._v(_vm._s(_vm.formatDate(post.created_at)))])]), _vm._v(" "), _vm._m(0, true)])]);
   }), _vm._v(" "), _vm.posts.length === 0 ? _c("li", {
     staticClass: "no-posts"
   }, [_vm._v("\n            कुनैपनि सूचना छैन !!!\n        ")]) : _vm._e()], 2)]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("a", {
+    staticClass: "read-more"
+  }, [_vm._v("\n                        पढ्नुहोस् "), _c("i", {
+    staticClass: "bi bi-chevron-double-right"
+  })])]);
+}];
 render._withStripped = true;
 
 

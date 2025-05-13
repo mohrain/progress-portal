@@ -100,7 +100,7 @@
                         </div>
                         
                         <div class="mb-3">
-                            <label for="document" class="form-label required">कागजात</label>
+                            <label for="document" class="form-label required">एजेण्ड/पत्र</label>
                             <input type="file" name="document"
                                 class="form-control kalimati-font @error('document') is-invalid @enderror"
                                 value="{{ old('document', $meeting->document) }}" id="document">

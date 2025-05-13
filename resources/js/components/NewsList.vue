@@ -9,17 +9,17 @@
 
         <ul class="posts-list">
             <li v-for="post in posts" :key="post.id" class="post-item">
-                <div class="post-header">
+                <a :href="`/posts/${post.slug}`" class="post-header">
                     <div class="post-details">
-                        <div class="post-title">{{ post.title }}</div>
+                        <div class="post-title" style="color: black;">{{ post.title }}</div>
                         <div class="post-date">{{ formatDate(post.created_at) }}</div>
                     </div>
                     <div>
-                        <a :href="`/posts/${post.slug}`" class="read-more">
+                        <a class="read-more">
                             पढ्नुहोस् <i class="bi bi-chevron-double-right"></i>
                         </a>
                     </div>
-                </div>
+                </a>
             </li>
             <li v-if="posts.length === 0" class="no-posts">
                 कुनैपनि सूचना छैन !!!
@@ -130,9 +130,11 @@ export default {
             align-items: center;
             width: 100%;
 
+
             .post-details {
                 .post-title {
                     font-weight: 600;
+
                 }
 
                 .post-date {
