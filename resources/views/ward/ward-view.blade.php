@@ -25,22 +25,24 @@
                 class="{{ Route::getCurrentRoute()->getName() == 'ward.activity' ? 'active' : '' }}">
                 <div class="work-description"><i class="fa fa-rss"></i> गतिविधिहरु</div>
             </a> --}}
-            <a href="{{ route('ward.publications', $ward) }}"
-                class="{{ Route::getCurrentRoute()->getName() == 'ward.publications' ? 'active' : '' }}">
+            <a href="{{ route('ward.downloads', $ward) }}"
+                class="{{ Route::getCurrentRoute()->getName() == 'ward.downloads' ? 'active' : '' }}">
                 <div class="work-description tab-active"><i class="fa fa-download"></i> प्रकाशनहरु/डाउनलोडस्</div>
             </a>
-            <a href="{{ route('ward.media', $ward) }}"
-                class="{{ Route::getCurrentRoute()->getName() == 'ward.media' ? 'active' : '' }}">
+
+               <a href="{{ route('ward.secretary', $ward) }}"
+                class="{{ Route::getCurrentRoute()->getName() == 'ward.secretary' ? 'active' : '' }}">
+                <div class="work-description"><i class="fa fa-user"></i>वडा सचिव </div>
+            </a>
+            <a href="{{ route('ward.audio' , $ward) }}"
+                class="{{ Route::getCurrentRoute()->getName() == 'ward.audio' ? 'active' : '' }}">
                 <div class="work-description"><i class="fa fa-headphones"></i> अडियो</div>
             </a>
             <a href="{{ route('ward.video', $ward) }}"
                 class="{{ Route::getCurrentRoute()->getName() == 'ward.video' ? 'active' : '' }}">
                 <div class="work-description"><i class="fa fa-film"></i> भिडियो</div>
             </a>
-            {{-- <a href="{{ route('ward.hod', $ward) }}"
-                class="{{ Route::getCurrentRoute()->getName() == 'ward.hod' ? 'active' : '' }}">
-                <div class="work-description"><i class="fa fa-user"></i> शाखा प्रमुख</div>
-            </a> --}}
+         
         </div>
     </div>
 

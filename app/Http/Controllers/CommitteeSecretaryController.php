@@ -152,7 +152,7 @@ class CommitteeSecretaryController extends Controller
                 'user_id' => $user->id,
                 'email' => $user->email,
             ]);
-        }else{
+        } else {
             $employee = Employee::find($request->employee_id);
             $employee->user->assignRole('sachib');
         }
@@ -203,25 +203,25 @@ class CommitteeSecretaryController extends Controller
     {
         $employee = Employee::find($committeeSecretary->employee_id);
 
-     
-       $count= $employee->committeeSecretaries->count();
+
+        $count = $employee->committeeSecretaries->count();
 
         if ($employee && $employee->user_id) {
-            $user=User::query()->where('id', $employee->user_id)->first();
+            $user = User::query()->where('id', $employee->user_id)->first();
 
-            
-            if($count==1){
+
+            if ($count == 1) {
                 if ($user->hasRole('sachib')) {
-                  
+
                     $user->removeRole('sachib');
                 }
-              if(!$employee->department){
-                $employee->update([
-                    'user_id' => null
-                ]);
+                if (!$employee->department) {
+                    $employee->update([
+                        'user_id' => null
+                    ]);
 
-                $user->delete();
-              }
+                    $user->delete();
+                }
             }
         }
         session()->forget('current_committee_secretary');

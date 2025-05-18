@@ -4,7 +4,7 @@
     @if ($updateMode)
         @method('PUT')
     @endif
-    {{-- <input type="text" name="downloadable_type" value="{{ $downloadableType }}"> --}}
+    <input type="hidden" name="downloadable_type" value="{{ $downloadableType }}">
     <input type="hidden" name="downloadable_id" class="hidden" value="{{ $attachToModel->id }}">
 
     {{-- @if ($redirectTo)

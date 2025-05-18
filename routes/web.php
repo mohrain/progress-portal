@@ -66,6 +66,9 @@ use App\Http\Controllers\PrimaryCategoryMenuController;
 use App\Http\Controllers\ProvincialAssemblyLibraryController;
 use App\Http\Controllers\RankController;
 use App\Http\Controllers\WardController;
+use App\Http\Controllers\WardDownloadController;
+use App\Http\Controllers\WardMediaController;
+use App\Http\Controllers\WardSecretaryController;
 use App\Models\Rank;
 use App\Post;
 
@@ -546,20 +549,34 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::get('wards/{ward}/notices/create', [WardController::class, 'noticesCreate'])->name('ward.notices.create');
     Route::post('wards/{ward}/notices/store', [WardController::class, 'storeNotices'])->name('ward.notices.store');
     Route::get('wards/{ward}/members', [WardController::class, 'members'])->name('ward.members');
+    Route::get('wards/{ward}/secretary', [WardSecretaryController::class, 'wardSecratary'])->name('ward.secretary');
+    Route::post('wards/{ward}/secretary/store', [WardSecretaryController::class, 'StoreWardSecretary'])->name('ward.secretary.store');
+    Route::delete('wards/{ward}/secretary/delete', [WardSecretaryController::class, 'destroy'])->name('ward.secretary.destroy');
 
-    Route::get('wards/{slug}/activities', [WardController::class, 'activity'])->name('ward.activity');
-    Route::get('wards/{slug}/activities/create', [WardController::class, 'activityCreate'])->name('ward.activity.create');
+    Route::get('wards/{ward}/downloads', [WardDownloadController::class, 'downloads'])->name('ward.downloads');
+    Route::get('wards/{ward}/downloads/create', [WardDownloadController::class, 'downloadsCreate'])->name('ward.downloads.create');
+    Route::get('wards/{ward}/{id}/downloads/edit', [WardDownloadController::class, 'downloadsEdit'])->name('ward.downloads.edit');
+    Route::put('wards/{ward}/{id}/downloads/update', [WardDownloadController::class, 'downloadsUpdate'])->name('ward.downloads.update');
 
-    Route::get('wards/{slug}/publications', [WardController::class, 'publications'])->name('ward.publications');
-    Route::get('wards/{slug}/publications/create', [WardController::class, 'publicationsCreate'])->name('ward.publications.create');
-    Route::get('wards/{slug}/{id}/publications/edit', [WardController::class, 'publicationsedit'])->name('ward.publications.edit');
-    Route::put('wards/{slug}/{id}/publications/update', [WardController::class, 'publicationsupdate'])->name('ward.publications.update');
+    Route::get('wards/{ward}/audio', [WardController::class, 'media'])->name('ward.media');
+    Route::get('wards/{ward}/video', [WardController::class, 'video'])->name('ward.video');
 
-    Route::get('wards/{slug}/audio', [WardController::class, 'media'])->name('ward.media');
-    Route::get('wards/{slug}/video', [WardController::class, 'video'])->name('ward.video');
+    Route::get('wards/{ward}/audio', [WardMediaController::class, 'audio'])->name('ward.audio');
+    Route::get('wards/{ward}/audio/create', [WardMediaController::class, 'audioCreate'])->name('ward.audio.create');
+    Route::post('wards/{ward}/audio/store', [WardMediaController::class, 'audioStore'])->name('ward.audio.store');
+    Route::get('wards/{ward}/audio/{audio}', [WardMediaController::class, 'audioEdit'])->name('ward.audio.edit');
+    Route::put('wards/{ward}/audio/{audio}/update', [WardMediaController::class, 'audioUpdate'])->name('ward.audio.update');
+    Route::delete('wards/audio/{audio}/delete', [WardMediaController::class, 'audioDelete'])->name('ward.audio.delete');
 
-    Route::get('wards/branch', [WardController::class, 'branch'])->name('ward.branch');
-    Route::get('sub-wards/{wardSlug}', [WardController::class, 'subward'])->name('ward.subward');
+    Route::get('wards/{ward}/video', [WardMediaController::class, 'index'])->name('ward.video');
+    Route::get('wards/{ward}/video/create', [WardMediaController::class, 'videoCreate'])->name('ward.video.create');
+    Route::post('wards/{ward}/video/store', [WardMediaController::class, 'videoStore'])->name('ward.video.store');
+    Route::get('wards/{ward}/video/{video}', [WardMediaController::class, 'videoEdit'])->name('ward.video.edit');
+    Route::put('wards/{ward}/video/{video}/update', [WardMediaController::class, 'videoUpdate'])->name('ward.video.update');
+    Route::delete('wards/video/{video}/delete', [WardMediaController::class, 'videoDelete'])->name('ward.video.delete');
+
+    // Route::get('wards/branch', [WardController::class, 'branch'])->name('ward.branch');
+    // Route::get('sub-wards/{wardSlug}', [WardController::class, 'subward'])->name('ward.subward');
 });
 Route::get('departments', [DepartmentController::class, 'index'])->name('department.index');
 Route::post('departments', [DepartmentController::class, 'store'])->name('department.store');

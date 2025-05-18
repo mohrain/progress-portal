@@ -22,11 +22,26 @@
             {!!$ward->work_duty!!}
            </div>
         </div>
+        
+        <div class="mt-3">
+            <h5 class="sub-heading-arrow">सूचना र प्रकासन</h5>
+          
+            <div class="row">
+                <div class="col-md">
+ <x-news-front-view :news="$news"/>
+                </div>
+                 <div class="col-md">
+
+                    <x-download-view :downloads="$downloads"/>
+                </div>
+            </div>
+
+        </div>
 
     </div>
     <div class="col-md-3">
         <x-members-view :members="$members"/>
-        <x-news-front-view :news="$news"/>
+       
     </div>
 
 

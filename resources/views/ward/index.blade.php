@@ -14,13 +14,15 @@
                 @if($ward->id)
                 @method('put')
                 @endif
-                <div class="form-group">
-                    <label for="input-name">वडाको नाम</label>
-                    <input type="text" id="input-name" name="name" class="form-control font-roboto" autocomplete="off" value="{{ old('name', $ward->name) }}">
-                </div>
-                <div class="form-group">
-                    <label for="input-name-en">वडाको नाम (In English)</label>
-                    <input type="text" id="input-name-en" name="name_en" class="form-control font-roboto" autocomplete="off" value="{{ old('name_en', $ward->name_en) }}">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="input-name">वडाको नाम</label>
+                        <input type="text" id="input-name" name="name" class="form-control font-roboto" autocomplete="off" value="{{ old('name', $ward->name) }}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="input-name-en">वडा नं.</label>
+                        <input type="number" id="input-name-en" name="name_en" class="form-control font-roboto" autocomplete="off" value="{{ old('name_en', $ward->name_en) }}">
+                    </div>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success z-depth-0">{{ $ward->id ? 'अपडेट गर्नुहोस्' : 'सेभ गर्नुहोस्'}}</button>
@@ -49,8 +51,8 @@
                     @forelse ($wards as $ward)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td class="font-roboto">{{ $ward->name }}</td>
-                        <td class="font-roboto">{{ $ward->name_en }}</td>
+                        <td class="font-roboto">वडा नं. {{ $ward->name }}</td>
+                        <td class="font-roboto">ward no.{{ $ward->name_en }}</td>
                         <td>
                             <a class="action-btn text-secondary" href="{{ route('ward.show', $ward) }}"><i class="far fa-eye"></i></a>
                             <a class="action-btn text-primary" href="{{ route('ward.edit', $ward) }}"><i class="far fa-edit"></i></a>

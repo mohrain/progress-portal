@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\WardRequest;
+use App\Models\Employee;
 use App\Models\Member;
 use App\Post;
+use App\User;
 use App\Ward;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Role;
 
 class WardController extends Controller
 {
@@ -137,7 +141,9 @@ class WardController extends Controller
             ->latest()
             ->take(5)->get();
 
-        return view('ward.ward-view-front', compact('ward', 'members', 'news'));
+        $downloads = $ward->downloads()->take(5)->get();
+
+        return view('ward.ward-view-front', compact('ward', 'members', 'news', 'downloads'));
     }
 
     public function notices(Ward $ward)

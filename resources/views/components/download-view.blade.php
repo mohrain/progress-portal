@@ -10,62 +10,48 @@ $badgeColors = [
 ];
 @endphp
 <div class="bg-theme-color-blue py-2 text-center mb-3 rounded-1">
-    सूचनाहरु
+    प्रकाशनहरु 
 </div>
 
 <ul class="posts-list">
-    @forelse ($news as $n)
-        @php
-            $dt = new \DateTime($n->time, new \DateTimeZone('Asia/Kathmandu'));
-            $timeFormatted = $dt->format('g:i');
-            $timePeriod = $dt->format('a') === 'am' ? 'बिहानको' : 'दिनको';
-        @endphp
+    @forelse ($downloads as $n)
 
-        <li class="post-item position-relative shadow-sm">
-            <div class="post-content">
+    <li class="post-item  position-relative shadow-sm">
+        <div class="post-content ">
+        
+            <h6 class=" ">
+                <a href="{{ route('posts.show', $n) }}" class="text-dark text-decoration-none">
+                    {{ $n->title }}
+                </a>
+            </h6>
+            <div class="d-flex  justify-content-between gap-3 align-items-center small text-muted">
                 <div>
-                    @foreach ($n->postCategories as $category)
-                        <small class="meeting-type-tag {{ $badgeColors[$category->id] ?? 'bg-light text-dark border' }}">
-                            {{ $category->name ?? 'मिटिङ प्रकार छैन' }}
-                        </small>
-                    @endforeach
+
+                    <i class="bi bi-clock me-1"></i>
+                    <span>{{ \Carbon\Carbon::parse($n->created_at)->diffForHumans() }}</span>
+
+                    {{-- <span id="date_bs-{{ $n->id }}"></span> --}}
                 </div>
 
-                <h6 class="mt-3">
-                    <a href="{{ route('posts.show', $n) }}" class="text-dark text-decoration-none">
-                        {{ $n->title }}
-                    </a>
-                </h6>
-
-                <div class="d-flex flex-wrap gap-3 align-items-center small text-muted">
-                    <div>
-                        <i class="bi bi-clock me-1"></i>
-                        <span>{{ \Carbon\Carbon::parse($n->created_at)->diffForHumans() }}</span>
-                    </div>
-
-                    {{-- If needed, show event time --}}
-                    {{-- 
-                    <div>
+                {{-- <div>
                         <i class="bi bi-clock me-1"></i>
                         {{ $timePeriod }} {{ $timeFormatted }} बजे
-                    </div> 
-                    --}}
+            </div> --}}
 
-                    @if ($n->document)
-                        <div>
-                            <a href="{{ asset('/storage/' . $n->document) }}" target="_blank" class="text-muted">
-                                <i class="bi bi-download fw-bold"></i>
-                            </a>
-                        </div>
-                    @endif
-                </div>
+            @if ($n->fileUrl())
+            <div>
+                <a href="{{$n->fileUrl() }}" target="_blank" class="text-muted">
+                    <i class="bi bi-download fw-bold fs-5 text-danger" ></i>
+                </a>
             </div>
-        </li>
+            @endif
+        </div>
+        </div>
+    </li>
     @empty
-        <li class="text-muted">सूचना फेला परेन।</li>
+    <li class="text-muted"> फेला परेन।</li>
     @endforelse
 </ul>
-
 
 
 

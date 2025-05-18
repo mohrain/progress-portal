@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\User;
+use App\Ward;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
@@ -88,5 +89,10 @@ class Employee extends Model
     public function rank()
     {
         return $this->belongsTo(Rank::class);
+    }
+
+    public function ward()
+    {
+        return $this->hasOne(Ward::class);
     }
 }

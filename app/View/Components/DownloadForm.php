@@ -28,15 +28,13 @@ class DownloadForm extends Component
      */
     public function render()
     {
-        $downloadableType = $this->attachToModel
-            ? get_class($this->attachToModel)
-            : null;
+        $downloadableType = $this->attachToModel ? get_class($this->attachToModel) : null;
+        $downloadableId = $this->attachToModel?->getKey() ?? null;
 
-        $downloadId = $this->attachToModel?->getKey() ?? null;
 
         return view('components.download-form', [
             'downloadableType' => $downloadableType,
-            'downloadableId' => $downloadId,
+            'downloadableId' => $downloadableId,
             'updateMode' => $this->download->exists,
         ]);
     }

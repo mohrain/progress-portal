@@ -36,15 +36,15 @@ class Committee extends Model
         return $this->morphMany(Activity::class, 'activitable')->latest();
     }
 
-    // public function downloads(): MorphMany
-    // {
-    //     return $this->morphMany(Download::class, 'downloadable')->latest();
-    // }
-
-    public function downloads()
+    public function downloads(): MorphMany
     {
-        return $this->hasMany(Download::class, 'downloadable_id', 'id')->latest();
+        return $this->morphMany(Download::class, 'downloadable')->latest();
     }
+
+    // public function downloads()
+    // {
+    //     return $this->hasMany(Download::class, 'downloadable_id', 'id')->latest();
+    // }
     public function members()
     {
         return $this->hasMany(CommitteeMember::class);
