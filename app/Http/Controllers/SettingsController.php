@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SettingsController extends Controller
 {
@@ -44,10 +45,28 @@ class SettingsController extends Controller
         }
 
         $request->validate([
-            // 'app_name' => 'required'
+            // Add validations for other settings here
         ]);
 
-        settings()->set($request->except('_token'));
+        // Handle logo upload
+        if ($request->hasFile('logo')) {
+
+            $newLogo = $request->file('logo');
+
+            // Delete old logo if exists
+            $oldLogo = settings()->get('logo');
+            if ($oldLogo && Storage::exists($oldLogo)) {
+                Storage::delete($oldLogo);
+            }
+
+            // Store new logo
+            $path = $newLogo->store('logo'); // stored in storage/app/logo
+            settings()->set('logo', $path);
+        }
+
+        // Store other settings (excluding token and file input)
+        settings()->set($request->except('_token', 'logo'));
+
         return redirect()->back()->with('success', 'Settings have been saved');
     }
 }

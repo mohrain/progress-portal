@@ -13,7 +13,7 @@
 <div class="container">
     <div class="my-4"></div>
 
-    <form action="{{ route('settings.sync') }}" method="POST" class="form font-noto">
+    <form action="{{ route('settings.sync') }}" method="POST" enctype="multipart/form-data" class="form font-noto">
         @csrf
 
         @component('settings.group', [
@@ -58,6 +58,13 @@
             'label' => 'Office Name',
             'name' => 'office_name',
             'description' => 'The tagline will be used in letter head below office name',
+            ])
+            @endcomponent
+              <div class="my-3"></div>
+             @component('settings.input', [
+            'label' => 'Office Solagan',
+            'name' => 'sologan',
+            'description' => 'The tagline will be used in the top of website',
             ])
             @endcomponent
             <div class="my-3"></div>
@@ -110,7 +117,19 @@
             'description' => '',
             ])
             @endcomponent
-
+         
+     <div class="my-3">
+    <label for="logo" class="font-weight-bolder mdb-color-text mb-0">Logo</label>
+    <input type="file" name="logo" id="logo" class="form-control" accept="image/*" onchange="previewLogo(event)">
+    
+    {{-- Image Preview --}}
+ @if (settings()->get('logo'))
+    <div class="mt-2">
+        <img id="logo-preview" src="{{ asset('/storage/'.settings()->get('logo')) }}" class="border" alt="Logo Preview" style="max-width: 100px; max-height: 100px;">
+    </div>
+     
+ @endif
+</div>
             <div class="my-3"></div>
             @component('settings.input', [
             'label' => 'Maps (Google Maps)',
@@ -232,6 +251,8 @@
         ])
         @endcomponent
         @endcomponent
+
+
 
         <div class="form-group">
             <button type="submit" class="btn btn-indigo font-17px font-noto z-depth-0">Save All</button>

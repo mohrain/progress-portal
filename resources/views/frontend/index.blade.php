@@ -153,7 +153,7 @@
 <div style="">
     <div class="container py-4">
         <div class="row  py-5 ">
-            <div class="col-md-7 ">
+            <div class="col-md-12 ">
                 {{-- <h5 class="fw-bolder">सेवाहरु</h5>
                     <h3 class="font-nato color-secondary fw-bold mb-3">अनलाईन सेवाहरु</h3> --}}
                     
@@ -165,11 +165,11 @@
                     </div>
                 </div>
         
-                <div class="col-md-5 ">
+                {{-- <div class="col-md-5 ">
     
                     <news-list base-url="/api/primary-menus" />
         
-                </div>
+                </div> --}}
         </div>
     </div>
 </div>
@@ -180,11 +180,25 @@
             <h5 class="sub-heading">वडा</h5>
             <h3 class="main-heading">पालिकाको वडाहरु</h3>
         
-         <div class="py-5">
-            <x-ward-front-view />
-         </div>
+            <div class="py-5">
+             <x-ward-front-view />
+            </div>
         </div>
 
+    </div>
+</div>
+
+<div class=" ">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-6">
+             <news-list base-url="/api/primary-menus" />
+        </div>
+      </div>
+
+        {{-- <div id="app">
+            <x-frontend.gallery />
+            </div> --}}
     </div>
 </div>
 
