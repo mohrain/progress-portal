@@ -18,19 +18,19 @@
                 <div class="work-description"><i class="fa fa-flag"></i> सूचनाहरु</div>
             </a>
             <a href="{{ route('ward.members', $ward) }}"
-            class="{{ Route::getCurrentRoute()->getName() == 'ward.members' ? 'active' : '' }}">
-            <div class="work-description"><i class="fa fa-users"></i> जनप्रतिनिधि</div>
-        </a>
-            {{-- <a href="{{ route('ward.activity', $ward) }}"
-                class="{{ Route::getCurrentRoute()->getName() == 'ward.activity' ? 'active' : '' }}">
-                <div class="work-description"><i class="fa fa-rss"></i> गतिविधिहरु</div>
-            </a> --}}
+                class="{{ Route::getCurrentRoute()->getName() == 'ward.members' ? 'active' : '' }}">
+                <div class="work-description"><i class="fa fa-users"></i> जनप्रतिनिधि</div>
+            </a>
+            <a href="{{ route('ward.employees', $ward) }}"
+            class="{{ Route::getCurrentRoute()->getName() == 'ward.employees' ? 'active' : '' }}">
+            <div class="work-description"><i class="fa fa-rss"></i>कर्मचारीहरु </div>
+            </a>
             <a href="{{ route('ward.downloads', $ward) }}"
                 class="{{ Route::getCurrentRoute()->getName() == 'ward.downloads' ? 'active' : '' }}">
                 <div class="work-description tab-active"><i class="fa fa-download"></i> प्रकाशनहरु/डाउनलोडस्</div>
             </a>
 
-               <a href="{{ route('ward.secretary', $ward) }}"
+            <a href="{{ route('ward.secretary', $ward) }}"
                 class="{{ Route::getCurrentRoute()->getName() == 'ward.secretary' ? 'active' : '' }}">
                 <div class="work-description"><i class="fa fa-user"></i>वडा सचिव </div>
             </a>
@@ -42,13 +42,13 @@
                 class="{{ Route::getCurrentRoute()->getName() == 'ward.video' ? 'active' : '' }}">
                 <div class="work-description"><i class="fa fa-film"></i> भिडियो</div>
             </a>
-         
+
         </div>
     </div>
 
-   <div>
-    @yield('wardContent')
-   </div>
+    <div>
+        @yield('wardContent')
+    </div>
 
 </div>
 @endsection

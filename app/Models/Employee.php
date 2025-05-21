@@ -91,8 +91,18 @@ class Employee extends Model
         return $this->belongsTo(Rank::class);
     }
 
+    // public function ward()
+    // {
+    //     return $this->hasOne(Ward::class);
+    // }
+
+    public function wardEmployee()
+    {
+        return $this->hasOne(WardEmployee::class);
+    }
+
     public function ward()
     {
-        return $this->hasOne(Ward::class);
+        return $this->hasOneThrough(Ward::class, WardEmployee::class, 'employee_id', 'id', 'id', 'ward_id');
     }
 }

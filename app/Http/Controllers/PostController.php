@@ -181,13 +181,17 @@ class PostController extends Controller
     {
         $posts = new Post();
 
+        $from_ad = bs_to_ad($request->created_date_from);
+        $to_ad = bs_to_ad($request->created_date_to);
+
+
         $post_category_id = $postCategory->id;
 
-        $from = $request->created_date_from . ' 01:00:00';
+        $from = $from_ad . ' 01:00:00';
         $from = new DateTime($from);
         $from = $from->format('Y-m-d H:i:s');
 
-        $to = $request->created_date_to . ' 24:00:00';
+        $to = $to_ad . ' 24:00:00';
         $to = new DateTime($to);
         $to = $to->format('Y-m-d H:i:s');
 

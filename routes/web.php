@@ -67,10 +67,12 @@ use App\Http\Controllers\ProvincialAssemblyLibraryController;
 use App\Http\Controllers\RankController;
 use App\Http\Controllers\WardController;
 use App\Http\Controllers\WardDownloadController;
+use App\Http\Controllers\WardEmployeeController;
 use App\Http\Controllers\WardMediaController;
 use App\Http\Controllers\WardSecretaryController;
 use App\Models\Rank;
 use App\Post;
+use App\Ward;
 
 Route::get("notify", function () {
     Route::get('/', function () {
@@ -126,6 +128,7 @@ Route::get('apply', [FrontendController::class, 'showApplicationForm']);
 Route::post('suchi', [SuchiController::class, 'store']);
 Route::get('application-submitted/{suchi}', [FrontendController::class, 'applicationSubmitted']);
 Route::get('token-search', [FrontendController::class, 'tokenSearch']);
+// Route::get('ward/{ward}/front', [WardController::class, 'wardFront'])->name('ward.front')->middleware('guest');
 
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
@@ -575,9 +578,19 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
     Route::put('wards/{ward}/video/{video}/update', [WardMediaController::class, 'videoUpdate'])->name('ward.video.update');
     Route::delete('wards/video/{video}/delete', [WardMediaController::class, 'videoDelete'])->name('ward.video.delete');
 
+
+    // ward Employees
+
+    Route::get('wards/{ward}/employees', [WardEmployeeController::class, 'index'])->name('ward.employees');
+    Route::post('wards/{ward}/employees/store', [WardEmployeeController::class, 'store'])->name('ward.employees.store');
+    Route::get('wards/{ward}/employees/{wardEmployee}/edit', [WardEmployeeController::class, 'edit'])->name('ward.employees.edit');
+    Route::delete('wards/{ward}/employees/destroy', [WardEmployeeController::class, 'destroy'])->name('ward.employees.destroy');
+
     // Route::get('wards/branch', [WardController::class, 'branch'])->name('ward.branch');
     // Route::get('sub-wards/{wardSlug}', [WardController::class, 'subward'])->name('ward.subward');
 });
+
+Route::get('ward/{ward}/front', [WardController::class, 'wardFront'])->name('ward.front');
 Route::get('departments', [DepartmentController::class, 'index'])->name('department.index');
 Route::post('departments', [DepartmentController::class, 'store'])->name('department.store');
 Route::get('all-employees', [DepartmentController::class, 'allStaffs'])->name('allStaff');

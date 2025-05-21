@@ -16,11 +16,11 @@ use Spatie\Permission\Models\Role;
 
 class WardController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('role:super-admin|admin');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    //     $this->middleware('role:super-admin|admin');
+    // }
 
     /**
      * Display a listing of the resource.
@@ -146,6 +146,10 @@ class WardController extends Controller
         return view('ward.ward-view-front', compact('ward', 'members', 'news', 'downloads'));
     }
 
+    public function wardFrontend($ward)
+    {
+        return "yes";
+    }
     public function notices(Ward $ward)
     {
         $posts = $ward->posts()->with('postCategories')
