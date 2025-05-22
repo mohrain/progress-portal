@@ -1,4 +1,4 @@
-<div class="bearer-container">
+<div class="">
     <div class="bg-theme-color-blue py-2 text-center mb-3 rounded-1">
         जनप्रतिनिधिहरु
     </div>

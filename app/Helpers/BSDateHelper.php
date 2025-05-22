@@ -88,7 +88,7 @@ class BSDateHelper
         79 => array(2079, 31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30),
         80 => array(2080, 31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 30),
         81 => array(2081, 31, 32, 31, 32, 31, 30, 30, 30, 29, 30, 30, 30),
-        82 => array(2082, 30, 32, 31, 32, 31, 30, 30, 30, 29, 30, 30, 30),
+        82 => array(2082, 31, 31, 32, 31, 31, 31, 30, 29, 30, 29, 30, 30),
         83 => array(2083, 31, 31, 32, 31, 31, 30, 30, 30, 29, 30, 30, 30),
         84 => array(2084, 31, 31, 32, 31, 31, 30, 30, 30, 29, 30, 30, 30),
         85 => array(2085, 31, 32, 31, 32, 30, 31, 30, 30, 29, 30, 30, 30),
@@ -269,10 +269,10 @@ class BSDateHelper
     private static  function _is_in_range_nep($yy, $mm, $dd)
     {
         if ($yy < 2000 || $yy > 2089) {
-            return 'Supported only between 2000-2089. Received year: '. $yy;
+            return 'Supported only between 2000-2089. Received year: ' . $yy;
         }
         if ($mm < 1 || $mm > 12) {
-            return 'Error! month value can be between 1-12 only. Received month: '. $mm;
+            return 'Error! month value can be between 1-12 only. Received month: ' . $mm;
         }
         if ($dd < 1 || $dd > 32) {
             return 'Error! day value can be between 1-31 only. Received day: ' . $dd;

@@ -7,8 +7,7 @@
     <a href="https://revenue.fcgo.gov.np" class="btn btn-warning" target="_blank">अनलाईन कर भुक्तानी</a>
 
 </div>
-<div class=" text-theme-color kalimati-font" style="font-size: 20px; font-weight: 600;">
-             
+<div class=" text-theme-color kalimati-font" style="font-size: 20px; font-weight: 600;">     
                "{{ settings('sologan') }}"
             </div>
 <div>
@@ -79,7 +78,8 @@
         let currentDate = NepaliFunctions.GetCurrentBsDate('YYYY-MM-DD');
         let bsYear = NepaliFunctions.GetCurrentBsYear();
         let bsMonth = NepaliFunctions.GetBsMonthInUnicode(NepaliFunctions.GetCurrentBsMonth() - 1);
-        let bsDay = NepaliFunctions.GetCurrentBsDay();
+        // let bsDay = NepaliFunctions.GetCurrentBsDay();
+          let bsDay = {{current_day()}};
         let bsDate = NepaliFunctions.GetBsFullDate(currentDate, true, "YYYY-MM-DD");
         let bsWeek = NepaliFunctions.GetBsFullDayInUnicode(currentDate, 'YYYY-MM-DD');
 

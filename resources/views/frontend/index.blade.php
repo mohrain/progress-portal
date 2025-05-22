@@ -153,7 +153,7 @@
 <div style="">
     <div class="container py-4">
         <div class="row  py-5 ">
-            <div class="col-md-12 ">
+            <div class="col-md-12 pb-5 ">
                 {{-- <h5 class="fw-bolder">सेवाहरु</h5>
                     <h3 class="font-nato color-secondary fw-bold mb-3">अनलाईन सेवाहरु</h3> --}}
                     

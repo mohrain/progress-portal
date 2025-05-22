@@ -142,14 +142,11 @@ class WardController extends Controller
             ->take(5)->get();
 
         $downloads = $ward->downloads()->take(5)->get();
+        $employees = $ward->employees()->with('wardEmployee')->get();
 
-        return view('ward.ward-view-front', compact('ward', 'members', 'news', 'downloads'));
+        return view('ward.ward-view-front', compact('ward', 'members', 'news', 'downloads', 'employees'));
     }
 
-    public function wardFrontend($ward)
-    {
-        return "yes";
-    }
     public function notices(Ward $ward)
     {
         $posts = $ward->posts()->with('postCategories')

@@ -1,11 +1,3 @@
-
-
-{{-- <a href="#" class="cta-button v-blue mb-3">
-    <div class="icon">
-        <i class="bi bi-calendar3"></i>
-    </div>
-    <div class="cta-title">आजको संसद</div>
-</a> --}}
 <a class="cta-button v-red mb-3" href="{{route('frontend.live')}}">
     <div class="icon">
         <i class="bi bi-youtube"></i>
@@ -43,7 +35,7 @@
         <i class="bi bi-book"></i>
     </div>
     <div class="cta-title">
-        कार्यपालिका पुस्तकालय
+        पुस्तकालय
     </div>
 </a>
 
@@ -108,7 +100,6 @@
         background-color: rgb(255, 199, 231);
         color: #FF0898;
     }
-
 </style>
 @endpush
 
