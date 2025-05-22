@@ -159,7 +159,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered" style="white-space: nowrap;">
                             <thead>
-                                <th>sn</th>
+                                <th>क्र.सं</th>
                                 <th>फोटो</th>
                                 <th>नाम</th>
                                 <th>पद</th>

@@ -12,27 +12,41 @@
 
         <div class="box__body">
 
-            <form action="{{route('ward.employees.store',$ward)}}" method="POST" id="myForm"
-                enctype="multipart/form-data">
-                @csrf
-                <div class="row">
-                    <div class="col-md-4 form-group">
-                        <x-employee-select-component />
-                    </div>
-                    <div class="col-md-4 form-group">
-                        <label for="">भूमिका </label>
-                        <input type="text" class="form-control" value="{{ old('position', $wardEmployee->position) }}"
-                            name="position">
-                    </div>
+       <form action="{{ isset($wardEmployee->id) ? route('ward.employees.update', [$ward, $wardEmployee]) : route('ward.employees.store', $ward) }}"
+      method="POST"
+      id="myForm"
+      enctype="multipart/form-data">
+    @csrf
 
+    @if(isset($wardEmployee->id))
+        {{-- If editing, use PUT method --}}
+        @method('PUT')
+    @endif
 
-                    <div class="col-md-4">
-                        <div class="mt-4 ">
-                            <button type="submit" class="btn btn-primary">{{ 'सुरक्षित' }}</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+    <div class="row">
+        <div class="col-md-4 form-group">
+            {{-- Pass selected employee if editing --}}
+            <x-employee-select-component :selected="old('employee_id', $wardEmployee->employee_id ?? null)" />
+        </div>
+
+        <div class="col-md-4 form-group">
+            <label for="">भूमिका</label>
+            <input type="text"
+                   class="form-control"
+                   name="position"
+                   value="{{ old('position', $wardEmployee->position ?? '') }}">
+        </div>
+
+        <div class="col-md-4">
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">
+                    {{ isset($wardEmployee->id) ? 'अपडेट गर्नुहोस्' : 'सुरक्षित गर्नुहोस्' }}
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+
 
         </div>
 
@@ -161,7 +175,7 @@
                     <div class="table-responsive">
                         <table class="table table-bordered" style="white-space: nowrap;">
                             <thead>
-                                <th>sn</th>
+                                <th>क्र.सं</th>
                                 <th>फोटो</th>
                                 <th>नाम</th>
                                 <th>पद</th>
@@ -213,7 +227,7 @@
                                                 <a class="dropdown-item "
                                                     href="{{ route('ward.employees.edit',[$ward, $employee->wardEmployee->id]) }}">Edit</a>
 
-                                                <form action="{{ route('ward.employees.destroy',$ward, $employee->wardEmployee->id) }}"
+                                                <form action="{{ route('ward.employees.destroy', $employee->wardEmployee) }}"
                                                     method="post">
                                                     @method('delete')
                                                     @csrf

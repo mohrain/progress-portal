@@ -583,8 +583,9 @@ Route::group(['prefix' => 'backend', 'middleware' => 'auth'], function () {
 
     Route::get('wards/{ward}/employees', [WardEmployeeController::class, 'index'])->name('ward.employees');
     Route::post('wards/{ward}/employees/store', [WardEmployeeController::class, 'store'])->name('ward.employees.store');
+    Route::put('wards/{wardEmployee}/update', [WardEmployeeController::class, 'update'])->name('ward.employees.update');
     Route::get('wards/{ward}/employees/{wardEmployee}/edit', [WardEmployeeController::class, 'edit'])->name('ward.employees.edit');
-    Route::delete('wards/{ward}/employees/destroy', [WardEmployeeController::class, 'destroy'])->name('ward.employees.destroy');
+    Route::delete('wards/{wardEmployee}/employees/destroy', [WardEmployeeController::class, 'destroy'])->name('ward.employees.destroy');
 
     // Route::get('wards/branch', [WardController::class, 'branch'])->name('ward.branch');
     // Route::get('sub-wards/{wardSlug}', [WardController::class, 'subward'])->name('ward.subward');

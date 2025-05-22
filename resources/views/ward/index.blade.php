@@ -51,7 +51,7 @@
                     @forelse ($wards as $ward)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td class="font-roboto">वडा नं. {{ $ward->name }}</td>
+                        <td class="font-roboto"><a href="{{ route('ward.show', $ward) }}">वडा नं. {{ $ward->name }}</a></td>
                         <td class="font-roboto">ward no.{{ $ward->name_en }}</td>
                         <td>
                             <a class="action-btn text-secondary" href="{{ route('ward.show', $ward) }}"><i class="far fa-eye"></i></a>

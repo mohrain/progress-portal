@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use App\Models\WardEmployee;
 use App\Ward;
 use Illuminate\Http\Request;
@@ -15,9 +16,14 @@ class WardEmployeeController extends Controller
         $employees = $ward->employees()->with('wardEmployee')
             ->latest()->get();
 
+        $wardEmployee = new WardEmployee();
 
 
-        return view('ward.employees.emp-index', compact('ward', 'employees'));
+        return view('ward.employees.emp-index', [
+            'ward' => $ward,
+            'employees' => $employees,
+            'wardEmployee' => $wardEmployee,
+        ]);
     }
 
     public function store(Request $request, Ward $ward)
@@ -44,14 +50,32 @@ class WardEmployeeController extends Controller
 
         return redirect()->back()->with('success', 'कर्मचारी थप गर्न सफल');
     }
+
+
+    public function update(Request $request, WardEmployee $wardEmployee)
+    {
+        $request->validate([
+            'employee_id' => 'required|exists:employees,id',
+            'position' => 'nullable|string|max:255',
+        ]);
+
+        $wardEmployee->update([
+            'employee_id' => $request->employee_id,
+            'position' => $request->position,
+        ]);
+
+        return redirect()->back()->with('success', 'कर्मचारी थप गर्न सफल');
+    }
     public function edit(Ward $ward, WardEmployee $wardEmployee)
     {
         $employees = $ward->employees()->with('wardEmployee')
             ->latest()->get();
 
-
-
-        return view('ward.employees.emp-index', compact('ward', 'employees', 'wardEmployee',));
+        return view('ward.employees.emp-index', [
+            'ward' => $ward,
+            'employees' => $employees,
+            'wardEmployee' => $wardEmployee
+        ]);
     }
 
     public function destroy(WardEmployee $wardEmployee)
