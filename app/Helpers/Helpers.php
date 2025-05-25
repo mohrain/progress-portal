@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use App\Services\FiscalYearService;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 if (!function_exists('setActive')) {
@@ -75,6 +76,21 @@ function active_fiscal_year()
 {
     return session()->get('active_fiscal_year');
 }
+if (!function_exists('user_ward')) {
+    function user_ward()
+    {
+        return Auth::user()?->employee?->secretaryWard;
+    }
+}
+
+if (!function_exists('current_month')) {
+    function current_month()
+    {
+        $month = ad_to_bs(now()->format('Y-m-d'));
+        $month = Carbon::parse($month);
+        return $month->format('m');
+    }
+}
 
 
 if (!function_exists('slashDateFormat')) {
@@ -126,8 +142,9 @@ if (!function_exists('is_app')) {
     }
 }
 
-function current_day(){
-    $day=ad_to_bs(now()->format('Y-m-d'));
-    $day=Carbon::parse($day);
+function current_day()
+{
+    $day = ad_to_bs(now()->format('Y-m-d'));
+    $day = Carbon::parse($day);
     return $day->format('d');
 }

@@ -399,6 +399,61 @@ $department = Auth::user()->employee->department; // Fallback again
 </li>
 @endhasanyrole
 
+
+
+@hasanyrole('ward-secretary')
+@php
+    $ward = Auth::user()->employee->secretaryWard ;
+
+    // if (!$ward) {
+    //     $ward = Auth::user()->employee->ward; // Fallback again
+    // }
+   
+@endphp
+
+{{-- <div>
+    <div class=" text-center rounded">
+        <div class="">
+            <div class="mt-2">
+                <h3 class="text-center">वडा नं. {{ $ward->name }}</h3>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
+<div class="sidebar-menu {{ setActive('ward.show',$ward) }}">
+    <a href="{{ route('ward.show', $ward) }}" aria-expanded="false"
+        class="nav-link">
+        <span class="text-success"><i class="fa fa-info-circle pr-2"></i></span>वडाको विवरण
+    </a>
+</div>
+
+<div class="sidebar-menu  {{ setActive('ward-recomendations.index') }} ">
+    <a href="{{route('ward-recomendations.index')}}" aria-expanded="false"
+        class="nav-link">
+        <span class="text-success"><i class="bi bi-file-earmark-arrow-down pr-2"></i></span>सिफारिस
+    </a>
+</div>
+<div class="sidebar-menu ">
+    <a href="#" aria-expanded="false"
+        class="nav-link">
+        <span class="text-success"><i class="bi bi-cash-coin pr-2"></i></span>राजेश्व
+    </a>
+</div>
+<div class="sidebar-menu ">
+    <a href="#" aria-expanded="false"
+        class="nav-link">
+        <span class="text-success"><i class="bi bi-calendar4-event pr-2 "></i></span>योजना तथा कार्यक्रम
+    </a>
+</div>
+<div class="sidebar-menu ">
+    <a href="#" aria-expanded="false"
+        class="nav-link">
+        <span class="text-success"><i class="bi bi-file-earmark-text pr-2"></i></span>पंजिकरण
+    </a>
+</div>
+@endhasanyrole
+
 {{-- <a class="nav-link" href="{{ route('dashboard') }}">
 <span class="text-warning"><i class="fa fa-cube"></i></span>ड्यासबोर्ड
 </a> --}}

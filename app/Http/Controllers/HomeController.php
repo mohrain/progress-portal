@@ -33,13 +33,25 @@ class HomeController extends Controller
 
         $billTypes = BillType::get();
         $committeeCount = Committee::count();
-        $employeeCount = Employee::count();
+        // $employeeCount = Employee::count();
         $memberCount = Member::currentElection()->count();
+
 
         $totalUsersCount = User::count();
         $totalBooksCount = ProvincialAssemblyLibrary::count();
 
-      
+
+        $eq = Employee::query();
+
+
+        if (Auth::user()->hasRole('ward-secretary')) {
+            $eq->whereHas('wardEmployee', function ($query) {
+                $query->where('ward_id', Auth::user()->employee->secretaryWard->id);
+            });
+        }
+
+        $employeeCount = $eq->count();
+
 
 
         return view('home', [

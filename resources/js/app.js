@@ -37,6 +37,7 @@ Vue.component(
     require("./video/VideoGallery.vue").default
 );
 Vue.component("news-list", require("./components/NewsList.vue").default);
+Vue.component("rec-chart", require("./charts/RecomendationChart.vue").default);
 
 Vue.use(VueRouter);
 Vue.use(VueSweetalert2);

@@ -5,8 +5,8 @@
 <div class="px-4 ">
     <div class="py-1">
         <div class="committee-wizard-menu">
-            <a href="{{ route('ward.edit', $ward) }}"
-                class="{{ Route::getCurrentRoute()->getName() == 'ward.edit' ? 'active' : '' }}">
+            <a href="{{ route('ward.show', $ward) }}"
+                class="{{ Route::getCurrentRoute()->getName() == 'ward.show' ? 'active' : '' }}">
                 <div class="work-description"><i class="fa fa-info-circle"></i> परिचय</div>
             </a>
             <a href="{{ route('ward.duty', $ward) }}"

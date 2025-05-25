@@ -98,8 +98,6 @@
     
         &.selected {
             background-color: #fff;
-            // border: 2px solid #982121;
-            /* Blue */
             color: #982121;
         }
     
