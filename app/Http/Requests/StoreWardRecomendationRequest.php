@@ -26,6 +26,9 @@ class StoreWardRecomendationRequest extends FormRequest
         return [
             //
 
+            'total_application' => 'nullable|integer|min:0',
+            'total_darta' => 'nullable|integer|min:0',
+            'total_chalani' => 'nullable|integer|min:0',
             'fiscal_year_id' => 'required|exists:fiscal_years,id',
             // 'ward_id' => 'required|exists:wards,id',
             'month' => 'required|integer|min:1|max:12',

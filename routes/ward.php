@@ -6,6 +6,7 @@ use App\Http\Controllers\WardEmployeeController;
 use App\Http\Controllers\WardMediaController;
 use App\Http\Controllers\WardRecomendationController;
 use App\Http\Controllers\WardSecretaryController;
+use App\Http\Controllers\WardTaxController;
 use App\Models\WardRecomendation;
 use App\Ward;
 use Illuminate\Support\Facades\Route;
@@ -60,7 +61,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('wards/{ward}/employees/{wardEmployee}/edit', [WardEmployeeController::class, 'edit'])->name('ward.employees.edit');
     Route::delete('wards/{wardEmployee}/employees/destroy', [WardEmployeeController::class, 'destroy'])->name('ward.employees.destroy');
 
-    Route::resource('ward-recomendations', WardRecomendationController::class);
     Route::get('/ward-recommendations/get', [WardRecomendationController::class, 'getRecommendations'])
         ->name('ward-recommendations.get');
+
+    // Ward Recommendations
+    Route::resource('ward-recomendations', WardRecomendationController::class);
+    Route::resource('ward-taxes', WardTaxController::class);
+    Route::get('get-ward-taxes', [WardTaxController::class, 'getWardTaxes'])->name('ward-taxes.get');
 });

@@ -19,7 +19,7 @@
             ];
         @endphp
   <div class="d-flex justify-content-between align-items-center mb-4">
-      <h4 class="mb-3 fw-bold">सिफारिसको विवरण</h4>
+      <h4 class="mb-3 fw-bold sub-heading-arrow">सिफारिसको विवरण</h4>
     <a href="{{ route('ward-recomendations.create') }}" class="btn btn-primary mb-3">विवरण थप्नुहोस्</a>
   </div>
 
@@ -47,22 +47,90 @@
             <button type="submit" class="btn btn-success">Filter</button>
         </div>
     </form>
+{{-- Cards Section --}}
+{{-- Cards Section --}}
+<div class="row text-white mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="bg-success p-3 rounded shadow-sm d-flex align-items-center ">
+            <i class="fas fa-file-alt fa-2x me-3"></i>
+            <div class="pl-3">
+                <div class="fs-4 fw-bold">{{ number_format($totals['total_application']) }}</div>
+                <div class="" > आवेदन</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="bg-info p-3 rounded shadow-sm d-flex align-items-center ">
+            <i class="fas fa-folder-open fa-2x me-3"></i>
+            <div class="pl-3">
+                <div class="fs-4 fw-bold">{{ number_format($totals['total_darta']) }}</div>
+                <div> दर्ता </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="bg-warning p-3 rounded shadow-sm d-flex align-items-center ">
+            <i class="fas fa-paper-plane fa-2x me-3"></i>
+            <div class="pl-3">
+                <div class="fs-4 fw-bold">{{ number_format($totals['total_chalani']) }}</div>
+                <div> चलानी </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="bg-primary p-3 rounded shadow-sm d-flex align-items-center ">
+            <i class="fas fa-check-circle fa-2x "></i>
+            <div class="pl-3">
+                <div class="fs-4 fw-bold">{{  number_format($totals['total_recomended'])  }}</div>
+                <div class=""> सिफारिस</div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <canvas id="recommendationChart" height="150"></canvas>
+
+    <h5 class="mb-3 fw-bold kalimati-font">सिफारिस चार्ट</h5>
+{{-- Chart Section --}}
+<canvas id="recommendationChart" height="150"></canvas>
+
 </div>
 @endsection
 
+@push('styles')
+<style>
+.sub-heading-arrow {
+    font-size: 1.2rem;
+    color: #982121;
+    /* Lighter grey */
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-left: 20px;
+    position: relative;
+}
+
+.sub-heading-arrow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    border-left: 15px solid #982121;
+    /* Arrow shaft */
+    border-top: 10px solid transparent;
+    /* Arrow head */
+    border-bottom: 10px solid transparent;
+    /* Arrow head */
+}
+</style>
+@endpush
 @push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 <script>
     const chartData = @json($chartData);
-
     const labels = chartData.map(item => item.type);
-
-    const applicationData = chartData.map(item => item.total_application);
     const recommendedData = chartData.map(item => item.total_recomended);
-    const dartaData = chartData.map(item => item.total_darta);
-    const chalaniData = chartData.map(item => item.total_chalani);
 
     const ctx = document.getElementById('recommendationChart').getContext('2d');
     new Chart(ctx, {
@@ -71,33 +139,16 @@
             labels: labels,
             datasets: [
                 {
-                    label: 'आवेदन',
-                    data: applicationData,
-                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
-                },
-                {
-                    label: ' सिफारिस',
+                    label: 'सिफारिस',
                     data: recommendedData,
-                    backgroundColor: 'rgba(255, 206, 86, 0.7)',
-                },
-                {
-                    label: 'दर्ता',
-                    data: dartaData,
-                    backgroundColor: 'rgba(75, 192, 192, 0.7)',
-                },
-                {
-                    label: 'चलानी',
-                    data: chalaniData,
-                    backgroundColor: 'rgba(153, 102, 255, 0.7)',
+                    backgroundColor: 'rgba(0, 84, 166, 1)',
                 }
             ]
         },
         options: {
             responsive: true,
             plugins: {
-                legend: {
-                    position: 'bottom'
-                }
+                legend: { position: 'bottom' }
             },
             scales: {
                 y: {
@@ -111,3 +162,5 @@
     });
 </script>
 @endpush
+
+

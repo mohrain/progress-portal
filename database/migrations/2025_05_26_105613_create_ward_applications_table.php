@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ward_recomendations', function (Blueprint $table) {
+        Schema::create('ward_applications', function (Blueprint $table) {
             $table->id();
             $table->foreignId('fiscal_year_id')
                 ->constrained('fiscal_years')
@@ -21,11 +21,10 @@ return new class extends Migration
             $table->foreignId('ward_id')
                 ->constrained('wards')
                 ->onDelete('cascade');
-            $table->foreignId('recomendation_type_id')
-                ->constrained('recomendation_types')
-                ->onDelete('cascade');
             $table->integer('month')->default(0);
-            $table->integer('total_recomended')->default(0);
+            $table->integer('total_application')->default(0);
+            $table->integer('total_darta')->default(0);
+            $table->integer('total_chalani')->default(0);
             $table->text('remarks')->nullable();
             $table->foreignId('created_by')
                 ->nullable() // make nullable
@@ -52,6 +51,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ward_recomendations');
+        Schema::dropIfExists('ward_applications');
     }
 };

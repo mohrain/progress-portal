@@ -7,6 +7,7 @@ use App\Models\WardRecomendation;
 use App\Http\Requests\StoreWardRecomendationRequest;
 use App\Http\Requests\UpdateWardRecomendationRequest;
 use App\Models\RecomendationType;
+use App\Models\WardApplication;
 use App\Ward;
 use Illuminate\Http\Request;
 
@@ -22,39 +23,50 @@ class WardRecomendationController extends Controller
     public function index(Request $request)
     {
         $fiscalYears = FiscalYear::all();
-
         $recommendationTypes = RecomendationType::all();
 
         $fy = $request->fiscal_year_id ?? running_fiscal_year()->id;
+        $month = $request->month;
 
-        // Chart Data: For each recommendation type, sum the values
-        $fy = $request->fiscal_year_id ?? running_fiscal_year()->id;
+        // Grouped Ward Recommendations
+        $wardRecs = \App\Models\WardRecomendation::query()
+            ->where('fiscal_year_id', $fy)
+            ->when($month, fn($q) => $q->where('month', $month))
+            ->get()
+            ->groupBy('recomendation_type_id');
 
-        // Chart Data: For each recommendation type, sum the values
-        $chartData = $recommendationTypes->map(function ($type) use ($fy, $request) {
-            $query = \App\Models\WardRecomendation::where('recomendation_type_id', $type->id)
-                ->when($fy, function ($q) use ($fy) {
-                    $q->where('fiscal_year_id', $fy);
-                })
-                ->when($request->month, function ($q) use ($request) {
-                    $q->where('month', $request->month);
-                });
-
+        // Global totals from applications
+        $wardApps = \App\Models\WardApplication::query()
+            ->where('fiscal_year_id', $fy)
+            ->when($month, fn($q) => $q->where('month', $month))
+            ->get();
+        // Chart data: only recommendation totals by type
+        $chartData = $recommendationTypes->map(function ($type) use ($wardRecs) {
+            $recGroup = $wardRecs->get($type->id, collect());
             return [
-                'type' => $type->name,
-                'total_application' => $query->sum('total_application'),
-                'total_recomended' => $query->sum('total_recomended'),
-                'total_darta' => $query->sum('total_darta'),
-                'total_chalani' => $query->sum('total_chalani'),
+                'type'             => $type->name,
+                'total_recomended' => $recGroup->sum('total_recomended'),
             ];
         });
+        $totalRecommended = $chartData->sum('total_recomended');
+
+        $totals = [
+            'total_application' => $wardApps->sum('total_application'),
+            'total_darta'       => $wardApps->sum('total_darta'),
+            'total_chalani'     => $wardApps->sum('total_chalani'),
+            'total_recomended'  => $totalRecommended,
+        ];
+
+
 
         return view('ward.recomendation.rec-index', compact(
             'fiscalYears',
             'recommendationTypes',
-            'chartData'
+            'chartData',
+            'totals'
         ));
     }
+
 
 
     /**
@@ -78,33 +90,50 @@ class WardRecomendationController extends Controller
      */
     public function store(StoreWardRecomendationRequest $request)
     {
-        //
+        $wardId = user_ward()->id;
+        $fiscalYearId = $request->fiscal_year_id;
+        $month = $request->month;
+        $userId = auth()->id();
 
 
+        // Store or update main ward application summary
+        WardApplication::updateOrCreate(
+            [
+                'fiscal_year_id' => $fiscalYearId,
+                'ward_id' => $wardId,
+                'month' => $month,
+            ],
+            [
+                'total_application' => $request->input('total_application', 0),
+                'total_darta'       => $request->input('total_darta', 0),
+                'total_chalani'     => $request->input('total_chalani', 0),
+                'remarks'           => $request->remarks,
+                'updated_by'        => $userId,
+                'created_by'        => $userId,
+            ]
+        );
+
+        // Store or update each recommendation record
         foreach ($request->recommendations as $typeId => $data) {
-            // Use updateOrCreate instead of new WardRecomendation()
             WardRecomendation::updateOrCreate(
                 [
-                    'fiscal_year_id' => $request->fiscal_year_id,
-                    'ward_id' => user_ward()->id,
-                    'month' => $request->month,
-                    'recomendation_type_id' => $data['recomendation_type_id'],
+                    'fiscal_year_id'         => $fiscalYearId,
+                    'ward_id'                => $wardId,
+                    'month'                  => $month,
+                    'recomendation_type_id'  => $data['recomendation_type_id'],
                 ],
                 [
-                    'total_application' => $data['total_application'] ?? 0,
-                    'total_recomended' => $data['total_recomended'] ?? 0,
-                    'total_darta' => $data['total_darta'] ?? 0,
-                    'total_chalani' => $data['total_chalani'] ?? 0,
-                    'remarks' => $data['remarks'] ?? null,
-                    'updated_by' => auth()->id(),
-                    'created_by' => auth()->id(),
+                    'total_recomended'       => $data['total_recomended'] ?? 0,
+                    'remarks'                => $data['remarks'] ?? null,
+                    'updated_by'             => $userId,
+                    'created_by'             => $userId,
                 ]
             );
         }
 
-
         return redirect()->back()->with('success', 'सिफारिस सुरक्षित भयो');
     }
+
 
     /**
      * Display the specified resource.
@@ -160,13 +189,24 @@ class WardRecomendationController extends Controller
 
         $fiscalYearId = $request->fiscal_year_id;
         $month = $request->month;
+        $wardId = user_ward()->id;
+
+        // Fetch ward application summary
+        $application = WardApplication::where('fiscal_year_id', $fiscalYearId)
+            ->where('month', $month)
+            ->where('ward_id', $wardId)
+            ->first();
 
         // Fetch all recommendations for that fiscal year and month
         $recommendations = WardRecomendation::where('fiscal_year_id', $fiscalYearId)
             ->where('month', $month)
+            ->where('ward_id', $wardId)
             ->get()
-            ->keyBy('recomendation_type_id'); // key by recommendation type id for easy lookup
+            ->keyBy('recomendation_type_id');
 
-        return response()->json($recommendations);
+        return response()->json([
+            'application' => $application,
+            'recommendations' => $recommendations,
+        ]);
     }
 }

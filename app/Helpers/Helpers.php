@@ -86,9 +86,17 @@ if (!function_exists('user_ward')) {
 if (!function_exists('current_month')) {
     function current_month()
     {
-        $month = ad_to_bs(now()->format('Y-m-d'));
-        $month = Carbon::parse($month);
-        return $month->format('m');
+        $bsDate = ad_to_bs(now()->format('Y-m-d'));
+        $month = Carbon::parse($bsDate)->format('m'); // returns string like '05'
+        $month = (int) $month; // convert to integer
+
+        if ($month < 4) {
+            $month = $month + 9; // Adjust for fiscal year starting in mid-April
+        } else {
+            $month = $month - 3; // Adjust for fiscal year starting in mid-April
+        }
+
+        return $month;
     }
 }
 

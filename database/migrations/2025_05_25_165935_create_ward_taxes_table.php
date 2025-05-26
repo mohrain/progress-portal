@@ -13,20 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ward_recomendations', function (Blueprint $table) {
+        Schema::create('ward_taxes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('fiscal_year_id')
                 ->constrained('fiscal_years')
                 ->onDelete('cascade');
-            $table->foreignId('ward_id')
-                ->constrained('wards')
-                ->onDelete('cascade');
-            $table->foreignId('recomendation_type_id')
-                ->constrained('recomendation_types')
-                ->onDelete('cascade');
-            $table->integer('month')->default(0);
-            $table->integer('total_recomended')->default(0);
-            $table->text('remarks')->nullable();
+            $table->foreignId('ward_id')->constrained()->onDelete('cascade');
+            $table->foreignId('tax_title_id')->constrained('tax_titles')->onDelete('cascade');
+            $table->decimal('amount', 10, 2)->default(0.00);
+            $table->integer('month')->default(1);
             $table->foreignId('created_by')
                 ->nullable() // make nullable
                 ->constrained('users')
@@ -41,6 +36,7 @@ return new class extends Migration
                 ->nullable() // make nullable
                 ->constrained('users')
                 ->onDelete('set null');
+
             $table->timestamps();
         });
     }
@@ -52,6 +48,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ward_recomendations');
+        Schema::dropIfExists('ward_taxes');
     }
 };

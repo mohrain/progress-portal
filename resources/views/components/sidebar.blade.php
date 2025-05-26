@@ -435,7 +435,7 @@ $department = Auth::user()->employee->department; // Fallback again
     </a>
 </div>
 <div class="sidebar-menu ">
-    <a href="#" aria-expanded="false"
+    <a href="{{route('ward-taxes.index')}}" aria-expanded="false"
         class="nav-link">
         <span class="text-success"><i class="bi bi-cash-coin pr-2"></i></span>राजेश्व
     </a>
