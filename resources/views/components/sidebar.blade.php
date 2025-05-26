@@ -136,7 +136,7 @@
 </div>
 <div class="sidebar-menu {{ setActive('ward.index') }}">
     <a href="{{ route('ward.index') }}" aria-expanded="false" class="nav-link">
-        <span class="text-success"><i class="fas fa-cog pr-2"></i></span>वडा
+        <span class="text-success"><i class="fas fa-boxes pr-2"></i></span>वडा
     </a>
 </div>
 

@@ -54,6 +54,9 @@ class HomeController extends Controller
 
 
 
+
+
+
         return view('home', [
             'title' => $title,
             'billTypes' => $billTypes,

@@ -71,6 +71,10 @@
             @endrole
 
         </div>
+
+        <div>
+        <x-charts.ward-tax-chart />
+        </div>
     </div>
 @endsection
 

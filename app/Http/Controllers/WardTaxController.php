@@ -100,4 +100,33 @@ class WardTaxController extends Controller
             })
         ]);
     }
+
+
+    public function wardTaxesByMonth(Request $request)
+    {
+        $request->validate([
+            'fiscal_year_id' => 'required|exists:fiscal_years,id',
+            'month' => 'nullable|integer|min:1|max:12'
+        ]);
+
+        $fiscalYearId = $request->fiscal_year_id;
+        $month = $request->month;
+
+        $wards = Ward::select('id', 'name')->get();
+
+        $wardTaxes = WardTax::selectRaw('ward_id, SUM(amount) as total')
+            ->when($month, fn($q) => $q->where('month', $month))
+            ->where('fiscal_year_id', $fiscalYearId)
+            ->groupBy('ward_id')
+            ->pluck('total', 'ward_id');
+
+        $data = $wards->map(function ($ward) use ($wardTaxes) {
+            return [
+                'ward' => 'वडा नं. ' . ($ward->name ?? $ward->id),
+                'amount' => $wardTaxes[$ward->id] ?? 0
+            ];
+        });
+
+        return response()->json($data);
+    }
 }

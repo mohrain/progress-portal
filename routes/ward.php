@@ -68,4 +68,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('ward-recomendations', WardRecomendationController::class);
     Route::resource('ward-taxes', WardTaxController::class);
     Route::get('get-ward-taxes', [WardTaxController::class, 'getWardTaxes'])->name('ward-taxes.get');
+    Route::get('/api/ward-taxes', [WardTaxController::class, 'wardTaxesByMonth']);
+    Route::get('/api/ward-recomendations', [WardRecomendationController::class, 'getWardRecomendationsByMonth']);
 });

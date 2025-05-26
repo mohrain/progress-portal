@@ -209,4 +209,32 @@ class WardRecomendationController extends Controller
             'recommendations' => $recommendations,
         ]);
     }
+
+
+    public function getWardWiseRecommendationsByMonth(Request $request)
+    {
+        $request->validate([
+            'fiscal_year_id' => 'required|exists:fiscal_years,id',
+            'month' => 'nullable|integer|min:1|max:12',
+        ]);
+
+        $fiscalYearId = $request->fiscal_year_id;
+        $month = $request->month;
+
+        $wardData = WardRecomendation::select('ward_id', 'SUM(total_recomended) as total_recomended_sum')
+            ->where('fiscal_year_id', $fiscalYearId)
+            ->when($month, fn($q) => $q->where('month', $month))
+            ->groupBy('ward_id')
+            ->with('ward')  // eager load ward relation
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'ward_id' => $item->ward_id,
+                    'ward_name' => $item->ward->name ?? 'Unknown',
+                    'total_recomended' => $item->total_recomended_sum,
+                ];
+            });
+
+        return response()->json($wardData);
+    }
 }

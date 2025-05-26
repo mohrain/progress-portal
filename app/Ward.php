@@ -4,8 +4,11 @@ namespace App;
 
 use App\Models\Download;
 use App\Models\Employee;
+use App\Models\WardApplication;
 use App\Models\WardAudio;
 use App\Models\WardEmployee;
+use App\Models\WardRecomendation;
+use App\Models\WardTax;
 use App\Models\WardVideo;
 use Illuminate\Database\Eloquent\Model;
 
@@ -61,5 +64,17 @@ class Ward extends Model
     public function employees()
     {
         return $this->hasManyThrough(Employee::class, WardEmployee::class, 'ward_id', 'id', 'id', 'employee_id');
+    }
+    public function wardApplications()
+    {
+        return $this->hasMany(WardApplication::class);
+    }
+    public function wardTaxes()
+    {
+        return $this->hasMany(WardTax::class);
+    }
+    public function wardRecomendations()
+    {
+        return $this->hasMany(WardRecomendation::class);
     }
 }
